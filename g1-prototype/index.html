@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sycamore — G1 Prototype (sample data)</title>
+<link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#0A0C10; --surface-1:rgba(18,21,27,.86); --surface-2:rgba(23,27,35,.9);
+    --border:#1F242E; --text-primary:#E6E9EF; --text-muted:#8A93A6;
+    --cyan:#22D3EE; --amber:#F5B841; --red:#FF4D4D;
+    --font-display:'Archivo Narrow','Oswald',system-ui,sans-serif;
+    --font-body:Inter,system-ui,-apple-system,'Segoe UI',sans-serif;
+    --font-mono:'JetBrains Mono','IBM Plex Mono',ui-monospace,Menlo,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text-primary);font-family:var(--font-body)}
+  #map{position:absolute;inset:64px 0 32px 0}
+
+  /* ---------- top bar ---------- */
+  header{position:fixed;top:0;left:0;right:0;height:64px;z-index:20;display:flex;align-items:center;gap:18px;padding:0 18px;background:rgba(10,12,16,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+  .brand{font-family:var(--font-display);letter-spacing:.35em;font-size:17px;color:var(--text-primary);white-space:nowrap}
+  .brand span{color:var(--cyan)}
+  .counters{display:flex;gap:8px;margin-left:6px}
+  .counter{font-family:var(--font-mono);font-size:10.5px;color:var(--text-muted);border:1px solid var(--border);padding:4px 9px;border-radius:3px;background:rgba(23,27,35,.6)}
+  .counter b{color:var(--cyan);font-weight:600}
+  nav{display:flex;gap:2px;margin-left:auto}
+  nav a{font-family:var(--font-display);letter-spacing:.18em;font-size:12px;color:var(--text-muted);padding:7px 13px;border-radius:4px;text-decoration:none;cursor:pointer;white-space:nowrap}
+  nav a.active{color:var(--cyan);background:rgba(34,211,238,.08)}
+  nav a.disabled{opacity:.35;cursor:not-allowed}
+  .livechip{display:flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:10.5px;color:var(--text-muted);border:1px solid var(--border);padding:6px 10px;border-radius:3px;background:rgba(23,27,35,.6)}
+  .livechip i{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 8px var(--cyan);animation:breathe 2.4s ease-in-out infinite}
+  @keyframes breathe{0%,100%{opacity:.35}50%{opacity:1}}
+
+  /* ---------- floating panels ---------- */
+  .panel{position:absolute;top:76px;bottom:44px;width:min(384px,calc(100vw - 24px));z-index:10;display:flex;flex-direction:column;background:var(--surface-1);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:6px}
+  .panel.left{left:12px}.panel.right{right:12px;width:min(340px,calc(100vw - 24px))}
+  .p-head{display:flex;align-items:center;gap:8px;padding:11px 14px;border-bottom:1px solid var(--border)}
+  .p-title{font-family:var(--font-display);letter-spacing:.3em;font-size:13px;color:var(--text-primary)}
+  .p-sub{margin-left:auto;font-family:var(--font-mono);font-size:10.5px;color:var(--cyan)}
+
+  /* chips */
+  .chips{display:flex;flex-wrap:wrap;gap:6px;padding:10px 14px;border-bottom:1px solid var(--border)}
+  .chip{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.08em;color:var(--text-muted);background:none;border:1px solid var(--border);padding:4px 9px;border-radius:3px;cursor:pointer}
+  .chip:hover{color:var(--text-primary)}
+  .chip.on{color:#062A30;background:var(--cyan);border-color:var(--cyan);font-weight:700}
+
+  /* feed */
+  .feed{flex:1;overflow-y:auto;padding:10px;display:flex;flex-direction:column;gap:8px;scrollbar-width:thin;scrollbar-color:#2a3140 transparent}
+  .card{border:1px solid var(--border);background:var(--surface-2);border-radius:5px;padding:10px 12px;cursor:pointer;transition:border-color .2s,transform .2s}
+  .card:hover,.card.sel{border-color:rgba(34,211,238,.6)}
+  .card.sel{box-shadow:0 0 0 1px rgba(34,211,238,.35) inset}
+  .c-top{display:flex;align-items:center;gap:7px;margin-bottom:6px}
+  .sev{font-family:var(--font-mono);font-size:9.5px;font-weight:700;letter-spacing:.14em;padding:2.5px 7px;border-radius:3px;text-transform:uppercase}
+  .sev-info{color:#8A93A6;background:rgba(138,147,166,.12)}
+  .sev-watch{color:var(--amber);background:rgba(245,184,65,.12)}
+  .sev-elevated{color:#FFB02E;background:rgba(255,176,46,.14)}
+  .sev-critical{color:var(--red);background:rgba(255,77,77,.14)}
+  .dir{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.08em}
+  .dir.up{color:#FFB02E}.dir.down{color:var(--cyan)}.dir.flat{color:var(--text-muted)}
+  .c-loc{margin-left:auto;font-family:var(--font-mono);font-size:10px;color:var(--text-muted)}
+  .card h3{font-size:14.5px;line-height:1.32;font-weight:600;margin-bottom:5px}
+  .c-meta{display:flex;gap:8px;font-family:var(--font-mono);font-size:9.5px;color:var(--text-muted)}
+  .tag{border:1px solid var(--border);padding:1.5px 6px;border-radius:3px}
+
+  /* right panel blocks */
+  .r-block{border-bottom:1px solid var(--border)}
+  .r-title{font-family:var(--font-display);letter-spacing:.28em;font-size:11.5px;color:var(--text-muted);padding:10px 14px}
+  .outlook{margin:6px 12px;border:1px solid var(--border);background:var(--surface-2);border-radius:5px;padding:9px 11px}
+  .o-top{display:flex;align-items:center;font-size:13px;font-weight:600;margin-bottom:7px}
+  .bar{height:4px;background:#1F242E;border-radius:2px;overflow:hidden;margin:5px 0 3px}
+  .bar i{display:block;height:100%;background:var(--cyan)}
+  .o-row{display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:9.5px;color:var(--text-muted)}
+
+  /* market strip */
+  .mkt{padding:8px 12px;display:flex;flex-direction:column;gap:7px}
+  .mrow{display:flex;align-items:center;font-family:var(--font-mono);font-size:10.5px;color:var(--text-muted)}
+  .mtk{width:46px;color:var(--text-primary);font-weight:700}
+  .mpx{margin-left:auto;margin-right:8px}
+  .mchg.up{color:#3DDC97}.mchg.dn{color:var(--red)}
+
+  /* ticker */
+  #ticker{position:absolute;left:0;right:0;bottom:0;height:32px;z-index:15;display:flex;align-items:center;background:rgba(10,12,16,.94);border-top:1px solid var(--border);overflow:hidden}
+  .tk-label{font-family:var(--font-mono);font-size:9.5px;color:#062A30;background:var(--cyan);padding:0 10px;height:100%;display:flex;align-items:center;font-weight:700;letter-spacing:.2em}
+  .tk-track{white-space:nowrap;font-family:var(--font-mono);font-size:10.5px;color:var(--text-muted);animation:tick 60s linear infinite;padding-left:8px}
+  @keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* markers */
+  .mk{width:12px;height:12px;border-radius:50%;border:1.5px solid #0A0C10;cursor:pointer}
+  .mk::after{content:'';position:absolute;inset:-6px;border-radius:50%;border:1px solid currentColor;opacity:.5;animation:pulse 3s ease-out infinite}
+  @keyframes pulse{0%{transform:scale(.4);opacity:.7}80%,100%{transform:scale(1.25);opacity:0}}
+  .mk-info{background:#6B7689;color:#6B7689}.mk-watch{background:var(--amber);color:var(--amber)}
+  .mk-elevated{background:#FFB02E;color:#FFB02E}.mk-critical{background:var(--red);color:var(--red)}
+
+  /* mobile tabs */
+  #tabs{display:none;position:absolute;left:12px;right:12px;top:76px;z-index:30}
+  @media (max-width:980px){
+    body[data-tab="map"] .panel.left,body[data-tab="map"] .panel.right,
+    body[data-tab="feed"] .panel.right{display:none}
+    nav a:not(.active),.counters,.livechip span.txt{display:none}
+    #tabs{display:flex;gap:6px}
+    #tabs button{flex:1;font-family:var(--font-display);letter-spacing:.25em;font-size:12px;padding:9px;background:rgba(18,21,27,.9);color:var(--text-muted);border:1px solid var(--border);border-radius:4px;cursor:pointer}
+    #tabs button.on{color:#062A30;background:var(--cyan);border-color:var(--cyan)}
+    .panel.left,body[data-tab="feed"] .panel.right,.panel.right{top:128px;width:auto;left:12px;right:12px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *,*::after,*::before{animation:none!important;transition:none!important}
+    .tk-track{transform:none}
+  }
+</style>
+</head>
+<body data-tab="map">
+
+<header>
+  <div class="brand">SYCAMORE<span>//G1</span></div>
+  <div class="counters" id="counters"></div>
+  <nav>
+    <a class="active">LIVE VIEW</a><a>BOARDS</a><a>BRIEFING</a><a class="disabled">OUTLOOKS+</a>
+  </nav>
+  <div class="livechip"><i></i><span id="lastup" class="txt"></span></div>
+</header>
+
+<div id="map"></div>
+
+<div id="tabs">
+  <button data-t="map" class="on">MAP</button>
+  <button data-t="feed">FEED</button>
+</div>
+
+<aside class="panel left">
+  <div class="p-head"><span class="p-title">INTEL FEED</span><span class="p-sub" id="feedcount"></span></div>
+  <div class="chips" id="topicChips"></div>
+  <div class="feed" id="feed"></div>
+</aside>
+
+<aside class="panel right">
+  <div class="r-block"><div class="r-title">SCENARIO OUTLOOKS · READ-ONLY (G4)</div><div id="outlooks"></div></div>
+  <div class="r-block" style="border-bottom:none;flex:1;display:flex;flex-direction:column">
+    <div class="r-title">MARKET SIGNAL · DEFENSE / ENERGY</div>
+    <div class="mkt" id="markets" style="overflow-y:auto"></div>
+  </div>
+</aside>
+
+<div id="ticker"><span class="tk-label">NOW</span><div class="tk-track" id="tktrack"></div></div>
+
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script>
+// ============ SAMPLE DATA (prototype only — not live news) ============
+var EVENTS=[
+ {id:1, lat:50.45, lon:30.52, sev:'critical', dir:'up',   topic:'military',  loc:'KIEV OBLAST, UA', src:'Sample Wire A', t:'18:12 ET', h:'Large-scale missile and drone barrage reported on Kyiv logistics corridor'},
+ {id:2, lat:47.95, lon:36.03, sev:'elevated', dir:'up',   topic:'military',  loc:'DONBAS LINE, UA/RU', src:'Sample Wire B', t:'17:48 ET', h:'Front-line strikes continue along eastern salient; both sides claim territorial gains'},
+ {id:3, lat:29.05, lon:34.68, sev:'elevated', dir:'flat', topic:'geopolitical', loc:'CENTRAL GAZA STRIP', src:'Sample Wire A', t:'17:30 ET', h:'Ceasefire monitoring talks resume; humanitarian corridor status disputed'},
+ {id:4, lat:26.59, lon:50.23, sev:'elevated', dir:'up',   topic:'maritime',  loc:'STRAIT OF HORMUZ', src:'Sample Wire C', t:'17:05 ET', h:'Two tankers report close-quarters interdiction drills; insurers raise war-risk premiums'},
+ {id:5, lat:36.82, lon:-4.93, sev:'watch', dir:'flat', topic:'geopolitical', loc:'CEUTA / STRAIT OF GIBRALTAR', src:'Sample Wire B', t:'16:40 ET', h:'Naval posturing continues around disputed border incident; diplomatic channel active'},
+ {id:6, lat:59.43, lon:24.75, sev:'watch', dir:'up', topic:'cyber', loc:'NORTHERN EUROPE GRID', src:'Sample Wire A', t:'16:20 ET', h:'Grid operator reports anomalous control-system traffic; service impact contained'},
+ {id:7, lat:39.48, lon:-75.17, sev:'watch', dir:'flat', topic:'cyber', loc:'US EAST COAST SECTOR', src:'Sample Wire C', t:'16:02 ET', h:'Coordinated phishing campaign targeting utility vendors attributed to state-adjacent cluster'},
+ {id:8, lat:9.75, lon:38.53, sev:'elevated', dir:'up', topic:'military', loc:'TIGRAY / AMHARA, ET', src:'Sample Wire B', t:'15:40 ET', h:'Inter-ethnic clashes resume after failed mediation round; displacement rising'},
+ {id:9, lat:23.87, lon:-6.62, sev:'critical', dir:'flat', topic:'geopolitical', loc:'PORT-AU-PRINCE, HT', src:'Sample Wire A', t:'15:10 ET', h:'Armed groups consolidate control of capital districts; relief access constrained'},
+ {id:10,lat:23.89, lon:47.69, sev:'watch', dir:'down', topic:'maritime', loc:'BAB EL-MANDEB / RED SEA', src:'Sample Wire C', t:'14:55 ET', h:'Convoy escort operations steady; two-week transit pause extended by carriers'},
+ {id:11,lat:20.73, lon:-96.87, sev:'elevated', dir:'up', topic:'military', loc:'MEXICAN GULF COASTLINE', src:'Sample Wire B', t:'14:30 ET', h:'Cross-border interdiction operation expands; cartel response violence reported inland'},
+ {id:12,lat:57.69, lon:-4.08, sev:'watch', dir:'flat', topic:'geopolitical', loc:'NORTH SEA / SCOTLAND', src:'Sample Wire A', t:'13:58 ET', h:'Submarine cable inspection crew dispatched after third fiber cut this quarter'},
+ {id:13,lat:-6.24, lon:109.62, sev:'watch', dir:'flat', topic:'maritime', loc:'JAVA SEA / MALACCA APPROACH', src:'Sample Wire C', t:'13:25 ET', h:'Piracy advisory raised for container traffic; two vessels report boardings'},
+ {id:14,lat:46.95, lon:7.44, sev:'info', dir:'down', topic:'geopolitical', loc:'ALPS CORRIDOR, CH/IT', src:'Sample Wire B', t:'12:40 ET', h:'Cross-border rail disruption eases after sabotage probe; service partially restored'},
+ {id:15,lat:-3.07, lon:36.98, sev:'elevated', dir:'up', topic:'military', loc:'KIVU REGION, CD', src:'Sample Wire A', t:'12:15 ET', h:'Cross-border incursion reported near eastern border; regional force deploys monitors'},
+ {id:16,lat:34.05, lon:-7.98, sev:'watch', dir:'flat', topic:'cyber', loc:'MOROCCO / WESTERN SAHARA SECTOR', src:'Sample Wire C', t:'11:50 ET', h:'Telecom outage in border region under investigation; operator cites infrastructure fault'},
+ {id:17,lat:80.6, lon:-43.2, sev:'info', dir:'flat', topic:'geopolitical', loc:'NORDIC ARCTIC CORRIDOR', src:'Sample Wire B', t:'11:05 ET', h:'Exercise window closes; icebreaker transits logged by both navies'}
+];
+
+var TOPICS=[{k:'all',l:'ALL'},{k:'cyber',l:'CYBER'},{k:'military',l:'MILITARY'},{k:'geopolitical',l:'GEOPOLITICAL'},{k:'maritime',l:'MARITIME'}];
+var OUTLOOKS=[
+ {t:'Hormuz transit risk over 30 days', c:68, d:'ESCALATING'},
+ {t:'Eastern-flank cyber posture (N. Europe)', c:54, d:'WATCHING'},
+ {t:'Red Sea convoy pause extension beyond Q1', c:72, d:'DE-ESCALATING'}
+];
+var MKTS=[['LMT','US DEFENSE','683.95','-0.8%'],['RHM.DE','EU DEFENSE','412.40','+1.2%'],['RTX','US AEROSPACE','178.30','-0.3%'],['OXY','ENERGY MAJOR','54.62','+0.9%'],['GLD','SAFE HAVEN','2,641.10','+0.4%']];
+
+// ============ map (Esri World Dark Gray raster — no token required) ============
+var map=new maplibregl.Map({
+ container:'map', style:{version:8,sources:{esri_dark:{type:'raster',tiles:['https://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}'],tileSize:256,attribution:'Tiles © Esri — Sources: Esri, HERE, Garmin'}},layers:[{id:'dark',type:'raster',source:'esri_dark'}]},
+ center:[18,30], zoom:1.7, minZoom:1.4, maxZoom:9, attributionControl:false
+});
+map.addControl(new maplibregl.AttributionControl({compact:true}),'bottom-right');
+
+var markers={};
+EVENTS.forEach(function(e){
+  var el=document.createElement('div');
+  el.className='mk mk-'+e.sev; el.dataset.id=e.id;
+  el.addEventListener('click',function(ev){ev.stopPropagation();selectEvent(e.id,true)});
+  e._el=el; markers[e.id]=new maplibregl.Marker({element:el,anchor:'center'}).setLngLat([e.lon,e.lat]).addTo(map);
+});
+
+// ============ state + rendering ============
+var state={topic:'all',dir:null,saved:true};
+function renderChips(){
+  var c=document.getElementById('topicChips');c.innerHTML='';
+  TOPICS.forEach(function(tp){
+    var b=document.createElement('button');b.className='chip'+(state.topic===tp.k?' on':'');b.textContent=tp.l;
+    b.onclick=function(){state.topic=tp.k;render()};c.appendChild(b);
+  });
+}
+function visible(e){return (state.topic==='all'||e.topic===state.topic)}
+function renderFeed(){
+  var f=document.getElementById('feed');f.innerHTML='';var n=0;
+  EVENTS.forEach(function(e){
+    if(!visible(e))return;n++;
+    var d=document.createElement('div');d.className='card'+(state.sel==e.id?' sel':'');d.dataset.id=e.id;
+    var dirTxt={up:'▲ ESCALATING',down:'▼ DE-ESCALATING',flat:'— STEADY'}[e.dir];
+    var dirCls={up:'up',down:'down',flat:'flat'}[e.dir];
+    d.innerHTML='<div class="c-top"><span class="sev sev-'+e.sev+'">'+(e.sev==='elevated'?'ELEVATED':e.sev)+'</span>'+
+      '<span class="dir '+dirCls+'">'+dirTxt+'</span><span class="c-loc">'+e.loc+'</span></div>'+
+      '<h3>'+e.h+'</h3><div class="c-meta"><span class="tag">'+TOPIC_LABEL(e.topic).toUpperCase()+'</span><span>'+e.src.toUpperCase()+'</span><span>'+e.t+' · SAMPLE</span></div>';
+    d.onclick=function(){selectEvent(e.id,true)};f.appendChild(d);
+  });
+  document.getElementById('feedcount').textContent=n+' EVENTS';
+}
+function TOPIC_LABEL(k){for(var i=0;i<TOPICS.length;i++)if(TOPICS[i].k===k)return TOPICS[i].l.toLowerCase();return k}
+function renderMarkers(){EVENTS.forEach(function(e){markers[e.id].getElement().style.display=visible(e)?'block':'none'})}
+function selectEvent(id,fly){
+  state.sel=id;var e=null;for(var i=0;i<EVENTS.length;i++)if(EVENTS[i].id===id)e=EVENTS[i];
+  renderFeed();renderMarkers();
+  var card=document.querySelector('.card[data-id="'+id+'"]');
+  if(card)card.scrollIntoView({behavior:'smooth',block:'nearest'});
+  if(fly&&e){map.flyTo({center:[e.lon,e.lat],zoom:Math.max(map.getZoom(),3.4),speed:.8})}
+}
+function render(){renderChips();renderFeed();renderMarkers()}
+
+// header counters + live chip (sample)
+(function(){
+  var crit=EVENTS.filter(e=>e.sev==='critical').length, esc=EVENTS.filter(e=>e.dir==='up').length;
+  document.getElementById('counters').innerHTML='<span class="counter">ACTIVE <b>'+EVENTS.length+'</b></span><span class="counter">CRITICAL <b style="color:var(--red)">'+crit+'</b></span><span class="counter">ESCALATING <b>'+esc+'</b></span>';
+  document.getElementById('lastup').textContent='SAMPLE DATA · LAST SYNC '+EVENTS[0].t;
+})();
+
+// ticker (duplicated for seamless loop)
+(function(){var items=EVENTS.map(e=>e.loc+' — '+e.h).join('&nbsp;&nbsp;//&nbsp;&nbsp;');document.getElementById('tktrack').innerHTML='<span>'+items+'</span>&nbsp;&nbsp;//&nbsp;&nbsp;<span style="color:var(--text-muted)">PROTOTYPE · SAMPLE DATA ONLY</span><span> </span>'})
+();
+
+// outlooks + markets (static sample)
+(function(){
+  var o=document.getElementById('outlooks');
+  OUTLOOKS.forEach(function(x){o.insertAdjacentHTML('beforeend','<div class="outlook"><div class="o-top">'+x.t+'</div><div class="bar"><i style="width:'+x.c+'%"></i></div><div class="o-row"><span>CONFIDENCE '+x.c+'%</span><span>'+x.d+'</span></div></div>')});
+  var m=document.getElementById('markets');
+  MKTS.forEach(function(r){
+    var cls=r[3].charAt(0)==='+'?'up':'dn';
+    m.insertAdjacentHTML('beforeend','<div class="mrow"><span class="mtk">'+r[0]+'</span><span style="width:120px;overflow:hidden;text-overflow:ellipsis;color:#8A93A6">'+r[1]+'</span><span class="mpx">$'+r[2]+'</span><span class="mchg '+cls+'">'+r[3]+'</span></div>');
+  });
+})();
+
+// mobile tabs
+document.querySelectorAll('#tabs button').forEach(b=>{b.onclick=()=>{document.body.dataset.tab=b.dataset.t;document.querySelector('#tabs .on').classList.remove('on');b.classList.add('on')}});
+
+render();
+</script>
+</body>
+</html>

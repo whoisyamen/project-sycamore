@@ -1,0 +1,41 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import type { DataContext } from '../data/types';
+interface Props {
+  title?: string;
+  activeNav?: string;
+  context: DataContext;
+  dashboard?: boolean;
+}
+const {
+  title = 'Sycamore — Global Intelligence',
+  activeNav = 'live',
+  context,
+  dashboard = false,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Explore sourced cyber, geopolitical, maritime, and military reporting on a global map."
+    />
+    <meta name="robots" content="noindex" />
+    <meta name="theme-color" content="#0c1218" />
+    <title>{title}</title>
+  </head>
+  <body class:list={{ 'dashboard-page': dashboard }} data-context={JSON.stringify(context)}>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <Header activeNav={activeNav} context={context} />
+    <slot />
+    <div class="sr-only" id="announcement" role="status" aria-live="polite"></div>
+    <script>
+      import '../client/site';
+    </script>
+  </body>
+</html>

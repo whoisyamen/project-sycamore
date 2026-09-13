@@ -1,0 +1,37 @@
+{
+  "id": 17,
+  "t": "cyber",
+  "sev": "critical",
+  "title": "Major ransomware hits regional power grid in Frankfurt",
+  "summary": "Regional power grid in Frankfurt disrupted by ransomware.",
+  "src": "GDELT \u2014 Reuters",
+  "loc": "Frankfurt, DE",
+  "lat": 50.11,
+  "lon": 8.68,
+  "ts": 1789034400000,
+  "ingestedAt": 1789034460000,
+  "sources": [
+    "https://alpha.example/story/17"
+  ],
+  "score": {
+    "articles": 1,
+    "tone": -6.0,
+    "quality": 72,
+    "confidence": 85,
+    "corroboration": {
+      "sources": [
+        "https://alpha.example/story/17"
+      ],
+      "outlets": [
+        "alpha.example"
+      ]
+    }
+  },
+  "geo": {
+    "tier": "precise",
+    "source": "source"
+  },
+  "media": {
+    "image": "data/media/1111111111111111.jpg"
+  }
+}

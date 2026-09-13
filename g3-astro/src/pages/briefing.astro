@@ -1,0 +1,18 @@
+---
+import Base from '../layouts/Base.astro';
+import { loadData } from '../data/loader';
+import { briefing } from '../client/render';
+const context = await loadData();
+---
+
+<Base title="Briefing — Sycamore" activeNav="briefing" context={context}>
+  <main id="main" class="content-page" tabindex="-1">
+    <header class="page-heading">
+      <p class="eyebrow">A MOMENT TO CATCH UP</p><h1>
+        The wider picture<span class="accent">.</span>
+      </h1><p>
+        Recent reporting across the topics we follow. Start with the last day, then step back.
+      </p>
+    </header><div data-collection="briefing" set:html={briefing(context.events)} />
+  </main>
+</Base>

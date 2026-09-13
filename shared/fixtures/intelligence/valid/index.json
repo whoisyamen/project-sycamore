@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "releaseUid": "99999999-0000-4000-8000-000000000001",
+  "generatedAt": 1789075438867,
+  "snapshotHash": "2222222222222222222222222222222222222222222222222222222222222222",
+  "entries": [
+    {
+      "eventId": 17,
+      "eventUid": "aaaaaaaa-0000-4000-8000-000000000001",
+      "eventRevisionUid": "aaaaaaaa-0000-4000-8000-000000000002",
+      "projectionHash": "1111111111111111111111111111111111111111111111111111111111111111",
+      "artifactPath": "/data/intelligence/v1/releases/99999999-0000-4000-8000-000000000001/events/aaaaaaaa-0000-4000-8000-000000000001.json"
+    }
+  ]
+}

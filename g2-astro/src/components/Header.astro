@@ -1,0 +1,35 @@
+---
+import { EVENTS, TOPICS } from '../data/events.js';
+const counts = {
+  active: EVENTS.length,
+  critical: EVENTS.filter(e => e.sev === 'critical').length,
+  escalating: EVENTS.filter(e => e.sev === 'escalating').length
+};
+---
+<header class="absolute top-0 left-0 right-0 z-20 flex items-center gap-4 px-5 h-14
+               bg-ink-900/85 backdrop-blur border-b border-ink-600/60 no-select">
+  <div class="font-mono text-sm tracking-[0.25em] text-cyan-alive">SYCAMORE//G2</div>
+  <div class="flex items-center gap-3 font-mono text-[11px] uppercase tracking-wider">
+    <span class="text-muted">ACTIVE <span class="text-slate-100 ml-1">{counts.active}</span></span>
+    <span class="text-muted">CRITICAL <span class="text-risk-red ml-1">{counts.critical}</span></span>
+    <span class="text-muted">ESCALATING <span class="text-risk-amber ml-1">{counts.escalating}</span></span>
+  </div>
+  <nav class="ml-auto flex items-center gap-5 font-mono text-[11px] tracking-[0.18em] text-muted">
+    <a href="#" class="hover:text-cyan-alive transition-colors">LIVE VIEW</a>
+    <a href="#" class="hover:text-cyan-alive transition-colors">BOARDS</a>
+    <a href="#" class="hover:text-cyan-alive transition-colors">BRIEFING</a>
+    <a href="#" class="hover:text-cyan-alive transition-colors">OUTLOOKS+</a>
+  </nav>
+  <div class="hidden sm:flex items-center gap-2 font-mono text-[11px] uppercase tracking-wider
+              text-risk-amber border border-risk-amber/40 bg-risk-amber/5 rounded-full px-3 py-1">
+    <span class="w-1.5 h-1.5 rounded-full bg-risk-amber"></span>
+    SAMPLE DATA — NOT LIVE
+  </div>
+</header>
+
+<!-- mobile tab bar (only visible ≤ 980px, see global.css) -->
+<div id="tabs" class="hidden fixed z-30 gap-1.5 p-1.5 bg-ink-800/90 backdrop-blur border border-ink-600/60 rounded-full">
+  <button data-t="map"  class="on flex-1 px-4 py-1.5 rounded-full font-mono text-[11px] tracking-wider">MAP</button>
+  <button data-t="feed" class="flex-1 px-4 py-1.5 rounded-full font-mono text-[11px] tracking-wider">FEED</button>
+  <button data-t="info" class="flex-1 px-4 py-1.5 rounded-full font-mono text-[11px] tracking-wider">INFO</button>
+</div>

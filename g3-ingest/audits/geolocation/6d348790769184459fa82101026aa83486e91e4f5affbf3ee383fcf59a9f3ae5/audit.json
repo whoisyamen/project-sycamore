@@ -1,0 +1,2585 @@
+{
+  "policy": "explicit-locus-v1",
+  "inputSha256": "6d348790769184459fa82101026aa83486e91e4f5affbf3ee383fcf59a9f3ae5",
+  "archive": "/home/yams/operations/project-sycamore/g3-ingest/audits/geolocation/6d348790769184459fa82101026aa83486e91e4f5affbf3ee383fcf59a9f3ae5",
+  "counts": {
+    "audited": 57,
+    "preservedSource": 0,
+    "updated": 11,
+    "unchanged": 0,
+    "quarantined": 46,
+    "published": 11
+  },
+  "records": [
+    {
+      "id": 57,
+      "action": "quarantined",
+      "reason": "No unique explicit headline locus under current policy; old coordinates are untrusted",
+      "before": {
+        "id": 57,
+        "t": "maritime",
+        "sev": "watching",
+        "title": "Ecuador Says US Sinkings Of Vessels Were Part Of Joint Anti-Drug Probe",
+        "summary": "By Alexandra Valencia and Yury Garcia QUITO, Sept 4 (Reuters) – Ecuador defended on Friday U.S. operations that intercepted and sank three Ecuadorean vessels this week, while relatives of some crew members...",
+        "src": "gCaptain",
+        "loc": "US",
+        "lat": 39.8283,
+        "lon": -98.5795,
+        "ts": 1788623176000,
+        "ingestedAt": 1788646823742,
+        "sources": [
+          "https://gcaptain.com/ecuador-says-us-sinkings-of-vessels-were-part-of-joint-anti-drug-probe/"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://gcaptain.com/ecuador-says-us-sinkings-of-vessels-were-part-of-joint-anti-drug-probe/"
+            ],
+            "outlets": [
+              "gcaptain.com"
+            ]
+          },
+          "confidence": 51
+        },
+        "geo": {
+          "tier": "approximate",
+          "source": "title"
+        }
+      },
+      "after": null
+    },
+    {
+      "id": 56,
+      "action": "quarantined",
+      "reason": "No unique explicit headline locus under current policy; old coordinates are untrusted",
+      "before": {
+        "id": 56,
+        "t": "geopolitical",
+        "sev": "watching",
+        "title": "Flock says its cameras make US safer - so why are they being sabotaged?",
+        "summary": "The AI-powered cameras have been vandalised across the US, as citizens object to the growing surveillance network.",
+        "src": "BBC World",
+        "loc": "US",
+        "lat": 39.8283,
+        "lon": -98.5795,
+        "ts": 1788570987000,
+        "ingestedAt": 1788646823414,
+        "sources": [
+          "https://www.bbc.co.uk/news/articles/cew9kz1kxpvo?at_medium=RSS&at_campaign=rss"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://www.bbc.co.uk/news/articles/cew9kz1kxpvo?at_medium=RSS&at_campaign=rss"
+            ],
+            "outlets": [
+              "bbc.co.uk"
+            ]
+          },
+          "confidence": 51
+        },
+        "geo": {
+          "tier": "approximate",
+          "source": "title"
+        }
+      },
+      "after": null
+    },
+    {
+      "id": 55,
+      "action": "updated",
+      "reason": "Offline explicit headline locus; representative point, not incident coordinates",
+      "before": {
+        "id": 55,
+        "t": "geopolitical",
+        "sev": "watching",
+        "title": "TV presenter among 11 sentenced to death in Egypt drugs case",
+        "summary": "Sarah Khalifa is best known for her TV programme Mission Impossible which dealt with crime issues.",
+        "src": "BBC World",
+        "loc": "EG",
+        "lat": 26.8206,
+        "lon": 30.8025,
+        "ts": 1788643778000,
+        "ingestedAt": 1788646823406,
+        "sources": [
+          "https://www.bbc.co.uk/news/articles/c5y7gk9knnlo?at_medium=RSS&at_campaign=rss"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://www.bbc.co.uk/news/articles/c5y7gk9knnlo?at_medium=RSS&at_campaign=rss"
+            ],
+            "outlets": [
+              "bbc.co.uk"
+            ]
+          },
+          "confidence": 51
+        },
+        "geo": {
+          "tier": "approximate",
+          "source": "title"
+        }
+      },
+      "after": {
+        "id": 55,
+        "t": "geopolitical",
+        "sev": "watching",
+        "title": "TV presenter among 11 sentenced to death in Egypt drugs case",
+        "summary": "Sarah Khalifa is best known for her TV programme Mission Impossible which dealt with crime issues.",
+        "src": "BBC World",
+        "loc": "Egypt, EG (approximate)",
+        "lat": 26.8206,
+        "lon": 30.8025,
+        "ts": 1788643778000,
+        "ingestedAt": 1788646823406,
+        "sources": [
+          "https://www.bbc.co.uk/news/articles/c5y7gk9knnlo?at_medium=RSS&at_campaign=rss"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://www.bbc.co.uk/news/articles/c5y7gk9knnlo?at_medium=RSS&at_campaign=rss"
+            ],
+            "outlets": [
+              "bbc.co.uk"
+            ]
+          },
+          "confidence": 51
+        },
+        "geo": {
+          "tier": "approximate",
+          "source": "title",
+          "policy": "explicit-locus-v1",
+          "scope": "country",
+          "evidence": "Egypt"
+        }
+      }
+    },
+    {
+      "id": 54,
+      "action": "updated",
+      "reason": "Offline explicit headline locus; representative point, not incident coordinates",
+      "before": {
+        "id": 54,
+        "t": "geopolitical",
+        "sev": "watching",
+        "title": "Prince William to attend King Harald's funeral in Norway",
+        "summary": "The Prince of Wales will represent the King at the funeral of Harald V in Oslo next week.",
+        "src": "BBC World",
+        "loc": "NO",
+        "lat": 60.472,
+        "lon": 8.4689,
+        "ts": 1788642002000,
+        "ingestedAt": 1788646823406,
+        "sources": [
+          "https://www.bbc.co.uk/news/articles/cp301rw6kvro?at_medium=RSS&at_campaign=rss"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://www.bbc.co.uk/news/articles/cp301rw6kvro?at_medium=RSS&at_campaign=rss"
+            ],
+            "outlets": [
+              "bbc.co.uk"
+            ]
+          },
+          "confidence": 51
+        },
+        "geo": {
+          "tier": "approximate",
+          "source": "title"
+        }
+      },
+      "after": {
+        "id": 54,
+        "t": "geopolitical",
+        "sev": "watching",
+        "title": "Prince William to attend King Harald's funeral in Norway",
+        "summary": "The Prince of Wales will represent the King at the funeral of Harald V in Oslo next week.",
+        "src": "BBC World",
+        "loc": "Norway, NO (approximate)",
+        "lat": 60.472,
+        "lon": 8.4689,
+        "ts": 1788642002000,
+        "ingestedAt": 1788646823406,
+        "sources": [
+          "https://www.bbc.co.uk/news/articles/cp301rw6kvro?at_medium=RSS&at_campaign=rss"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://www.bbc.co.uk/news/articles/cp301rw6kvro?at_medium=RSS&at_campaign=rss"
+            ],
+            "outlets": [
+              "bbc.co.uk"
+            ]
+          },
+          "confidence": 51
+        },
+        "geo": {
+          "tier": "approximate",
+          "source": "title",
+          "policy": "explicit-locus-v1",
+          "scope": "country",
+          "evidence": "Norway"
+        }
+      }
+    },
+    {
+      "id": 53,
+      "action": "quarantined",
+      "reason": "No unique explicit headline locus under current policy; old coordinates are untrusted",
+      "before": {
+        "id": 53,
+        "t": "geopolitical",
+        "sev": "watching",
+        "title": "US hits three Iranian oil tankers after saying its warships were targeted",
+        "summary": "Iran's state media reported that Tehran has launched retaliatory attacks against three US-affiliated vessels; the US is yet to comment.",
+        "src": "BBC World",
+        "loc": "US",
+        "lat": 39.8283,
+        "lon": -98.5795,
+        "ts": 1788640919000,
+        "ingestedAt": 1788646823404,
+        "sources": [
+          "https://www.bbc.co.uk/news/articles/cj64rrne643o?at_medium=RSS&at_campaign=rss"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://www.bbc.co.uk/news/articles/cj64rrne643o?at_medium=RSS&at_campaign=rss"
+            ],
+            "outlets": [
+              "bbc.co.uk"
+            ]
+          },
+          "confidence": 51
+        },
+        "geo": {
+          "tier": "approximate",
+          "source": "title"
+        }
+      },
+      "after": null
+    },
+    {
+      "id": 52,
+      "action": "quarantined",
+      "reason": "No unique explicit headline locus under current policy; old coordinates are untrusted",
+      "before": {
+        "id": 52,
+        "t": "cyber",
+        "sev": "watching",
+        "title": "US Becomes Top Target in RMM Phishing Campaign Spanning 46 Countries",
+        "summary": "An RMM phishing campaign initially associated with Canadian targeting due to its use of Canada Revenue Agency (CRA) tax forms as lures has turned out to be part of a broader campaign spanning 46 countries. Around 45% of observed activity was associated with the United States, making it the campaign's top geographic target. ANY.RUN research connected 601 cases to the wider operation, which uses",
+        "src": "The Hacker News",
+        "loc": "US",
+        "lat": 39.8283,
+        "lon": -98.5795,
+        "ts": 1788436680000,
+        "ingestedAt": 1788646804667,
+        "sources": [
+          "https://thehackernews.com/2026/09/us-becomes-top-target-in-rmm-phishing.html"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://thehackernews.com/2026/09/us-becomes-top-target-in-rmm-phishing.html"
+            ],
+            "outlets": [
+              "thehackernews.com"
+            ]
+          },
+          "confidence": 51
+        },
+        "geo": {
+          "tier": "approximate",
+          "source": "title"
+        }
+      },
+      "after": null
+    },
+    {
+      "id": 51,
+      "action": "quarantined",
+      "reason": "No unique explicit headline locus under current policy; old coordinates are untrusted",
+      "before": {
+        "id": 51,
+        "t": "cyber",
+        "sev": "critical",
+        "title": "Unpatched Magento and Adobe Commerce Zero-Day Exploited to Backdoor Online Stores",
+        "summary": "Attackers are exploiting a new unpatched vulnerability in Magento Open Source and Adobe Commerce that lets them run malicious code on an online store's server without logging in, Dutch e-commerce security company Sansec said in an advisory published on September 5. Sansec, which discovered the flaw and named it StyleSmuggler, said attacks started on September 4. \"Sansec is publishing early",
+        "src": "The Hacker News",
+        "loc": "Brave New - Websites, online stores, applications and web services, 14/8, Berka ",
+        "lat": 50.0544547,
+        "lon": 19.9461756,
+        "ts": 1788639287000,
+        "ingestedAt": 1788643902309,
+        "sources": [
+          "https://thehackernews.com/2026/09/unpatched-magento-and-adobe-commerce.html"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://thehackernews.com/2026/09/unpatched-magento-and-adobe-commerce.html"
+            ],
+            "outlets": [
+              "thehackernews.com"
+            ]
+          },
+          "confidence": 51
+        },
+        "geo": {
+          "tier": "precise",
+          "source": "nominatim"
+        }
+      },
+      "after": null
+    },
+    {
+      "id": 50,
+      "action": "quarantined",
+      "reason": "No unique explicit headline locus under current policy; old coordinates are untrusted",
+      "before": {
+        "id": 50,
+        "t": "maritime",
+        "sev": "watching",
+        "title": "U.S. Destroys Iranian Tanker, Disables Two Others After Missile Attacks on Navy Warships",
+        "summary": "U.S. forces struck three Iranian oil tankers on Saturday after Iran’s Islamic Revolutionary Guard Corps launched ballistic missiles at two U.S. Navy warships, marking another sharp escalation in the maritime...",
+        "src": "gCaptain",
+        "loc": "US",
+        "lat": 39.8283,
+        "lon": -98.5795,
+        "ts": 1788620841000,
+        "ingestedAt": 1788627749698,
+        "sources": [
+          "https://gcaptain.com/u-s-destroys-iranian-tanker-disables-two-others-after-missile-attacks-on-navy-warships/"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://gcaptain.com/u-s-destroys-iranian-tanker-disables-two-others-after-missile-attacks-on-navy-warships/"
+            ],
+            "outlets": [
+              "gcaptain.com"
+            ]
+          },
+          "confidence": 51
+        },
+        "geo": {
+          "tier": "approximate",
+          "source": "title"
+        }
+      },
+      "after": null
+    },
+    {
+      "id": 49,
+      "action": "quarantined",
+      "reason": "No unique explicit headline locus under current policy; old coordinates are untrusted",
+      "before": {
+        "id": 49,
+        "t": "maritime",
+        "sev": "watching",
+        "title": "Norway To Help Russians Stranded In Arctic After ship Seizure",
+        "summary": "OSLO, Sept 4 (Reuters) – Norway will provide necessary assistance to Russians in the Arctic Svalbard islands following the arrest of a ship transporting passengers and supplies to the archipelago, the Nordic...",
+        "src": "gCaptain",
+        "loc": "NO",
+        "lat": 60.472,
+        "lon": 8.4689,
+        "ts": 1788624506000,
+        "ingestedAt": 1788627740611,
+        "sources": [
+          "https://gcaptain.com/norway-to-help-russians-stranded-in-arctic-after-ship-seizure/"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://gcaptain.com/norway-to-help-russians-stranded-in-arctic-after-ship-seizure/"
+            ],
+            "outlets": [
+              "gcaptain.com"
+            ]
+          },
+          "confidence": 51
+        },
+        "geo": {
+          "tier": "approximate",
+          "source": "title"
+        }
+      },
+      "after": null
+    },
+    {
+      "id": 48,
+      "action": "quarantined",
+      "reason": "No unique explicit headline locus under current policy; old coordinates are untrusted",
+      "before": {
+        "id": 48,
+        "t": "cyber",
+        "sev": "watching",
+        "title": "Trezor Says ShipMonk Breach Exposed 67,000 U.S. Customers' Data It Said Was Deleted",
+        "summary": "Hardware wallet manufacturer Trezor on Friday disclosed that another 67,000 customers from the U.S. have been impacted in a breach at its shipping provider ShipMonk. The exposed information includes customer names, email addresses, phone numbers, shipping addresses, and order numbers between November 2019 and August 2021. The breach does not affect the security of the company's hardware wallets",
+        "src": "The Hacker News",
+        "loc": "US",
+        "lat": 39.8283,
+        "lon": -98.5795,
+        "ts": 1788617822000,
+        "ingestedAt": 1788622897077,
+        "sources": [
+          "https://thehackernews.com/2026/09/trezor-says-shipmonk-breach-exposed.html"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://thehackernews.com/2026/09/trezor-says-shipmonk-breach-exposed.html"
+            ],
+            "outlets": [
+              "thehackernews.com"
+            ]
+          },
+          "confidence": 51
+        },
+        "geo": {
+          "tier": "approximate",
+          "source": "title"
+        }
+      },
+      "after": null
+    },
+    {
+      "id": 47,
+      "action": "updated",
+      "reason": "Offline explicit headline locus; representative point, not incident coordinates",
+      "before": {
+        "id": 47,
+        "t": "geopolitical",
+        "sev": "watching",
+        "title": "Trump envoys arrive in Moscow ahead of Ukraine talks, reports say",
+        "summary": "Steve Witkoff and Jared Kushner are due to hold talks with Russia before travelling to Ukraine on Sunday.",
+        "src": "BBC World",
+        "loc": "RU",
+        "lat": 55.7558,
+        "lon": 37.6173,
+        "ts": 1788604448000,
+        "ingestedAt": 1788604741954,
+        "sources": [
+          "https://www.bbc.co.uk/news/articles/cx2zqp46g8eo?at_medium=RSS&at_campaign=rss"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://www.bbc.co.uk/news/articles/cx2zqp46g8eo?at_medium=RSS&at_campaign=rss"
+            ],
+            "outlets": [
+              "bbc.co.uk"
+            ]
+          },
+          "confidence": 48
+        },
+        "geo": {
+          "tier": "approximate",
+          "source": "title"
+        }
+      },
+      "after": {
+        "id": 47,
+        "t": "geopolitical",
+        "sev": "watching",
+        "title": "Trump envoys arrive in Moscow ahead of Ukraine talks, reports say",
+        "summary": "Steve Witkoff and Jared Kushner are due to hold talks with Russia before travelling to Ukraine on Sunday.",
+        "src": "BBC World",
+        "loc": "Moscow, RU (approximate)",
+        "lat": 55.7558,
+        "lon": 37.6173,
+        "ts": 1788604448000,
+        "ingestedAt": 1788604741954,
+        "sources": [
+          "https://www.bbc.co.uk/news/articles/cx2zqp46g8eo?at_medium=RSS&at_campaign=rss"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://www.bbc.co.uk/news/articles/cx2zqp46g8eo?at_medium=RSS&at_campaign=rss"
+            ],
+            "outlets": [
+              "bbc.co.uk"
+            ]
+          },
+          "confidence": 48
+        },
+        "geo": {
+          "tier": "approximate",
+          "source": "title",
+          "policy": "explicit-locus-v1",
+          "scope": "city",
+          "evidence": "Moscow"
+        }
+      }
+    },
+    {
+      "id": 46,
+      "action": "quarantined",
+      "reason": "No unique explicit headline locus under current policy; old coordinates are untrusted",
+      "before": {
+        "id": 46,
+        "t": "geopolitical",
+        "sev": "watching",
+        "title": "How might Lindsay Clancy’s case have unfolded in another country?",
+        "summary": "The US mother was on trial for strangling her three children. In other western countries, there’s a specific law for mums who kill their young children.",
+        "src": "BBC World",
+        "loc": "Lindsay Drive, Alhambra, Clancy, Jefferson County, Montana, 59638, United States",
+        "lat": 46.4603106,
+        "lon": -111.9828504,
+        "ts": 1788599554000,
+        "ingestedAt": 1788600902172,
+        "sources": [
+          "https://www.bbc.co.uk/news/videos/cqlw6q0xv4zo?at_medium=RSS&at_campaign=rss"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://www.bbc.co.uk/news/videos/cqlw6q0xv4zo?at_medium=RSS&at_campaign=rss"
+            ],
+            "outlets": [
+              "bbc.co.uk"
+            ]
+          },
+          "confidence": 48
+        },
+        "geo": {
+          "tier": "precise",
+          "source": "nominatim"
+        }
+      },
+      "after": null
+    },
+    {
+      "id": 45,
+      "action": "quarantined",
+      "reason": "No unique explicit headline locus under current policy; old coordinates are untrusted",
+      "before": {
+        "id": 45,
+        "t": "geopolitical",
+        "sev": "watching",
+        "title": "How the Lindsay Clancy trial gripped America - and ultimately fell apart",
+        "summary": "A Massachusetts judge has declared a mistrial in the murder case against the US mother after jurors were unable to reach a unanimous verdict.",
+        "src": "BBC World",
+        "loc": "US",
+        "lat": 39.8283,
+        "lon": -98.5795,
+        "ts": 1788571589000,
+        "ingestedAt": 1788593217226,
+        "sources": [
+          "https://www.bbc.co.uk/news/videos/cr7dzr2e789o?at_medium=RSS&at_campaign=rss"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://www.bbc.co.uk/news/videos/cr7dzr2e789o?at_medium=RSS&at_campaign=rss"
+            ],
+            "outlets": [
+              "bbc.co.uk"
+            ]
+          },
+          "confidence": 47
+        },
+        "geo": {
+          "tier": "approximate",
+          "source": "title"
+        }
+      },
+      "after": null
+    },
+    {
+      "id": 44,
+      "action": "updated",
+      "reason": "Offline explicit headline locus; representative point, not incident coordinates",
+      "before": {
+        "id": 44,
+        "t": "geopolitical",
+        "sev": "watching",
+        "title": "Why did USS Lincoln turn up in Thailand looking so rusty?",
+        "summary": "When the USS Abraham Lincoln docked in Thailand this week some people were quick to criticise the condition it was in.",
+        "src": "BBC World",
+        "loc": "USS Santa Fe Bell, 200, Lincoln Avenue, Santa Fe, Santa Fe County, New Mexico, 8",
+        "lat": 35.6898764,
+        "lon": -105.938556,
+        "ts": 1788591200000,
+        "ingestedAt": 1788592251211,
+        "sources": [
+          "https://www.bbc.co.uk/news/videos/c4gr9y1ny3xo?at_medium=RSS&at_campaign=rss"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://www.bbc.co.uk/news/videos/c4gr9y1ny3xo?at_medium=RSS&at_campaign=rss"
+            ],
+            "outlets": [
+              "bbc.co.uk"
+            ]
+          },
+          "confidence": 47
+        },
+        "geo": {
+          "tier": "precise",
+          "source": "nominatim"
+        }
+      },
+      "after": {
+        "id": 44,
+        "t": "geopolitical",
+        "sev": "watching",
+        "title": "Why did USS Lincoln turn up in Thailand looking so rusty?",
+        "summary": "When the USS Abraham Lincoln docked in Thailand this week some people were quick to criticise the condition it was in.",
+        "src": "BBC World",
+        "loc": "Thailand, TH (approximate)",
+        "lat": 13.7563,
+        "lon": 100.5018,
+        "ts": 1788591200000,
+        "ingestedAt": 1788592251211,
+        "sources": [
+          "https://www.bbc.co.uk/news/videos/c4gr9y1ny3xo?at_medium=RSS&at_campaign=rss"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://www.bbc.co.uk/news/videos/c4gr9y1ny3xo?at_medium=RSS&at_campaign=rss"
+            ],
+            "outlets": [
+              "bbc.co.uk"
+            ]
+          },
+          "confidence": 47
+        },
+        "geo": {
+          "tier": "approximate",
+          "source": "title",
+          "policy": "explicit-locus-v1",
+          "scope": "country",
+          "evidence": "Thailand"
+        }
+      }
+    },
+    {
+      "id": 43,
+      "action": "quarantined",
+      "reason": "No unique explicit headline locus under current policy; old coordinates are untrusted",
+      "before": {
+        "id": 43,
+        "t": "geopolitical",
+        "sev": "watching",
+        "title": "Lindsay Clancy murder trial has divided US on whether she's victim or criminal",
+        "summary": "Some say the case shed light on the mental health struggles of mothers, while others argue it's no excuse for murder.",
+        "src": "BBC World",
+        "loc": "US",
+        "lat": 39.8283,
+        "lon": -98.5795,
+        "ts": 1788590266000,
+        "ingestedAt": 1788591291176,
+        "sources": [
+          "https://www.bbc.co.uk/news/articles/cx2z0xnw2d6o?at_medium=RSS&at_campaign=rss"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://www.bbc.co.uk/news/articles/cx2z0xnw2d6o?at_medium=RSS&at_campaign=rss"
+            ],
+            "outlets": [
+              "bbc.co.uk"
+            ]
+          },
+          "confidence": 46
+        },
+        "geo": {
+          "tier": "approximate",
+          "source": "title"
+        }
+      },
+      "after": null
+    },
+    {
+      "id": 42,
+      "action": "quarantined",
+      "reason": "No unique explicit headline locus under current policy; old coordinates are untrusted",
+      "before": {
+        "id": 42,
+        "t": "maritime",
+        "sev": "watching",
+        "title": "‘Pink Corridor’ Project to Study Nuclear-Powered Container Route Across Atlantic",
+        "summary": "Lloyd’s Register, A.P. Moller-Maersk and two major container ports are teaming up to examine what it would take to operate a nuclear-powered containership between the United States and United Kingdom....",
+        "src": "gCaptain",
+        "loc": "Pink, Eaton Centre level 1, Yonge-Bay Corridor, Toronto Centre, Toronto, Golden ",
+        "lat": 43.6533085,
+        "lon": -79.3806572,
+        "ts": 1788462266000,
+        "ingestedAt": 1788589420302,
+        "sources": [
+          "https://gcaptain.com/pink-corridor-project-to-study-nuclear-powered-container-route-across-atlantic/"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://gcaptain.com/pink-corridor-project-to-study-nuclear-powered-container-route-across-atlantic/"
+            ],
+            "outlets": [
+              "gcaptain.com"
+            ]
+          },
+          "confidence": 46
+        },
+        "geo": {
+          "tier": "precise",
+          "source": "nominatim"
+        }
+      },
+      "after": null
+    },
+    {
+      "id": 41,
+      "action": "updated",
+      "reason": "Offline explicit headline locus; representative point, not incident coordinates",
+      "before": {
+        "id": 41,
+        "t": "maritime",
+        "sev": "watching",
+        "title": "Gulf Shipping Traffic Via Hormuz Keeps Below 10-day Average, Data Shows",
+        "summary": "Four commodity vessels transited the key waterway of the Strait of Hormuz on Thursday, down from nine a day earlier and well below the 10-day average tally of about 15, preliminary shipping data showed.",
+        "src": "gCaptain",
+        "loc": "Trafic outre-mer Hermès, Rue Bégin, Saint-Laurent, Montréal, Agglomération de Mo",
+        "lat": 45.494331,
+        "lon": -73.7127464,
+        "ts": 1788514219000,
+        "ingestedAt": 1788589412065,
+        "sources": [
+          "https://gcaptain.com/gulf-shipping-traffic-via-hormuz-keeps-below-10-day-average-data-shows/"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://gcaptain.com/gulf-shipping-traffic-via-hormuz-keeps-below-10-day-average-data-shows/"
+            ],
+            "outlets": [
+              "gcaptain.com"
+            ]
+          },
+          "confidence": 46
+        },
+        "geo": {
+          "tier": "precise",
+          "source": "nominatim"
+        }
+      },
+      "after": {
+        "id": 41,
+        "t": "maritime",
+        "sev": "watching",
+        "title": "Gulf Shipping Traffic Via Hormuz Keeps Below 10-day Average, Data Shows",
+        "summary": "Four commodity vessels transited the key waterway of the Strait of Hormuz on Thursday, down from nine a day earlier and well below the 10-day average tally of about 15, preliminary shipping data showed.",
+        "src": "gCaptain",
+        "loc": "Strait of Hormuz, INT (regional approximation)",
+        "lat": 26.5667,
+        "lon": 56.2528,
+        "ts": 1788514219000,
+        "ingestedAt": 1788589412065,
+        "sources": [
+          "https://gcaptain.com/gulf-shipping-traffic-via-hormuz-keeps-below-10-day-average-data-shows/"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://gcaptain.com/gulf-shipping-traffic-via-hormuz-keeps-below-10-day-average-data-shows/"
+            ],
+            "outlets": [
+              "gcaptain.com"
+            ]
+          },
+          "confidence": 46
+        },
+        "geo": {
+          "tier": "approximate",
+          "source": "title",
+          "policy": "explicit-locus-v1",
+          "scope": "region",
+          "evidence": "Hormuz"
+        }
+      }
+    },
+    {
+      "id": 40,
+      "action": "quarantined",
+      "reason": "No unique explicit headline locus under current policy; old coordinates are untrusted",
+      "before": {
+        "id": 40,
+        "t": "maritime",
+        "sev": "watching",
+        "title": "Korea Paving Way to Send Naval Ship to Hormuz, Reports Say",
+        "summary": "South Korea has begun preparations for a possible deployment of a naval support ship and troops to the Strait of Hormuz, local media reports said, as President Donald Trump ramped up pressure on the US ally over its lack of support for the war with Iran.",
+        "src": "gCaptain",
+        "loc": "Paving Way, Lincolnshire Energy from Waste, North Hykeham, Hykeham Moor, North K",
+        "lat": 53.1994954,
+        "lon": -0.608184,
+        "ts": 1788514605000,
+        "ingestedAt": 1788589405644,
+        "sources": [
+          "https://gcaptain.com/korea-paving-way-to-send-naval-ship-to-hormuz-reports-say/"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://gcaptain.com/korea-paving-way-to-send-naval-ship-to-hormuz-reports-say/"
+            ],
+            "outlets": [
+              "gcaptain.com"
+            ]
+          },
+          "confidence": 46
+        },
+        "geo": {
+          "tier": "precise",
+          "source": "nominatim"
+        }
+      },
+      "after": null
+    },
+    {
+      "id": 39,
+      "action": "quarantined",
+      "reason": "No unique explicit headline locus under current policy; old coordinates are untrusted",
+      "before": {
+        "id": 39,
+        "t": "maritime",
+        "sev": "watching",
+        "title": "IMO Net-Zero Framework Holds Ground After Latest Round of Climate Talks",
+        "summary": "The International Maritime Organization’s Net-Zero Framework emerged largely intact from another round of negotiations this week, despite a push by the United States and several oil-producing countries to weaken or...",
+        "src": "gCaptain",
+        "loc": "The Latest Music Bar, 14-17, Manchester Street, Queen's Park, Brighton, Brighton",
+        "lat": 50.8204839,
+        "lon": -0.1354995,
+        "ts": 1788534131000,
+        "ingestedAt": 1788589400783,
+        "sources": [
+          "https://gcaptain.com/imo-net-zero-framework-holds-ground-after-latest-round-of-climate-talks/"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://gcaptain.com/imo-net-zero-framework-holds-ground-after-latest-round-of-climate-talks/"
+            ],
+            "outlets": [
+              "gcaptain.com"
+            ]
+          },
+          "confidence": 46
+        },
+        "geo": {
+          "tier": "precise",
+          "source": "nominatim"
+        }
+      },
+      "after": null
+    },
+    {
+      "id": 38,
+      "action": "quarantined",
+      "reason": "No unique explicit headline locus under current policy; old coordinates are untrusted",
+      "before": {
+        "id": 38,
+        "t": "maritime",
+        "sev": "watching",
+        "title": "Panama Canal Scraps Planned October Draft Cut—for Now",
+        "summary": "The Panama Canal has postponed a planned reduction in the maximum draft for vessels using its Neopanamax locks, offering some near-term relief for ship operators even as the waterway continues...",
+        "src": "gCaptain",
+        "loc": "October Circle, Shenandoah Valley Estates, Stuarts Draft, Augusta County, Virgin",
+        "lat": 38.0561221,
+        "lon": -79.0138281,
+        "ts": 1788566885000,
+        "ingestedAt": 1788589382485,
+        "sources": [
+          "https://gcaptain.com/panama-canal-scraps-planned-october-draft-cut-for-now/"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://gcaptain.com/panama-canal-scraps-planned-october-draft-cut-for-now/"
+            ],
+            "outlets": [
+              "gcaptain.com"
+            ]
+          },
+          "confidence": 46
+        },
+        "geo": {
+          "tier": "precise",
+          "source": "nominatim"
+        }
+      },
+      "after": null
+    },
+    {
+      "id": 37,
+      "action": "quarantined",
+      "reason": "No unique explicit headline locus under current policy; old coordinates are untrusted",
+      "before": {
+        "id": 37,
+        "t": "geopolitical",
+        "sev": "watching",
+        "title": "Watch: Inside court as Lindsay Clancy's lawyer asks judge to remove juror",
+        "summary": "The jury now faces a seventh day of deliberations in the triple-murder trial.",
+        "src": "BBC World",
+        "loc": "Lindsay Drive, Alhambra, Clancy, Jefferson County, Montana, 59638, United States",
+        "lat": 46.4603106,
+        "lon": -111.9828504,
+        "ts": 1788483345000,
+        "ingestedAt": 1788589377628,
+        "sources": [
+          "https://www.bbc.co.uk/news/videos/c36l7jwjg1no?at_medium=RSS&at_campaign=rss"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://www.bbc.co.uk/news/videos/c36l7jwjg1no?at_medium=RSS&at_campaign=rss"
+            ],
+            "outlets": [
+              "bbc.co.uk"
+            ]
+          },
+          "confidence": 46
+        },
+        "geo": {
+          "tier": "precise",
+          "source": "nominatim"
+        }
+      },
+      "after": null
+    },
+    {
+      "id": 36,
+      "action": "updated",
+      "reason": "Offline explicit headline locus; representative point, not incident coordinates",
+      "before": {
+        "id": 36,
+        "t": "geopolitical",
+        "sev": "critical",
+        "title": "'We expect our sons to be killed,' father of teen shot dead in West Bank tells BBC",
+        "summary": "Palestinian teenagers Omar al-Naasan and Khalil Abu Alia were shot dead when Israeli settlers and soldiers entered a village in the occupied West Bank.",
+        "src": "BBC World",
+        "loc": "PS",
+        "lat": 31.9466,
+        "lon": 35.3027,
+        "ts": 1788525545000,
+        "ingestedAt": 1788589377554,
+        "sources": [
+          "https://www.bbc.co.uk/news/videos/cn8evz26eyqo?at_medium=RSS&at_campaign=rss"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://www.bbc.co.uk/news/videos/cn8evz26eyqo?at_medium=RSS&at_campaign=rss"
+            ],
+            "outlets": [
+              "bbc.co.uk"
+            ]
+          },
+          "confidence": 46
+        },
+        "geo": {
+          "tier": "approximate",
+          "source": "title"
+        }
+      },
+      "after": {
+        "id": 36,
+        "t": "geopolitical",
+        "sev": "critical",
+        "title": "'We expect our sons to be killed,' father of teen shot dead in West Bank tells BBC",
+        "summary": "Palestinian teenagers Omar al-Naasan and Khalil Abu Alia were shot dead when Israeli settlers and soldiers entered a village in the occupied West Bank.",
+        "src": "BBC World",
+        "loc": "West Bank, Palestine (regional approximation)",
+        "lat": 31.9466,
+        "lon": 35.3027,
+        "ts": 1788525545000,
+        "ingestedAt": 1788589377554,
+        "sources": [
+          "https://www.bbc.co.uk/news/videos/cn8evz26eyqo?at_medium=RSS&at_campaign=rss"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://www.bbc.co.uk/news/videos/cn8evz26eyqo?at_medium=RSS&at_campaign=rss"
+            ],
+            "outlets": [
+              "bbc.co.uk"
+            ]
+          },
+          "confidence": 46
+        },
+        "geo": {
+          "tier": "approximate",
+          "source": "title",
+          "policy": "explicit-locus-v1",
+          "scope": "region",
+          "evidence": "West Bank"
+        }
+      },
+      "supportingSource": "https://www.bbc.co.uk/news/videos/cn8evz26eyqo",
+      "sourceContext": "BBC identifies al-Mughayyir, south of Nablus, occupied West Bank. Only a regional approximation is used."
+    },
+    {
+      "id": 35,
+      "action": "quarantined",
+      "reason": "No unique explicit headline locus under current policy; old coordinates are untrusted",
+      "before": {
+        "id": 35,
+        "t": "geopolitical",
+        "sev": "watching",
+        "title": "Mistrial declared in Lindsay Clancy murder case, after jury deadlocks",
+        "summary": "The mistrial now puts the murder case - and Clancy's future - in limbo as to whether she will be held criminally liable in the deaths of her three kids.",
+        "src": "BBC World",
+        "loc": "Lindsay Drive, Alhambra, Clancy, Jefferson County, Montana, 59638, United States",
+        "lat": 46.4603106,
+        "lon": -111.9828504,
+        "ts": 1788562118000,
+        "ingestedAt": 1788589377333,
+        "sources": [
+          "https://www.bbc.co.uk/news/articles/cpwlrj2je1po?at_medium=RSS&at_campaign=rss"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://www.bbc.co.uk/news/articles/cpwlrj2je1po?at_medium=RSS&at_campaign=rss"
+            ],
+            "outlets": [
+              "bbc.co.uk"
+            ]
+          },
+          "confidence": 46
+        },
+        "geo": {
+          "tier": "precise",
+          "source": "nominatim"
+        }
+      },
+      "after": null
+    },
+    {
+      "id": 34,
+      "action": "quarantined",
+      "reason": "No unique explicit headline locus under current policy; old coordinates are untrusted",
+      "before": {
+        "id": 34,
+        "t": "cyber",
+        "sev": "watching",
+        "title": "All-Line Equipment Company Fuel-Boss",
+        "summary": "View CSAF Summary Successful exploitation of these vulnerabilities could allow attackers to execute arbitrary commands or code remotely on affected systems. The following versions of All-Line Equipment Company Fuel-Boss are affected: Fuel-Boss V1 Standard >=|<=PHP_7.1.5_7.1.5 (CVE-2018-19518, CVE-2019-11043) Fuel-Boss V1 Portal >=|<=PHP_7.1.5_7.1.5 (CVE-2018-19518, CVE-2019-11043) Fuel-Boss V1 Master/Slave >=|<=PHP_7.1.5_7.1.5 (CVE-2018-19518, CVE-2019-11043) Fuel-Boss V1 Backflush Systems >=|<=PHP_7.1.5_7.1.5 (CVE-2018-19518, CVE-2019-11043) CVSS Vendor Equipment Vulnerabilities v3 8.7 All-Li",
+        "src": "CISA Alerts",
+        "loc": "Bushong Restaurant Equipment, 422, Bacon Street, Dayton Motor Car Company Histor",
+        "lat": 39.7610807,
+        "lon": -84.1756385,
+        "ts": 1787832000000,
+        "ingestedAt": 1788589373257,
+        "sources": [
+          "https://www.cisa.gov/news-events/ics-advisories/icsa-26-239-02"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://www.cisa.gov/news-events/ics-advisories/icsa-26-239-02"
+            ],
+            "outlets": [
+              "cisa.gov"
+            ]
+          },
+          "confidence": 46
+        },
+        "geo": {
+          "tier": "precise",
+          "source": "nominatim"
+        }
+      },
+      "after": null
+    },
+    {
+      "id": 33,
+      "action": "quarantined",
+      "reason": "No unique explicit headline locus under current policy; old coordinates are untrusted",
+      "before": {
+        "id": 33,
+        "t": "cyber",
+        "sev": "watching",
+        "title": "Applied Systems Engineering ASE2000 V2 Communications Test Set",
+        "summary": "View CSAF Summary Successful exploitation of these vulnerabilities could allow an attacker to read or write arbitrary local files, cause the application to issue outbound network requests, or intercept the connection to impersonate the trusted peer, complete the TLS handshake, and read or modify the protected communications. The following versions of Applied Systems Engineering ASE2000 V2 Communications Test Set are affected: ASE2000 >=2.25|<=2.37 (CVE-2018-1285, CVE-2026-18717) CVSS Vendor Equipment Vulnerabilities v3 9.8 Applied Systems Engineering Applied Systems Engineering ASE2000 V2 Comm",
+        "src": "CISA Alerts",
+        "loc": "Sunmax Auto Engineering, Kirby Building Systems, Integrated Industrial Estate, H",
+        "lat": 29.9634182,
+        "lon": 78.0649424,
+        "ts": 1787832000000,
+        "ingestedAt": 1788589371334,
+        "sources": [
+          "https://www.cisa.gov/news-events/ics-advisories/icsa-26-239-04"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://www.cisa.gov/news-events/ics-advisories/icsa-26-239-04"
+            ],
+            "outlets": [
+              "cisa.gov"
+            ]
+          },
+          "confidence": 46
+        },
+        "geo": {
+          "tier": "precise",
+          "source": "nominatim"
+        }
+      },
+      "after": null
+    },
+    {
+      "id": 32,
+      "action": "quarantined",
+      "reason": "No unique explicit headline locus under current policy; old coordinates are untrusted",
+      "before": {
+        "id": 32,
+        "t": "cyber",
+        "sev": "watching",
+        "title": "Rockwell Automation OTTO Fleet Manager",
+        "summary": "View CSAF Summary Successful exploitation of this vulnerability could reduce the computational cost required for an attacker to perform offline brute-force attacks against stored password hashes. The following versions of Rockwell Automation OTTO Fleet Manager are affected: OTTO Fleet Manager <=V2.36.2 (CVE-2026-75112) CVSS Vendor Equipment Vulnerabilities v3 6.8 Rockwell Automation Rockwell Automation OTTO Fleet Manager Use of Password Hash With Insufficient Computational Effort Background Critical Infrastructure Sectors: Critical Manufacturing, Transportation Systems Countries/Areas Deployed",
+        "src": "CISA Alerts",
+        "loc": "DSD Automation GmbH, 3, Otto-Brenner-Straße, Euren, Trier, Trierweiler, Rheinlan",
+        "lat": 49.7276993,
+        "lon": 6.612296,
+        "ts": 1787832000000,
+        "ingestedAt": 1788589366137,
+        "sources": [
+          "https://www.cisa.gov/news-events/ics-advisories/icsa-26-239-03"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://www.cisa.gov/news-events/ics-advisories/icsa-26-239-03"
+            ],
+            "outlets": [
+              "cisa.gov"
+            ]
+          },
+          "confidence": 46
+        },
+        "geo": {
+          "tier": "precise",
+          "source": "nominatim"
+        }
+      },
+      "after": null
+    },
+    {
+      "id": 31,
+      "action": "quarantined",
+      "reason": "No unique explicit headline locus under current policy; old coordinates are untrusted",
+      "before": {
+        "id": 31,
+        "t": "cyber",
+        "sev": "watching",
+        "title": "Mitsubishi Electric CNC Series (Update A)",
+        "summary": "View CSAF Summary Successful exploitation of this vulnerability could allow a remote attacker to cause an out-of-bounds read, resulting in a denial-of-service condition in the affected products. The following versions of Mitsubishi Electric CNC Series (Update A) are affected: Mitsubishi Electric M800VW (BND-2051W000) <=BB (CVE-2025-2399) Mitsubishi Electric M800VS (BND-2052W000) <=BB (CVE-2025-2399) Mitsubishi Electric M80V (BND-2053W000) <=BB (CVE-2025-2399) Mitsubishi Electric M80VW (BND-2054W000) <=BB (CVE-2025-2399) Mitsubishi Electric M800W (BND-2005W000) <=FM (CVE-2025-2399) Mitsubishi E",
+        "src": "CISA Alerts",
+        "loc": "Central Electric Building, North-South concourse, Haymarket, Sydney, New South W",
+        "lat": -33.8833556,
+        "lon": 151.2071081,
+        "ts": 1787832000000,
+        "ingestedAt": 1788589362690,
+        "sources": [
+          "https://www.cisa.gov/news-events/ics-advisories/icsa-26-078-05"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://www.cisa.gov/news-events/ics-advisories/icsa-26-078-05"
+            ],
+            "outlets": [
+              "cisa.gov"
+            ]
+          },
+          "confidence": 46
+        },
+        "geo": {
+          "tier": "precise",
+          "source": "nominatim"
+        }
+      },
+      "after": null
+    },
+    {
+      "id": 30,
+      "action": "quarantined",
+      "reason": "No unique explicit headline locus under current policy; old coordinates are untrusted",
+      "before": {
+        "id": 30,
+        "t": "cyber",
+        "sev": "watching",
+        "title": "Mitsubishi Electric Multiple FA Products (Update D)",
+        "summary": "View CSAF Summary Successful exploitation of this vulnerability could allow a remote attacker to cause a denial-of-service (DoS) condition, a timeout error, or a communication delay by sending a specially crafted UDP packet to the product. The following versions of Mitsubishi Electric Multiple FA Products (Update D) are affected: Mitsubishi Electric CC-Link IE TSN Remote I/O module NZ2GN2S1-32D <=09 (CVE-2025-3511) Mitsubishi Electric CC-Link IE TSN Remote I/O module NZ2GN2S1-32T <=09 (CVE-2025-3511) Mitsubishi Electric CC-Link IE TSN Remote I/O module NZ2GN2S1-32TE <=09 (CVE-2025-3511) Mitsub",
+        "src": "CISA Alerts",
+        "loc": "Gillingham EMU Depot, Granville Road, Sally Port Gardens, Brompton, Gillingham, ",
+        "lat": 51.3856084,
+        "lon": 0.5633336,
+        "ts": 1787832000000,
+        "ingestedAt": 1788589360929,
+        "sources": [
+          "https://www.cisa.gov/news-events/ics-advisories/icsa-25-128-03"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://www.cisa.gov/news-events/ics-advisories/icsa-25-128-03"
+            ],
+            "outlets": [
+              "cisa.gov"
+            ]
+          },
+          "confidence": 46
+        },
+        "geo": {
+          "tier": "precise",
+          "source": "nominatim"
+        }
+      },
+      "after": null
+    },
+    {
+      "id": 29,
+      "action": "quarantined",
+      "reason": "No unique explicit headline locus under current policy; old coordinates are untrusted",
+      "before": {
+        "id": 29,
+        "t": "cyber",
+        "sev": "watching",
+        "title": "Lessons Learned from CISA’s Recent GitHub Leak",
+        "summary": "The Cybersecurity and Infrastructure Security Agency (CISA) has issued a postmortem on a data leak in which a contractor published dozens of internal CISA credentials -- including AWS Govcloud keys -- in a public GitHub repository for almost six months before being notified by KrebsOnSecurity. Experts say the gaps identified in the agency's initial response provide important lessons that all security teams should absorb.",
+        "src": "KrebsOnSecurity",
+        "loc": "Center For Army Lessons Learned (CALL), 10, Meade Avenue, Main Post, Fort Leaven",
+        "lat": 39.3508206,
+        "lon": -94.9139692,
+        "ts": 1783955008000,
+        "ingestedAt": 1788589357358,
+        "sources": [
+          "https://krebsonsecurity.com/2026/07/lessons-learned-from-cisas-recent-github-leak/"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://krebsonsecurity.com/2026/07/lessons-learned-from-cisas-recent-github-leak/"
+            ],
+            "outlets": [
+              "krebsonsecurity.com"
+            ]
+          },
+          "confidence": 46
+        },
+        "geo": {
+          "tier": "precise",
+          "source": "nominatim"
+        }
+      },
+      "after": null
+    },
+    {
+      "id": 28,
+      "action": "quarantined",
+      "reason": "No unique explicit headline locus under current policy; old coordinates are untrusted",
+      "before": {
+        "id": 28,
+        "t": "cyber",
+        "sev": "watching",
+        "title": "FBI Probes Service Selling 153M+ Drivers Licenses",
+        "summary": "A new identity theft service launched on the dark web this week is selling digital scans of more than 153 million drivers licenses from people in the United States and Canada. Based on interviews with individuals whose licenses are available for purchase on this service, it appears to be siphoning images collected by a widely-used identity verification company based in Louisiana. KrebsOnSecurity also has learned that the New Orleans field office of the Federal Bureau of Investigation (FBI) today launched an official inquiry into the source of the images.",
+        "src": "KrebsOnSecurity",
+        "loc": "Ontario Drivers & Vehicles Licenses, Bath Road, Auden Park, Kingston, Eastern On",
+        "lat": 44.2381246,
+        "lon": -76.5777724,
+        "ts": 1788302428000,
+        "ingestedAt": 1788589357354,
+        "sources": [
+          "https://krebsonsecurity.com/2026/09/fbi-probes-service-selling-153m-drivers-licenses/"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://krebsonsecurity.com/2026/09/fbi-probes-service-selling-153m-drivers-licenses/"
+            ],
+            "outlets": [
+              "krebsonsecurity.com"
+            ]
+          },
+          "confidence": 46
+        },
+        "geo": {
+          "tier": "precise",
+          "source": "nominatim"
+        }
+      },
+      "after": null
+    },
+    {
+      "id": 27,
+      "action": "quarantined",
+      "reason": "No unique explicit headline locus under current policy; old coordinates are untrusted",
+      "before": {
+        "id": 27,
+        "t": "geopolitical",
+        "sev": "watching",
+        "title": "Why are European countries moving their gold out of North America?",
+        "summary": "The Netherlands has relocated 86 tonnes of the shiny stuff - what's going on?",
+        "src": "BBC World",
+        "loc": "US",
+        "lat": 39.8283,
+        "lon": -98.5795,
+        "ts": 1788572529000,
+        "ingestedAt": 1788585517508,
+        "sources": [
+          "https://www.bbc.co.uk/news/articles/cvgyn8q8gqxo?at_medium=RSS&at_campaign=rss"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://www.bbc.co.uk/news/articles/cvgyn8q8gqxo?at_medium=RSS&at_campaign=rss"
+            ],
+            "outlets": [
+              "bbc.co.uk"
+            ]
+          },
+          "confidence": 46
+        }
+      },
+      "after": null
+    },
+    {
+      "id": 26,
+      "action": "quarantined",
+      "reason": "No unique explicit headline locus under current policy; old coordinates are untrusted",
+      "before": {
+        "id": 26,
+        "t": "geopolitical",
+        "sev": "watching",
+        "title": "Is Russia proving better at protecting friends than fighting enemies in West Africa?",
+        "summary": "Russian forces were brought in to help defeat jihadists but they also defend the military leadership in Niger.",
+        "src": "BBC World",
+        "loc": "RU",
+        "lat": 61.524,
+        "lon": 105.3188,
+        "ts": 1788581031000,
+        "ingestedAt": 1788581677542,
+        "sources": [
+          "https://www.bbc.co.uk/news/articles/cx2z75keq58o?at_medium=RSS&at_campaign=rss"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://www.bbc.co.uk/news/articles/cx2z75keq58o?at_medium=RSS&at_campaign=rss"
+            ],
+            "outlets": [
+              "bbc.co.uk"
+            ]
+          },
+          "confidence": 45
+        }
+      },
+      "after": null
+    },
+    {
+      "id": 25,
+      "action": "quarantined",
+      "reason": "No unique explicit headline locus under current policy; old coordinates are untrusted",
+      "before": {
+        "id": 25,
+        "t": "geopolitical",
+        "sev": "watching",
+        "title": "How much can Canada fight back in its trade war with the US?",
+        "summary": "The US may be the bigger trading partner, but Canada shouldn't be counted out quite yet in the escalating trade fight.",
+        "src": "BBC World",
+        "loc": "CA",
+        "lat": 56.1304,
+        "lon": -106.3468,
+        "ts": 1788574401000,
+        "ingestedAt": 1788578917397,
+        "sources": [
+          "https://www.bbc.co.uk/news/videos/c74knp7y04eo?at_medium=RSS&at_campaign=rss"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://www.bbc.co.uk/news/videos/c74knp7y04eo?at_medium=RSS&at_campaign=rss"
+            ],
+            "outlets": [
+              "bbc.co.uk"
+            ]
+          },
+          "confidence": 45
+        }
+      },
+      "after": null
+    },
+    {
+      "id": 24,
+      "action": "updated",
+      "reason": "Offline explicit headline locus; representative point, not incident coordinates",
+      "before": {
+        "id": 24,
+        "t": "geopolitical",
+        "sev": "watching",
+        "title": "Tate brothers charged with further trafficking and sex crimes in Romania",
+        "summary": "Andrew and Tristan Tate are currently in a Miami jail fighting extradition to the UK over separate charges and deny all the allegations.",
+        "src": "BBC World",
+        "loc": "RO",
+        "lat": 45.9432,
+        "lon": 24.9668,
+        "ts": 1788575361000,
+        "ingestedAt": 1788576037537,
+        "sources": [
+          "https://www.bbc.co.uk/news/articles/c7v4npv1m22o?at_medium=RSS&at_campaign=rss"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://www.bbc.co.uk/news/articles/c7v4npv1m22o?at_medium=RSS&at_campaign=rss"
+            ],
+            "outlets": [
+              "bbc.co.uk"
+            ]
+          },
+          "confidence": 44
+        }
+      },
+      "after": {
+        "id": 24,
+        "t": "geopolitical",
+        "sev": "watching",
+        "title": "Tate brothers charged with further trafficking and sex crimes in Romania",
+        "summary": "Andrew and Tristan Tate are currently in a Miami jail fighting extradition to the UK over separate charges and deny all the allegations.",
+        "src": "BBC World",
+        "loc": "Romania, RO (approximate)",
+        "lat": 45.9432,
+        "lon": 24.9668,
+        "ts": 1788575361000,
+        "ingestedAt": 1788576037537,
+        "sources": [
+          "https://www.bbc.co.uk/news/articles/c7v4npv1m22o?at_medium=RSS&at_campaign=rss"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://www.bbc.co.uk/news/articles/c7v4npv1m22o?at_medium=RSS&at_campaign=rss"
+            ],
+            "outlets": [
+              "bbc.co.uk"
+            ]
+          },
+          "confidence": 44
+        },
+        "geo": {
+          "tier": "approximate",
+          "source": "title",
+          "policy": "explicit-locus-v1",
+          "scope": "country",
+          "evidence": "Romania"
+        }
+      }
+    },
+    {
+      "id": 23,
+      "action": "quarantined",
+      "reason": "No unique explicit headline locus under current policy; old coordinates are untrusted",
+      "before": {
+        "id": 23,
+        "t": "geopolitical",
+        "sev": "watching",
+        "title": "Kenya's chai lovers are not happy as the nation's cows run dry",
+        "summary": "Supermarket shelves are emptying, sellers are rationing supplies and prices are rising.",
+        "src": "BBC World",
+        "loc": "KE",
+        "lat": -0.0236,
+        "lon": 37.9062,
+        "ts": 1788481736000,
+        "ingestedAt": 1788573889214,
+        "sources": [
+          "https://www.bbc.co.uk/news/articles/cgqd9ldegjqo?at_medium=RSS&at_campaign=rss"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://www.bbc.co.uk/news/articles/cgqd9ldegjqo?at_medium=RSS&at_campaign=rss"
+            ],
+            "outlets": [
+              "bbc.co.uk"
+            ]
+          },
+          "confidence": 44
+        }
+      },
+      "after": null
+    },
+    {
+      "id": 22,
+      "action": "updated",
+      "reason": "Offline explicit headline locus; representative point, not incident coordinates",
+      "before": {
+        "id": 22,
+        "t": "geopolitical",
+        "sev": "watching",
+        "title": "AI data centres are booming in Australia - but at what cost?",
+        "summary": "Advocates say data centres will bring jobs but others worry they will suck up resources while providing little advantage.",
+        "src": "BBC World",
+        "loc": "AU",
+        "lat": -25.2744,
+        "lon": 133.7751,
+        "ts": 1788460323000,
+        "ingestedAt": 1788573889214,
+        "sources": [
+          "https://www.bbc.co.uk/news/articles/cgl3we7wdr3o?at_medium=RSS&at_campaign=rss"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://www.bbc.co.uk/news/articles/cgl3we7wdr3o?at_medium=RSS&at_campaign=rss"
+            ],
+            "outlets": [
+              "bbc.co.uk"
+            ]
+          },
+          "confidence": 44
+        }
+      },
+      "after": {
+        "id": 22,
+        "t": "geopolitical",
+        "sev": "watching",
+        "title": "AI data centres are booming in Australia - but at what cost?",
+        "summary": "Advocates say data centres will bring jobs but others worry they will suck up resources while providing little advantage.",
+        "src": "BBC World",
+        "loc": "Australia, AU (approximate)",
+        "lat": -25.2744,
+        "lon": 133.7751,
+        "ts": 1788460323000,
+        "ingestedAt": 1788573889214,
+        "sources": [
+          "https://www.bbc.co.uk/news/articles/cgl3we7wdr3o?at_medium=RSS&at_campaign=rss"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://www.bbc.co.uk/news/articles/cgl3we7wdr3o?at_medium=RSS&at_campaign=rss"
+            ],
+            "outlets": [
+              "bbc.co.uk"
+            ]
+          },
+          "confidence": 44
+        },
+        "geo": {
+          "tier": "approximate",
+          "source": "title",
+          "policy": "explicit-locus-v1",
+          "scope": "country",
+          "evidence": "Australia"
+        }
+      }
+    },
+    {
+      "id": 21,
+      "action": "quarantined",
+      "reason": "No unique explicit headline locus under current policy; old coordinates are untrusted",
+      "before": {
+        "id": 21,
+        "t": "geopolitical",
+        "sev": "watching",
+        "title": "How could US-Iran conflict end? Three experts give their views",
+        "summary": "After renewed strikes this week, does either side have an exit strategy?",
+        "src": "BBC World",
+        "loc": "IR",
+        "lat": 32.4279,
+        "lon": 53.688,
+        "ts": 1788513297000,
+        "ingestedAt": 1788573889214,
+        "sources": [
+          "https://www.bbc.co.uk/news/articles/cgjql614glvo?at_medium=RSS&at_campaign=rss"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://www.bbc.co.uk/news/articles/cgjql614glvo?at_medium=RSS&at_campaign=rss"
+            ],
+            "outlets": [
+              "bbc.co.uk"
+            ]
+          },
+          "confidence": 44
+        }
+      },
+      "after": null
+    },
+    {
+      "id": 20,
+      "action": "quarantined",
+      "reason": "No unique explicit headline locus under current policy; old coordinates are untrusted",
+      "before": {
+        "id": 20,
+        "t": "geopolitical",
+        "sev": "watching",
+        "title": "UK support for Falkland Islands 'unwavering' after Argentina restates claims, No 10 says",
+        "summary": "The comments come as Argentinian president Javier Milei says the \"winds of change\" favoured his country's claim on the British overseas territory.",
+        "src": "BBC World",
+        "loc": "AR",
+        "lat": -38.4161,
+        "lon": -63.6167,
+        "ts": 1788522891000,
+        "ingestedAt": 1788573889209,
+        "sources": [
+          "https://www.bbc.co.uk/news/articles/cn45jg3zlz4o?at_medium=RSS&at_campaign=rss"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://www.bbc.co.uk/news/articles/cn45jg3zlz4o?at_medium=RSS&at_campaign=rss"
+            ],
+            "outlets": [
+              "bbc.co.uk"
+            ]
+          },
+          "confidence": 44
+        }
+      },
+      "after": null
+    },
+    {
+      "id": 19,
+      "action": "quarantined",
+      "reason": "No unique explicit headline locus under current policy; old coordinates are untrusted",
+      "before": {
+        "id": 19,
+        "t": "geopolitical",
+        "sev": "watching",
+        "title": "Trump's peace envoys to visit Moscow and Kyiv over weekend",
+        "summary": "Steve Witkoff and Jared Kushner have led President Donald Trump's efforts to end the Russia-Ukraine war - but talks have stalled.",
+        "src": "BBC World",
+        "loc": "RU",
+        "lat": 55.7558,
+        "lon": 37.6173,
+        "ts": 1788552232000,
+        "ingestedAt": 1788573889209,
+        "sources": [
+          "https://www.bbc.co.uk/news/articles/c23x0z48x0no?at_medium=RSS&at_campaign=rss"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://www.bbc.co.uk/news/articles/c23x0z48x0no?at_medium=RSS&at_campaign=rss"
+            ],
+            "outlets": [
+              "bbc.co.uk"
+            ]
+          },
+          "confidence": 44
+        }
+      },
+      "after": null
+    },
+    {
+      "id": 18,
+      "action": "quarantined",
+      "reason": "No unique explicit headline locus under current policy; old coordinates are untrusted",
+      "before": {
+        "id": 18,
+        "t": "geopolitical",
+        "sev": "watching",
+        "title": "Russia hits Ukrainian security headquarters in drone attack, Zelensky says",
+        "summary": "The unmanned aerial vehicle struck without warning in the heart of the Ukrainian capital.",
+        "src": "BBC World",
+        "loc": "RU",
+        "lat": 61.524,
+        "lon": 105.3188,
+        "ts": 1788537752000,
+        "ingestedAt": 1788573889208,
+        "sources": [
+          "https://www.bbc.co.uk/news/articles/c5yep7y48x2o?at_medium=RSS&at_campaign=rss"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://www.bbc.co.uk/news/articles/c5yep7y48x2o?at_medium=RSS&at_campaign=rss"
+            ],
+            "outlets": [
+              "bbc.co.uk"
+            ]
+          },
+          "confidence": 44
+        }
+      },
+      "after": null
+    },
+    {
+      "id": 17,
+      "action": "quarantined",
+      "reason": "No unique explicit headline locus under current policy; old coordinates are untrusted",
+      "before": {
+        "id": 17,
+        "t": "geopolitical",
+        "sev": "watching",
+        "title": "Germany's far-right AfD bids for first taste of power in eastern vote",
+        "summary": "If it wins an outright majority in Saxony-Anhalt, it would be the first time a far-right party has held state-level power in Germany since World War Two.",
+        "src": "BBC World",
+        "loc": "DE",
+        "lat": 51.1657,
+        "lon": 10.4515,
+        "ts": 1788563243000,
+        "ingestedAt": 1788573889208,
+        "sources": [
+          "https://www.bbc.co.uk/news/articles/cvgypkzgy4wo?at_medium=RSS&at_campaign=rss"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://www.bbc.co.uk/news/articles/cvgypkzgy4wo?at_medium=RSS&at_campaign=rss"
+            ],
+            "outlets": [
+              "bbc.co.uk"
+            ]
+          },
+          "confidence": 44
+        }
+      },
+      "after": null
+    },
+    {
+      "id": 16,
+      "action": "quarantined",
+      "reason": "No unique explicit headline locus under current policy; old coordinates are untrusted",
+      "before": {
+        "id": 16,
+        "t": "geopolitical",
+        "sev": "watching",
+        "title": "Europe targeted by spiralling campaign of sabotage - and Russia is the chief suspect",
+        "summary": "Germany has blamed Russia for an attack on Leipzig airport but there has been a series of suspicious incidents elsewhere.",
+        "src": "BBC World",
+        "loc": "RU",
+        "lat": 61.524,
+        "lon": 105.3188,
+        "ts": 1788540555000,
+        "ingestedAt": 1788573889207,
+        "sources": [
+          "https://www.bbc.co.uk/news/articles/c5y4g6meekro?at_medium=RSS&at_campaign=rss"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://www.bbc.co.uk/news/articles/c5y4g6meekro?at_medium=RSS&at_campaign=rss"
+            ],
+            "outlets": [
+              "bbc.co.uk"
+            ]
+          },
+          "confidence": 44
+        }
+      },
+      "after": null
+    },
+    {
+      "id": 15,
+      "action": "quarantined",
+      "reason": "No unique explicit headline locus under current policy; old coordinates are untrusted",
+      "before": {
+        "id": 15,
+        "t": "maritime",
+        "sev": "watching",
+        "title": "China-Russia Arctic Shipping Push Accelerates With New Ice-Class Container Ships",
+        "summary": "China’s NewNew Shipping Line and Russia’s state nuclear corporation Rosatom are advancing plans to build five large ice-class container ships aimed at making commercial shipping on the Northern Sea Route a year-round operation.",
+        "src": "gCaptain",
+        "loc": "RU",
+        "lat": 61.524,
+        "lon": 105.3188,
+        "ts": 1788516436000,
+        "ingestedAt": 1788566558942,
+        "sources": [
+          "https://gcaptain.com/china-russia-arctic-shipping-push-accelerates-with-new-ice-class-container-ships/"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://gcaptain.com/china-russia-arctic-shipping-push-accelerates-with-new-ice-class-container-ships/"
+            ],
+            "outlets": [
+              "gcaptain.com"
+            ]
+          },
+          "confidence": 43
+        }
+      },
+      "after": null
+    },
+    {
+      "id": 14,
+      "action": "quarantined",
+      "reason": "No unique explicit headline locus under current policy; old coordinates are untrusted",
+      "before": {
+        "id": 14,
+        "t": "maritime",
+        "sev": "watching",
+        "title": "‘We Are Stalled’: US-Iran War Stuck With No End in Sight",
+        "summary": "The US and Iran have intensified tit-for-tat military strikes in recent days, remaining locked between ceasefire and all-out war as the White House struggles to end the six-month conflict.",
+        "src": "gCaptain",
+        "loc": "IR",
+        "lat": 32.4279,
+        "lon": 53.688,
+        "ts": 1788540291000,
+        "ingestedAt": 1788566558941,
+        "sources": [
+          "https://gcaptain.com/we-are-stalled-us-iran-war-stuck-with-no-end-in-sight/"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://gcaptain.com/we-are-stalled-us-iran-war-stuck-with-no-end-in-sight/"
+            ],
+            "outlets": [
+              "gcaptain.com"
+            ]
+          },
+          "confidence": 43
+        }
+      },
+      "after": null
+    },
+    {
+      "id": 13,
+      "action": "quarantined",
+      "reason": "No unique explicit headline locus under current policy; old coordinates are untrusted",
+      "before": {
+        "id": 13,
+        "t": "maritime",
+        "sev": "watching",
+        "title": "COSCO Denies Its Ships Collected Intelligence for Beijing",
+        "summary": "China's state-owned shipping giant COSCO rejected allegations it used concealed equipment on its vessels to collect intelligence for Beijing, calling the claims \"totally unfounded\" and false.",
+        "src": "gCaptain",
+        "loc": "CN",
+        "lat": 39.9042,
+        "lon": 116.4074,
+        "ts": 1788540391000,
+        "ingestedAt": 1788566558940,
+        "sources": [
+          "https://gcaptain.com/cosco-denies-its-ships-collected-intelligence-for-beijing/"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://gcaptain.com/cosco-denies-its-ships-collected-intelligence-for-beijing/"
+            ],
+            "outlets": [
+              "gcaptain.com"
+            ]
+          },
+          "confidence": 43
+        }
+      },
+      "after": null
+    },
+    {
+      "id": 12,
+      "action": "quarantined",
+      "reason": "No unique explicit headline locus under current policy; old coordinates are untrusted",
+      "before": {
+        "id": 12,
+        "t": "maritime",
+        "sev": "watching",
+        "title": "Coast Guard Key Bridge Inquiry Finds U.S. Ports Facing Growing Risks from Larger Ships",
+        "summary": "The U.S. Coast Guard has released a sweeping review of risks facing critical U.S. port infrastructure following the 2024 collapse of Baltimore’s Francis Scott Key Bridge, finding that existing waterways...",
+        "src": "gCaptain",
+        "loc": "US",
+        "lat": 39.8283,
+        "lon": -98.5795,
+        "ts": 1788554092000,
+        "ingestedAt": 1788566558940,
+        "sources": [
+          "https://gcaptain.com/coast-guard-key-bridge-inquiry-finds-u-s-ports-facing-growing-risks-from-larger-ships/"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://gcaptain.com/coast-guard-key-bridge-inquiry-finds-u-s-ports-facing-growing-risks-from-larger-ships/"
+            ],
+            "outlets": [
+              "gcaptain.com"
+            ]
+          },
+          "confidence": 43
+        }
+      },
+      "after": null
+    },
+    {
+      "id": 11,
+      "action": "quarantined",
+      "reason": "No unique explicit headline locus under current policy; old coordinates are untrusted",
+      "before": {
+        "id": 11,
+        "t": "maritime",
+        "sev": "watching",
+        "title": "U.S. Lawmakers Push Tax Break for Merchant Mariners Working Overseas",
+        "summary": "A bipartisan group of House lawmakers has introduced legislation that would give U.S. merchant mariners working in international trade a tax break similar to the one available to other Americans...",
+        "src": "gCaptain",
+        "loc": "US",
+        "lat": 39.8283,
+        "lon": -98.5795,
+        "ts": 1788393384000,
+        "ingestedAt": 1788481749653,
+        "sources": [
+          "https://gcaptain.com/u-s-lawmakers-push-tax-break-for-merchant-mariners-working-overseas/"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://gcaptain.com/u-s-lawmakers-push-tax-break-for-merchant-mariners-working-overseas/"
+            ],
+            "outlets": [
+              "gcaptain.com"
+            ]
+          },
+          "confidence": 31
+        }
+      },
+      "after": null
+    },
+    {
+      "id": 10,
+      "action": "quarantined",
+      "reason": "No unique explicit headline locus under current policy; old coordinates are untrusted",
+      "before": {
+        "id": 10,
+        "t": "maritime",
+        "sev": "watching",
+        "title": "Japan’s Mitsui OSK Sees Risk to Hormuz Shipping Through Year-End",
+        "summary": "The head of Japanese shipping company Mitsui OSK Lines Ltd. expects disruption in the Strait of Hormuz to last longer than previously assumed, with recent attacks elevating the risk for tankers attempting to move oil through the waterway.",
+        "src": "gCaptain",
+        "loc": "JP",
+        "lat": 36.2048,
+        "lon": 138.2529,
+        "ts": 1788418827000,
+        "ingestedAt": 1788481749652,
+        "sources": [
+          "https://gcaptain.com/japans-mitsui-osk-sees-risk-to-hormuz-shipping-through-year-end/"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://gcaptain.com/japans-mitsui-osk-sees-risk-to-hormuz-shipping-through-year-end/"
+            ],
+            "outlets": [
+              "gcaptain.com"
+            ]
+          },
+          "confidence": 31
+        }
+      },
+      "after": null
+    },
+    {
+      "id": 9,
+      "action": "updated",
+      "reason": "Offline explicit headline locus; representative point, not incident coordinates",
+      "before": {
+        "id": 9,
+        "t": "maritime",
+        "sev": "watching",
+        "title": "Turkish Rescue Teams Search For 10 Missing After Cargo Ship Sinks Off Istanbul",
+        "summary": "Turkish authorities continued searching on Thursday for 10 crew members missing after a cargo ship sank off the coast of Istanbul following a collision with another vessel, state-owned Anadolu Agency reported.",
+        "src": "gCaptain",
+        "loc": "TR",
+        "lat": 41.0082,
+        "lon": 28.9784,
+        "ts": 1788420117000,
+        "ingestedAt": 1788481749652,
+        "sources": [
+          "https://gcaptain.com/turkish-rescue-teams-search-for-10-missing-after-cargo-ship-sinks-off-istanbul/"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://gcaptain.com/turkish-rescue-teams-search-for-10-missing-after-cargo-ship-sinks-off-istanbul/"
+            ],
+            "outlets": [
+              "gcaptain.com"
+            ]
+          },
+          "confidence": 31
+        }
+      },
+      "after": {
+        "id": 9,
+        "t": "maritime",
+        "sev": "watching",
+        "title": "Turkish Rescue Teams Search For 10 Missing After Cargo Ship Sinks Off Istanbul",
+        "summary": "Turkish authorities continued searching on Thursday for 10 crew members missing after a cargo ship sank off the coast of Istanbul following a collision with another vessel, state-owned Anadolu Agency reported.",
+        "src": "gCaptain",
+        "loc": "Istanbul, TR (approximate)",
+        "lat": 41.0082,
+        "lon": 28.9784,
+        "ts": 1788420117000,
+        "ingestedAt": 1788481749652,
+        "sources": [
+          "https://gcaptain.com/turkish-rescue-teams-search-for-10-missing-after-cargo-ship-sinks-off-istanbul/"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://gcaptain.com/turkish-rescue-teams-search-for-10-missing-after-cargo-ship-sinks-off-istanbul/"
+            ],
+            "outlets": [
+              "gcaptain.com"
+            ]
+          },
+          "confidence": 31
+        },
+        "geo": {
+          "tier": "approximate",
+          "source": "title",
+          "policy": "explicit-locus-v1",
+          "scope": "city",
+          "evidence": "Istanbul"
+        }
+      }
+    },
+    {
+      "id": 8,
+      "action": "quarantined",
+      "reason": "No unique explicit headline locus under current policy; old coordinates are untrusted",
+      "before": {
+        "id": 8,
+        "t": "maritime",
+        "sev": "watching",
+        "title": "Ukraine Attacks Ship Used to Repair Key Black Sea Oil Moorings",
+        "summary": "Ukraine attacked a small service ship involved in planned repair works at the key CPC oil terminal in the Black Sea, a person with knowledge of the matter said. The facility is vital to Kazakstan’s crude exports.",
+        "src": "gCaptain",
+        "loc": "UA",
+        "lat": 48.3794,
+        "lon": 31.1656,
+        "ts": 1788453595000,
+        "ingestedAt": 1788481749650,
+        "sources": [
+          "https://gcaptain.com/ukraine-attacks-ship-used-to-repair-key-black-sea-oil-moorings/"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://gcaptain.com/ukraine-attacks-ship-used-to-repair-key-black-sea-oil-moorings/"
+            ],
+            "outlets": [
+              "gcaptain.com"
+            ]
+          },
+          "confidence": 31
+        }
+      },
+      "after": null
+    },
+    {
+      "id": 7,
+      "action": "updated",
+      "reason": "Offline explicit headline locus; representative point, not incident coordinates",
+      "before": {
+        "id": 7,
+        "t": "maritime",
+        "sev": "watching",
+        "title": "ABS and JB Energy Sign MOU to Support Floating Offshore Wind Development in Brazil",
+        "summary": "ABS and JB Energy have signed a memorandum of understanding (MOU) to collaborate on strategic studies for the proposed Aura Sul Wind Project, a floating offshore wind pilot under consideration...",
+        "src": "gCaptain",
+        "loc": "BR",
+        "lat": -14.235,
+        "lon": -51.9253,
+        "ts": 1788458697000,
+        "ingestedAt": 1788481749647,
+        "sources": [
+          "https://gcaptain.com/abs-and-jb-energy-sign-mou-to-support-floating-offshore-wind-development-in-brazil/"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://gcaptain.com/abs-and-jb-energy-sign-mou-to-support-floating-offshore-wind-development-in-brazil/"
+            ],
+            "outlets": [
+              "gcaptain.com"
+            ]
+          },
+          "confidence": 31
+        }
+      },
+      "after": {
+        "id": 7,
+        "t": "maritime",
+        "sev": "watching",
+        "title": "ABS and JB Energy Sign MOU to Support Floating Offshore Wind Development in Brazil",
+        "summary": "ABS and JB Energy have signed a memorandum of understanding (MOU) to collaborate on strategic studies for the proposed Aura Sul Wind Project, a floating offshore wind pilot under consideration...",
+        "src": "gCaptain",
+        "loc": "Brazil, BR (approximate)",
+        "lat": -14.235,
+        "lon": -51.9253,
+        "ts": 1788458697000,
+        "ingestedAt": 1788481749647,
+        "sources": [
+          "https://gcaptain.com/abs-and-jb-energy-sign-mou-to-support-floating-offshore-wind-development-in-brazil/"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://gcaptain.com/abs-and-jb-energy-sign-mou-to-support-floating-offshore-wind-development-in-brazil/"
+            ],
+            "outlets": [
+              "gcaptain.com"
+            ]
+          },
+          "confidence": 31
+        },
+        "geo": {
+          "tier": "approximate",
+          "source": "title",
+          "policy": "explicit-locus-v1",
+          "scope": "country",
+          "evidence": "Brazil"
+        }
+      }
+    },
+    {
+      "id": 6,
+      "action": "quarantined",
+      "reason": "No unique explicit headline locus under current policy; old coordinates are untrusted",
+      "before": {
+        "id": 6,
+        "t": "cyber",
+        "sev": "watching",
+        "title": "China-Made ZBT Routers Ship With Two Implants Giving Unauthenticated Attackers Root Access",
+        "summary": "VulnCheck has disclosed two previously undocumented factory implants in firmware for routers built by Shenzhen Zhibotong Electronics (ZBT), each of which gives an unauthenticated remote attacker the ability to run commands as root on affected devices. The implants, named SPEAKINGSTONE and DARKLANTERN by the company's zero-day research team, are tracked as CVE-2026-74232 and CVE-2026-74233.",
+        "src": "The Hacker News",
+        "loc": "CN",
+        "lat": 35.8617,
+        "lon": 104.1954,
+        "ts": 1787914709000,
+        "ingestedAt": 1788481749634,
+        "sources": [
+          "https://thehackernews.com/2026/08/china-made-zbt-routers-ship-with-two.html"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://thehackernews.com/2026/08/china-made-zbt-routers-ship-with-two.html"
+            ],
+            "outlets": [
+              "thehackernews.com"
+            ]
+          },
+          "confidence": 31
+        }
+      },
+      "after": null
+    },
+    {
+      "id": 5,
+      "action": "quarantined",
+      "reason": "No unique explicit headline locus under current policy; old coordinates are untrusted",
+      "before": {
+        "id": 5,
+        "t": "cyber",
+        "sev": "watching",
+        "title": "Berlin Refuses to Pay Hackers Who Stole Data From the City's State Network",
+        "summary": "Berlin's state government has confirmed that it is the target of an extortion attempt following the August compromise of the city's state administrative network, and said it will not meet the extortionists' demands. The same statement disclosed that forensic work had found further data outflows in the portfolio of the Senate Department for Mobility, Transport, Climate Protection and Environment",
+        "src": "The Hacker News",
+        "loc": "DE",
+        "lat": 52.52,
+        "lon": 13.405,
+        "ts": 1787952652000,
+        "ingestedAt": 1788481749628,
+        "sources": [
+          "https://thehackernews.com/2026/08/berlin-refuses-to-pay-hackers-who-stole.html"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://thehackernews.com/2026/08/berlin-refuses-to-pay-hackers-who-stole.html"
+            ],
+            "outlets": [
+              "thehackernews.com"
+            ]
+          },
+          "confidence": 31
+        }
+      },
+      "after": null
+    },
+    {
+      "id": 4,
+      "action": "quarantined",
+      "reason": "No unique explicit headline locus under current policy; old coordinates are untrusted",
+      "before": {
+        "id": 4,
+        "t": "cyber",
+        "sev": "watching",
+        "title": "DoJ Corrects China Hacking Claim, Says U.S. Agencies Were Targets, Not Victims",
+        "summary": "The U.S. Department of Justice (DoJ) on Friday corrected a previously issued press statement that several of its agencies were victims of attacks carried out by Chinese threat actors, instead now pointing out that they were among those targeted. Last week, the DoJ said the National Aeronautics and Space Administration, Federal Reserve, Department of Energy, Department of Justice, Department",
+        "src": "The Hacker News",
+        "loc": "CN",
+        "lat": 35.8617,
+        "lon": 104.1954,
+        "ts": 1788163013000,
+        "ingestedAt": 1788481749627,
+        "sources": [
+          "https://thehackernews.com/2026/08/doj-corrects-china-hacking-claim-says.html"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://thehackernews.com/2026/08/doj-corrects-china-hacking-claim-says.html"
+            ],
+            "outlets": [
+              "thehackernews.com"
+            ]
+          },
+          "confidence": 31
+        }
+      },
+      "after": null
+    },
+    {
+      "id": 3,
+      "action": "quarantined",
+      "reason": "No unique explicit headline locus under current policy; old coordinates are untrusted",
+      "before": {
+        "id": 3,
+        "t": "cyber",
+        "sev": "watching",
+        "title": "China-Linked Fire Ant Hijacks Cisco Routers to Steal Credentials and Blind Security Logs",
+        "summary": "A China-nexus cyber espionage actor tracked as Fire Ant has expanded a long-running campaign beyond VMware hypervisors to compromise Cisco IOS XR routers, Terminal Access Controller Access-Control System (TACACS) servers, and Linux management hosts used to route, authenticate, and manage high-value networks. Sygnia, the incident response firm that investigated the intrusion, said the actor",
+        "src": "The Hacker News",
+        "loc": "CN",
+        "lat": 35.8617,
+        "lon": 104.1954,
+        "ts": 1788167095000,
+        "ingestedAt": 1788481749626,
+        "sources": [
+          "https://thehackernews.com/2026/08/china-linked-fire-ant-hijacks-cisco.html"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://thehackernews.com/2026/08/china-linked-fire-ant-hijacks-cisco.html"
+            ],
+            "outlets": [
+              "thehackernews.com"
+            ]
+          },
+          "confidence": 31
+        }
+      },
+      "after": null
+    },
+    {
+      "id": 2,
+      "action": "quarantined",
+      "reason": "No unique explicit headline locus under current policy; old coordinates are untrusted",
+      "before": {
+        "id": 2,
+        "t": "cyber",
+        "sev": "watching",
+        "title": "Russia-Aligned UAC-0099 Plants Nuclear Weapon Prompt in Malware to Disrupt AI Analysis",
+        "summary": "Cybersecurity researchers have disclosed a new technique dubbed GuardBreaker that's been put to use by a Russia-aligned threat actor known as UAC-0099 against a target in Ukraine with an aim to interfere with artificial intelligence (AI)-assisted analysis. The idea, ESET said in a series of posts on X, is to deliberately trip a large language model's (LLM) safety mechanisms and prevent its",
+        "src": "The Hacker News",
+        "loc": "RU",
+        "lat": 61.524,
+        "lon": 105.3188,
+        "ts": 1788251184000,
+        "ingestedAt": 1788481749623,
+        "sources": [
+          "https://thehackernews.com/2026/09/russia-aligned-uac-0099-plants-nuclear.html"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://thehackernews.com/2026/09/russia-aligned-uac-0099-plants-nuclear.html"
+            ],
+            "outlets": [
+              "thehackernews.com"
+            ]
+          },
+          "confidence": 31
+        }
+      },
+      "after": null
+    },
+    {
+      "id": 1,
+      "action": "updated",
+      "reason": "Offline explicit headline locus; representative point, not incident coordinates",
+      "before": {
+        "id": 1,
+        "t": "cyber",
+        "sev": "watching",
+        "title": "Two Alleged ‘TeamPCP’ Hackers Arrested in Australia",
+        "summary": "Authorities in Australia have arrested two men believed to be members of TeamPCP, a prolific cybercrime and data extortion group blamed for perpetrating the longest running spree of software supply chain attacks ever. In a statement released today, the Australian Federal Police (AFP) said two unnamed suspects from Western Australia, aged 21 and 23, were arrested in connection with a \"sophisticated cybercrime syndicate that allegedly created malicious open-source software to rob thousands of global businesses.\" The AFP did not name the defendants, but KrebsOnSecurity learned the 21-year-old sus",
+        "src": "KrebsOnSecurity",
+        "loc": "AU",
+        "lat": -25.2744,
+        "lon": 133.7751,
+        "ts": 1787828655000,
+        "ingestedAt": 1788481749602,
+        "sources": [
+          "https://krebsonsecurity.com/2026/08/two-alleged-teampcp-hackers-arrested-in-australia/"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://krebsonsecurity.com/2026/08/two-alleged-teampcp-hackers-arrested-in-australia/"
+            ],
+            "outlets": [
+              "krebsonsecurity.com"
+            ]
+          },
+          "confidence": 31
+        }
+      },
+      "after": {
+        "id": 1,
+        "t": "cyber",
+        "sev": "watching",
+        "title": "Two Alleged ‘TeamPCP’ Hackers Arrested in Australia",
+        "summary": "Authorities in Australia have arrested two men believed to be members of TeamPCP, a prolific cybercrime and data extortion group blamed for perpetrating the longest running spree of software supply chain attacks ever. In a statement released today, the Australian Federal Police (AFP) said two unnamed suspects from Western Australia, aged 21 and 23, were arrested in connection with a \"sophisticated cybercrime syndicate that allegedly created malicious open-source software to rob thousands of global businesses.\" The AFP did not name the defendants, but KrebsOnSecurity learned the 21-year-old sus",
+        "src": "KrebsOnSecurity",
+        "loc": "Australia, AU (approximate)",
+        "lat": -25.2744,
+        "lon": 133.7751,
+        "ts": 1787828655000,
+        "ingestedAt": 1788481749602,
+        "sources": [
+          "https://krebsonsecurity.com/2026/08/two-alleged-teampcp-hackers-arrested-in-australia/"
+        ],
+        "score": {
+          "articles": 1,
+          "tone": 0.0,
+          "quality": 80,
+          "corroboration": {
+            "sources": [
+              "https://krebsonsecurity.com/2026/08/two-alleged-teampcp-hackers-arrested-in-australia/"
+            ],
+            "outlets": [
+              "krebsonsecurity.com"
+            ]
+          },
+          "confidence": 31
+        },
+        "geo": {
+          "tier": "approximate",
+          "source": "title",
+          "policy": "explicit-locus-v1",
+          "scope": "country",
+          "evidence": "Australia"
+        }
+      }
+    }
+  ]
+}

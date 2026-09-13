@@ -1,0 +1,21 @@
+---
+import '../styles/global.css';
+const { title = 'Sycamore — Global Intelligence Dashboard' } = Astro.props;
+---
+<!doctype html>
+<html lang="en" data-tab="map">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="A curated, real-time view of global cyber, geopolitical, and maritime events. Sample data — not live." />
+    <meta name="robots" content="noindex" />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://api.mapbox.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet" />
+  </head>
+  <body>
+    <slot />
+    <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js" is:inline></script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+---
+import { OUTLOOKS } from '../data/events.js';
+---
+<aside class="panel right absolute top-14 right-4 w-[340px] z-20 overflow-hidden"
+       aria-label="Scenario outlooks and market signal">
+  <div class="panel-header"><span>SCENARIO OUTLOOKS</span><span class="text-muted-dim">30–90D</span></div>
+  <div id="outlooks" class="px-3 py-2 space-y-2">
+    {OUTLOOKS.map(o => (
+      <div class="outlook">
+        <div class="flex items-baseline justify-between gap-2 mb-1">
+          <span class="text-[11.5px] text-slate-100 leading-tight">{o.t}</span>
+          <span class="text-[10px] font-mono text-cyan-alive flex-none">{o.c}%</span>
+        </div>
+        <div class="h-0.5 bg-ink-700 rounded-full overflow-hidden">
+          <div class="h-full bg-cyan-alive/70" style={`width:${o.c}%`}></div>
+        </div>
+        <div class="mt-0.5 text-[9.5px] font-mono text-muted-dim uppercase tracking-wider">{o.d}</div>
+      </div>
+    ))}
+  </div>
+
+  <div class="panel-header border-t border-ink-600/60"><span>MARKET SIGNAL</span><span class="text-muted-dim">DEFENSE / ENERGY</span></div>
+  <div id="markets" class="px-2 py-1.5 space-y-0 font-mono text-[11px]">
+    <!-- populated client-side from MARKETS -->
+  </div>
+
+  <div class="px-3 py-2 border-t border-ink-600/60 text-[9.5px] text-muted-dim leading-snug">
+    <span class="text-cyan-alive/70 tracking-[0.2em] uppercase text-[9px]">About · </span>
+    Sample data. Not a news organization — do not rely on this for safety-critical decisions.
+  </div>
+</aside>

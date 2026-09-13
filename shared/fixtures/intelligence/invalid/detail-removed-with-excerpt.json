@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "releaseUid": "99999999-0000-4000-8000-000000000001",
+  "eventUid": "aaaaaaaa-0000-4000-8000-000000000001",
+  "eventRevisionUid": "aaaaaaaa-0000-4000-8000-000000000002",
+  "projectionHash": "1111111111111111111111111111111111111111111111111111111111111111",
+  "generatedAt": 1789075438867,
+  "evidence": [
+    {
+      "evidenceUid": "bbbbbbbb-0000-4000-8000-000000000001",
+      "sourceUid": "cccccccc-0000-4000-8000-000000000001",
+      "sourceRevisionUid": "cccccccc-0000-4000-8000-000000000002",
+      "eventRevisionUids": [
+        "aaaaaaaa-0000-4000-8000-000000000002"
+      ],
+      "providerUid": "provider.rss.alpha",
+      "sourceUrl": "https://alpha.example/story/17",
+      "title": "Major ransomware hits regional power grid in Frankfurt",
+      "publishedAt": 1789034400000,
+      "observedAt": 1789034460000,
+      "excerpt": "Regional power grid in Frankfurt disrupted by ransomware; authorities confirm recovery underway.",
+      "evidenceKind": "source_text",
+      "reportingOriginUid": null,
+      "independence": "known_primary",
+      "status": "removed"
+    }
+  ],
+  "entities": [
+    {
+      "entityUid": "dddddddd-0000-4000-8000-000000000001",
+      "kind": "organization",
+      "canonicalValue": "example-power-grid",
+      "displayName": "Frankfurt Regional Power Grid",
+      "resolution": "exact",
+      "mentions": [
+        {
+          "mentionUid": "eeeeeeee-0000-4000-8000-000000000001",
+          "evidenceUid": "bbbbbbbb-0000-4000-8000-000000000001",
+          "role": "affected",
+          "field": "title",
+          "rawText": "regional power grid",
+          "start": 45,
+          "end": 64,
+          "methodVersion": "int-1.0.0"
+        }
+      ]
+    }
+  ],
+  "timeline": [
+    {
+      "entryUid": "ffffffff-0000-4000-8000-000000000001",
+      "kind": "first_observed",
+      "observedAt": 1789034460000,
+      "sourcePublishedAt": 1789034400000,
+      "eventRevisionUid": "aaaaaaaa-0000-4000-8000-000000000002",
+      "label": "First observed via alpha.example",
+      "evidenceUids": [
+        "bbbbbbbb-0000-4000-8000-000000000001"
+      ]
+    }
+  ],
+  "related": [],
+  "truncated": {
+    "evidence": false,
+    "entities": false,
+    "timeline": false,
+    "related": false
+  }
+}

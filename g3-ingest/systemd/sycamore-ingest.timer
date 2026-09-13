@@ -1,0 +1,14 @@
+[Unit]
+Description=Sycamore G3 ingest timer (every 15 min)
+
+[Timer]
+# 15 min after boot, then every 15 min, jittered ±60s
+OnBootSec=15min
+OnUnitActiveSec=15min
+AccuracySec=60s
+# Run even if the previous run is still active (it won't be, but defensive)
+Persistent=true
+Unit=sycamore-ingest.service
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,23 @@
+---
+import { EVENTS } from '../data/events.js';
+// One-liner ticker; built from sample events for the demo
+const items = EVENTS.slice(0, 12).map(e => `${e.loc.split(',')[0].toUpperCase()} — ${e.title}`);
+---
+<div class="ticker fixed bottom-0 left-0 right-0 z-10 h-10 bg-ink-900/90 backdrop-blur
+            border-t border-ink-600/60 overflow-hidden flex items-center">
+  <div class="flex-shrink-0 px-3 h-full flex items-center font-mono text-[10.5px] tracking-[0.2em] uppercase
+              text-cyan-alive border-r border-ink-600/60 bg-ink-800/80">
+    <span class="w-1.5 h-1.5 rounded-full bg-cyan-alive mr-2 animate-pulse-cyan"></span>
+    FEED
+  </div>
+  <div class="flex-1 overflow-hidden">
+    <div class="flex gap-10 whitespace-nowrap font-mono text-[12px] text-slate-300 animate-marquee will-change-transform py-2.5">
+      {[...items, ...items].map((line, i) => (
+        <span class="flex items-center gap-2">
+          <span class="w-1 h-1 rounded-full bg-muted-dim"></span>
+          {line}
+        </span>
+      ))}
+    </div>
+  </div>
+</div>

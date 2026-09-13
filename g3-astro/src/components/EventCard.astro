@@ -1,0 +1,11 @@
+---
+import { eventCard } from '../client/render';
+import type { Event } from '../data/types';
+interface Props {
+  event: Event;
+  dashboard?: boolean;
+}
+const { event, dashboard = false } = Astro.props;
+---
+
+<Fragment set:html={eventCard(event, dashboard)} />

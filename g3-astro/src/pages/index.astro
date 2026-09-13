@@ -1,0 +1,218 @@
+---
+import Base from '../layouts/Base.astro';
+import Map from '../components/Map.astro';
+import Feed from '../components/Feed.astro';
+import DetailPanel from '../components/DetailPanel.astro';
+import { loadData } from '../data/loader';
+const context = await loadData();
+---
+
+<Base title="Sycamore — Live Map" context={context} dashboard>
+  <main id="main" class="dashboard" tabindex="-1" data-tab="feed">
+    <Map />
+    <div class="map-view-toolbar" role="toolbar" aria-label="Map workspace">
+      <button
+        type="button"
+        class="map-view-button map-fullscreen-button"
+        data-map-fullscreen
+        aria-pressed="false"
+        aria-label="Enter fullscreen map"
+        title="Enter fullscreen map">⛶</button
+      >
+    </div>
+    <div class="mobile-tabs" role="group" aria-label="Dashboard view">
+      <button data-tab="feed" aria-pressed="true">Feed</button><button
+        data-tab="map"
+        aria-pressed="false">Map</button
+      >
+    </div>
+    <Feed events={context.events} />
+    <DetailPanel />
+    <p id="selection-notice" class="selection-notice" role="status" hidden></p>
+    <div class="map-summary">
+      <span class="summary-rule"></span><span
+        ><strong id="map-event-count">{context.events.length}</strong> visible events</span
+      ><span class="muted">·</span><span>4 topics</span>
+    </div>
+  </main>
+  <script>
+    import { initDashboard } from '../client/dashboard';
+    import { context } from '../client/site';
+    import type { GlobeAdapter } from '../client/globe';
+    import type { LayerName } from '../client/osint';
+    let globeAdapter: GlobeAdapter;
+    let collapseMapControls: ((collapsed: boolean) => void) | null = null;
+    initDashboard(context, async (onSelect) => {
+      const { createGlobe } = await import('../client/globe');
+      const mapEl = document.getElementById('map')!;
+      globeAdapter = await createGlobe(mapEl, {
+        onSelectEvent: onSelect,
+        onRegionSelected: (r: any) => {
+          if (r) collapseMapControls?.(true);
+          const notice = document.getElementById('selection-notice');
+          if (notice) {
+            if (r) {
+              notice.hidden = false;
+              notice.textContent =
+                r.kind === 'country'
+                  ? `Selected: ${r.name} (${r.iso3 || ''})`
+                  : `Selected: ${r.name}`;
+            } else {
+              notice.hidden = true;
+            }
+          }
+        },
+      });
+      const controlDock = document.createElement('div');
+      controlDock.className = 'globe-control-dock';
+      controlDock.setAttribute('role', 'group');
+      controlDock.setAttribute('aria-label', 'Globe controls');
+
+      const controlHeader = document.createElement('div');
+      controlHeader.className = 'globe-control-header';
+      const controlTitle = document.createElement('span');
+      controlTitle.className = 'globe-control-title';
+      controlTitle.textContent = 'Map controls';
+      const controlToggle = document.createElement('button');
+      controlToggle.type = 'button';
+      controlToggle.className = 'globe-control-toggle';
+      controlToggle.setAttribute('aria-expanded', 'true');
+      controlToggle.setAttribute('aria-label', 'Collapse map controls');
+      controlToggle.title = 'Collapse map controls';
+      controlToggle.textContent = '−';
+      controlHeader.append(controlTitle, controlToggle);
+
+      const controlMain = document.createElement('div');
+      controlMain.className = 'globe-control-main';
+      controlMain.id = 'globe-control-main';
+      controlToggle.setAttribute('aria-controls', controlMain.id);
+
+      const setControlsCollapsed = (collapsed: boolean) => {
+        controlDock.dataset.collapsed = String(collapsed);
+        controlToggle.setAttribute('aria-expanded', String(!collapsed));
+        controlToggle.setAttribute(
+          'aria-label',
+          collapsed ? 'Expand map controls' : 'Collapse map controls',
+        );
+        controlToggle.title = collapsed ? 'Expand map controls' : 'Collapse map controls';
+        controlToggle.textContent = collapsed ? '+' : '−';
+      };
+      collapseMapControls = setControlsCollapsed;
+      controlToggle.addEventListener('click', () => {
+        setControlsCollapsed(controlDock.dataset.collapsed !== 'true');
+      });
+
+      const layerSection = document.createElement('div');
+      layerSection.className = 'globe-control-section';
+      layerSection.setAttribute('role', 'group');
+      layerSection.setAttribute('aria-label', 'Data layers');
+      const layerLabel = document.createElement('span');
+      layerLabel.className = 'globe-control-label';
+      layerLabel.textContent = 'Layers';
+      const chipsContainer = document.createElement('div');
+      chipsContainer.className = 'globe-layer-chips globe-control-group';
+      const layers: [string, string, string][] = [
+        ['events', 'Events', 'events'],
+        ['cities', 'Cities', 'cities'],
+        ['flights', 'Flights', 'flights'],
+        ['seismic', 'Seismic', 'seismic'],
+        ['censys', 'Censys', 'censys'],
+      ];
+      for (const [key, label, prop] of layers) {
+        const chip = document.createElement('button');
+        chip.className =
+          'globe-layer-chip' + (key === 'events' || key === 'flights' ? ' active' : '');
+        chip.textContent = label;
+        chip.type = 'button';
+        chip.setAttribute('aria-pressed', String(key === 'events' || key === 'flights'));
+        chip.addEventListener('click', () => {
+          const next = !globeAdapter.getLayer(prop as LayerName);
+          globeAdapter.setLayers({ [prop]: next });
+          chip.classList.toggle('active', next);
+          chip.setAttribute('aria-pressed', String(next));
+        });
+        chipsContainer.appendChild(chip);
+      }
+      layerSection.append(layerLabel, chipsContainer);
+
+      const viewSection = document.createElement('div');
+      viewSection.className = 'globe-control-section';
+      viewSection.setAttribute('role', 'group');
+      viewSection.setAttribute('aria-label', 'Map appearance');
+      const viewLabel = document.createElement('span');
+      viewLabel.className = 'globe-control-label';
+      viewLabel.textContent = 'Appearance';
+      const viewControls = document.createElement('div');
+      viewControls.className = 'globe-view-controls globe-control-group';
+      const satellite = document.createElement('button');
+      satellite.className = 'globe-layer-chip';
+      satellite.textContent = 'Satellite';
+      satellite.type = 'button';
+      satellite.setAttribute('aria-pressed', 'false');
+      satellite.addEventListener('click', () => {
+        const current = globeAdapter.getImageMode?.() || 'dark';
+        const enabled = current === 'dark';
+        globeAdapter.setImageMode(enabled ? 'satellite' : 'dark');
+        satellite.classList.toggle('active', enabled);
+        satellite.setAttribute('aria-pressed', String(enabled));
+      });
+      viewControls.appendChild(satellite);
+      viewSection.append(viewLabel, viewControls);
+
+      const navigationSection = document.createElement('div');
+      navigationSection.className = 'globe-control-section globe-navigation-section';
+      navigationSection.setAttribute('role', 'group');
+      navigationSection.setAttribute('aria-label', 'Map navigation');
+      const navigationLabel = document.createElement('span');
+      navigationLabel.className = 'globe-control-label';
+      navigationLabel.textContent = 'Navigation';
+      const navigation = document.createElement('div');
+      navigation.className = 'globe-navigation globe-control-group';
+      navigation.setAttribute('role', 'group');
+      navigation.setAttribute('aria-label', 'Globe navigation');
+      for (const [label, glyph, action] of [
+        ['Zoom in', '+', () => globeAdapter.zoom(1)],
+        ['Zoom out', '−', () => globeAdapter.zoom(-1)],
+        ['Reset globe', '↺', () => globeAdapter.resetView()],
+      ] as const) {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'globe-layer-chip globe-nav-button';
+        button.textContent = glyph;
+        button.title = label;
+        button.setAttribute('aria-label', label);
+        button.addEventListener('click', action);
+        navigation.appendChild(button);
+      }
+      const fullscreen = document.querySelector<HTMLButtonElement>('[data-map-fullscreen]');
+      if (fullscreen) {
+        fullscreen.classList.add('globe-layer-chip', 'globe-nav-button');
+        navigation.appendChild(fullscreen);
+      }
+      navigationSection.append(navigationLabel, navigation);
+
+      const effects = mapEl.querySelector<HTMLElement>('.globe-effects');
+      if (effects) viewControls.appendChild(effects);
+      const dataStatus = mapEl.querySelector<HTMLElement>('.globe-data-status');
+      controlMain.append(layerSection, viewSection, navigationSection);
+      controlDock.append(controlHeader, controlMain);
+      if (dataStatus) controlDock.appendChild(dataStatus);
+      const detailPanel = document.getElementById('detail-panel');
+      const detailObserver = detailPanel
+        ? new MutationObserver(() => {
+            if (!detailPanel.hidden) setControlsCollapsed(true);
+          })
+        : null;
+      detailObserver?.observe(detailPanel!, { attributes: true, attributeFilter: ['hidden'] });
+      window.addEventListener('pagehide', () => detailObserver?.disconnect(), { once: true });
+      setControlsCollapsed(
+        window.matchMedia('(max-width: 979px)').matches ||
+          Boolean(detailPanel && !detailPanel.hidden),
+      );
+      const toolbar = document.querySelector<HTMLElement>('.map-view-toolbar');
+      if (toolbar) toolbar.replaceChildren(controlDock);
+      else mapEl.after(controlDock);
+      return globeAdapter;
+    });
+  </script>
+</Base>

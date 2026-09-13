@@ -1,0 +1,49 @@
+{
+  "name": "sycamore-web",
+  "version": "1.0.0",
+  "description": "Sycamore global reporting dashboard",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "test": "node --import tsx tests/run.ts",
+    "verify": "npm run format:check && npm run check && npm run build && npm test",
+    "generate:validator": "node scripts/generate-validator.mjs",
+    "prebuild": "node scripts/copy-cesium.mjs && npm run generate:validator",
+    "predev": "node scripts/copy-cesium.mjs && npm run generate:validator",
+    "precheck": "npm run generate:validator",
+    "pretest": "npm run generate:validator",
+    "test:artifacts": "node --import tsx tests/artifacts.test.ts",
+    "format": "prettier --write src tests scripts *.mjs *.cjs *.json",
+    "format:check": "prettier --check src tests scripts *.mjs *.cjs *.json",
+    "test:dev": "node scripts/check-dev.mjs",
+    "perf:report": "node scripts/performance-report.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "@astrojs/check": "0.9.10",
+    "@types/node": "26.4.1",
+    "astro": "7.3.1",
+    "esbuild": "0.28.2",
+    "jsdom": "30.0.1",
+    "postcss": "8.5.28",
+    "prettier": "3.9.6",
+    "prettier-plugin-astro": "0.14.1",
+    "tailwindcss": "3.4.19",
+    "tsx": "4.23.13",
+    "typescript": "5.9.3"
+  },
+  "dependencies": {
+    "ajv": "8.20.0",
+    "ajv-formats": "3.0.1",
+    "cesium": "^1.145.0"
+  },
+  "private": true,
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}

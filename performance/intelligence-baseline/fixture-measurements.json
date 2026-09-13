@@ -1,0 +1,1659 @@
+{
+  "collectedAt": "2026-09-10T21:27:56Z",
+  "fixtureMeasurements": [
+    {
+      "durationMs": {
+        "max": 33.03505800431594,
+        "median": 14.721400017151609,
+        "min": 10.97837698762305
+      },
+      "name": "identical_source_repeated",
+      "note": "second identical article deduped; single event/ID retained",
+      "reps": 5,
+      "samples": [
+        {
+          "counts": {
+            "bySeverity": {
+              "critical": 0,
+              "deesc": 0,
+              "escalating": 1,
+              "watching": 0
+            },
+            "byTopic": {
+              "cyber": 1,
+              "geopolitical": 0,
+              "maritime": 0,
+              "military": 0
+            },
+            "deduped": 1,
+            "events": 1,
+            "ingested": 1,
+            "merged": 0,
+            "pulse": 0
+          },
+          "eventIds": [
+            1
+          ],
+          "events": 1,
+          "healthStatus": "ok",
+          "lastAttempt": 1789000003000,
+          "lastSync": 1789000003000,
+          "nextEventId": 2,
+          "snapshotBytes": 1496
+        },
+        {
+          "counts": {
+            "bySeverity": {
+              "critical": 0,
+              "deesc": 0,
+              "escalating": 1,
+              "watching": 0
+            },
+            "byTopic": {
+              "cyber": 1,
+              "geopolitical": 0,
+              "maritime": 0,
+              "military": 0
+            },
+            "deduped": 1,
+            "events": 1,
+            "ingested": 1,
+            "merged": 0,
+            "pulse": 0
+          },
+          "eventIds": [
+            1
+          ],
+          "events": 1,
+          "healthStatus": "ok",
+          "lastAttempt": 1789000003000,
+          "lastSync": 1789000003000,
+          "nextEventId": 2,
+          "snapshotBytes": 1496
+        },
+        {
+          "counts": {
+            "bySeverity": {
+              "critical": 0,
+              "deesc": 0,
+              "escalating": 1,
+              "watching": 0
+            },
+            "byTopic": {
+              "cyber": 1,
+              "geopolitical": 0,
+              "maritime": 0,
+              "military": 0
+            },
+            "deduped": 1,
+            "events": 1,
+            "ingested": 1,
+            "merged": 0,
+            "pulse": 0
+          },
+          "eventIds": [
+            1
+          ],
+          "events": 1,
+          "healthStatus": "ok",
+          "lastAttempt": 1789000003000,
+          "lastSync": 1789000003000,
+          "nextEventId": 2,
+          "snapshotBytes": 1496
+        },
+        {
+          "counts": {
+            "bySeverity": {
+              "critical": 0,
+              "deesc": 0,
+              "escalating": 1,
+              "watching": 0
+            },
+            "byTopic": {
+              "cyber": 1,
+              "geopolitical": 0,
+              "maritime": 0,
+              "military": 0
+            },
+            "deduped": 1,
+            "events": 1,
+            "ingested": 1,
+            "merged": 0,
+            "pulse": 0
+          },
+          "eventIds": [
+            1
+          ],
+          "events": 1,
+          "healthStatus": "ok",
+          "lastAttempt": 1789000003000,
+          "lastSync": 1789000003000,
+          "nextEventId": 2,
+          "snapshotBytes": 1496
+        },
+        {
+          "counts": {
+            "bySeverity": {
+              "critical": 0,
+              "deesc": 0,
+              "escalating": 1,
+              "watching": 0
+            },
+            "byTopic": {
+              "cyber": 1,
+              "geopolitical": 0,
+              "maritime": 0,
+              "military": 0
+            },
+            "deduped": 1,
+            "events": 1,
+            "ingested": 1,
+            "merged": 0,
+            "pulse": 0
+          },
+          "eventIds": [
+            1
+          ],
+          "events": 1,
+          "healthStatus": "ok",
+          "lastAttempt": 1789000003000,
+          "lastSync": 1789000003000,
+          "nextEventId": 2,
+          "snapshotBytes": 1496
+        }
+      ]
+    },
+    {
+      "durationMs": {
+        "max": 16.95088899577968,
+        "median": 11.126227997010574,
+        "min": 10.065995011245832
+      },
+      "name": "same_url_revised_title",
+      "note": "CURRENT behavior: same event retained; revised title text ignored (no revision handling yet)",
+      "reps": 5,
+      "samples": [
+        {
+          "counts": {
+            "bySeverity": {
+              "critical": 0,
+              "deesc": 0,
+              "escalating": 1,
+              "watching": 0
+            },
+            "byTopic": {
+              "cyber": 1,
+              "geopolitical": 0,
+              "maritime": 0,
+              "military": 0
+            },
+            "deduped": 1,
+            "events": 1,
+            "ingested": 1,
+            "merged": 0,
+            "pulse": 0
+          },
+          "eventIds": [
+            1
+          ],
+          "events": 1,
+          "healthStatus": "ok",
+          "lastAttempt": 1789000003000,
+          "lastSync": 1789000003000,
+          "nextEventId": 2,
+          "snapshotBytes": 1496
+        },
+        {
+          "counts": {
+            "bySeverity": {
+              "critical": 0,
+              "deesc": 0,
+              "escalating": 1,
+              "watching": 0
+            },
+            "byTopic": {
+              "cyber": 1,
+              "geopolitical": 0,
+              "maritime": 0,
+              "military": 0
+            },
+            "deduped": 1,
+            "events": 1,
+            "ingested": 1,
+            "merged": 0,
+            "pulse": 0
+          },
+          "eventIds": [
+            1
+          ],
+          "events": 1,
+          "healthStatus": "ok",
+          "lastAttempt": 1789000003000,
+          "lastSync": 1789000003000,
+          "nextEventId": 2,
+          "snapshotBytes": 1496
+        },
+        {
+          "counts": {
+            "bySeverity": {
+              "critical": 0,
+              "deesc": 0,
+              "escalating": 1,
+              "watching": 0
+            },
+            "byTopic": {
+              "cyber": 1,
+              "geopolitical": 0,
+              "maritime": 0,
+              "military": 0
+            },
+            "deduped": 1,
+            "events": 1,
+            "ingested": 1,
+            "merged": 0,
+            "pulse": 0
+          },
+          "eventIds": [
+            1
+          ],
+          "events": 1,
+          "healthStatus": "ok",
+          "lastAttempt": 1789000003000,
+          "lastSync": 1789000003000,
+          "nextEventId": 2,
+          "snapshotBytes": 1496
+        },
+        {
+          "counts": {
+            "bySeverity": {
+              "critical": 0,
+              "deesc": 0,
+              "escalating": 1,
+              "watching": 0
+            },
+            "byTopic": {
+              "cyber": 1,
+              "geopolitical": 0,
+              "maritime": 0,
+              "military": 0
+            },
+            "deduped": 1,
+            "events": 1,
+            "ingested": 1,
+            "merged": 0,
+            "pulse": 0
+          },
+          "eventIds": [
+            1
+          ],
+          "events": 1,
+          "healthStatus": "ok",
+          "lastAttempt": 1789000003000,
+          "lastSync": 1789000003000,
+          "nextEventId": 2,
+          "snapshotBytes": 1496
+        },
+        {
+          "counts": {
+            "bySeverity": {
+              "critical": 0,
+              "deesc": 0,
+              "escalating": 1,
+              "watching": 0
+            },
+            "byTopic": {
+              "cyber": 1,
+              "geopolitical": 0,
+              "maritime": 0,
+              "military": 0
+            },
+            "deduped": 1,
+            "events": 1,
+            "ingested": 1,
+            "merged": 0,
+            "pulse": 0
+          },
+          "eventIds": [
+            1
+          ],
+          "events": 1,
+          "healthStatus": "ok",
+          "lastAttempt": 1789000003000,
+          "lastSync": 1789000003000,
+          "nextEventId": 2,
+          "snapshotBytes": 1496
+        }
+      ]
+    },
+    {
+      "durationMs": {
+        "max": 6.573185994056985,
+        "median": 5.748386989580467,
+        "min": 5.491079995408654
+      },
+      "name": "two_outlets_same_story",
+      "note": "corroboration merge: 2 sources, 1 event",
+      "reps": 5,
+      "samples": [
+        {
+          "counts": {
+            "bySeverity": {
+              "critical": 0,
+              "deesc": 0,
+              "escalating": 1,
+              "watching": 0
+            },
+            "byTopic": {
+              "cyber": 1,
+              "geopolitical": 0,
+              "maritime": 0,
+              "military": 0
+            },
+            "deduped": 0,
+            "events": 1,
+            "ingested": 2,
+            "merged": 1,
+            "pulse": 1
+          },
+          "eventIds": [
+            1
+          ],
+          "events": 1,
+          "healthStatus": "ok",
+          "lastAttempt": 1789000001000,
+          "lastSync": 1789000001000,
+          "nextEventId": 2,
+          "snapshotBytes": 1604
+        },
+        {
+          "counts": {
+            "bySeverity": {
+              "critical": 0,
+              "deesc": 0,
+              "escalating": 1,
+              "watching": 0
+            },
+            "byTopic": {
+              "cyber": 1,
+              "geopolitical": 0,
+              "maritime": 0,
+              "military": 0
+            },
+            "deduped": 0,
+            "events": 1,
+            "ingested": 2,
+            "merged": 1,
+            "pulse": 1
+          },
+          "eventIds": [
+            1
+          ],
+          "events": 1,
+          "healthStatus": "ok",
+          "lastAttempt": 1789000001000,
+          "lastSync": 1789000001000,
+          "nextEventId": 2,
+          "snapshotBytes": 1604
+        },
+        {
+          "counts": {
+            "bySeverity": {
+              "critical": 0,
+              "deesc": 0,
+              "escalating": 1,
+              "watching": 0
+            },
+            "byTopic": {
+              "cyber": 1,
+              "geopolitical": 0,
+              "maritime": 0,
+              "military": 0
+            },
+            "deduped": 0,
+            "events": 1,
+            "ingested": 2,
+            "merged": 1,
+            "pulse": 1
+          },
+          "eventIds": [
+            1
+          ],
+          "events": 1,
+          "healthStatus": "ok",
+          "lastAttempt": 1789000001000,
+          "lastSync": 1789000001000,
+          "nextEventId": 2,
+          "snapshotBytes": 1604
+        },
+        {
+          "counts": {
+            "bySeverity": {
+              "critical": 0,
+              "deesc": 0,
+              "escalating": 1,
+              "watching": 0
+            },
+            "byTopic": {
+              "cyber": 1,
+              "geopolitical": 0,
+              "maritime": 0,
+              "military": 0
+            },
+            "deduped": 0,
+            "events": 1,
+            "ingested": 2,
+            "merged": 1,
+            "pulse": 1
+          },
+          "eventIds": [
+            1
+          ],
+          "events": 1,
+          "healthStatus": "ok",
+          "lastAttempt": 1789000001000,
+          "lastSync": 1789000001000,
+          "nextEventId": 2,
+          "snapshotBytes": 1604
+        },
+        {
+          "counts": {
+            "bySeverity": {
+              "critical": 0,
+              "deesc": 0,
+              "escalating": 1,
+              "watching": 0
+            },
+            "byTopic": {
+              "cyber": 1,
+              "geopolitical": 0,
+              "maritime": 0,
+              "military": 0
+            },
+            "deduped": 0,
+            "events": 1,
+            "ingested": 2,
+            "merged": 1,
+            "pulse": 1
+          },
+          "eventIds": [
+            1
+          ],
+          "events": 1,
+          "healthStatus": "ok",
+          "lastAttempt": 1789000001000,
+          "lastSync": 1789000001000,
+          "nextEventId": 2,
+          "snapshotBytes": 1604
+        }
+      ]
+    },
+    {
+      "durationMs": {
+        "max": 11.570439994102344,
+        "median": 10.71766100358218,
+        "min": 10.006934026023373
+      },
+      "name": "partial_provider_failure",
+      "note": "degraded status; retained successful-check semantics",
+      "reps": 5,
+      "samples": [
+        {
+          "counts": {
+            "bySeverity": {
+              "critical": 0,
+              "deesc": 0,
+              "escalating": 1,
+              "watching": 0
+            },
+            "byTopic": {
+              "cyber": 1,
+              "geopolitical": 0,
+              "maritime": 0,
+              "military": 0
+            },
+            "deduped": 0,
+            "events": 1,
+            "ingested": 0,
+            "merged": 0,
+            "pulse": 0
+          },
+          "eventIds": [
+            1
+          ],
+          "events": 1,
+          "healthStatus": "degraded",
+          "lastAttempt": 1789000003000,
+          "lastSync": 1789000003000,
+          "nextEventId": 2,
+          "snapshotBytes": 1523
+        },
+        {
+          "counts": {
+            "bySeverity": {
+              "critical": 0,
+              "deesc": 0,
+              "escalating": 1,
+              "watching": 0
+            },
+            "byTopic": {
+              "cyber": 1,
+              "geopolitical": 0,
+              "maritime": 0,
+              "military": 0
+            },
+            "deduped": 0,
+            "events": 1,
+            "ingested": 0,
+            "merged": 0,
+            "pulse": 0
+          },
+          "eventIds": [
+            1
+          ],
+          "events": 1,
+          "healthStatus": "degraded",
+          "lastAttempt": 1789000003000,
+          "lastSync": 1789000003000,
+          "nextEventId": 2,
+          "snapshotBytes": 1523
+        },
+        {
+          "counts": {
+            "bySeverity": {
+              "critical": 0,
+              "deesc": 0,
+              "escalating": 1,
+              "watching": 0
+            },
+            "byTopic": {
+              "cyber": 1,
+              "geopolitical": 0,
+              "maritime": 0,
+              "military": 0
+            },
+            "deduped": 0,
+            "events": 1,
+            "ingested": 0,
+            "merged": 0,
+            "pulse": 0
+          },
+          "eventIds": [
+            1
+          ],
+          "events": 1,
+          "healthStatus": "degraded",
+          "lastAttempt": 1789000003000,
+          "lastSync": 1789000003000,
+          "nextEventId": 2,
+          "snapshotBytes": 1523
+        },
+        {
+          "counts": {
+            "bySeverity": {
+              "critical": 0,
+              "deesc": 0,
+              "escalating": 1,
+              "watching": 0
+            },
+            "byTopic": {
+              "cyber": 1,
+              "geopolitical": 0,
+              "maritime": 0,
+              "military": 0
+            },
+            "deduped": 0,
+            "events": 1,
+            "ingested": 0,
+            "merged": 0,
+            "pulse": 0
+          },
+          "eventIds": [
+            1
+          ],
+          "events": 1,
+          "healthStatus": "degraded",
+          "lastAttempt": 1789000003000,
+          "lastSync": 1789000003000,
+          "nextEventId": 2,
+          "snapshotBytes": 1523
+        },
+        {
+          "counts": {
+            "bySeverity": {
+              "critical": 0,
+              "deesc": 0,
+              "escalating": 1,
+              "watching": 0
+            },
+            "byTopic": {
+              "cyber": 1,
+              "geopolitical": 0,
+              "maritime": 0,
+              "military": 0
+            },
+            "deduped": 0,
+            "events": 1,
+            "ingested": 0,
+            "merged": 0,
+            "pulse": 0
+          },
+          "eventIds": [
+            1
+          ],
+          "events": 1,
+          "healthStatus": "degraded",
+          "lastAttempt": 1789000003000,
+          "lastSync": 1789000003000,
+          "nextEventId": 2,
+          "snapshotBytes": 1523
+        }
+      ]
+    },
+    {
+      "durationMs": {
+        "max": 14.96837000013329,
+        "median": 11.252347991103306,
+        "min": 9.688301011919975
+      },
+      "name": "total_failure_after_success",
+      "note": "error status; retained previous events and lastSync",
+      "reps": 5,
+      "samples": [
+        {
+          "counts": {
+            "bySeverity": {
+              "critical": 0,
+              "deesc": 0,
+              "escalating": 1,
+              "watching": 0
+            },
+            "byTopic": {
+              "cyber": 1,
+              "geopolitical": 0,
+              "maritime": 0,
+              "military": 0
+            },
+            "deduped": 0,
+            "events": 1,
+            "ingested": 0,
+            "merged": 0,
+            "pulse": 0
+          },
+          "eventIds": [
+            1
+          ],
+          "events": 1,
+          "healthStatus": "error",
+          "lastAttempt": 1789000003000,
+          "lastSync": 1789000001000,
+          "nextEventId": 2,
+          "snapshotBytes": 1608
+        },
+        {
+          "counts": {
+            "bySeverity": {
+              "critical": 0,
+              "deesc": 0,
+              "escalating": 1,
+              "watching": 0
+            },
+            "byTopic": {
+              "cyber": 1,
+              "geopolitical": 0,
+              "maritime": 0,
+              "military": 0
+            },
+            "deduped": 0,
+            "events": 1,
+            "ingested": 0,
+            "merged": 0,
+            "pulse": 0
+          },
+          "eventIds": [
+            1
+          ],
+          "events": 1,
+          "healthStatus": "error",
+          "lastAttempt": 1789000003000,
+          "lastSync": 1789000001000,
+          "nextEventId": 2,
+          "snapshotBytes": 1608
+        },
+        {
+          "counts": {
+            "bySeverity": {
+              "critical": 0,
+              "deesc": 0,
+              "escalating": 1,
+              "watching": 0
+            },
+            "byTopic": {
+              "cyber": 1,
+              "geopolitical": 0,
+              "maritime": 0,
+              "military": 0
+            },
+            "deduped": 0,
+            "events": 1,
+            "ingested": 0,
+            "merged": 0,
+            "pulse": 0
+          },
+          "eventIds": [
+            1
+          ],
+          "events": 1,
+          "healthStatus": "error",
+          "lastAttempt": 1789000003000,
+          "lastSync": 1789000001000,
+          "nextEventId": 2,
+          "snapshotBytes": 1608
+        },
+        {
+          "counts": {
+            "bySeverity": {
+              "critical": 0,
+              "deesc": 0,
+              "escalating": 1,
+              "watching": 0
+            },
+            "byTopic": {
+              "cyber": 1,
+              "geopolitical": 0,
+              "maritime": 0,
+              "military": 0
+            },
+            "deduped": 0,
+            "events": 1,
+            "ingested": 0,
+            "merged": 0,
+            "pulse": 0
+          },
+          "eventIds": [
+            1
+          ],
+          "events": 1,
+          "healthStatus": "error",
+          "lastAttempt": 1789000003000,
+          "lastSync": 1789000001000,
+          "nextEventId": 2,
+          "snapshotBytes": 1608
+        },
+        {
+          "counts": {
+            "bySeverity": {
+              "critical": 0,
+              "deesc": 0,
+              "escalating": 1,
+              "watching": 0
+            },
+            "byTopic": {
+              "cyber": 1,
+              "geopolitical": 0,
+              "maritime": 0,
+              "military": 0
+            },
+            "deduped": 0,
+            "events": 1,
+            "ingested": 0,
+            "merged": 0,
+            "pulse": 0
+          },
+          "eventIds": [
+            1
+          ],
+          "events": 1,
+          "healthStatus": "error",
+          "lastAttempt": 1789000003000,
+          "lastSync": 1789000001000,
+          "nextEventId": 2,
+          "snapshotBytes": 1608
+        }
+      ]
+    },
+    {
+      "durationMs": {
+        "max": 6.272541009820998,
+        "median": 5.0512309826444834,
+        "min": 3.8258830027189106
+      },
+      "name": "successful_empty_feed",
+      "note": "ok health with zero events",
+      "reps": 5,
+      "samples": [
+        {
+          "counts": {
+            "bySeverity": {
+              "critical": 0,
+              "deesc": 0,
+              "escalating": 0,
+              "watching": 0
+            },
+            "byTopic": {
+              "cyber": 0,
+              "geopolitical": 0,
+              "maritime": 0,
+              "military": 0
+            },
+            "deduped": 0,
+            "events": 0,
+            "ingested": 0,
+            "merged": 0,
+            "pulse": 0
+          },
+          "eventIds": [],
+          "events": 0,
+          "healthStatus": "ok",
+          "lastAttempt": 1789000001000,
+          "lastSync": 1789000001000,
+          "nextEventId": 1,
+          "snapshotBytes": 723
+        },
+        {
+          "counts": {
+            "bySeverity": {
+              "critical": 0,
+              "deesc": 0,
+              "escalating": 0,
+              "watching": 0
+            },
+            "byTopic": {
+              "cyber": 0,
+              "geopolitical": 0,
+              "maritime": 0,
+              "military": 0
+            },
+            "deduped": 0,
+            "events": 0,
+            "ingested": 0,
+            "merged": 0,
+            "pulse": 0
+          },
+          "eventIds": [],
+          "events": 0,
+          "healthStatus": "ok",
+          "lastAttempt": 1789000001000,
+          "lastSync": 1789000001000,
+          "nextEventId": 1,
+          "snapshotBytes": 723
+        },
+        {
+          "counts": {
+            "bySeverity": {
+              "critical": 0,
+              "deesc": 0,
+              "escalating": 0,
+              "watching": 0
+            },
+            "byTopic": {
+              "cyber": 0,
+              "geopolitical": 0,
+              "maritime": 0,
+              "military": 0
+            },
+            "deduped": 0,
+            "events": 0,
+            "ingested": 0,
+            "merged": 0,
+            "pulse": 0
+          },
+          "eventIds": [],
+          "events": 0,
+          "healthStatus": "ok",
+          "lastAttempt": 1789000001000,
+          "lastSync": 1789000001000,
+          "nextEventId": 1,
+          "snapshotBytes": 723
+        },
+        {
+          "counts": {
+            "bySeverity": {
+              "critical": 0,
+              "deesc": 0,
+              "escalating": 0,
+              "watching": 0
+            },
+            "byTopic": {
+              "cyber": 0,
+              "geopolitical": 0,
+              "maritime": 0,
+              "military": 0
+            },
+            "deduped": 0,
+            "events": 0,
+            "ingested": 0,
+            "merged": 0,
+            "pulse": 0
+          },
+          "eventIds": [],
+          "events": 0,
+          "healthStatus": "ok",
+          "lastAttempt": 1789000001000,
+          "lastSync": 1789000001000,
+          "nextEventId": 1,
+          "snapshotBytes": 723
+        },
+        {
+          "counts": {
+            "bySeverity": {
+              "critical": 0,
+              "deesc": 0,
+              "escalating": 0,
+              "watching": 0
+            },
+            "byTopic": {
+              "cyber": 0,
+              "geopolitical": 0,
+              "maritime": 0,
+              "military": 0
+            },
+            "deduped": 0,
+            "events": 0,
+            "ingested": 0,
+            "merged": 0,
+            "pulse": 0
+          },
+          "eventIds": [],
+          "events": 0,
+          "healthStatus": "ok",
+          "lastAttempt": 1789000001000,
+          "lastSync": 1789000001000,
+          "nextEventId": 1,
+          "snapshotBytes": 723
+        }
+      ]
+    },
+    {
+      "durationMs": {
+        "max": 24.95642297435552,
+        "median": 22.25961899966933,
+        "min": 21.37838999624364
+      },
+      "name": "pruning_high_water",
+      "note": "pruned to MAX_EVENTS; nextEventId high-water survives, ID 100 reused",
+      "reps": 5,
+      "samples": [
+        {
+          "counts": {
+            "bySeverity": {
+              "critical": 0,
+              "deesc": 0,
+              "escalating": 2,
+              "watching": 0
+            },
+            "byTopic": {
+              "cyber": 2,
+              "geopolitical": 0,
+              "maritime": 0,
+              "military": 0
+            },
+            "deduped": 0,
+            "events": 2,
+            "ingested": 1,
+            "merged": 0,
+            "pulse": 0
+          },
+          "eventIds": [
+            100,
+            1
+          ],
+          "events": 2,
+          "healthStatus": "ok",
+          "lastAttempt": 1789000005000,
+          "lastSync": 1789000005000,
+          "nextEventId": 101,
+          "snapshotBytes": 2253
+        },
+        {
+          "counts": {
+            "bySeverity": {
+              "critical": 0,
+              "deesc": 0,
+              "escalating": 2,
+              "watching": 0
+            },
+            "byTopic": {
+              "cyber": 2,
+              "geopolitical": 0,
+              "maritime": 0,
+              "military": 0
+            },
+            "deduped": 0,
+            "events": 2,
+            "ingested": 1,
+            "merged": 0,
+            "pulse": 0
+          },
+          "eventIds": [
+            100,
+            1
+          ],
+          "events": 2,
+          "healthStatus": "ok",
+          "lastAttempt": 1789000005000,
+          "lastSync": 1789000005000,
+          "nextEventId": 101,
+          "snapshotBytes": 2253
+        },
+        {
+          "counts": {
+            "bySeverity": {
+              "critical": 0,
+              "deesc": 0,
+              "escalating": 2,
+              "watching": 0
+            },
+            "byTopic": {
+              "cyber": 2,
+              "geopolitical": 0,
+              "maritime": 0,
+              "military": 0
+            },
+            "deduped": 0,
+            "events": 2,
+            "ingested": 1,
+            "merged": 0,
+            "pulse": 0
+          },
+          "eventIds": [
+            100,
+            1
+          ],
+          "events": 2,
+          "healthStatus": "ok",
+          "lastAttempt": 1789000005000,
+          "lastSync": 1789000005000,
+          "nextEventId": 101,
+          "snapshotBytes": 2253
+        },
+        {
+          "counts": {
+            "bySeverity": {
+              "critical": 0,
+              "deesc": 0,
+              "escalating": 2,
+              "watching": 0
+            },
+            "byTopic": {
+              "cyber": 2,
+              "geopolitical": 0,
+              "maritime": 0,
+              "military": 0
+            },
+            "deduped": 0,
+            "events": 2,
+            "ingested": 1,
+            "merged": 0,
+            "pulse": 0
+          },
+          "eventIds": [
+            100,
+            1
+          ],
+          "events": 2,
+          "healthStatus": "ok",
+          "lastAttempt": 1789000005000,
+          "lastSync": 1789000005000,
+          "nextEventId": 101,
+          "snapshotBytes": 2253
+        },
+        {
+          "counts": {
+            "bySeverity": {
+              "critical": 0,
+              "deesc": 0,
+              "escalating": 2,
+              "watching": 0
+            },
+            "byTopic": {
+              "cyber": 2,
+              "geopolitical": 0,
+              "maritime": 0,
+              "military": 0
+            },
+            "deduped": 0,
+            "events": 2,
+            "ingested": 1,
+            "merged": 0,
+            "pulse": 0
+          },
+          "eventIds": [
+            100,
+            1
+          ],
+          "events": 2,
+          "healthStatus": "ok",
+          "lastAttempt": 1789000005000,
+          "lastSync": 1789000005000,
+          "nextEventId": 101,
+          "snapshotBytes": 2253
+        }
+      ]
+    },
+    {
+      "durationMs": {
+        "max": 10.678179998649284,
+        "median": 9.632475004764274,
+        "min": 8.947570982854813
+      },
+      "name": "snapshot_only_migration",
+      "note": "no fetch triggered; lastSync preserved, no invented success",
+      "reps": 5,
+      "samples": [
+        {
+          "counts": {
+            "bySeverity": {
+              "critical": 0,
+              "deesc": 0,
+              "escalating": 1,
+              "watching": 0
+            },
+            "byTopic": {
+              "cyber": 1,
+              "geopolitical": 0,
+              "maritime": 0,
+              "military": 0
+            },
+            "events": 1,
+            "pulse": 0
+          },
+          "eventIds": [
+            1
+          ],
+          "events": 1,
+          "healthStatus": "ok",
+          "lastAttempt": 1789000001000,
+          "lastSync": 1789000001000,
+          "nextEventId": 2,
+          "snapshotBytes": 1436
+        },
+        {
+          "counts": {
+            "bySeverity": {
+              "critical": 0,
+              "deesc": 0,
+              "escalating": 1,
+              "watching": 0
+            },
+            "byTopic": {
+              "cyber": 1,
+              "geopolitical": 0,
+              "maritime": 0,
+              "military": 0
+            },
+            "events": 1,
+            "pulse": 0
+          },
+          "eventIds": [
+            1
+          ],
+          "events": 1,
+          "healthStatus": "ok",
+          "lastAttempt": 1789000001000,
+          "lastSync": 1789000001000,
+          "nextEventId": 2,
+          "snapshotBytes": 1436
+        },
+        {
+          "counts": {
+            "bySeverity": {
+              "critical": 0,
+              "deesc": 0,
+              "escalating": 1,
+              "watching": 0
+            },
+            "byTopic": {
+              "cyber": 1,
+              "geopolitical": 0,
+              "maritime": 0,
+              "military": 0
+            },
+            "events": 1,
+            "pulse": 0
+          },
+          "eventIds": [
+            1
+          ],
+          "events": 1,
+          "healthStatus": "ok",
+          "lastAttempt": 1789000001000,
+          "lastSync": 1789000001000,
+          "nextEventId": 2,
+          "snapshotBytes": 1436
+        },
+        {
+          "counts": {
+            "bySeverity": {
+              "critical": 0,
+              "deesc": 0,
+              "escalating": 1,
+              "watching": 0
+            },
+            "byTopic": {
+              "cyber": 1,
+              "geopolitical": 0,
+              "maritime": 0,
+              "military": 0
+            },
+            "events": 1,
+            "pulse": 0
+          },
+          "eventIds": [
+            1
+          ],
+          "events": 1,
+          "healthStatus": "ok",
+          "lastAttempt": 1789000001000,
+          "lastSync": 1789000001000,
+          "nextEventId": 2,
+          "snapshotBytes": 1436
+        },
+        {
+          "counts": {
+            "bySeverity": {
+              "critical": 0,
+              "deesc": 0,
+              "escalating": 1,
+              "watching": 0
+            },
+            "byTopic": {
+              "cyber": 1,
+              "geopolitical": 0,
+              "maritime": 0,
+              "military": 0
+            },
+            "events": 1,
+            "pulse": 0
+          },
+          "eventIds": [
+            1
+          ],
+          "events": 1,
+          "healthStatus": "ok",
+          "lastAttempt": 1789000001000,
+          "lastSync": 1789000001000,
+          "nextEventId": 2,
+          "snapshotBytes": 1436
+        }
+      ]
+    },
+    {
+      "durationMs": {
+        "max": 702.4488380120602,
+        "median": 657.7804879925679,
+        "min": 647.149177006213
+      },
+      "name": "scale_500_synthetic",
+      "note": "500 unique synthetic records; all retained (cap 500)",
+      "reps": 5,
+      "samples": [
+        {
+          "counts": {
+            "bySeverity": {
+              "critical": 0,
+              "deesc": 0,
+              "escalating": 500,
+              "watching": 0
+            },
+            "byTopic": {
+              "cyber": 500,
+              "geopolitical": 0,
+              "maritime": 0,
+              "military": 0
+            },
+            "deduped": 0,
+            "events": 500,
+            "ingested": 500,
+            "merged": 0,
+            "pulse": 0
+          },
+          "eventIds": [
+            500,
+            499,
+            498,
+            497,
+            496,
+            495
+          ],
+          "events": 500,
+          "healthStatus": "ok",
+          "lastAttempt": 1789000001000,
+          "lastSync": 1789000001000,
+          "nextEventId": 501,
+          "snapshotBytes": 405357
+        },
+        {
+          "counts": {
+            "bySeverity": {
+              "critical": 0,
+              "deesc": 0,
+              "escalating": 500,
+              "watching": 0
+            },
+            "byTopic": {
+              "cyber": 500,
+              "geopolitical": 0,
+              "maritime": 0,
+              "military": 0
+            },
+            "deduped": 0,
+            "events": 500,
+            "ingested": 500,
+            "merged": 0,
+            "pulse": 0
+          },
+          "eventIds": [
+            500,
+            499,
+            498,
+            497,
+            496,
+            495
+          ],
+          "events": 500,
+          "healthStatus": "ok",
+          "lastAttempt": 1789000001000,
+          "lastSync": 1789000001000,
+          "nextEventId": 501,
+          "snapshotBytes": 405357
+        },
+        {
+          "counts": {
+            "bySeverity": {
+              "critical": 0,
+              "deesc": 0,
+              "escalating": 500,
+              "watching": 0
+            },
+            "byTopic": {
+              "cyber": 500,
+              "geopolitical": 0,
+              "maritime": 0,
+              "military": 0
+            },
+            "deduped": 0,
+            "events": 500,
+            "ingested": 500,
+            "merged": 0,
+            "pulse": 0
+          },
+          "eventIds": [
+            500,
+            499,
+            498,
+            497,
+            496,
+            495
+          ],
+          "events": 500,
+          "healthStatus": "ok",
+          "lastAttempt": 1789000001000,
+          "lastSync": 1789000001000,
+          "nextEventId": 501,
+          "snapshotBytes": 405357
+        },
+        {
+          "counts": {
+            "bySeverity": {
+              "critical": 0,
+              "deesc": 0,
+              "escalating": 500,
+              "watching": 0
+            },
+            "byTopic": {
+              "cyber": 500,
+              "geopolitical": 0,
+              "maritime": 0,
+              "military": 0
+            },
+            "deduped": 0,
+            "events": 500,
+            "ingested": 500,
+            "merged": 0,
+            "pulse": 0
+          },
+          "eventIds": [
+            500,
+            499,
+            498,
+            497,
+            496,
+            495
+          ],
+          "events": 500,
+          "healthStatus": "ok",
+          "lastAttempt": 1789000001000,
+          "lastSync": 1789000001000,
+          "nextEventId": 501,
+          "snapshotBytes": 405357
+        },
+        {
+          "counts": {
+            "bySeverity": {
+              "critical": 0,
+              "deesc": 0,
+              "escalating": 500,
+              "watching": 0
+            },
+            "byTopic": {
+              "cyber": 500,
+              "geopolitical": 0,
+              "maritime": 0,
+              "military": 0
+            },
+            "deduped": 0,
+            "events": 500,
+            "ingested": 500,
+            "merged": 0,
+            "pulse": 0
+          },
+          "eventIds": [
+            500,
+            499,
+            498,
+            497,
+            496,
+            495
+          ],
+          "events": 500,
+          "healthStatus": "ok",
+          "lastAttempt": 1789000001000,
+          "lastSync": 1789000001000,
+          "nextEventId": 501,
+          "snapshotBytes": 405357
+        }
+      ]
+    },
+    {
+      "durationMs": {
+        "max": 3722.179558011703,
+        "median": 3544.5866950030904,
+        "min": 3500.986701983493
+      },
+      "name": "scale_5000_synthetic",
+      "note": "5000 unique synthetic records ingested; snapshot capped at MAX_EVENTS=500 (today's projection cap). Synthetic records are not claimed archived.",
+      "reps": 5,
+      "samples": [
+        {
+          "counts": {
+            "bySeverity": {
+              "critical": 0,
+              "deesc": 0,
+              "escalating": 500,
+              "watching": 0
+            },
+            "byTopic": {
+              "cyber": 500,
+              "geopolitical": 0,
+              "maritime": 0,
+              "military": 0
+            },
+            "deduped": 0,
+            "events": 500,
+            "ingested": 5000,
+            "merged": 0,
+            "pulse": 0
+          },
+          "eventIds": [
+            5000,
+            4999,
+            4998,
+            4997,
+            4996,
+            4995
+          ],
+          "events": 500,
+          "healthStatus": "ok",
+          "lastAttempt": 1789000001000,
+          "lastSync": 1789000001000,
+          "nextEventId": 5001,
+          "snapshotBytes": 410237
+        },
+        {
+          "counts": {
+            "bySeverity": {
+              "critical": 0,
+              "deesc": 0,
+              "escalating": 500,
+              "watching": 0
+            },
+            "byTopic": {
+              "cyber": 500,
+              "geopolitical": 0,
+              "maritime": 0,
+              "military": 0
+            },
+            "deduped": 0,
+            "events": 500,
+            "ingested": 5000,
+            "merged": 0,
+            "pulse": 0
+          },
+          "eventIds": [
+            5000,
+            4999,
+            4998,
+            4997,
+            4996,
+            4995
+          ],
+          "events": 500,
+          "healthStatus": "ok",
+          "lastAttempt": 1789000001000,
+          "lastSync": 1789000001000,
+          "nextEventId": 5001,
+          "snapshotBytes": 410237
+        },
+        {
+          "counts": {
+            "bySeverity": {
+              "critical": 0,
+              "deesc": 0,
+              "escalating": 500,
+              "watching": 0
+            },
+            "byTopic": {
+              "cyber": 500,
+              "geopolitical": 0,
+              "maritime": 0,
+              "military": 0
+            },
+            "deduped": 0,
+            "events": 500,
+            "ingested": 5000,
+            "merged": 0,
+            "pulse": 0
+          },
+          "eventIds": [
+            5000,
+            4999,
+            4998,
+            4997,
+            4996,
+            4995
+          ],
+          "events": 500,
+          "healthStatus": "ok",
+          "lastAttempt": 1789000001000,
+          "lastSync": 1789000001000,
+          "nextEventId": 5001,
+          "snapshotBytes": 410237
+        },
+        {
+          "counts": {
+            "bySeverity": {
+              "critical": 0,
+              "deesc": 0,
+              "escalating": 500,
+              "watching": 0
+            },
+            "byTopic": {
+              "cyber": 500,
+              "geopolitical": 0,
+              "maritime": 0,
+              "military": 0
+            },
+            "deduped": 0,
+            "events": 500,
+            "ingested": 5000,
+            "merged": 0,
+            "pulse": 0
+          },
+          "eventIds": [
+            5000,
+            4999,
+            4998,
+            4997,
+            4996,
+            4995
+          ],
+          "events": 500,
+          "healthStatus": "ok",
+          "lastAttempt": 1789000001000,
+          "lastSync": 1789000001000,
+          "nextEventId": 5001,
+          "snapshotBytes": 410237
+        },
+        {
+          "counts": {
+            "bySeverity": {
+              "critical": 0,
+              "deesc": 0,
+              "escalating": 500,
+              "watching": 0
+            },
+            "byTopic": {
+              "cyber": 500,
+              "geopolitical": 0,
+              "maritime": 0,
+              "military": 0
+            },
+            "deduped": 0,
+            "events": 500,
+            "ingested": 5000,
+            "merged": 0,
+            "pulse": 0
+          },
+          "eventIds": [
+            5000,
+            4999,
+            4998,
+            4997,
+            4996,
+            4995
+          ],
+          "events": 500,
+          "healthStatus": "ok",
+          "lastAttempt": 1789000001000,
+          "lastSync": 1789000001000,
+          "nextEventId": 5001,
+          "snapshotBytes": 410237
+        }
+      ]
+    }
+  ],
+  "repsPerCase": 5,
+  "schemaVersion": 1,
+  "tool": "g3-ingest/tools/baseline.py",
+  "wallClockMs": 23945.791558013298
+}

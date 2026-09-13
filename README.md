@@ -107,4 +107,12 @@ Existing editorial and security policies remain applicable. No publishing,
 provider accounts, domain purchases, or external communication without explicit
 authorization. Operation SM remains the related content project.
 
-# project-sycamore
+## Repository contents
+
+Source code, lockfiles, tests, schemas, project documentation, archived prototypes,
+and public data/image snapshots are versioned together. Snapshot timestamps describe
+the captured coverage; cloning the repository does not refresh the reporting.
+
+Dependencies, build output, generated Cesium assets, logs, local databases, and
+private environment files are excluded. `npm ci` installs dependencies, and the
+development/build scripts regenerate Cesium assets and schema validators.

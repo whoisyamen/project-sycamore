@@ -1,0 +1,35 @@
+---
+import Base from '../../layouts/Base.astro';
+import { loadData } from '../../data/loader';
+import { eventDetail } from '../../client/render';
+import type { Event, DataContext } from '../../data/types';
+export async function getStaticPaths() {
+  const context = await loadData();
+  return context.events.map((event) => ({
+    params: { id: String(event.id) },
+    props: { event, context },
+  }));
+}
+interface Props {
+  event: Event;
+  context: DataContext;
+}
+const { event, context } = Astro.props;
+---
+
+<Base title={`${event.title} — Sycamore`} activeNav="boards" context={context}>
+  <main id="main" class="content-page event-page" tabindex="-1">
+    <a class="back-link" href="/boards">← All boards</a><article
+      class="event-article"
+      data-event-page={event.id}
+      set:html={eventDetail(event)}
+    /><a class="button" href={`/?event=${event.id}`}>Explore on the map ↗</a><p
+      class="fine-print"
+      id="event-archive-notice"
+      hidden
+    >
+      This event is outside the current feed. The reporting below is retained from the last site
+      build.
+    </p>
+  </main>
+</Base>

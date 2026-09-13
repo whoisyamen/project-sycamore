@@ -1,0 +1,48 @@
+---
+import { EVENTS, TOPICS } from '../data/events.js';
+const topics = Object.entries(TOPICS);
+---
+<aside class="panel left absolute top-20 left-4 bottom-16 w-[380px] z-10 flex flex-col overflow-hidden"
+       aria-label="Intel feed">
+  <div class="panel-header">
+    <span>INTEL FEED</span>
+    <span class="text-muted-dim">{EVENTS.length} EVENTS</span>
+  </div>
+  <div id="chips" class="flex flex-wrap gap-1.5 px-3 py-2.5 border-b border-ink-600/60" role="toolbar" aria-label="Topic filter">
+    <button class="chip active" data-topic="all">ALL</button>
+    {topics.map(([k, v]) => (
+      <button class="chip" data-topic={k} style={`--c:${v.color}`}>{v.label}</button>
+    ))}
+  </div>
+  <div id="feed" class="flex-1 overflow-y-auto" role="listbox" aria-label="Event list" tabindex="0">
+    {EVENTS.map(e => (
+      <a
+        href={`#event/${e.id}`}
+        class="feed-card"
+        data-id={e.id}
+        data-topic={e.t}
+        data-sev={e.sev}
+        role="option"
+        aria-selected="false"
+      >
+        <div class="flex items-start gap-2.5">
+          <span class={`mt-1.5 w-1.5 h-1.5 rounded-full flex-none ${
+            e.sev === 'critical'   ? 'bg-risk-red shadow-glow-red' :
+            e.sev === 'escalating' ? 'bg-risk-amber' :
+            e.sev === 'watching'   ? 'bg-cyan-alive' :
+                                     'bg-risk-green'
+          }`}></span>
+          <div class="flex-1 min-w-0">
+            <h3 class="text-[13px] leading-snug text-slate-100 font-medium">{e.title}</h3>
+            <div class="mt-1.5 flex items-center gap-2 text-[10.5px] font-mono uppercase tracking-wider text-muted">
+              <span>{TOPICS[e.t].label}</span>
+              <span class="text-muted-dim">·</span>
+              <span class="truncate">{e.loc}</span>
+            </div>
+            <div class="mt-0.5 text-[10px] font-mono text-muted-dim truncate">{e.src}</div>
+          </div>
+        </div>
+      </a>
+    ))}
+  </div>
+</aside>

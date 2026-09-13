@@ -1,0 +1,66 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Sycamore intelligence index (public)",
+  "description": "Public index for intelligence artifacts. Maps numeric v1 event IDs to event UIDs and immutable artifact paths. All fields inline (no cross-file $ref).",
+  "type": "object",
+  "required": ["schemaVersion", "releaseUid", "generatedAt", "snapshotHash", "entries"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "releaseUid": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "generatedAt": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 8640000000000000,
+      "description": "Index generation time, ms UTC."
+    },
+    "snapshotHash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$",
+      "description": "Diagnostic hash of the v1 snapshot this index accompanies."
+    },
+    "entries": {
+      "type": "array",
+      "maxItems": 500,
+      "items": {
+        "type": "object",
+        "required": [
+          "eventId",
+          "eventUid",
+          "eventRevisionUid",
+          "projectionHash",
+          "artifactPath"
+        ],
+        "properties": {
+          "eventId": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9007199254740991,
+            "description": "Existing numeric v1 event ID."
+          },
+          "eventUid": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+          },
+          "eventRevisionUid": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+          },
+          "projectionHash": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "artifactPath": {
+            "type": "string",
+            "pattern": "^/data/intelligence/v1/releases/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/events/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\\.json$",
+            "description": "Same-origin path; validated by application check to reject dot segments, query and fragment."
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

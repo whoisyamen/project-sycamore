@@ -1,0 +1,39 @@
+{
+  "generatedAt": "2026-09-07T19:46:38.374Z",
+  "totalFiles": 569,
+  "totalBytes": 56440776,
+  "bundledBytes": 4272555,
+  "bundledGzipBytes": 1141021,
+  "assets": [
+    {
+      "file": "_astro/globe.DmKrUm_c.js",
+      "bytes": 4156183,
+      "gzip": 1114055
+    },
+    {
+      "file": "_astro/site.CbhZz5H5.js",
+      "bytes": 57000,
+      "gzip": 11469
+    },
+    {
+      "file": "_astro/loader.D2DmYUQO.css",
+      "bytes": 24735,
+      "gzip": 6130
+    },
+    {
+      "file": "_astro/globe.DlEouP6K.css",
+      "bytes": 24253,
+      "gzip": 5360
+    },
+    {
+      "file": "_astro/index.astro_astro_type_script_index_0_lang.fAr6B2sm.js",
+      "bytes": 10357,
+      "gzip": 3960
+    },
+    {
+      "file": "_astro/Base.astro_astro_type_script_index_0_lang.B_1LDV2U.js",
+      "bytes": 27,
+      "gzip": 47
+    }
+  ]
+}

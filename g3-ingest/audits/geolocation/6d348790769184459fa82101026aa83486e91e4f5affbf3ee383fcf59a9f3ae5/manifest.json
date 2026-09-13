@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "lastSync": 1788647684899,
+  "lastAttempt": 1788647684899,
+  "nextEventId": 58,
+  "source": {
+    "name": "Curated RSS",
+    "endpoint": "https://krebsonsecurity.com/feed/"
+  },
+  "counts": {
+    "events": 57,
+    "byTopic": {
+      "cyber": 16,
+      "geopolitical": 24,
+      "maritime": 17,
+      "military": 0
+    },
+    "bySeverity": {
+      "critical": 2,
+      "escalating": 0,
+      "watching": 55,
+      "deesc": 0
+    },
+    "pulse": 0,
+    "ingested": 151,
+    "deduped": 37,
+    "merged": 0
+  },
+  "health": {
+    "status": "ok",
+    "durationMs": 4520,
+    "failedSources": []
+  }
+}

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Sycamore flight marker: top-down airliner silhouette, nose up (heading 0).
+       Fill is white so the globe tints it via Billboard color. -->
+  <path fill="#ffffff" d="M16 2 L17.6 8.2 L17.6 13.8 L28 19 L28 21.2 L17.6 17.4 L17.6 23.6 L22.6 26.2 L22.6 28 L16 27 L9.4 28 L9.4 26.2 L14.4 23.6 L14.4 17.4 L4 21.2 L4 19 L14.4 13.8 L14.4 8.2 Z"/>
+</svg>

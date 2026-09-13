@@ -1,0 +1,34 @@
+---
+import { dataStatus } from '../data/status';
+import type { DataContext } from '../data/types';
+interface Props {
+  activeNav: string;
+  context: DataContext;
+}
+const { activeNav, context } = Astro.props;
+const status = dataStatus(context.manifest, context.demo);
+---
+
+<header class="site-header">
+  <a href="/" class="brand" aria-label="Sycamore home"
+    ><span class="brand-mark" aria-hidden="true">s<span>·</span></span><span
+      >sycamore<span class="brand-caption">GLOBAL INTELLIGENCE</span></span
+    ></a
+  >
+  <nav aria-label="Main navigation">
+    {
+      [
+        ['live', '/', 'Live map'],
+        ['boards', '/boards', 'Boards'],
+        ['briefing', '/briefing', 'Briefing'],
+      ].map(([key, href, label]) => (
+        <a href={href} aria-current={activeNav === key ? 'page' : undefined}>
+          {label}
+        </a>
+      ))
+    }
+  </nav>
+  <div class="sync-status" data-status={status.kind} title={status.detail}>
+    <span class="status-dot"></span><span id="sync-label">{status.label}</span>
+  </div>
+</header>

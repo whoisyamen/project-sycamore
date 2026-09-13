@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "events": [
+    {
+      "id": 17,
+      "t": "cyber",
+      "sev": "critical",
+      "title": "Major ransomware hits regional power grid in Frankfurt",
+      "summary": "Regional power grid in Frankfurt disrupted by ransomware.",
+      "src": "GDELT \u2014 Reuters",
+      "loc": "Frankfurt, DE",
+      "lat": 50.11,
+      "lon": 8.68,
+      "ts": 1789034400000,
+      "ingestedAt": 1789034460000,
+      "sources": [
+        "https://alpha.example/story/17"
+      ],
+      "score": {
+        "articles": 1,
+        "tone": -6.0,
+        "quality": 72,
+        "confidence": 85,
+        "corroboration": {
+          "sources": [
+            "https://alpha.example/story/17"
+          ],
+          "outlets": [
+            "alpha.example"
+          ]
+        }
+      },
+      "geo": {
+        "tier": "precise",
+        "source": "source"
+      },
+      "media": {
+        "image": "data/media/1111111111111111.jpg"
+      }
+    }
+  ],
+  "manifest": {
+    "version": 1,
+    "lastSync": 1789075438867,
+    "source": {
+      "name": "Curated RSS",
+      "endpoint": "https://rss.example/feed"
+    },
+    "counts": {
+      "events": 1,
+      "byTopic": {
+        "cyber": 1,
+        "geopolitical": 0,
+        "maritime": 0,
+        "military": 0
+      },
+      "bySeverity": {
+        "critical": 1,
+        "escalating": 0,
+        "watching": 0,
+        "deesc": 0
+      },
+      "ingested": 1,
+      "deduped": 0,
+      "merged": 0,
+      "pulse": 1
+    },
+    "health": {
+      "status": "ok",
+      "durationMs": 12
+    },
+    "lastAttempt": 1789075438867,
+    "nextEventId": 18
+  }
+}

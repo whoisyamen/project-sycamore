@@ -1,0 +1,121 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Sycamore Manifest",
+  "description": "Metadata for one ingestion attempt; lastSync records the last successful source fetch.",
+  "type": "object",
+  "required": [
+    "version",
+    "lastSync",
+    "source",
+    "counts",
+    "health"
+  ],
+  "properties": {
+    "version": {
+      "type": "integer",
+      "const": 1
+    },
+    "lastSync": {
+      "type": "integer",
+      "description": "Last successful source fetch in epoch milliseconds; 0 if none.",
+      "minimum": 0
+    },
+    "source": {
+      "type": "object",
+      "required": [
+        "name",
+        "endpoint"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "e.g. 'GDELT DOC 2.0'."
+        },
+        "endpoint": {
+          "type": "string",
+          "format": "uri"
+        }
+      }
+    },
+    "counts": {
+      "type": "object",
+      "required": [
+        "events",
+        "byTopic",
+        "bySeverity"
+      ],
+      "properties": {
+        "events": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "byTopic": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "integer"
+          }
+        },
+        "bySeverity": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "integer"
+          }
+        },
+        "ingested": {
+          "type": "integer",
+          "description": "How many raw records we pulled this cycle."
+        },
+        "deduped": {
+          "type": "integer",
+          "description": "How many re-fetched copies were dropped as plain duplicates (same outlet, already on record)."
+        },
+        "merged": {
+          "type": "integer",
+          "description": "D-012: how many new articles corroborated an existing event this cycle (source appended to its cluster)."
+        },
+        "pulse": {
+          "type": "integer",
+          "description": "D-012: events currently satisfying the PULSE predicate (\u22652 sources OR confidence \u226585) at write time."
+        }
+      }
+    },
+    "health": {
+      "type": "object",
+      "required": [
+        "status"
+      ],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "ok",
+            "degraded",
+            "error"
+          ]
+        },
+        "lastError": {
+          "type": "string",
+          "description": "If status != ok, what failed."
+        },
+        "durationMs": {
+          "type": "integer",
+          "description": "How long the last ingest cycle took."
+        },
+        "failedSources": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "lastAttempt": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "nextEventId": {
+      "type": "integer",
+      "minimum": 1
+    }
+  }
+}

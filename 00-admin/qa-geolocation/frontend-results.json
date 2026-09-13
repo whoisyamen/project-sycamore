@@ -1,0 +1,173 @@
+{
+  "timestamp": "2026-09-06T02:21:14.584Z",
+  "browser": "153.0.8010.12",
+  "results": [
+    {
+      "name": "Desktop live map and marker library positioning",
+      "pass": true,
+      "detail": {
+        "events": 54
+      }
+    },
+    {
+      "name": "Topic cyber",
+      "pass": true
+    },
+    {
+      "name": "Topic geopolitical",
+      "pass": true
+    },
+    {
+      "name": "Topic maritime",
+      "pass": true
+    },
+    {
+      "name": "Topic military",
+      "pass": true
+    },
+    {
+      "name": "Topic all",
+      "pass": true
+    },
+    {
+      "name": "Severity critical",
+      "pass": true
+    },
+    {
+      "name": "Severity escalating",
+      "pass": true
+    },
+    {
+      "name": "Severity watching",
+      "pass": true
+    },
+    {
+      "name": "Severity deesc",
+      "pass": true
+    },
+    {
+      "name": "Severity all",
+      "pass": true
+    },
+    {
+      "name": "Time 24h",
+      "pass": true
+    },
+    {
+      "name": "Time 7d",
+      "pass": true
+    },
+    {
+      "name": "Time 30d",
+      "pass": true
+    },
+    {
+      "name": "Time all",
+      "pass": true
+    },
+    {
+      "name": "Search, no result, reset",
+      "pass": true
+    },
+    {
+      "name": "Select, close, Escape and browser Back/Forward",
+      "pass": true
+    },
+    {
+      "name": "Combined URL state reload and selection survives filters",
+      "pass": true
+    },
+    {
+      "name": "Zoom/pan transforms track map, selected marker stays anchored",
+      "pass": true,
+      "detail": {
+        "before": {
+          "x": 709,
+          "y": 478,
+          "width": 32,
+          "height": 32
+        },
+        "zoom": {
+          "x": 709,
+          "y": 478,
+          "width": 32,
+          "height": 32
+        },
+        "pan": {
+          "x": 809,
+          "y": 528,
+          "width": 32,
+          "height": 32
+        }
+      }
+    },
+    {
+      "name": "Marker click opens correct event",
+      "pass": true
+    },
+    {
+      "name": "Missing event deep link notice",
+      "pass": true
+    },
+    {
+      "name": "Boards local detail links and source anchors",
+      "pass": true,
+      "detail": {
+        "localRoutesChecked": 54,
+        "sources": [
+          {
+            "href": "https://thehackernews.com/2026/09/attackers-exploit-papercut-flaws-to.html",
+            "target": "_blank",
+            "rel": "noopener noreferrer"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Briefing and local links",
+      "pass": true,
+      "detail": {
+        "links": 15,
+        "text": "Last 24h\n30 events\nCYBER\n1\nGEOPOLITICAL\n29\nMARITIME\n0\nMILITARY\n0\n\nCounts reflect the retained feed, which holds up to 500 events.\n\nGEOPOLITICAL\n‘People laughed at me’: Indian youth cleans up a trash-filled river\n\nIndia, IN (approximate)\n\nAl Jazeera English\nSep 6, 01:38 UTC\nGEOPOLITICAL\n'He was a lifeline' - Families at a loss after Haitian caregivers let go in US\n\nUS, US (approximate)\n\nBBC World\nS"
+      }
+    },
+    {
+      "name": "Mobile feed map tabs, selection modal, Escape, overflow",
+      "pass": true
+    },
+    {
+      "name": "Mobile board and briefing overflow",
+      "pass": true
+    },
+    {
+      "name": "Refresh network failure retains usable feed and marks connection interrupted",
+      "pass": true
+    },
+    {
+      "name": "Freshness after 31 minutes and recovery",
+      "pass": true
+    },
+    {
+      "name": "Map tile failure is disclosed and feed remains usable",
+      "pass": true
+    }
+  ],
+  "errors": [
+    "Failed to load resource: net::ERR_FAILED",
+    "Failed to load resource: net::ERR_FAILED",
+    "Failed to load resource: net::ERR_FAILED",
+    "Failed to load resource: net::ERR_FAILED",
+    "Failed to load resource: net::ERR_FAILED",
+    "Failed to load resource: net::ERR_FAILED",
+    "Failed to load resource: net::ERR_FAILED",
+    "Failed to load resource: net::ERR_FAILED",
+    "Failed to load resource: net::ERR_FAILED",
+    "Failed to load resource: net::ERR_FAILED",
+    "Failed to load resource: net::ERR_FAILED",
+    "Failed to load resource: net::ERR_FAILED",
+    "Failed to load resource: net::ERR_FAILED",
+    "Failed to load resource: net::ERR_FAILED",
+    "Failed to load resource: net::ERR_FAILED",
+    "Failed to load resource: net::ERR_FAILED"
+  ]
+}

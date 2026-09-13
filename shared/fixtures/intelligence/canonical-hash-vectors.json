@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "note": "Cross-language canonical hash vectors. sha256 = canonical_sha256(value) per INT-001 (object keys sorted recursively, no whitespace, original array order, ECMAScript number formatting, reject non-finite). Verified equal in Python and JS on 2026-09-10.",
+  "vectors": [
+    {
+      "name": "simple",
+      "value": { "b": 2, "a": 1 },
+      "sha256": "43258cff783fe7036d8a43033f830adfc60ec037382473548ac742b888292777"
+    },
+    {
+      "name": "fraction",
+      "value": { "lat": 50.11, "lon": 8.68, "score": -6.25 },
+      "sha256": "13f45b8280deab2d980c8fc6c31583fa1a31b08535dd57b74ddda5212be9bfa0"
+    },
+    {
+      "name": "nonbmp",
+      "value": { "text": "Power grid attack in Frankfurt — café 🚀", "t": 1789075438867 },
+      "sha256": "0b595263c6be9aef2c1973e0e47b53160938b167d56942ec150a9a220c3c6540"
+    },
+    {
+      "name": "array",
+      "value": { "arr": [3, 1, 2], "s": "x" },
+      "sha256": "31741611907f966ee54364887bb94f0ac488d0bb53c8a4fb551e3d83d3079ded"
+    },
+    {
+      "name": "nested",
+      "value": { "z": { "y": { "x": [1, 2.5, -0.25] } }, "a": "top" },
+      "sha256": "5c9aaf48e6e87c6ff160a12b6d1def218ce75254443a2a8f4e8d6783e65dea17"
+    },
+    {
+      "name": "integral",
+      "value": { "i": 5, "f": 5.0, "z": 0, "neg": -0.0 },
+      "sha256": "39d68f0e59c715535cd024782323444845029e7073655efb8b27f41bbc2d8d1e"
+    }
+  ]
+}

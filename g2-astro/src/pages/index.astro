@@ -1,0 +1,155 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Map from '../components/Map.astro';
+import Feed from '../components/Feed.astro';
+import Outlooks from '../components/Outlooks.astro';
+import Ticker from '../components/Ticker.astro';
+import Footer from '../components/Footer.astro';
+import { EVENTS, TOPICS, MARKETS } from '../data/events.js';
+---
+<Base title="Sycamore — Global Intelligence Dashboard (Sample Data)">
+  <Header />
+  <Map />
+  <Feed />
+  <Outlooks />
+  <Ticker />
+
+  <!-- Hydrate: build the map, sync feed↔markers, keyboard, deep-links, market strip.
+       Data is server-injected so the page is meaningful even before maplibre loads. -->
+  <script type="application/json" id="sycamore-data" set:html={JSON.stringify({ EVENTS, TOPICS, MARKETS })}></script>
+  <script>
+    import { EVENTS, TOPICS, MARKETS } from '../data/events.js';
+
+    // ── helpers ────────────────────────────────────────────────────────────
+    const $  = (s, r=document) => r.querySelector(s);
+    const $$ = (s, r=document) => [...r.querySelectorAll(s)];
+    const sevColor = s => s==='critical'?'#FF3B5C':s==='escalating'?'#F5A524':s==='watching'?'#3DF7FF':'#2EE59D';
+
+    // ── map ────────────────────────────────────────────────────────────────
+    const map = new maplibregl.Map({
+      container: 'map',
+      style: {
+        version: 8,
+        sources: { esri: { type: 'raster',
+          tiles: ['https://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}'],
+          tileSize: 256, attribution: 'Tiles © Esri — Sources: Esri, HERE, Garmin' } },
+        layers:  [{ id: 'esri', type: 'raster', source: 'esri' }]
+      },
+      center: [20, 30], zoom: 1.6,
+      attributionControl: { compact: true }
+    });
+    map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'bottom-left');
+
+    // ── markers ────────────────────────────────────────────────────────────
+    const markers = {}; // id → { marker, el, ev }
+    function makeMarkerEl(ev) {
+      const el = document.createElement('div');
+      el.className = 'syc-mk';
+      el.dataset.id = ev.id;
+      const c = sevColor(ev.sev);
+      el.style.cssText = `width:14px;height:14px;border-radius:50%;background:${c};border:2px solid #0B1018;box-shadow:0 0 0 2px ${c}40,0 0 12px ${c}80;cursor:pointer;transition:transform .15s,box-shadow .15s`;
+      el.setAttribute('tabindex', '0');
+      el.setAttribute('role', 'button');
+      el.setAttribute('aria-label', `Event ${ev.id}: ${ev.title}`);
+      el.addEventListener('mouseenter', () => el.style.transform = 'scale(1.4)');
+      el.addEventListener('mouseleave', () => { if (!el.classList.contains('sel')) el.style.transform = 'scale(1)'; });
+      el.addEventListener('click', () => selectEvent(ev.id, { fromMap: true }));
+      el.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectEvent(ev.id, { fromMap: true }); }
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { e.preventDefault(); focusMarker(orderedIds[(orderedIds.indexOf(ev.id)+1) % orderedIds.length]); }
+        if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   { e.preventDefault(); focusMarker(orderedIds[(orderedIds.indexOf(ev.id)-1+orderedIds.length) % orderedIds.length]); }
+      });
+      return el;
+    }
+    const orderedIds = EVENTS.map(e => e.id);
+    function focusMarker(id) {
+      const m = markers[id]; if (!m) return;
+      m.el.focus(); map.flyTo({ center: [m.ev.lon, m.ev.lat], zoom: Math.max(map.getZoom(), 4), duration: 800 });
+    }
+    map.on('load', () => {
+      EVENTS.forEach(ev => {
+        const el = makeMarkerEl(ev);
+        const marker = new maplibregl.Marker({ element: el }).setLngLat([ev.lon, ev.lat]).addTo(map);
+        markers[ev.id] = { marker, el, ev };
+      });
+      // honor incoming deep-link
+      applyDeepLink();
+    });
+
+    // ── selection: feed ↔ marker ───────────────────────────────────────────
+    let activeId = null;
+    function selectEvent(id, { fromMap = false } = {}) {
+      const prev = activeId;
+      activeId = id;
+      $$('.feed-card').forEach(c => {
+        const on = +c.dataset.id === id;
+        c.classList.toggle('active', on);
+        c.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+      Object.values(markers).forEach(({ el, ev }) => {
+        const on = ev.id === id;
+        el.classList.toggle('sel', on);
+        el.style.transform = on ? 'scale(1.6)' : 'scale(1)';
+        el.style.boxShadow = on ? `0 0 0 4px ${sevColor(ev.sev)}, 0 0 16px ${sevColor(ev.sev)}` : '';
+      });
+      if (id && markers[id]) {
+        const { ev } = markers[id];
+        if (!fromMap) map.flyTo({ center: [ev.lon, ev.lat], zoom: Math.max(map.getZoom(), 4), duration: 800 });
+        if (!fromMap) { const card = $(`.feed-card[data-id="${id}"]`); if (card) card.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); }
+        history.replaceState(null, '', `#event/${id}`);
+      } else if (prev && !id) {
+        history.replaceState(null, '', location.pathname + location.search);
+      }
+    }
+
+    // click handler on feed cards
+    $$('.feed-card').forEach(card => {
+      card.addEventListener('click', e => { e.preventDefault(); selectEvent(+card.dataset.id); });
+    });
+
+    // ── filter chips ───────────────────────────────────────────────────────
+    $$('#chips .chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        $$('#chips .chip').forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        const t = chip.dataset.topic;
+        $$('.feed-card').forEach(c => { c.style.display = (t==='all' || c.dataset.topic===t) ? '' : 'none'; });
+        EVENTS.forEach(ev => { const m = markers[ev.id]; if (m) m.marker.getElement().style.display = (t==='all' || ev.t===t) ? '' : 'none'; });
+      });
+    });
+
+    // ── markets strip ──────────────────────────────────────────────────────
+    const m = $('#markets');
+    MARKETS.forEach(r => {
+      const cls = r[3].startsWith('+') ? 'text-risk-green' : 'text-risk-red';
+      m.insertAdjacentHTML('beforeend',
+        `<div class="flex items-center gap-1.5 px-1.5 py-0.5">
+           <span class="font-medium text-slate-100 w-14">${r[0]}</span>
+           <span class="text-muted flex-1 truncate text-[10px]">${r[1]}</span>
+           <span class="text-muted-dim w-16 text-right text-[10px]">$${r[2]}</span>
+           <span class="font-mono w-10 text-right ${cls} text-[10px]">${r[3]}</span>
+         </div>`);
+    });
+
+    // ── keyboard: ESC clears selection, / focuses chips ────────────────────
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') { selectEvent(null); $('.feed-card')?.blur(); }
+      if (e.key === '/' && document.activeElement.tagName !== 'INPUT') { e.preventDefault(); $('#chips .chip')?.focus(); }
+    });
+
+    // ── mobile tabs ────────────────────────────────────────────────────────
+    $$('#tabs button').forEach(b => b.onclick = () => {
+      document.body.dataset.tab = b.dataset.t;
+      $$('#tabs button').forEach(x => x.classList.remove('on'));
+      b.classList.add('on');
+    });
+
+    // ── deep-link #event/N ─────────────────────────────────────────────────
+    function applyDeepLink() {
+      const m = location.hash.match(/^#event\/(\d+)$/);
+      if (m) selectEvent(+m[1]);
+    }
+    window.addEventListener('hashchange', applyDeepLink);
+  </script>
+</Base>

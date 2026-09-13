@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Sycamore snapshot",
+  "type": "object",
+  "required": [
+    "version",
+    "events",
+    "manifest"
+  ],
+  "properties": {
+    "version": {
+      "const": 1
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "$ref": "event.schema.json"
+      }
+    },
+    "manifest": {
+      "$ref": "manifest.schema.json"
+    }
+  },
+  "additionalProperties": false
+}

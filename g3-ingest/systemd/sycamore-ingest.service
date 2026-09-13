@@ -1,0 +1,29 @@
+[Unit]
+Description=Sycamore G3 ingest runner (one-shot, invoked by timer)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+# Run as the yams user, no root, no privileged port
+User=yams
+Group=yams
+WorkingDirectory=/home/yams/operations/project-sycamore/g3-ingest
+EnvironmentFile=-/home/yams/operations/project-sycamore/_private/runtime.env
+# stdout/stderr to journal (view with: journalctl --user -u sycamore-ingest.service)
+StandardOutput=journal
+StandardError=journal
+# The runner writes events.json + manifest.json into the Astro public/data/
+# directory. No other side effects.
+ExecStart=/usr/bin/python3 -m sycamore_ingest.runner
+# Hard cap so a hung HTTP request can't pin a timer slot forever
+TimeoutStartSec=120
+# Hardening: no new privileges, restricted filesystem
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/home/yams/operations/project-sycamore/g3-astro/public/data
+
+[Install]
+WantedBy=default.target
