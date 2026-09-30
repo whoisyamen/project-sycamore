@@ -241,13 +241,12 @@ body {
   overflow: hidden;
   background: #080c12;
 }
+/* Full-bleed so the star field reaches every edge; the globe itself is framed
+   into the band between the heading and the reporting tray by the camera. */
 .horizon-dashboard .world-map {
-  top: 100px;
-  bottom: -105%;
-  left: 0;
-  right: 0;
+  inset: 0;
   z-index: 0;
-  background: #080c12;
+  background: #01030a;
 }
 .horizon-dashboard .world-map::after {
   background:
@@ -277,51 +276,6 @@ body {
 }
 .compact-filters > .filter-secondary {
   display: none;
-}
-.horizon-spotlight {
-  position: absolute;
-  top: 178px;
-  left: var(--page-gutter);
-  width: min(350px, 30vw);
-  z-index: 3;
-  text-shadow: 0 2px 16px #000;
-  padding-bottom: 20px;
-}
-.spotlight-topic {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: var(--accent);
-  font-size: 13px;
-  text-transform: capitalize;
-}
-.horizon-spotlight h2 {
-  font: 550 clamp(21px, 1.75vw, 28px)/1.25 var(--sans);
-  letter-spacing: -0.03em;
-  margin: 11px 0 10px;
-  text-wrap: balance;
-}
-.spotlight-source {
-  color: var(--muted);
-  font-size: 12px;
-}
-.spotlight-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 9px;
-  margin-top: 16px;
-  text-shadow: none;
-}
-.spotlight-actions .button {
-  font-size: 12px;
-  padding: 9px 12px;
-}
-.spotlight-share {
-  padding-left: 0;
-}
-#spotlight-share-status {
-  font-size: 12px;
-  margin-top: 8px;
 }
 .horizon-dashboard .map-view-toolbar,
 .horizon-dashboard:has(.detail-panel:not([hidden])) .map-view-toolbar {
@@ -487,20 +441,74 @@ body {
   padding: 10px var(--page-gutter) 3px;
   display: flex;
   justify-content: space-between;
-  gap: 16px;
+  flex-wrap: wrap;
+  gap: 6px 16px;
   align-items: center;
 }
 .horizon-feed-heading h2 {
   font-size: 14px;
   font-weight: 500;
 }
-.horizon-feed-heading > span {
+.horizon-feed-tools {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 16px;
+  min-width: 0;
+}
+.horizon-feed-tools > span {
   font-size: 11px;
   color: var(--muted);
 }
-.horizon-feed-heading a {
+.horizon-feed-tools a {
   margin-left: 8px;
   color: var(--accent);
+}
+/* Collapsed tray: the heading bar stays as the control to bring reporting back. */
+.horizon-feed-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+}
+/* Anchored on the id so it outranks the fixed tray heights, including the
+   media-query overrides that would otherwise win on source order alone. */
+#feed-panel[data-collapsed='true'] {
+  height: auto;
+}
+.horizon-dashboard .horizon-reporting[data-collapsed='true'] .horizon-feed-body {
+  display: none;
+}
+.horizon-feed-toggle {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  color: var(--muted);
+}
+.horizon-feed-toggle:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.horizon-feed-toggle span {
+  display: block;
+  line-height: 1;
+}
+.horizon-reporting[data-collapsed='true'] .horizon-feed-toggle span {
+  transform: rotate(180deg);
+}
+/* The feed view is the reporting surface; it is never collapsible there. */
+.horizon-dashboard[data-tab='feed'] .horizon-feed-toggle {
+  display: none;
+}
+.horizon-dashboard[data-tab='feed'] .horizon-reporting[data-collapsed='true'] .horizon-feed-body {
+  display: flex;
 }
 .horizon-dashboard .feed-list {
   display: flex;
@@ -576,7 +584,7 @@ body {
   font-size: 10px;
   color: var(--muted);
 }
-.horizon-footer .view-tabs {
+.horizon-dashboard .horizon-feed-tools .view-tabs {
   display: flex;
   position: static;
   transform: none;
@@ -587,22 +595,29 @@ body {
   border-radius: 5px;
   min-width: 130px;
 }
-.horizon-footer .view-tabs button {
+.horizon-dashboard .horizon-feed-tools .view-tabs button {
   min-height: 29px;
   padding: 5px 13px;
   font-size: 11px;
   color: var(--muted);
   border-radius: 4px;
 }
-.horizon-footer .view-tabs button[aria-pressed='true'] {
+.horizon-dashboard .horizon-feed-tools .view-tabs button[aria-pressed='true'] {
   color: var(--accent);
   background: #9bbdd514;
 }
 #map-credits {
-  margin-left: auto;
-  min-width: 0;
+  /* Attribution is anchored to the tray, not the footer, so it stays visible when collapsed. */
+  position: absolute;
+  right: var(--page-gutter);
+  bottom: 8px;
+  max-width: 45%;
+  text-align: right;
   font-size: 8px;
   line-height: 1.1;
+}
+.horizon-reporting[data-collapsed='true'] #map-credits {
+  right: calc(var(--page-gutter) + 34px);
 }
 #map-credits .cesium-credit-logoContainer {
   display: none;
@@ -640,9 +655,6 @@ body {
   background: transparent;
   border-color: var(--line);
 }
-.horizon-dashboard[data-tab='feed'] .horizon-spotlight {
-  display: none;
-}
 .horizon-dashboard[data-tab='feed'] .horizon-reporting {
   top: 158px;
   height: auto;
@@ -673,9 +685,7 @@ body {
   inset: 0;
 }
 .horizon-dashboard.map-presentation .horizon-heading,
-.horizon-dashboard.map-presentation .horizon-spotlight,
-.horizon-dashboard:fullscreen .horizon-heading,
-.horizon-dashboard:fullscreen .horizon-spotlight {
+.horizon-dashboard:fullscreen .horizon-heading {
   display: none;
 }
 .horizon-dashboard.map-presentation .map-view-toolbar,
@@ -1319,13 +1329,6 @@ body {
 }
 
 @media (min-width: 1800px) {
-  .horizon-dashboard .world-map {
-    bottom: -115%;
-  }
-  .horizon-spotlight {
-    top: 210px;
-    width: 370px;
-  }
   .horizon-dashboard .horizon-reporting {
     height: 220px;
   }
@@ -1363,10 +1366,6 @@ body {
   .horizon-dashboard .map-view-toolbar,
   .horizon-dashboard:has(.detail-panel:not([hidden])) .map-view-toolbar {
     top: 25px;
-  }
-  .horizon-spotlight {
-    top: 175px;
-    width: 290px;
   }
   .nocturne-layout {
     grid-template-columns: minmax(0, 1fr) 225px;
@@ -1436,14 +1435,6 @@ body {
   .horizon-dashboard .map-view-toolbar,
   .horizon-dashboard:has(.detail-panel:not([hidden])) .map-view-toolbar {
     top: 145px;
-  }
-  .horizon-spotlight {
-    top: 200px;
-    width: 260px;
-  }
-  .horizon-dashboard .world-map {
-    top: 200px;
-    bottom: -40%;
   }
   .horizon-dashboard .feed-list > .event-card {
     flex-basis: 50%;
@@ -1616,43 +1607,6 @@ body {
     right: 20px;
     width: auto;
   }
-  .horizon-dashboard .world-map {
-    top: 175px;
-    bottom: -22%;
-    left: -50%;
-    right: -50%;
-  }
-  .horizon-spotlight {
-    top: 155px;
-    width: 62%;
-    padding: 0;
-  }
-  .horizon-spotlight h2 {
-    font-size: 18px;
-    margin: 6px 0;
-    -webkit-line-clamp: 2;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-  .spotlight-topic {
-    font-size: 10px;
-  }
-  .spotlight-source {
-    font-size: 10px;
-  }
-  .spotlight-actions {
-    margin-top: 10px;
-    gap: 6px;
-  }
-  .spotlight-actions .button {
-    font-size: 10px;
-    min-height: 32px;
-    padding: 7px 9px;
-  }
-  .spotlight-share {
-    display: none;
-  }
   .horizon-dashboard .map-view-toolbar,
   .horizon-dashboard:has(.detail-panel:not([hidden])) .map-view-toolbar {
     top: 155px;
@@ -1689,11 +1643,14 @@ body {
   .horizon-feed-heading {
     padding-top: 9px;
   }
-  .horizon-feed-heading > span {
+  .horizon-feed-tools > span {
     font-size: 9px;
   }
-  .horizon-feed-heading a {
+  .horizon-feed-tools a {
     margin-left: 0;
+  }
+  .horizon-feed-tools {
+    gap: 10px;
   }
   .horizon-dashboard .feed-list > .event-card {
     flex-basis: 86%;
@@ -1714,9 +1671,7 @@ body {
     display: none;
   }
   #map-credits {
-    width: 100%;
-    max-width: none;
-    text-align: right;
+    max-width: 62%;
   }
   #map-credits .cesium-credit-textContainer {
     font-size: 6px;
@@ -1929,9 +1884,7 @@ body {
 }
 
 /* Credit placement and navigation share the same material as the reporting tray. */
-#map-credits {
-  position: relative;
-}
+/* #map-credits is positioned by the horizon tray rules above. */
 #map-credits .cesium-widget-credits {
   position: static;
 }

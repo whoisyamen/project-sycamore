@@ -74,6 +74,8 @@ The site builds to static files. Production data changes require republishing th
 Private environment files, credentials, local databases, logs, dependencies, and generated output are excluded from Git. Optional Censys credentials stay in the ingestion environment. Installed services are configured separately; retain the active directory names because existing units reference them.
 
 See the [ingestion guide](g3-ingest/README.md), [globe implementation](g3-astro/GLOBE.md), [performance notes](g3-astro/PERFORMANCE.md), and [security policy](00-admin/SECURITY_POLICY.md) for operational details. The Cloudflare header template is configuration for deployment, not evidence of a live deployment.
+For GitHub-linked Pages setup, the `prod` production branch, build gates, and
+snapshot publication, see the [deployment guide](g3-astro/DEPLOYMENT.md).
 
 The website's threat-desk direction, scope, and next-source decisions are in the
 [redesign plan](03-architecture/THREAT_DESK_REDESIGN_PLAN.md), with visual guidance

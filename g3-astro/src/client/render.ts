@@ -68,15 +68,6 @@ export function primarySource(event: Event): string | null {
   );
 }
 
-export function overviewSpotlight(event: Event): string {
-  const source = primarySource(event);
-  return `<p class="spotlight-topic"><span class="severity-dot ${event.sev}"></span>${escape(TOPIC_LABELS[event.t].toLowerCase())}</p>
-    <h2>${escape(event.title)}</h2><p class="spotlight-source">${escape(event.src)}</p>
-    <div class="spotlight-actions">${source ? `<a class="button primary-button" href="${escape(source)}" target="_blank" rel="noopener noreferrer">Read source <span aria-hidden="true">↗</span></a>` : ''}
-    <button class="button quiet-button" data-preview-event="${event.id}">Report context</button>
-    <button class="spotlight-share text-button" data-spotlight-share="${event.id}" aria-label="Share this report">Share</button></div><p id="spotlight-share-status" role="status"></p>`;
-}
-
 export function eventDetail(event: Event): string {
   const approximate = geoTier(event) === 'approximate';
   const precisionNote = approximate

@@ -2,6 +2,1779 @@
   "version": 1,
   "events": [
     {
+      "id": 1425,
+      "t": "geopolitical",
+      "sev": "watching",
+      "title": "Gas pipeline explodes in Syria, knocks three power plants offline",
+      "summary": "Powe rationing hours are to increase as a result of the blast.",
+      "src": "Al Jazeera English",
+      "loc": "Syria, SY (approximate)",
+      "lat": 34.8021,
+      "lon": 38.9968,
+      "ts": 1790802073000,
+      "ingestedAt": 1790802528556,
+      "sources": [
+        "https://www.aljazeera.com/news/2026/9/30/gas-pipeline-explodes-in-syria-knocks-three-power-plants-offline?traffic_source=rss"
+      ],
+      "score": {
+        "articles": 1,
+        "tone": 0.0,
+        "quality": 80,
+        "corroboration": {
+          "sources": [
+            "https://www.aljazeera.com/news/2026/9/30/gas-pipeline-explodes-in-syria-knocks-three-power-plants-offline?traffic_source=rss"
+          ],
+          "outlets": [
+            "aljazeera.com"
+          ]
+        },
+        "confidence": 51
+      },
+      "geo": {
+        "tier": "approximate",
+        "source": "title",
+        "policy": "tiered-locus-v2",
+        "scope": "country",
+        "evidence": "Syria"
+      }
+    },
+    {
+      "id": 1424,
+      "t": "geopolitical",
+      "sev": "watching",
+      "title": "Ethiopian AI expert, Timnit Gebru, wins 'alternative Nobel'",
+      "summary": "In tonight's edition, Africa's richest man breaks ground on a 16 billion dollar oil refinery in Kenya. Also, at universities across Cameroon, programming is overshadowed with uncertainty amidst an indefinite strike by lecturers. And I speak to Ethiopian-born computer scientist and pioneering AI ethicist Timnit Gebru as she is honored with the Swedish Right Livelihood Award for her work on how AI is influenced by biases.",
+      "src": "France24 EN",
+      "loc": "Kenya, KE (approximate)",
+      "lat": -0.0236,
+      "lon": 37.9062,
+      "ts": 1790801089000,
+      "ingestedAt": 1790801931957,
+      "sources": [
+        "https://www.france24.com/en/ethiopian-ai-expert-timnit-gebru-wins-alternative-nobel"
+      ],
+      "score": {
+        "articles": 1,
+        "tone": 0.0,
+        "quality": 80,
+        "corroboration": {
+          "sources": [
+            "https://www.france24.com/en/ethiopian-ai-expert-timnit-gebru-wins-alternative-nobel"
+          ],
+          "outlets": [
+            "france24.com"
+          ]
+        },
+        "confidence": 51
+      },
+      "geo": {
+        "tier": "approximate",
+        "source": "summary",
+        "policy": "tiered-locus-v2",
+        "scope": "country",
+        "evidence": "Kenya"
+      },
+      "media": {
+        "image": "data/media/38a987052bde9f63.jpg"
+      }
+    },
+    {
+      "id": 1423,
+      "t": "geopolitical",
+      "sev": "watching",
+      "title": "Israeli attacks across Gaza kill at least eight",
+      "summary": "Israeli attacks on residential areas across Gaza killed at least eight civilians and wounded others on Wednesday",
+      "src": "Al Jazeera English",
+      "loc": "Gaza, PS (approximate)",
+      "lat": 31.3547,
+      "lon": 34.3088,
+      "ts": 1790799142000,
+      "ingestedAt": 1790800124568,
+      "sources": [
+        "https://www.aljazeera.com/video/newsfeed/2026/9/30/israeli-attacks-across-gaza-kill-at-least-eight?traffic_source=rss"
+      ],
+      "score": {
+        "articles": 1,
+        "tone": 0.0,
+        "quality": 80,
+        "corroboration": {
+          "sources": [
+            "https://www.aljazeera.com/video/newsfeed/2026/9/30/israeli-attacks-across-gaza-kill-at-least-eight?traffic_source=rss"
+          ],
+          "outlets": [
+            "aljazeera.com"
+          ]
+        },
+        "confidence": 51
+      },
+      "geo": {
+        "tier": "approximate",
+        "source": "title",
+        "policy": "tiered-locus-v2",
+        "scope": "city",
+        "evidence": "Gaza"
+      }
+    },
+    {
+      "id": 1422,
+      "t": "geopolitical",
+      "sev": "watching",
+      "title": "Ethiopia back to civil war? Horn of Africa fears spillover effect of renewed fighting",
+      "summary": "After contagion in the Arabian Peninsula, should the entire Horn of Africa fear a domino effect? Just as Donald Trump’s decision to invade Iran drew the Saudis back to Yemen: did threats over the Strait of Bab el-Mandeb light the fuse in Ethiopia, where last week, unresolved issues between the government and its Tigray region erupted? Could a potential return to civil war draw in regional rivals?",
+      "src": "France24 EN",
+      "loc": "Ethiopia, ET (approximate)",
+      "lat": 9.145,
+      "lon": 40.4897,
+      "ts": 1790795060000,
+      "ingestedAt": 1790799405474,
+      "sources": [
+        "https://www.france24.com/en/tv-shows/the-debate/20260930-ethiopia-back-to-civil-war-horn-of-africa-fears-spillover-effect-of-renewed-fighting"
+      ],
+      "score": {
+        "articles": 1,
+        "tone": 0.0,
+        "quality": 80,
+        "corroboration": {
+          "sources": [
+            "https://www.france24.com/en/tv-shows/the-debate/20260930-ethiopia-back-to-civil-war-horn-of-africa-fears-spillover-effect-of-renewed-fighting"
+          ],
+          "outlets": [
+            "france24.com"
+          ]
+        },
+        "confidence": 51
+      },
+      "geo": {
+        "tier": "approximate",
+        "source": "summary",
+        "policy": "tiered-locus-v2",
+        "scope": "country",
+        "evidence": "Ethiopia"
+      },
+      "media": {
+        "image": "data/media/20117e47cb690702.jpg"
+      }
+    },
+    {
+      "id": 1421,
+      "t": "geopolitical",
+      "sev": "watching",
+      "title": "Catholic clergy sexually abused nearly 1,000 Massachusetts children over decades, report finds",
+      "summary": "No new indictments from eight-year investigation as state attorney general says church knew about abuse More than 270 Catholic clerics sexually abused nearly 1,000 children across three Massachusetts dioceses over several decades, according to a report released by the state’s attorney general’s office on Wednesday. The eight-year-long investigation did not result in new indictments, the office said, claiming that some conduct identified was not a crime under Massachusetts law at the time it occurred, and that in other cases the applicable statute of limitations had expired. In the US, call or ",
+      "src": "Guardian World",
+      "loc": "US, US (approximate)",
+      "lat": 39.8283,
+      "lon": -98.5795,
+      "ts": 1790797989000,
+      "ingestedAt": 1790798631373,
+      "sources": [
+        "https://www.theguardian.com/us-news/2026/sep/30/catholic-clergy-massachusetts-sexual-abuse-report"
+      ],
+      "score": {
+        "articles": 1,
+        "tone": 0.0,
+        "quality": 80,
+        "corroboration": {
+          "sources": [
+            "https://www.theguardian.com/us-news/2026/sep/30/catholic-clergy-massachusetts-sexual-abuse-report"
+          ],
+          "outlets": [
+            "theguardian.com"
+          ]
+        },
+        "confidence": 51
+      },
+      "geo": {
+        "tier": "approximate",
+        "source": "summary",
+        "policy": "tiered-locus-v2",
+        "scope": "country",
+        "evidence": "US"
+      },
+      "media": {
+        "image": "data/media/fe0d452c6bdaa33d.jpg"
+      }
+    },
+    {
+      "id": 1420,
+      "t": "maritime",
+      "sev": "watching",
+      "title": "Ships Face Fuel Delays at China’s Zhoushan on Supply Squeeze",
+      "summary": "Ships are being forced to wait significantly longer to refuel at China’s top bunkering hub of Zhoushan, where the fallout from the US-Iran war has tightened supplies and pushed up prices.",
+      "src": "gCaptain",
+      "loc": "China, CN (approximate)",
+      "lat": 35.8617,
+      "lon": 104.1954,
+      "ts": 1790789439000,
+      "ingestedAt": 1790796314065,
+      "sources": [
+        "https://gcaptain.com/ships-face-fuel-delays-at-chinas-zhoushan-on-supply-squeeze/"
+      ],
+      "score": {
+        "articles": 1,
+        "tone": 0.0,
+        "quality": 80,
+        "corroboration": {
+          "sources": [
+            "https://gcaptain.com/ships-face-fuel-delays-at-chinas-zhoushan-on-supply-squeeze/"
+          ],
+          "outlets": [
+            "gcaptain.com"
+          ]
+        },
+        "confidence": 51
+      },
+      "geo": {
+        "tier": "approximate",
+        "source": "title",
+        "policy": "tiered-locus-v2",
+        "scope": "country",
+        "evidence": "China"
+      },
+      "media": {
+        "image": "data/media/db4e9e392cc50ebb.jpg"
+      }
+    },
+    {
+      "id": 1419,
+      "t": "geopolitical",
+      "sev": "watching",
+      "title": "Cristiano Ronaldo misses Portugal training as coach Jorge Jesus denies rift",
+      "summary": "Ronaldo did not play in Portugal’s 2-1 win over Norway ‌on Sunday and is now in doubt for the game against Denmark.",
+      "src": "Al Jazeera English",
+      "loc": "Portugal, PT (approximate)",
+      "lat": 39.3999,
+      "lon": -8.2245,
+      "ts": 1790793544000,
+      "ingestedAt": 1790795353862,
+      "sources": [
+        "https://www.aljazeera.com/sports/2026/9/30/cristiano-ronaldo-misses-portugal-training-as-coach-jorge-jesus-denies-rift?traffic_source=rss"
+      ],
+      "score": {
+        "articles": 1,
+        "tone": 0.0,
+        "quality": 80,
+        "corroboration": {
+          "sources": [
+            "https://www.aljazeera.com/sports/2026/9/30/cristiano-ronaldo-misses-portugal-training-as-coach-jorge-jesus-denies-rift?traffic_source=rss"
+          ],
+          "outlets": [
+            "aljazeera.com"
+          ]
+        },
+        "confidence": 51
+      },
+      "geo": {
+        "tier": "approximate",
+        "source": "summary",
+        "policy": "tiered-locus-v2",
+        "scope": "country",
+        "evidence": "Portugal"
+      }
+    },
+    {
+      "id": 1418,
+      "t": "geopolitical",
+      "sev": "watching",
+      "title": "Stella McCartney spotlights sea life at Paris fashion week as animal rights returns to headlines",
+      "summary": "Designer is developing wool alternatives and for Paris wants focus to be on ‘sea life, not sea food’ with ocean-inspired clothes Stella McCartney has been talking about animal rights at fashion week for 30 years. She is usually a lone voice, but the issue is back in the headlines this season. Outcry over the physical restraining of a Peta protester at a catwalk show by Steven Kolb, the president of New York fashion week’s governing body, has put cruelty in wool production – previously considered a niche issue compared with the hot button topic of fur – on the news agenda. “There is no wool on ",
+      "src": "Guardian World",
+      "loc": "Paris, FR (approximate)",
+      "lat": 48.8566,
+      "lon": 2.3522,
+      "ts": 1790790678000,
+      "ingestedAt": 1790791367852,
+      "sources": [
+        "https://www.theguardian.com/fashion/2026/sep/30/stella-mccartney-sea-life-paris-fashion-week-animal-rights"
+      ],
+      "score": {
+        "articles": 1,
+        "tone": 0.0,
+        "quality": 80,
+        "corroboration": {
+          "sources": [
+            "https://www.theguardian.com/fashion/2026/sep/30/stella-mccartney-sea-life-paris-fashion-week-animal-rights"
+          ],
+          "outlets": [
+            "theguardian.com"
+          ]
+        },
+        "confidence": 51
+      },
+      "geo": {
+        "tier": "approximate",
+        "source": "title",
+        "policy": "tiered-locus-v2",
+        "scope": "city",
+        "evidence": "Paris"
+      },
+      "media": {
+        "image": "data/media/faba54d1a49aaf0d.jpg"
+      }
+    },
+    {
+      "id": 1417,
+      "t": "geopolitical",
+      "sev": "watching",
+      "title": "Greetings from Syria, where time seems to melt as a glassmaker braves scorching temps",
+      "summary": "As a Syrian glassmaker created his wares in Damascus, watching his craft reminded this reporter to slow down and enjoy the moment.",
+      "src": "NPR World",
+      "loc": "Damascus, SY (approximate)",
+      "lat": 33.5138,
+      "lon": 36.2765,
+      "ts": 1790790702000,
+      "ingestedAt": 1790791066917,
+      "sources": [
+        "https://www.npr.org/2026/09/30/nx-s1-5983516/damascus-syria-glass"
+      ],
+      "score": {
+        "articles": 1,
+        "tone": 0.0,
+        "quality": 80,
+        "corroboration": {
+          "sources": [
+            "https://www.npr.org/2026/09/30/nx-s1-5983516/damascus-syria-glass"
+          ],
+          "outlets": [
+            "npr.org"
+          ]
+        },
+        "confidence": 51
+      },
+      "geo": {
+        "tier": "approximate",
+        "source": "summary",
+        "policy": "tiered-locus-v2",
+        "scope": "city",
+        "evidence": "Damascus"
+      },
+      "media": {
+        "image": "data/media/2e1221b6f2ad65ac.jpg"
+      }
+    },
+    {
+      "id": 1416,
+      "t": "geopolitical",
+      "sev": "watching",
+      "title": "Israel PM says pilot of rerouted flight tried to crash plane",
+      "summary": "Israeli Prime Minister Benjamin Netanyahu said Wednesday that the pilot of a Tel Aviv-bound flydubai flight had tried to crash the plane and kill its passengers, after the aircraft was forced to make an emergency landing in Saudi Arabia. Passengers gave a similar account of the incident on board, describing a fight for control after the plane suddenly plummeted, losing around 17,000 feet of altitude in the span of a minute, according to the Flightradar24 website.",
+      "src": "France24 EN",
+      "loc": "Saudi Arabia, SA (approximate)",
+      "lat": 23.8859,
+      "lon": 45.0792,
+      "ts": 1790787461000,
+      "ingestedAt": 1790788189424,
+      "sources": [
+        "https://www.france24.com/en/video/20260930-israel-pm-says-pilot-of-rerouted-flight-tried-to-crash-plane"
+      ],
+      "score": {
+        "articles": 1,
+        "tone": 0.0,
+        "quality": 80,
+        "corroboration": {
+          "sources": [
+            "https://www.france24.com/en/video/20260930-israel-pm-says-pilot-of-rerouted-flight-tried-to-crash-plane"
+          ],
+          "outlets": [
+            "france24.com"
+          ]
+        },
+        "confidence": 51
+      },
+      "geo": {
+        "tier": "approximate",
+        "source": "summary",
+        "policy": "tiered-locus-v2",
+        "scope": "country",
+        "evidence": "Saudi Arabia"
+      },
+      "media": {
+        "image": "data/media/7661fdb70b9573b5.jpg"
+      }
+    },
+    {
+      "id": 1415,
+      "t": "geopolitical",
+      "sev": "watching",
+      "title": "Macron says ‘welcome back’ to Burnham suggestion UK could rejoin EU",
+      "summary": "French president, speaking alongside Spanish counterpart, Pedro Sánchez, says EU bid would be good news for UK and Europeans UK politics live – latest updates The French president, Emmanuel Macron, has reacted warmly to Andy Burnham’s suggestion that the UK could rejoin the EU. “Welcome back,” the French leader said in English with a smile. Speaking at a news conference in Madrid on Wednesday, Macron continued (in French): “If the British want to come back and if the prime minister is moving in that direction, I think that is very good news, both for his country and for the Europeans.” Continu",
+      "src": "Guardian World",
+      "loc": "Madrid, ES (approximate)",
+      "lat": 40.4168,
+      "lon": -3.7038,
+      "ts": 1790786390000,
+      "ingestedAt": 1790786808855,
+      "sources": [
+        "https://www.theguardian.com/world/2026/sep/30/macron-welcome-back-burnham-suggestion-uk-could-rejoin-eu"
+      ],
+      "score": {
+        "articles": 1,
+        "tone": 0.0,
+        "quality": 80,
+        "corroboration": {
+          "sources": [
+            "https://www.theguardian.com/world/2026/sep/30/macron-welcome-back-burnham-suggestion-uk-could-rejoin-eu"
+          ],
+          "outlets": [
+            "theguardian.com"
+          ]
+        },
+        "confidence": 51
+      },
+      "geo": {
+        "tier": "approximate",
+        "source": "summary",
+        "policy": "tiered-locus-v2",
+        "scope": "city",
+        "evidence": "Madrid"
+      },
+      "media": {
+        "image": "data/media/c2c7f7c53f0f09e8.jpg"
+      }
+    },
+    {
+      "id": 1414,
+      "t": "geopolitical",
+      "sev": "watching",
+      "title": "Pentagon says US troop withdrawal from Iraq is complete",
+      "summary": "The withdrawal ends two decades of foreign intervention in Iraq as part of 'global war on terror' and anti-ISIL fight.",
+      "src": "Al Jazeera English",
+      "loc": "Iraq, IQ (approximate)",
+      "lat": 33.2232,
+      "lon": 43.6793,
+      "ts": 1790785982000,
+      "ingestedAt": 1790786808716,
+      "sources": [
+        "https://www.aljazeera.com/news/2026/9/30/pentagon-says-us-troop-withdrawal-from-iraq-is-complete?traffic_source=rss"
+      ],
+      "score": {
+        "articles": 1,
+        "tone": 0.0,
+        "quality": 80,
+        "corroboration": {
+          "sources": [
+            "https://www.aljazeera.com/news/2026/9/30/pentagon-says-us-troop-withdrawal-from-iraq-is-complete?traffic_source=rss"
+          ],
+          "outlets": [
+            "aljazeera.com"
+          ]
+        },
+        "confidence": 51
+      },
+      "geo": {
+        "tier": "approximate",
+        "source": "summary",
+        "policy": "tiered-locus-v2",
+        "scope": "country",
+        "evidence": "Iraq"
+      }
+    },
+    {
+      "id": 1413,
+      "t": "geopolitical",
+      "sev": "watching",
+      "title": "A pilot stabs the other pilot and tries to crash their flight to Tel Aviv, Israel says",
+      "summary": "As the plane went into a spin and began to plunge, a passenger and crew got into the cockpit, subdued the pilot and diverted the flight to land in Saudi Arabia, Israel's leader says.",
+      "src": "NPR World",
+      "loc": "Saudi Arabia, SA (approximate)",
+      "lat": 23.8859,
+      "lon": 45.0792,
+      "ts": 1790775311000,
+      "ingestedAt": 1790786449558,
+      "sources": [
+        "https://www.npr.org/2026/09/30/nx-s1-5985806/flydubai-flight-dubai-tel-aviv-israel"
+      ],
+      "score": {
+        "articles": 1,
+        "tone": 0.0,
+        "quality": 80,
+        "corroboration": {
+          "sources": [
+            "https://www.npr.org/2026/09/30/nx-s1-5985806/flydubai-flight-dubai-tel-aviv-israel"
+          ],
+          "outlets": [
+            "npr.org"
+          ]
+        },
+        "confidence": 51
+      },
+      "geo": {
+        "tier": "approximate",
+        "source": "summary",
+        "policy": "tiered-locus-v2",
+        "scope": "country",
+        "evidence": "Saudi Arabia"
+      },
+      "media": {
+        "image": "data/media/8957471fa6dfea82.jpg"
+      }
+    },
+    {
+      "id": 1412,
+      "t": "geopolitical",
+      "sev": "watching",
+      "title": "Retired general who led troops in Iraq warns U.S. exit may give Iran, ISIS an opening",
+      "summary": "Retired Lt. Gen. H.R. McMaster, who commanded U.S. troops in Iraq, says the withdrawal could strengthen Iran and leave Iraq more vulnerable to ISIS.",
+      "src": "NPR World",
+      "loc": "Iraq, IQ (approximate)",
+      "lat": 33.2232,
+      "lon": 43.6793,
+      "ts": 1790757766000,
+      "ingestedAt": 1790785730149,
+      "sources": [
+        "https://www.npr.org/2026/09/30/nx-s1-5984953/mcmaster-us-troop-withdrawal-iraq-iran-isis"
+      ],
+      "score": {
+        "articles": 1,
+        "tone": 0.0,
+        "quality": 80,
+        "corroboration": {
+          "sources": [
+            "https://www.npr.org/2026/09/30/nx-s1-5984953/mcmaster-us-troop-withdrawal-iraq-iran-isis"
+          ],
+          "outlets": [
+            "npr.org"
+          ]
+        },
+        "confidence": 51
+      },
+      "geo": {
+        "tier": "approximate",
+        "source": "title",
+        "policy": "tiered-locus-v2",
+        "scope": "country",
+        "evidence": "Iraq"
+      },
+      "media": {
+        "image": "data/media/c6f6da05bd83f3e5.jpg"
+      }
+    },
+    {
+      "id": 1411,
+      "t": "geopolitical",
+      "sev": "watching",
+      "title": "Argentina shuns meat as purchasing plummets under Milei",
+      "summary": "In Argentina, a nation of meat lovers par excellence, where barbecuing is a ritual central to the national identity and the steaks are among the best in the world, meat consumption has now reached an all-time low. The reason: the drastic decline in purchasing power for most Argentines since Javier Milei took office. Our reporters explain.",
+      "src": "France24 EN",
+      "loc": "Argentina, AR (approximate)",
+      "lat": -38.4161,
+      "lon": -63.6167,
+      "ts": 1790764679000,
+      "ingestedAt": 1790785730095,
+      "sources": [
+        "https://www.france24.com/en/video/20260930-argentina-shuns-meat-as-purchasing-plummets-under-milei"
+      ],
+      "score": {
+        "articles": 1,
+        "tone": 0.0,
+        "quality": 80,
+        "corroboration": {
+          "sources": [
+            "https://www.france24.com/en/video/20260930-argentina-shuns-meat-as-purchasing-plummets-under-milei"
+          ],
+          "outlets": [
+            "france24.com"
+          ]
+        },
+        "confidence": 51
+      },
+      "geo": {
+        "tier": "approximate",
+        "source": "summary",
+        "policy": "tiered-locus-v2",
+        "scope": "country",
+        "evidence": "Argentina"
+      },
+      "media": {
+        "image": "data/media/0b7280eb4c3dfe07.jpg"
+      }
+    },
+    {
+      "id": 1410,
+      "t": "geopolitical",
+      "sev": "watching",
+      "title": "Medicine prices soar in Iran as US blockade and sanctions hit hard",
+      "summary": "Medication prices are soaring in Iran and some treatments have become hard to find, leaving patients and their families scrambling as a US blockade and stepped-up sanctions squeeze the country's pharmaceuticals industry.",
+      "src": "France24 EN",
+      "loc": "Iran, IR (approximate)",
+      "lat": 32.4279,
+      "lon": 53.688,
+      "ts": 1790764745000,
+      "ingestedAt": 1790785730092,
+      "sources": [
+        "https://www.france24.com/en/video/20260930-medicine-prices-soar-in-iran-as-us-blockade-and-sanctions-hit-hard"
+      ],
+      "score": {
+        "articles": 1,
+        "tone": 0.0,
+        "quality": 80,
+        "corroboration": {
+          "sources": [
+            "https://www.france24.com/en/video/20260930-medicine-prices-soar-in-iran-as-us-blockade-and-sanctions-hit-hard"
+          ],
+          "outlets": [
+            "france24.com"
+          ]
+        },
+        "confidence": 51
+      },
+      "geo": {
+        "tier": "approximate",
+        "source": "title",
+        "policy": "tiered-locus-v2",
+        "scope": "country",
+        "evidence": "Iran"
+      },
+      "media": {
+        "image": "data/media/90b2c338a61da10a.jpg"
+      }
+    },
+    {
+      "id": 1409,
+      "t": "geopolitical",
+      "sev": "watching",
+      "title": "'Cornell won't, we will': Student journalists 'relentlessly' reporting on university rape",
+      "summary": "PRESS REVIEW – Wednesday, September 30: The Cornell University gang rape investigation reopens. But first: students and prisoners protest in Iran \"in a rare show of dissent\". Journalist Evan Gershkovich speaks about his 16 months in a Russian prison. Bonus: what can we do to be less lonely? Finally, Fat Bear Week has chosen its winner.",
+      "src": "France24 EN",
+      "loc": "Iran, IR (approximate)",
+      "lat": 32.4279,
+      "lon": 53.688,
+      "ts": 1790766417000,
+      "ingestedAt": 1790785730087,
+      "sources": [
+        "https://www.france24.com/en/tv-shows/press-review/20260930-cornell-won-t-we-will-student-journalists-relentlessly-reporting-on-university-rape"
+      ],
+      "score": {
+        "articles": 1,
+        "tone": 0.0,
+        "quality": 80,
+        "corroboration": {
+          "sources": [
+            "https://www.france24.com/en/tv-shows/press-review/20260930-cornell-won-t-we-will-student-journalists-relentlessly-reporting-on-university-rape"
+          ],
+          "outlets": [
+            "france24.com"
+          ]
+        },
+        "confidence": 51
+      },
+      "geo": {
+        "tier": "approximate",
+        "source": "summary",
+        "policy": "tiered-locus-v2",
+        "scope": "country",
+        "evidence": "Iran"
+      },
+      "media": {
+        "image": "data/media/83464f87039d6b02.jpg"
+      }
+    },
+    {
+      "id": 1408,
+      "t": "geopolitical",
+      "sev": "watching",
+      "title": "Eiffel Tower chief to step down after female staff scandal",
+      "summary": "The head of the company that runs the Eiffel Tower will step down at the end of the year after female staff at the landmark building in Paris were excluded during a visit by a Hindu religious group. The incident sparked outrage in France and prompted a staff walkout that saw the Eiffel Tower forced to close for a day.",
+      "src": "France24 EN",
+      "loc": "France, FR (approximate)",
+      "lat": 46.2276,
+      "lon": 2.2137,
+      "ts": 1790766701000,
+      "ingestedAt": 1790785730084,
+      "sources": [
+        "https://www.france24.com/en/video/20260930-eiffel-tower-chief-to-step-down-after-female-staff-scandal"
+      ],
+      "score": {
+        "articles": 1,
+        "tone": 0.0,
+        "quality": 80,
+        "corroboration": {
+          "sources": [
+            "https://www.france24.com/en/video/20260930-eiffel-tower-chief-to-step-down-after-female-staff-scandal"
+          ],
+          "outlets": [
+            "france24.com"
+          ]
+        },
+        "confidence": 51
+      },
+      "geo": {
+        "tier": "approximate",
+        "source": "summary",
+        "policy": "tiered-locus-v2",
+        "scope": "country",
+        "evidence": "France"
+      },
+      "media": {
+        "image": "data/media/19c8260d6a659318.jpg"
+      }
+    },
+    {
+      "id": 1407,
+      "t": "geopolitical",
+      "sev": "watching",
+      "title": "Why is the US withdrawing its troops from Iraq?",
+      "summary": "A US-led coalition deployed in Iraq more than a decade ago to fight jihadists concluded its mission on Wednesday, a move celebrated by the country's leaders, but which some fear will embolden pro-Iran armed factions. France 24's Angela Diffley takes a look at the security challenges facing the country and why the US has chosen this moment to take its troops out.",
+      "src": "France24 EN",
+      "loc": "Iraq, IQ (approximate)",
+      "lat": 33.2232,
+      "lon": 43.6793,
+      "ts": 1790767135000,
+      "ingestedAt": 1790785730081,
+      "sources": [
+        "https://www.france24.com/en/video/20260930-why-is-the-us-withdrawing-its-troops-from-iraq"
+      ],
+      "score": {
+        "articles": 1,
+        "tone": 0.0,
+        "quality": 80,
+        "corroboration": {
+          "sources": [
+            "https://www.france24.com/en/video/20260930-why-is-the-us-withdrawing-its-troops-from-iraq"
+          ],
+          "outlets": [
+            "france24.com"
+          ]
+        },
+        "confidence": 51
+      },
+      "geo": {
+        "tier": "approximate",
+        "source": "summary",
+        "policy": "tiered-locus-v2",
+        "scope": "country",
+        "evidence": "Iraq"
+      },
+      "media": {
+        "image": "data/media/b10445b7c701e326.jpg"
+      }
+    },
+    {
+      "id": 1406,
+      "t": "geopolitical",
+      "sev": "watching",
+      "title": "Mixed reactions in Iraq on final day of US-led coalition withdrawal",
+      "summary": "The US military announced on Wednesday that it has completed the withdrawal of all American troops from Iraq, ending a 12-year mission to fight the Islamic State group. The last US troops left an air base in northern Iraq under a deal between Baghdad and Washington.",
+      "src": "France24 EN",
+      "loc": "Iraq, IQ (approximate)",
+      "lat": 33.2232,
+      "lon": 43.6793,
+      "ts": 1790767658000,
+      "ingestedAt": 1790785730078,
+      "sources": [
+        "https://www.france24.com/en/video/20260930-mixed-reactions-in-iraq-on-final-day-of-us-led-coalition-withdrawal"
+      ],
+      "score": {
+        "articles": 1,
+        "tone": 0.0,
+        "quality": 80,
+        "corroboration": {
+          "sources": [
+            "https://www.france24.com/en/video/20260930-mixed-reactions-in-iraq-on-final-day-of-us-led-coalition-withdrawal"
+          ],
+          "outlets": [
+            "france24.com"
+          ]
+        },
+        "confidence": 51
+      },
+      "geo": {
+        "tier": "approximate",
+        "source": "title",
+        "policy": "tiered-locus-v2",
+        "scope": "country",
+        "evidence": "Iraq"
+      },
+      "media": {
+        "image": "data/media/f9fb2ca71ee69329.jpg"
+      }
+    },
+    {
+      "id": 1405,
+      "t": "geopolitical",
+      "sev": "watching",
+      "title": "Macron says UK’s return to EU would be ‘excellent news’",
+      "summary": "Speaking alongside Spanish Prime Minister Pedro Sanchez on Wednesday, French President Emmanuel Macron said that it would be \"a good decision\" if the UK decided to rejoin the European Union. The two leaders met at the Moncloa Palace in Madrid on the second day of Macron's two-day state visit to Spain.",
+      "src": "France24 EN",
+      "loc": "Madrid, ES (approximate)",
+      "lat": 40.4168,
+      "lon": -3.7038,
+      "ts": 1790768996000,
+      "ingestedAt": 1790785730074,
+      "sources": [
+        "https://www.france24.com/en/europe/20260930-live-macron-sanchez-hold-joint-press-conference-during-french-president-s-spain-visit"
+      ],
+      "score": {
+        "articles": 1,
+        "tone": 0.0,
+        "quality": 80,
+        "corroboration": {
+          "sources": [
+            "https://www.france24.com/en/europe/20260930-live-macron-sanchez-hold-joint-press-conference-during-french-president-s-spain-visit"
+          ],
+          "outlets": [
+            "france24.com"
+          ]
+        },
+        "confidence": 51
+      },
+      "geo": {
+        "tier": "approximate",
+        "source": "summary",
+        "policy": "tiered-locus-v2",
+        "scope": "city",
+        "evidence": "Madrid"
+      },
+      "media": {
+        "image": "data/media/50ff02be75550b1c.jpg"
+      }
+    },
+    {
+      "id": 1404,
+      "t": "geopolitical",
+      "sev": "watching",
+      "title": "REPLAY: France's Macron calls for 'stronger Europe' on Spain trip",
+      "summary": "French President Emmanuel Macron on Wednesday met Spanish Prime Minister Pedro Sanchez at the Moncloa Palace in Madrid on the second day of a two-day state visit. Speaking at a press conference alongside Sanchez, Macron outlined his strategies for addressing the crisis of democracy and the rise of what he described as \"extremes,\" starting with massive investment in a \"stronger Europe”.",
+      "src": "France24 EN",
+      "loc": "Madrid, ES (approximate)",
+      "lat": 40.4168,
+      "lon": -3.7038,
+      "ts": 1790780492000,
+      "ingestedAt": 1790785730062,
+      "sources": [
+        "https://www.france24.com/en/video/20260930-replay-france-s-macron-calls-for-stronger-europe-on-spain-trip"
+      ],
+      "score": {
+        "articles": 1,
+        "tone": 0.0,
+        "quality": 80,
+        "corroboration": {
+          "sources": [
+            "https://www.france24.com/en/video/20260930-replay-france-s-macron-calls-for-stronger-europe-on-spain-trip"
+          ],
+          "outlets": [
+            "france24.com"
+          ]
+        },
+        "confidence": 51
+      },
+      "geo": {
+        "tier": "approximate",
+        "source": "summary",
+        "policy": "tiered-locus-v2",
+        "scope": "city",
+        "evidence": "Madrid"
+      },
+      "media": {
+        "image": "data/media/5c3b655a456906e4.jpg"
+      }
+    },
+    {
+      "id": 1403,
+      "t": "geopolitical",
+      "sev": "watching",
+      "title": "‘Attempted terror attack’: What happened on board the rerouted Flydubai flight?",
+      "summary": "The co-pilot of a flight from Dubai to Tel Aviv ​tried ‌to crash the plane after stabbing the pilot, but passengers then ⁠held him down while other pilots landed the plane safely in Saudi Arabia, Israeli Prime Minister Benjamin Netanyahu said ‌on Wednesday.",
+      "src": "France24 EN",
+      "loc": "Saudi Arabia, SA (approximate)",
+      "lat": 23.8859,
+      "lon": 45.0792,
+      "ts": 1790784270000,
+      "ingestedAt": 1790785730048,
+      "sources": [
+        "https://www.france24.com/en/video/20260930-attempted-terror-attack-what-happened-on-board-the-rerouted-flydubai-flight"
+      ],
+      "score": {
+        "articles": 1,
+        "tone": 0.0,
+        "quality": 80,
+        "corroboration": {
+          "sources": [
+            "https://www.france24.com/en/video/20260930-attempted-terror-attack-what-happened-on-board-the-rerouted-flydubai-flight"
+          ],
+          "outlets": [
+            "france24.com"
+          ]
+        },
+        "confidence": 51
+      },
+      "geo": {
+        "tier": "approximate",
+        "source": "summary",
+        "policy": "tiered-locus-v2",
+        "scope": "country",
+        "evidence": "Saudi Arabia"
+      },
+      "media": {
+        "image": "data/media/1ee6f590f3010164.jpg"
+      }
+    },
+    {
+      "id": 1402,
+      "t": "geopolitical",
+      "sev": "watching",
+      "title": "Good news in US inflation report boosts chances Fed won’t hike rates",
+      "summary": "Traders see an about 35% chance of an October rate hike, down from ​about 45% following White House pressure Good economic news boosted Wall Street’s main indexes on Wednesday, as a softer-than-anticipated inflation reading buoyed hopes that the Federal Reserve might not hike rates as soon ⁠as next month. A commerce department report ⁠showed the personal consumption expenditures (PCE) ​price index stood at 3.4% on an annual basis in August against estimates of 3.7%, per economists polled by Reuters. Continue reading...",
+      "src": "Guardian World",
+      "loc": "US, US (approximate)",
+      "lat": 39.8283,
+      "lon": -98.5795,
+      "ts": 1790782460000,
+      "ingestedAt": 1790785730032,
+      "sources": [
+        "https://www.theguardian.com/business/2026/sep/30/inflation-report-interest-rates-fed"
+      ],
+      "score": {
+        "articles": 1,
+        "tone": 0.0,
+        "quality": 80,
+        "corroboration": {
+          "sources": [
+            "https://www.theguardian.com/business/2026/sep/30/inflation-report-interest-rates-fed"
+          ],
+          "outlets": [
+            "theguardian.com"
+          ]
+        },
+        "confidence": 51
+      },
+      "geo": {
+        "tier": "approximate",
+        "source": "title",
+        "policy": "tiered-locus-v2",
+        "scope": "country",
+        "evidence": "US"
+      },
+      "media": {
+        "image": "data/media/dd909a6b023e50e1.jpg"
+      }
+    },
+    {
+      "id": 1401,
+      "t": "geopolitical",
+      "sev": "watching",
+      "title": "Israeli forces overwhelmed by violent settlers in ‘terrorist attack’ on Palestinian family",
+      "summary": "Settler violence in West Bank makes everyday life ‘untenable’ for Palestinians, says ICRC after assault on family trying to return home in Jalud The International Committee of the Red Cross (ICRC) has said Israeli settler violence in the West Bank has made everyday life for Palestinians “untenable”, as a mob attack on Palestinians trying to return home prompted one of Benjamin Netanyahu’s main rivals to warn of a campaign of settler terror. More than 100 militant settlers overwhelmed Israeli security forces early on Tuesday to attack a Palestinian family as they attempted to reclaim their home",
+      "src": "Guardian World",
+      "loc": "West Bank, Palestine (regional approximation)",
+      "lat": 31.9466,
+      "lon": 35.3027,
+      "ts": 1790780046000,
+      "ingestedAt": 1790785729979,
+      "sources": [
+        "https://www.theguardian.com/world/2026/sep/30/israeli-settler-violence-west-bank-attack-jalud-palestinians-icrc"
+      ],
+      "score": {
+        "articles": 1,
+        "tone": 0.0,
+        "quality": 80,
+        "corroboration": {
+          "sources": [
+            "https://www.theguardian.com/world/2026/sep/30/israeli-settler-violence-west-bank-attack-jalud-palestinians-icrc"
+          ],
+          "outlets": [
+            "theguardian.com"
+          ]
+        },
+        "confidence": 51
+      },
+      "geo": {
+        "tier": "approximate",
+        "source": "summary",
+        "policy": "tiered-locus-v2",
+        "scope": "region",
+        "evidence": "West Bank"
+      },
+      "media": {
+        "image": "data/media/3c4e69a420f01abc.jpg"
+      }
+    },
+    {
+      "id": 1400,
+      "t": "geopolitical",
+      "sev": "watching",
+      "title": "Pilot who stabbed co-pilot on Israel-bound plane may have tried to crash it, says Netanyahu",
+      "summary": "Israeli officials investigating if incident, which forced plane to make emergency landing in Saudi Arabia, was attempted terror attack One of the pilots of a plane flying from the UAE to Israel stabbed his co-pilot and appeared to try to crash the plane, the Israeli prime minister, Benjamin Netanyahu, said, as Israeli officials said they were investigating if the incident was an attempted terror attack on Israelis. The plane was forced to make an emergency landing in Saudi Arabia after the apparent attack, with the two pilots wounded but other passengers safe, according to a statement by Princ",
+      "src": "Guardian World",
+      "loc": "Saudi Arabia, SA (approximate)",
+      "lat": 23.8859,
+      "lon": 45.0792,
+      "ts": 1790781397000,
+      "ingestedAt": 1790785729970,
+      "sources": [
+        "https://www.theguardian.com/world/2026/sep/30/israel-bound-passenger-plane-emergency-landing-saudi-arabia-pilots-feud"
+      ],
+      "score": {
+        "articles": 1,
+        "tone": 0.0,
+        "quality": 80,
+        "corroboration": {
+          "sources": [
+            "https://www.theguardian.com/world/2026/sep/30/israel-bound-passenger-plane-emergency-landing-saudi-arabia-pilots-feud"
+          ],
+          "outlets": [
+            "theguardian.com"
+          ]
+        },
+        "confidence": 51
+      },
+      "geo": {
+        "tier": "approximate",
+        "source": "summary",
+        "policy": "tiered-locus-v2",
+        "scope": "country",
+        "evidence": "Saudi Arabia"
+      },
+      "media": {
+        "image": "data/media/3f898fe18c11a75e.jpg"
+      }
+    },
+    {
+      "id": 1399,
+      "t": "geopolitical",
+      "sev": "watching",
+      "title": "How Europe’s housing crisis is fuelling a new movement",
+      "summary": "As soaring rents and house prices across Europe​ feed into the political discourse, campaigners believe they have a rare opportunity to force housing to the top of the agenda • Don’t get This Is Europe delivered to your inbox? Sign up here It was billed as one of the largest real-estate events in Europe, attracting as many as 15,000 people ranging from investment firms to developers. But as the District trade show and summit got under way last week in Madrid, housing campaigners from 140 organisations across the globe turned up, intent on holding their own “counter-summit” to push back against",
+      "src": "Guardian World",
+      "loc": "Madrid, ES (approximate)",
+      "lat": 40.4168,
+      "lon": -3.7038,
+      "ts": 1790779543000,
+      "ingestedAt": 1790785729957,
+      "sources": [
+        "https://www.theguardian.com/world/2026/sep/30/how-europes-housing-crisis-is-fuelling-a-new-movement"
+      ],
+      "score": {
+        "articles": 1,
+        "tone": 0.0,
+        "quality": 80,
+        "corroboration": {
+          "sources": [
+            "https://www.theguardian.com/world/2026/sep/30/how-europes-housing-crisis-is-fuelling-a-new-movement"
+          ],
+          "outlets": [
+            "theguardian.com"
+          ]
+        },
+        "confidence": 51
+      },
+      "geo": {
+        "tier": "approximate",
+        "source": "summary",
+        "policy": "tiered-locus-v2",
+        "scope": "city",
+        "evidence": "Madrid"
+      },
+      "media": {
+        "image": "data/media/9521d55a45652beb.jpg"
+      }
+    },
+    {
+      "id": 1398,
+      "t": "geopolitical",
+      "sev": "watching",
+      "title": "Brisbane and Sydney hit hardest by falling house prices as 5.2% shaved from Australian property values",
+      "summary": "Cotality data shows median house prices fell in September as interest rates hit borrowing capacity Get our breaking news email, free app or daily news podcast Housing prices are falling in almost every suburb in Australia’s biggest cities, with values dropping faster in Brisbane than Sydney as the slowdown intensifies. Prices nationally have fallen 5.2% from their peak in March to where they were a year ago, Cotality data released on Thursday shows. Continue reading...",
+      "src": "Guardian World",
+      "loc": "Australia, AU (approximate)",
+      "lat": -25.2744,
+      "lon": 133.7751,
+      "ts": 1790780451000,
+      "ingestedAt": 1790785729924,
+      "sources": [
+        "https://www.theguardian.com/australia-news/2026/oct/01/brisbane-sydney-hit-hardest-by-falling-house-prices"
+      ],
+      "score": {
+        "articles": 1,
+        "tone": 0.0,
+        "quality": 80,
+        "corroboration": {
+          "sources": [
+            "https://www.theguardian.com/australia-news/2026/oct/01/brisbane-sydney-hit-hardest-by-falling-house-prices"
+          ],
+          "outlets": [
+            "theguardian.com"
+          ]
+        },
+        "confidence": 51
+      },
+      "geo": {
+        "tier": "approximate",
+        "source": "summary",
+        "policy": "tiered-locus-v2",
+        "scope": "country",
+        "evidence": "Australia"
+      },
+      "media": {
+        "image": "data/media/0f1d3c16abc03960.jpg"
+      }
+    },
+    {
+      "id": 1397,
+      "t": "geopolitical",
+      "sev": "watching",
+      "title": "AI tool that copied actor’s ‘lustrous’ voice violated his rights, Tokyo court rules",
+      "summary": "Kenjiro Tsuda wins case against TikTok account in landmark Japanese verdict to protect publicity rights A court in Japan has ruled that the human voice has legal protection after a landmark case involving a well-known actor and a TikTok account that he claimed had cloned his “lustrous” baritone voice in its AI-generated videos. Tokyo district court said on Wednesday that voices should enjoy the same protection as publicity rights, at the end of a closely watched legal action brought against TikTok by Kenjiro Tsuda – best known for voicing the character Kento Nanami in the anime Jujutsu Kaisen.",
+      "src": "Guardian World",
+      "loc": "Japan, JP (approximate)",
+      "lat": 36.2048,
+      "lon": 138.2529,
+      "ts": 1790766592000,
+      "ingestedAt": 1790785729911,
+      "sources": [
+        "https://www.theguardian.com/technology/2026/sep/30/ai-tool-copied-actor-kenjiro-tsuda-tokyo-court"
+      ],
+      "score": {
+        "articles": 1,
+        "tone": 0.0,
+        "quality": 80,
+        "corroboration": {
+          "sources": [
+            "https://www.theguardian.com/technology/2026/sep/30/ai-tool-copied-actor-kenjiro-tsuda-tokyo-court"
+          ],
+          "outlets": [
+            "theguardian.com"
+          ]
+        },
+        "confidence": 51
+      },
+      "geo": {
+        "tier": "approximate",
+        "source": "summary",
+        "policy": "tiered-locus-v2",
+        "scope": "country",
+        "evidence": "Japan"
+      },
+      "media": {
+        "image": "data/media/39b0add9b40f166b.jpg"
+      }
+    },
+    {
+      "id": 1396,
+      "t": "geopolitical",
+      "sev": "watching",
+      "title": "Trump administration diverts human rights funds to push far-right agenda abroad",
+      "summary": "Support for white Afrikaners, anti-communism and others reveals how US redefining what qualifies as human rights With hours left before the funding expires, the Trump administration is pushing to direct more than $175m of the state department’s flagship human rights fund to a slate of awards that includes a huge $40m grant for an anti-communism fund, support for a group advancing white Afrikaner rights in South Africa, a campaign against Brazil’s supreme court, and programs that would reward ideological allies in Europe who protect “western civilizational norms”. On Wednesday, the state depart",
+      "src": "Guardian World",
+      "loc": "South Africa, ZA (approximate)",
+      "lat": -30.5595,
+      "lon": 22.9375,
+      "ts": 1790783972000,
+      "ingestedAt": 1790785729863,
+      "sources": [
+        "https://www.theguardian.com/us-news/2026/sep/30/trump-state-department-human-rights-fund"
+      ],
+      "score": {
+        "articles": 1,
+        "tone": 0.0,
+        "quality": 80,
+        "corroboration": {
+          "sources": [
+            "https://www.theguardian.com/us-news/2026/sep/30/trump-state-department-human-rights-fund"
+          ],
+          "outlets": [
+            "theguardian.com"
+          ]
+        },
+        "confidence": 51
+      },
+      "geo": {
+        "tier": "approximate",
+        "source": "summary",
+        "policy": "tiered-locus-v2",
+        "scope": "country",
+        "evidence": "South Africa"
+      },
+      "media": {
+        "image": "data/media/014297237a57566a.jpg"
+      }
+    },
+    {
+      "id": 1395,
+      "t": "geopolitical",
+      "sev": "watching",
+      "title": "Russian attacks on Ukraine’s Kyiv region kill four, target power grid",
+      "summary": "City officials say three killed in Ukraine's capital, as emergency services say child killed in the surrounding region.",
+      "src": "Al Jazeera English",
+      "loc": "Ukraine, UA (approximate)",
+      "lat": 48.3794,
+      "lon": 31.1656,
+      "ts": 1790767944000,
+      "ingestedAt": 1790785729852,
+      "sources": [
+        "https://www.aljazeera.com/news/2026/9/30/russian-attacks-on-ukraines-kyiv-region-kill-four-target-power-grid?traffic_source=rss"
+      ],
+      "score": {
+        "articles": 1,
+        "tone": 0.0,
+        "quality": 80,
+        "corroboration": {
+          "sources": [
+            "https://www.aljazeera.com/news/2026/9/30/russian-attacks-on-ukraines-kyiv-region-kill-four-target-power-grid?traffic_source=rss"
+          ],
+          "outlets": [
+            "aljazeera.com"
+          ]
+        },
+        "confidence": 51
+      },
+      "geo": {
+        "tier": "approximate",
+        "source": "summary",
+        "policy": "tiered-locus-v2",
+        "scope": "country",
+        "evidence": "Ukraine"
+      }
+    },
+    {
+      "id": 1394,
+      "t": "geopolitical",
+      "sev": "watching",
+      "title": "Iraq celebrates National Sovereignty Day as US troops withdraw",
+      "summary": "Iraq’s security forces held parades in Baghdad and Najaf to celebrate ‘Sovereignty Day’ as US troops withdraw.",
+      "src": "Al Jazeera English",
+      "loc": "Baghdad, IQ (approximate)",
+      "lat": 33.3152,
+      "lon": 44.3661,
+      "ts": 1790770620000,
+      "ingestedAt": 1790785729845,
+      "sources": [
+        "https://www.aljazeera.com/video/newsfeed/2026/9/30/iraq-celebrates-national-sovereignty-day-as-us-troops-withdraw?traffic_source=rss"
+      ],
+      "score": {
+        "articles": 1,
+        "tone": 0.0,
+        "quality": 80,
+        "corroboration": {
+          "sources": [
+            "https://www.aljazeera.com/video/newsfeed/2026/9/30/iraq-celebrates-national-sovereignty-day-as-us-troops-withdraw?traffic_source=rss"
+          ],
+          "outlets": [
+            "aljazeera.com"
+          ]
+        },
+        "confidence": 51
+      },
+      "geo": {
+        "tier": "approximate",
+        "source": "summary",
+        "policy": "tiered-locus-v2",
+        "scope": "city",
+        "evidence": "Baghdad"
+      }
+    },
+    {
+      "id": 1393,
+      "t": "geopolitical",
+      "sev": "watching",
+      "title": "Rainwater washes away highway in Nigeria",
+      "summary": "Heavy rain over three days caused severe flooding along the Agbarho-Ughelli highway in Delta State, southern Nigeria.",
+      "src": "Al Jazeera English",
+      "loc": "Nigeria, NG (approximate)",
+      "lat": 9.082,
+      "lon": 8.6753,
+      "ts": 1790771948000,
+      "ingestedAt": 1790785729839,
+      "sources": [
+        "https://www.aljazeera.com/video/newsfeed/2026/9/30/rainwater-washes-away-highway-in-nigeria?traffic_source=rss"
+      ],
+      "score": {
+        "articles": 1,
+        "tone": 0.0,
+        "quality": 80,
+        "corroboration": {
+          "sources": [
+            "https://www.aljazeera.com/video/newsfeed/2026/9/30/rainwater-washes-away-highway-in-nigeria?traffic_source=rss"
+          ],
+          "outlets": [
+            "aljazeera.com"
+          ]
+        },
+        "confidence": 51
+      },
+      "geo": {
+        "tier": "approximate",
+        "source": "title",
+        "policy": "tiered-locus-v2",
+        "scope": "country",
+        "evidence": "Nigeria"
+      }
+    },
+    {
+      "id": 1392,
+      "t": "geopolitical",
+      "sev": "watching",
+      "title": "Christa Pike seeks firing squad, not lethal injection: Inside US executions",
+      "summary": "Women make up about 1 percent of US executions. How do states put people to death, and why is it contested?",
+      "src": "Al Jazeera English",
+      "loc": "US, US (approximate)",
+      "lat": 39.8283,
+      "lon": -98.5795,
+      "ts": 1790774079000,
+      "ingestedAt": 1790785729834,
+      "sources": [
+        "https://www.aljazeera.com/news/2026/9/30/christa-pike-seeks-firing-squad-not-lethal-injection-inside-us-executions?traffic_source=rss"
+      ],
+      "score": {
+        "articles": 1,
+        "tone": 0.0,
+        "quality": 80,
+        "corroboration": {
+          "sources": [
+            "https://www.aljazeera.com/news/2026/9/30/christa-pike-seeks-firing-squad-not-lethal-injection-inside-us-executions?traffic_source=rss"
+          ],
+          "outlets": [
+            "aljazeera.com"
+          ]
+        },
+        "confidence": 51
+      },
+      "geo": {
+        "tier": "approximate",
+        "source": "title",
+        "policy": "tiered-locus-v2",
+        "scope": "country",
+        "evidence": "US"
+      }
+    },
+    {
+      "id": 1391,
+      "t": "geopolitical",
+      "sev": "watching",
+      "title": "Luxury prison in Indonesia demolished after public outcry",
+      "summary": "Indonesian lawmakers on Wednesday ordered the demolition of a controversial luxury compound inside a penitentiary near the capital.",
+      "src": "BBC World",
+      "loc": "Indonesia, ID (approximate)",
+      "lat": -0.7893,
+      "lon": 113.9213,
+      "ts": 1790764863000,
+      "ingestedAt": 1790785729813,
+      "sources": [
+        "https://www.bbc.co.uk/news/videos/cmwyz8j9j85wo?at_medium=RSS&at_campaign=rss"
+      ],
+      "score": {
+        "articles": 1,
+        "tone": 0.0,
+        "quality": 80,
+        "corroboration": {
+          "sources": [
+            "https://www.bbc.co.uk/news/videos/cmwyz8j9j85wo?at_medium=RSS&at_campaign=rss"
+          ],
+          "outlets": [
+            "bbc.co.uk"
+          ]
+        },
+        "confidence": 51
+      },
+      "geo": {
+        "tier": "approximate",
+        "source": "title",
+        "policy": "tiered-locus-v2",
+        "scope": "country",
+        "evidence": "Indonesia"
+      },
+      "media": {
+        "image": "data/media/407ca1d0b79b63c9.jpg"
+      }
+    },
+    {
+      "id": 1390,
+      "t": "geopolitical",
+      "sev": "watching",
+      "title": "Attention turns to economy on final day of Macron’s visit to Spain",
+      "summary": "President Emmanuel Macron is in Spain for the final day of his two-day state visit, the first by a French president to the country since 2009. After being welcomed with a banquet at the Royal Palace by King Felipe VI on Tuesday, on today's agenda is the opening of the Franco-Spanish economic forum and a meeting with Spain's leftist Prime Minister Pedro Sanchez. Once economically ahead of Spain, France is now seeing Spain grow faster, as the Spanish economy has outpaced its French neighbour in recent years.",
+      "src": "France24 EN",
+      "loc": "Spain, ES (approximate)",
+      "lat": 40.4637,
+      "lon": -3.7492,
+      "ts": 1790759594000,
+      "ingestedAt": 1790759769601,
+      "sources": [
+        "https://www.france24.com/en/video/20260930-attention-turns-to-economy-on-final-day-of-macron-s-visit-to-spain"
+      ],
+      "score": {
+        "articles": 1,
+        "tone": 0.0,
+        "quality": 80,
+        "corroboration": {
+          "sources": [
+            "https://www.france24.com/en/video/20260930-attention-turns-to-economy-on-final-day-of-macron-s-visit-to-spain"
+          ],
+          "outlets": [
+            "france24.com"
+          ]
+        },
+        "confidence": 48
+      },
+      "geo": {
+        "tier": "approximate",
+        "source": "summary",
+        "policy": "tiered-locus-v2",
+        "scope": "country",
+        "evidence": "Spain"
+      },
+      "media": {
+        "image": "data/media/a252fe86e38b4f82.jpg"
+      }
+    },
+    {
+      "id": 1389,
+      "t": "geopolitical",
+      "sev": "watching",
+      "title": "Crackdown on South Africa's unsafe streets ordered by president to keep women safe",
+      "summary": "The murders of 12 women near Johannesburg has caused a outcry about the scale of violence against women.",
+      "src": "BBC World",
+      "loc": "Johannesburg, ZA (approximate)",
+      "lat": -26.2041,
+      "lon": 28.0473,
+      "ts": 1790757601000,
+      "ingestedAt": 1790757670390,
+      "sources": [
+        "https://www.bbc.co.uk/news/articles/c51kx9ze1mdzo?at_medium=RSS&at_campaign=rss"
+      ],
+      "score": {
+        "articles": 1,
+        "tone": 0.0,
+        "quality": 80,
+        "corroboration": {
+          "sources": [
+            "https://www.bbc.co.uk/news/articles/c51kx9ze1mdzo?at_medium=RSS&at_campaign=rss"
+          ],
+          "outlets": [
+            "bbc.co.uk"
+          ]
+        },
+        "confidence": 48
+      },
+      "geo": {
+        "tier": "approximate",
+        "source": "summary",
+        "policy": "tiered-locus-v2",
+        "scope": "city",
+        "evidence": "Johannesburg"
+      },
+      "media": {
+        "image": "data/media/e8f696910572e7df.jpg"
+      }
+    },
+    {
+      "id": 1388,
+      "t": "geopolitical",
+      "sev": "critical",
+      "title": "Flydubai flight to Israel diverted to Saudi Arabia after emergency alert",
+      "summary": "Airline says plane experiences 'incident' en route from Dubai to Tel Aviv, lands safely at Saudi Arabia's Tabuk airport.",
+      "src": "Al Jazeera English",
+      "loc": "Saudi Arabia, SA (approximate)",
+      "lat": 23.8859,
+      "lon": 45.0792,
+      "ts": 1790755210000,
+      "ingestedAt": 1790755929208,
+      "sources": [
+        "https://www.aljazeera.com/news/2026/9/30/flydubai-flight-to-israel-diverted-to-saudi-arabia-after-emergency-alert?traffic_source=rss"
+      ],
+      "score": {
+        "articles": 1,
+        "tone": 0.0,
+        "quality": 80,
+        "corroboration": {
+          "sources": [
+            "https://www.aljazeera.com/news/2026/9/30/flydubai-flight-to-israel-diverted-to-saudi-arabia-after-emergency-alert?traffic_source=rss"
+          ],
+          "outlets": [
+            "aljazeera.com"
+          ]
+        },
+        "confidence": 48
+      },
+      "geo": {
+        "tier": "approximate",
+        "source": "summary",
+        "policy": "tiered-locus-v2",
+        "scope": "country",
+        "evidence": "Saudi Arabia"
+      }
+    },
+    {
+      "id": 1387,
+      "t": "geopolitical",
+      "sev": "watching",
+      "title": "South Korea calls for apology from North Korea after mine injures three soldiers",
+      "summary": "Blast during search operation near border fuels political tensions amid attempts to revive diplomatic channels South Korea has demanded an apology from North Korea over a landmine blast that injured three soldiers, saying they were hurt by North Korean mines on the southern side of the border. Kang Hyun-woo, the director of operations at South Korea’s joint chiefs of staff, demanded an apology and “responsible measures” from Pyongyang over the blast, which occurred on 21 September during a search operation south of the border. Continue reading...",
+      "src": "Guardian World",
+      "loc": "South Korea, KR (approximate)",
+      "lat": 35.9078,
+      "lon": 127.7669,
+      "ts": 1790754804000,
+      "ingestedAt": 1790755570213,
+      "sources": [
+        "https://www.theguardian.com/world/2026/sep/30/south-korea-apology-north-korea-mine-injures-soldiers"
+      ],
+      "score": {
+        "articles": 1,
+        "tone": 0.0,
+        "quality": 80,
+        "corroboration": {
+          "sources": [
+            "https://www.theguardian.com/world/2026/sep/30/south-korea-apology-north-korea-mine-injures-soldiers"
+          ],
+          "outlets": [
+            "theguardian.com"
+          ]
+        },
+        "confidence": 48
+      },
+      "geo": {
+        "tier": "approximate",
+        "source": "summary",
+        "policy": "tiered-locus-v2",
+        "scope": "country",
+        "evidence": "South Korea"
+      },
+      "media": {
+        "image": "data/media/fe3b981823eaaca8.jpg"
+      }
+    },
+    {
+      "id": 1386,
+      "t": "geopolitical",
+      "sev": "watching",
+      "title": "An 87-year-old woman whose eviction sparked protests in Spain is returning home",
+      "summary": "María del Carmen Abascal's case has drawn tens of thousands of people to the streets in recent days and led the Spanish government to present measures to address the country's housing crisis.",
+      "src": "NPR World",
+      "loc": "Spain, ES (approximate)",
+      "lat": 40.4637,
+      "lon": -3.7492,
+      "ts": 1790752062000,
+      "ingestedAt": 1790752570586,
+      "sources": [
+        "https://www.npr.org/2026/09/30/nx-s1-5985703/woman-eviction-protests-spain"
+      ],
+      "score": {
+        "articles": 1,
+        "tone": 0.0,
+        "quality": 80,
+        "corroboration": {
+          "sources": [
+            "https://www.npr.org/2026/09/30/nx-s1-5985703/woman-eviction-protests-spain"
+          ],
+          "outlets": [
+            "npr.org"
+          ]
+        },
+        "confidence": 47
+      },
+      "geo": {
+        "tier": "approximate",
+        "source": "title",
+        "policy": "tiered-locus-v2",
+        "scope": "country",
+        "evidence": "Spain"
+      },
+      "media": {
+        "image": "data/media/60f1bd502e0ae5a4.jpg"
+      }
+    },
+    {
+      "id": 1385,
+      "t": "geopolitical",
+      "sev": "watching",
+      "title": "G20 meets in US as Trump’s tariffs loom over talks",
+      "summary": "Trade ministers of the Group of 20 are meeting in Milwaukee for two days of talks on Wednesday, but US President Donald Trump’s tariffs are expected to hang heavy over the talks. \"Don't expect any breakthroughs,\" an analyst watching the event said.",
+      "src": "France24 EN",
+      "loc": "US, US (approximate)",
+      "lat": 39.8283,
+      "lon": -98.5795,
+      "ts": 1790746196000,
+      "ingestedAt": 1790750529702,
+      "sources": [
+        "https://www.france24.com/en/americas/20260930-g20-meets-in-us-as-trump-s-tariffs-loom-over-talks"
+      ],
+      "score": {
+        "articles": 1,
+        "tone": 0.0,
+        "quality": 80,
+        "corroboration": {
+          "sources": [
+            "https://www.france24.com/en/americas/20260930-g20-meets-in-us-as-trump-s-tariffs-loom-over-talks"
+          ],
+          "outlets": [
+            "france24.com"
+          ]
+        },
+        "confidence": 47
+      },
+      "geo": {
+        "tier": "approximate",
+        "source": "title",
+        "policy": "tiered-locus-v2",
+        "scope": "country",
+        "evidence": "US"
+      },
+      "media": {
+        "image": "data/media/1b9a35125359e19c.jpg"
+      }
+    },
+    {
+      "id": 1384,
+      "t": "geopolitical",
+      "sev": "watching",
+      "title": "G20 trade officials meet under shadow of tariffs, overcapacity",
+      "summary": "G20 trade ministers are set to open talks Wednesday in the United States, in meetings strained by President Donald Trump's tariffs as Washington targets partners regarding forced labor and overcapacity.",
+      "src": "France24 EN",
+      "loc": "United States, US (approximate)",
+      "lat": 39.8283,
+      "lon": -98.5795,
+      "ts": 1790746196000,
+      "ingestedAt": 1790749449923,
+      "sources": [
+        "https://www.france24.com/en/live-news/20260930-g20-trade-officials-meet-under-shadow-of-tariffs-overcapacity"
+      ],
+      "score": {
+        "articles": 1,
+        "tone": 0.0,
+        "quality": 80,
+        "corroboration": {
+          "sources": [
+            "https://www.france24.com/en/live-news/20260930-g20-trade-officials-meet-under-shadow-of-tariffs-overcapacity"
+          ],
+          "outlets": [
+            "france24.com"
+          ]
+        },
+        "confidence": 47
+      },
+      "geo": {
+        "tier": "approximate",
+        "source": "summary",
+        "policy": "tiered-locus-v2",
+        "scope": "country",
+        "evidence": "United States"
+      },
+      "media": {
+        "image": "data/media/1b9a35125359e19c.jpg"
+      }
+    },
+    {
+      "id": 1383,
+      "t": "geopolitical",
+      "sev": "watching",
+      "title": "Malaysia begins Myanmar repatriations despite warnings from UN and rights groups",
+      "summary": "Kuala Lumpur plans to send a total of 5,000 Myanmar nationals back to the war-torn country despite persecution concerns Malaysia began sending back about 1,500 Myanmar nationals on Tuesday, the government confirmed, as it launched a scheme that rights groups say may endanger migrants and asylum seekers by returning them to the war-torn country. The group is the first of 5,000 Myanmar citizens that Kuala Lumpur says agreed to “voluntary” repatriation from detention centres amid a huge uptick in anti-migrant sentiment in Malaysia. Continue reading...",
+      "src": "Guardian World",
+      "loc": "Malaysia, MY (approximate)",
+      "lat": 4.21,
+      "lon": 101.9758,
+      "ts": 1790748311000,
+      "ingestedAt": 1790749089233,
+      "sources": [
+        "https://www.theguardian.com/world/2026/sep/30/malaysia-begins-myanmar-repatriations-despite-warnings-from-un-and-rights-groups"
+      ],
+      "score": {
+        "articles": 1,
+        "tone": 0.0,
+        "quality": 80,
+        "corroboration": {
+          "sources": [
+            "https://www.theguardian.com/world/2026/sep/30/malaysia-begins-myanmar-repatriations-despite-warnings-from-un-and-rights-groups"
+          ],
+          "outlets": [
+            "theguardian.com"
+          ]
+        },
+        "confidence": 47
+      },
+      "geo": {
+        "tier": "approximate",
+        "source": "summary",
+        "policy": "tiered-locus-v2",
+        "scope": "country",
+        "evidence": "Malaysia"
+      },
+      "media": {
+        "image": "data/media/445babf9d52cf7a7.jpg"
+      }
+    },
+    {
+      "id": 1382,
+      "t": "geopolitical",
+      "sev": "watching",
+      "title": "Double beds, aircon and big-screen TVs: Indonesia suspends officials over luxury prison cells",
+      "summary": "Indonesia’s prisons have long faced allegations that well-connected inmates can obtain preferential treatment through bribery Five Indonesian prison officials have been suspended after investigators found an apartment-style compound complete with airconditioners, big-screen televisions and expensive cars allegedly used by inmates at a prison near Jakarta. “We found strong indications that certain prisoners had access to special facilities unavailable to ordinary prisoners,” said Syafrida Rachmawati Rasahan, a member of Indonesia’s ombudsman, on Tuesday. “We encountered prisoners inside the res",
+      "src": "Guardian World",
+      "loc": "Jakarta, ID (approximate)",
+      "lat": -6.2088,
+      "lon": 106.8456,
+      "ts": 1790746042000,
+      "ingestedAt": 1790747035787,
+      "sources": [
+        "https://www.theguardian.com/world/2026/sep/30/indonesia-prison-officials-suspended-luxury-apartments-prisoners"
+      ],
+      "score": {
+        "articles": 1,
+        "tone": 0.0,
+        "quality": 80,
+        "corroboration": {
+          "sources": [
+            "https://www.theguardian.com/world/2026/sep/30/indonesia-prison-officials-suspended-luxury-apartments-prisoners"
+          ],
+          "outlets": [
+            "theguardian.com"
+          ]
+        },
+        "confidence": 46
+      },
+      "geo": {
+        "tier": "approximate",
+        "source": "summary",
+        "policy": "tiered-locus-v2",
+        "scope": "city",
+        "evidence": "Jakarta"
+      },
+      "media": {
+        "image": "data/media/134a7877634d6cea.jpg"
+      }
+    },
+    {
+      "id": 1381,
+      "t": "geopolitical",
+      "sev": "critical",
+      "title": "Live: Several people killed as Russia launches new round of strikes on Kyiv",
+      "summary": "At least three people, including a child, have died after Russia launched another round of strikes on Kyiv and its surrounding regions overnight to Wednesday, officials said. Several people were also wounded in the attacks. In Poland, two airports, in Lublin and Rzeszow, were briefly shut over “military aviation activity” during Russian attacks on Ukraine. Follow our liveblog for all the latest updates.",
+      "src": "France24 EN",
+      "loc": "Poland, PL (approximate)",
+      "lat": 51.9194,
+      "lon": 19.1451,
+      "ts": 1790746515000,
+      "ingestedAt": 1790746721088,
+      "sources": [
+        "https://www.france24.com/en/europe/20260930-live-several-people-killed-as-russia-launches-new-round-of-strikes-on-kyiv"
+      ],
+      "score": {
+        "articles": 1,
+        "tone": 0.0,
+        "quality": 80,
+        "corroboration": {
+          "sources": [
+            "https://www.france24.com/en/europe/20260930-live-several-people-killed-as-russia-launches-new-round-of-strikes-on-kyiv"
+          ],
+          "outlets": [
+            "france24.com"
+          ]
+        },
+        "confidence": 46
+      },
+      "geo": {
+        "tier": "approximate",
+        "source": "summary",
+        "policy": "tiered-locus-v2",
+        "scope": "country",
+        "evidence": "Poland"
+      },
+      "media": {
+        "image": "data/media/4a5cae25e7c8a27c.jpg"
+      }
+    },
+    {
       "id": 1380,
       "t": "geopolitical",
       "sev": "watching",
@@ -28,7 +1801,7 @@
             "theguardian.com"
           ]
         },
-        "confidence": 51
+        "confidence": 46
       },
       "geo": {
         "tier": "approximate",
@@ -65,7 +1838,7 @@
             "bbc.co.uk"
           ]
         },
-        "confidence": 51
+        "confidence": 46
       },
       "geo": {
         "tier": "approximate",
@@ -105,7 +1878,7 @@
             "theguardian.com"
           ]
         },
-        "confidence": 51
+        "confidence": 46
       },
       "geo": {
         "tier": "approximate",
@@ -145,7 +1918,7 @@
             "aljazeera.com"
           ]
         },
-        "confidence": 51
+        "confidence": 46
       },
       "geo": {
         "tier": "approximate",
@@ -182,7 +1955,7 @@
             "bbc.co.uk"
           ]
         },
-        "confidence": 51
+        "confidence": 46
       },
       "geo": {
         "tier": "approximate",
@@ -222,7 +1995,7 @@
             "aljazeera.com"
           ]
         },
-        "confidence": 51
+        "confidence": 46
       },
       "geo": {
         "tier": "approximate",
@@ -259,7 +2032,7 @@
             "theguardian.com"
           ]
         },
-        "confidence": 51
+        "confidence": 46
       },
       "geo": {
         "tier": "approximate",
@@ -299,7 +2072,7 @@
             "aljazeera.com"
           ]
         },
-        "confidence": 51
+        "confidence": 45
       },
       "geo": {
         "tier": "approximate",
@@ -336,7 +2109,7 @@
             "theguardian.com"
           ]
         },
-        "confidence": 51
+        "confidence": 45
       },
       "geo": {
         "tier": "approximate",
@@ -376,7 +2149,7 @@
             "theguardian.com"
           ]
         },
-        "confidence": 51
+        "confidence": 45
       },
       "geo": {
         "tier": "approximate",
@@ -416,7 +2189,7 @@
             "france24.com"
           ]
         },
-        "confidence": 51
+        "confidence": 45
       },
       "geo": {
         "tier": "approximate",
@@ -456,7 +2229,7 @@
             "aljazeera.com"
           ]
         },
-        "confidence": 51
+        "confidence": 45
       },
       "geo": {
         "tier": "approximate",
@@ -493,7 +2266,7 @@
             "theguardian.com"
           ]
         },
-        "confidence": 51
+        "confidence": 44
       },
       "geo": {
         "tier": "approximate",
@@ -533,7 +2306,7 @@
             "aljazeera.com"
           ]
         },
-        "confidence": 51
+        "confidence": 44
       },
       "geo": {
         "tier": "approximate",
@@ -570,7 +2343,7 @@
             "france24.com"
           ]
         },
-        "confidence": 51
+        "confidence": 43
       },
       "geo": {
         "tier": "approximate",
@@ -607,7 +2380,7 @@
             "bbc.co.uk"
           ]
         },
-        "confidence": 51
+        "confidence": 42
       },
       "geo": {
         "tier": "approximate",
@@ -647,7 +2420,7 @@
             "gcaptain.com"
           ]
         },
-        "confidence": 51
+        "confidence": 42
       },
       "geo": {
         "tier": "approximate",
@@ -687,7 +2460,7 @@
             "gcaptain.com"
           ]
         },
-        "confidence": 51
+        "confidence": 42
       },
       "geo": {
         "tier": "approximate",
@@ -727,7 +2500,7 @@
             "dw.com"
           ]
         },
-        "confidence": 51
+        "confidence": 42
       },
       "geo": {
         "tier": "approximate",
@@ -764,7 +2537,7 @@
             "france24.com"
           ]
         },
-        "confidence": 51
+        "confidence": 42
       },
       "geo": {
         "tier": "approximate",
@@ -804,7 +2577,7 @@
             "france24.com"
           ]
         },
-        "confidence": 51
+        "confidence": 42
       },
       "geo": {
         "tier": "approximate",
@@ -844,7 +2617,7 @@
             "france24.com"
           ]
         },
-        "confidence": 51
+        "confidence": 42
       },
       "geo": {
         "tier": "approximate",
@@ -884,7 +2657,7 @@
             "france24.com"
           ]
         },
-        "confidence": 51
+        "confidence": 42
       },
       "geo": {
         "tier": "approximate",
@@ -924,7 +2697,7 @@
             "france24.com"
           ]
         },
-        "confidence": 51
+        "confidence": 42
       },
       "geo": {
         "tier": "approximate",
@@ -964,7 +2737,7 @@
             "theguardian.com"
           ]
         },
-        "confidence": 51
+        "confidence": 42
       },
       "geo": {
         "tier": "approximate",
@@ -1004,7 +2777,7 @@
             "theguardian.com"
           ]
         },
-        "confidence": 51
+        "confidence": 42
       },
       "geo": {
         "tier": "approximate",
@@ -1044,7 +2817,7 @@
             "theguardian.com"
           ]
         },
-        "confidence": 51
+        "confidence": 42
       },
       "geo": {
         "tier": "approximate",
@@ -1084,7 +2857,7 @@
             "aljazeera.com"
           ]
         },
-        "confidence": 51
+        "confidence": 42
       },
       "geo": {
         "tier": "approximate",
@@ -1121,7 +2894,7 @@
             "aljazeera.com"
           ]
         },
-        "confidence": 51
+        "confidence": 42
       },
       "geo": {
         "tier": "approximate",
@@ -1158,7 +2931,7 @@
             "aljazeera.com"
           ]
         },
-        "confidence": 51
+        "confidence": 42
       },
       "geo": {
         "tier": "approximate",
@@ -1195,7 +2968,7 @@
             "aljazeera.com"
           ]
         },
-        "confidence": 51
+        "confidence": 42
       },
       "geo": {
         "tier": "approximate",
@@ -1232,7 +3005,7 @@
             "aljazeera.com"
           ]
         },
-        "confidence": 51
+        "confidence": 42
       },
       "geo": {
         "tier": "approximate",
@@ -1269,7 +3042,7 @@
             "aljazeera.com"
           ]
         },
-        "confidence": 51
+        "confidence": 42
       },
       "geo": {
         "tier": "approximate",
@@ -1306,7 +3079,7 @@
             "aljazeera.com"
           ]
         },
-        "confidence": 51
+        "confidence": 42
       },
       "geo": {
         "tier": "approximate",
@@ -1343,7 +3116,7 @@
             "bbc.co.uk"
           ]
         },
-        "confidence": 51
+        "confidence": 42
       },
       "geo": {
         "tier": "approximate",
@@ -1383,7 +3156,7 @@
             "bbc.co.uk"
           ]
         },
-        "confidence": 51
+        "confidence": 42
       },
       "geo": {
         "tier": "approximate",
@@ -1423,7 +3196,7 @@
             "bbc.co.uk"
           ]
         },
-        "confidence": 51
+        "confidence": 42
       },
       "geo": {
         "tier": "approximate",
@@ -1463,7 +3236,7 @@
             "bbc.co.uk"
           ]
         },
-        "confidence": 51
+        "confidence": 42
       },
       "geo": {
         "tier": "approximate",
@@ -1503,7 +3276,7 @@
             "thehackernews.com"
           ]
         },
-        "confidence": 51
+        "confidence": 42
       },
       "geo": {
         "tier": "approximate",
@@ -1540,7 +3313,7 @@
             "thehackernews.com"
           ]
         },
-        "confidence": 51
+        "confidence": 42
       },
       "geo": {
         "tier": "approximate",
@@ -1577,7 +3350,7 @@
             "theguardian.com"
           ]
         },
-        "confidence": 44
+        "confidence": 36
       },
       "geo": {
         "tier": "approximate",
@@ -1617,7 +3390,7 @@
             "aljazeera.com"
           ]
         },
-        "confidence": 44
+        "confidence": 36
       },
       "geo": {
         "tier": "approximate",
@@ -1654,7 +3427,7 @@
             "aljazeera.com"
           ]
         },
-        "confidence": 44
+        "confidence": 36
       },
       "geo": {
         "tier": "approximate",
@@ -1691,7 +3464,7 @@
             "france24.com"
           ]
         },
-        "confidence": 44
+        "confidence": 35
       },
       "geo": {
         "tier": "approximate",
@@ -1731,7 +3504,7 @@
             "theguardian.com"
           ]
         },
-        "confidence": 44
+        "confidence": 35
       },
       "geo": {
         "tier": "approximate",
@@ -1771,7 +3544,7 @@
             "aljazeera.com"
           ]
         },
-        "confidence": 44
+        "confidence": 35
       },
       "geo": {
         "tier": "approximate",
@@ -1808,7 +3581,7 @@
             "theguardian.com"
           ]
         },
-        "confidence": 43
+        "confidence": 35
       },
       "geo": {
         "tier": "approximate",
@@ -1848,7 +3621,7 @@
             "aljazeera.com"
           ]
         },
-        "confidence": 43
+        "confidence": 35
       },
       "geo": {
         "tier": "approximate",
@@ -1885,7 +3658,7 @@
             "aljazeera.com"
           ]
         },
-        "confidence": 43
+        "confidence": 35
       },
       "geo": {
         "tier": "approximate",
@@ -1922,7 +3695,7 @@
             "theguardian.com"
           ]
         },
-        "confidence": 43
+        "confidence": 35
       },
       "geo": {
         "tier": "approximate",
@@ -1962,7 +3735,7 @@
             "theguardian.com"
           ]
         },
-        "confidence": 43
+        "confidence": 35
       },
       "geo": {
         "tier": "approximate",
@@ -2002,7 +3775,7 @@
             "aljazeera.com"
           ]
         },
-        "confidence": 43
+        "confidence": 35
       },
       "geo": {
         "tier": "approximate",
@@ -2039,7 +3812,7 @@
             "aljazeera.com"
           ]
         },
-        "confidence": 43
+        "confidence": 35
       },
       "geo": {
         "tier": "approximate",
@@ -2076,7 +3849,7 @@
             "aljazeera.com"
           ]
         },
-        "confidence": 43
+        "confidence": 35
       },
       "geo": {
         "tier": "approximate",
@@ -2113,7 +3886,7 @@
             "bbc.co.uk"
           ]
         },
-        "confidence": 42
+        "confidence": 33
       },
       "geo": {
         "tier": "approximate",
@@ -2153,7 +3926,7 @@
             "bbc.co.uk"
           ]
         },
-        "confidence": 41
+        "confidence": 33
       },
       "geo": {
         "tier": "approximate",
@@ -2193,7 +3966,7 @@
             "france24.com"
           ]
         },
-        "confidence": 41
+        "confidence": 33
       },
       "geo": {
         "tier": "approximate",
@@ -2233,7 +4006,7 @@
             "theguardian.com"
           ]
         },
-        "confidence": 39
+        "confidence": 31
       },
       "geo": {
         "tier": "approximate",
@@ -2273,7 +4046,7 @@
             "theguardian.com"
           ]
         },
-        "confidence": 39
+        "confidence": 30
       },
       "geo": {
         "tier": "approximate",
@@ -2313,7 +4086,7 @@
             "france24.com"
           ]
         },
-        "confidence": 38
+        "confidence": 30
       },
       "geo": {
         "tier": "approximate",
@@ -2353,7 +4126,7 @@
             "aljazeera.com"
           ]
         },
-        "confidence": 38
+        "confidence": 30
       },
       "geo": {
         "tier": "approximate",
@@ -2390,7 +4163,7 @@
             "theguardian.com"
           ]
         },
-        "confidence": 38
+        "confidence": 30
       },
       "geo": {
         "tier": "approximate",
@@ -2430,7 +4203,7 @@
             "aljazeera.com"
           ]
         },
-        "confidence": 38
+        "confidence": 30
       },
       "geo": {
         "tier": "approximate",
@@ -2467,7 +4240,7 @@
             "aljazeera.com"
           ]
         },
-        "confidence": 38
+        "confidence": 30
       },
       "geo": {
         "tier": "approximate",
@@ -2504,7 +4277,7 @@
             "aljazeera.com"
           ]
         },
-        "confidence": 38
+        "confidence": 29
       },
       "geo": {
         "tier": "approximate",
@@ -2541,7 +4314,7 @@
             "france24.com"
           ]
         },
-        "confidence": 38
+        "confidence": 29
       },
       "geo": {
         "tier": "approximate",
@@ -2581,7 +4354,7 @@
             "bleepingcomputer.com"
           ]
         },
-        "confidence": 38
+        "confidence": 29
       },
       "geo": {
         "tier": "approximate",
@@ -2621,7 +4394,7 @@
             "france24.com"
           ]
         },
-        "confidence": 38
+        "confidence": 29
       },
       "geo": {
         "tier": "approximate",
@@ -2661,7 +4434,7 @@
             "theguardian.com"
           ]
         },
-        "confidence": 37
+        "confidence": 29
       },
       "geo": {
         "tier": "approximate",
@@ -2701,7 +4474,7 @@
             "france24.com"
           ]
         },
-        "confidence": 37
+        "confidence": 29
       },
       "geo": {
         "tier": "approximate",
@@ -2741,7 +4514,7 @@
             "france24.com"
           ]
         },
-        "confidence": 37
+        "confidence": 29
       },
       "geo": {
         "tier": "approximate",
@@ -2781,7 +4554,7 @@
             "theguardian.com"
           ]
         },
-        "confidence": 37
+        "confidence": 28
       },
       "geo": {
         "tier": "approximate",
@@ -2821,7 +4594,7 @@
             "bbc.co.uk"
           ]
         },
-        "confidence": 36
+        "confidence": 28
       },
       "geo": {
         "tier": "approximate",
@@ -2861,7 +4634,7 @@
             "gcaptain.com"
           ]
         },
-        "confidence": 36
+        "confidence": 28
       },
       "geo": {
         "tier": "approximate",
@@ -2901,7 +4674,7 @@
             "gcaptain.com"
           ]
         },
-        "confidence": 36
+        "confidence": 28
       },
       "geo": {
         "tier": "approximate",
@@ -2941,7 +4714,7 @@
             "theguardian.com"
           ]
         },
-        "confidence": 36
+        "confidence": 28
       },
       "geo": {
         "tier": "approximate",
@@ -2981,7 +4754,7 @@
             "aljazeera.com"
           ]
         },
-        "confidence": 36
+        "confidence": 28
       },
       "geo": {
         "tier": "approximate",
@@ -3018,7 +4791,7 @@
             "bbc.co.uk"
           ]
         },
-        "confidence": 36
+        "confidence": 28
       },
       "geo": {
         "tier": "approximate",
@@ -3058,7 +4831,7 @@
             "theguardian.com"
           ]
         },
-        "confidence": 36
+        "confidence": 28
       },
       "geo": {
         "tier": "approximate",
@@ -3098,7 +4871,7 @@
             "france24.com"
           ]
         },
-        "confidence": 36
+        "confidence": 27
       },
       "geo": {
         "tier": "approximate",
@@ -3138,7 +4911,7 @@
             "france24.com"
           ]
         },
-        "confidence": 36
+        "confidence": 27
       },
       "geo": {
         "tier": "approximate",
@@ -3178,7 +4951,7 @@
             "france24.com"
           ]
         },
-        "confidence": 35
+        "confidence": 27
       },
       "geo": {
         "tier": "approximate",
@@ -3218,7 +4991,7 @@
             "gcaptain.com"
           ]
         },
-        "confidence": 35
+        "confidence": 27
       },
       "geo": {
         "tier": "approximate",
@@ -3258,7 +5031,7 @@
             "aljazeera.com"
           ]
         },
-        "confidence": 35
+        "confidence": 27
       },
       "geo": {
         "tier": "approximate",
@@ -3295,7 +5068,7 @@
             "theguardian.com"
           ]
         },
-        "confidence": 35
+        "confidence": 27
       },
       "geo": {
         "tier": "approximate",
@@ -3335,7 +5108,7 @@
             "krebsonsecurity.com"
           ]
         },
-        "confidence": 35
+        "confidence": 26
       },
       "geo": {
         "tier": "approximate",
@@ -3372,7 +5145,7 @@
             "france24.com"
           ]
         },
-        "confidence": 35
+        "confidence": 26
       },
       "geo": {
         "tier": "approximate",
@@ -3412,7 +5185,7 @@
             "gcaptain.com"
           ]
         },
-        "confidence": 34
+        "confidence": 26
       },
       "geo": {
         "tier": "approximate",
@@ -3452,7 +5225,7 @@
             "aljazeera.com"
           ]
         },
-        "confidence": 34
+        "confidence": 26
       },
       "geo": {
         "tier": "approximate",
@@ -3489,7 +5262,7 @@
             "theguardian.com"
           ]
         },
-        "confidence": 33
+        "confidence": 26
       },
       "geo": {
         "tier": "approximate",
@@ -3529,7 +5302,7 @@
             "theguardian.com"
           ]
         },
-        "confidence": 33
+        "confidence": 26
       },
       "geo": {
         "tier": "approximate",
@@ -3569,7 +5342,7 @@
             "france24.com"
           ]
         },
-        "confidence": 33
+        "confidence": 26
       },
       "geo": {
         "tier": "approximate",
@@ -3609,7 +5382,7 @@
             "aljazeera.com"
           ]
         },
-        "confidence": 33
+        "confidence": 26
       },
       "geo": {
         "tier": "approximate",
@@ -3646,7 +5419,7 @@
             "npr.org"
           ]
         },
-        "confidence": 33
+        "confidence": 26
       },
       "geo": {
         "tier": "approximate",
@@ -3686,7 +5459,7 @@
             "france24.com"
           ]
         },
-        "confidence": 33
+        "confidence": 26
       },
       "geo": {
         "tier": "approximate",
@@ -3726,7 +5499,7 @@
             "france24.com"
           ]
         },
-        "confidence": 32
+        "confidence": 26
       },
       "geo": {
         "tier": "approximate",
@@ -3763,7 +5536,7 @@
             "theguardian.com"
           ]
         },
-        "confidence": 32
+        "confidence": 26
       },
       "geo": {
         "tier": "approximate",
@@ -3803,7 +5576,7 @@
             "theguardian.com"
           ]
         },
-        "confidence": 32
+        "confidence": 26
       },
       "geo": {
         "tier": "approximate",
@@ -3843,7 +5616,7 @@
             "aljazeera.com"
           ]
         },
-        "confidence": 32
+        "confidence": 26
       },
       "geo": {
         "tier": "approximate",
@@ -3880,7 +5653,7 @@
             "aljazeera.com"
           ]
         },
-        "confidence": 32
+        "confidence": 26
       },
       "geo": {
         "tier": "approximate",
@@ -3917,7 +5690,7 @@
             "france24.com"
           ]
         },
-        "confidence": 32
+        "confidence": 26
       },
       "geo": {
         "tier": "approximate",
@@ -3957,7 +5730,7 @@
             "france24.com"
           ]
         },
-        "confidence": 32
+        "confidence": 26
       },
       "geo": {
         "tier": "approximate",
@@ -3997,7 +5770,7 @@
             "theguardian.com"
           ]
         },
-        "confidence": 31
+        "confidence": 26
       },
       "geo": {
         "tier": "approximate",
@@ -4037,7 +5810,7 @@
             "npr.org"
           ]
         },
-        "confidence": 31
+        "confidence": 26
       },
       "geo": {
         "tier": "approximate",
@@ -4077,7 +5850,7 @@
             "theguardian.com"
           ]
         },
-        "confidence": 31
+        "confidence": 26
       },
       "geo": {
         "tier": "approximate",
@@ -4117,7 +5890,7 @@
             "aljazeera.com"
           ]
         },
-        "confidence": 30
+        "confidence": 26
       },
       "geo": {
         "tier": "approximate",
@@ -4154,7 +5927,7 @@
             "aljazeera.com"
           ]
         },
-        "confidence": 30
+        "confidence": 26
       },
       "geo": {
         "tier": "approximate",
@@ -4191,7 +5964,7 @@
             "france24.com"
           ]
         },
-        "confidence": 30
+        "confidence": 26
       },
       "geo": {
         "tier": "approximate",
@@ -4231,7 +6004,7 @@
             "theguardian.com"
           ]
         },
-        "confidence": 29
+        "confidence": 26
       },
       "geo": {
         "tier": "approximate",
@@ -4271,7 +6044,7 @@
             "aljazeera.com"
           ]
         },
-        "confidence": 28
+        "confidence": 26
       },
       "geo": {
         "tier": "approximate",
@@ -4308,7 +6081,7 @@
             "bbc.co.uk"
           ]
         },
-        "confidence": 28
+        "confidence": 26
       },
       "geo": {
         "tier": "approximate",
@@ -4348,7 +6121,7 @@
             "aljazeera.com"
           ]
         },
-        "confidence": 27
+        "confidence": 26
       },
       "geo": {
         "tier": "approximate",
@@ -4385,7 +6158,7 @@
             "aljazeera.com"
           ]
         },
-        "confidence": 27
+        "confidence": 26
       },
       "geo": {
         "tier": "approximate",
@@ -4422,7 +6195,7 @@
             "bbc.co.uk"
           ]
         },
-        "confidence": 27
+        "confidence": 26
       },
       "geo": {
         "tier": "approximate",
@@ -4462,7 +6235,7 @@
             "theguardian.com"
           ]
         },
-        "confidence": 27
+        "confidence": 26
       },
       "geo": {
         "tier": "approximate",
@@ -17753,1771 +19526,13 @@
       "media": {
         "image": "data/media/7a98027552f62cb2.jpg"
       }
-    },
-    {
-      "id": 925,
-      "t": "maritime",
-      "sev": "watching",
-      "title": "Deluge Of Copper Arriving In US Leaves New Orleans With Logjam",
-      "summary": "By Yvonne Yue Li, James Attwood and Julian Luk Sep 18, 2026 (Bloomberg) –There’s nothing outwardly remarkable about the journey of the Nord Norfolk, a Liberian-flagged bulk carrier sailing across the...",
-      "src": "gCaptain",
-      "loc": "US, US (approximate)",
-      "lat": 39.8283,
-      "lon": -98.5795,
-      "ts": 1789913469000,
-      "ingestedAt": 1789918538804,
-      "sources": [
-        "https://gcaptain.com/deluge-of-copper-arriving-in-us-leaves-new-orleans-with-logjam/"
-      ],
-      "score": {
-        "articles": 1,
-        "tone": 0.0,
-        "quality": 80,
-        "corroboration": {
-          "sources": [
-            "https://gcaptain.com/deluge-of-copper-arriving-in-us-leaves-new-orleans-with-logjam/"
-          ],
-          "outlets": [
-            "gcaptain.com"
-          ]
-        },
-        "confidence": 26
-      },
-      "geo": {
-        "tier": "approximate",
-        "source": "title",
-        "policy": "tiered-locus-v2",
-        "scope": "country",
-        "evidence": "US"
-      },
-      "media": {
-        "image": "data/media/f298263cf254fdaa.jpg"
-      }
-    },
-    {
-      "id": 924,
-      "t": "maritime",
-      "sev": "watching",
-      "title": "Indonesia Got A Free Aircraft Carrier; Fixes Will Cost Millions",
-      "summary": "By Chandra Asmara Sep 17, 2026 (Bloomberg) –A retired Italian aircraft carrier built to launch Harrier fighter jets arrived at Indonesia’s busiest port Friday with plans for a very different second...",
-      "src": "gCaptain",
-      "loc": "Indonesia, ID (approximate)",
-      "lat": -0.7893,
-      "lon": 113.9213,
-      "ts": 1789918022000,
-      "ingestedAt": 1789918538800,
-      "sources": [
-        "https://gcaptain.com/indonesia-got-a-free-aircraft-carrier-fixes-will-cost-millions/"
-      ],
-      "score": {
-        "articles": 1,
-        "tone": 0.0,
-        "quality": 80,
-        "corroboration": {
-          "sources": [
-            "https://gcaptain.com/indonesia-got-a-free-aircraft-carrier-fixes-will-cost-millions/"
-          ],
-          "outlets": [
-            "gcaptain.com"
-          ]
-        },
-        "confidence": 26
-      },
-      "geo": {
-        "tier": "approximate",
-        "source": "summary",
-        "policy": "tiered-locus-v2",
-        "scope": "country",
-        "evidence": "Indonesia"
-      },
-      "media": {
-        "image": "data/media/afd01b5a5cdbb8e7.jpg"
-      }
-    },
-    {
-      "id": 923,
-      "t": "geopolitical",
-      "sev": "critical",
-      "title": "Israeli settler and Palestinian driver killed in West Bank shootings",
-      "summary": "A suspected Palestinian gunman on Sunday shot dead an Israeli man near a West Bank settlement, according to Israeli officials. The gunman was located at a Ramallah hospital and arrested, police said. Elsewhere in the West Bank, Israeli soldiers killed a Palestinian motorist who the military said was attempting to run them over. The flare up in violence came on the eve of the Jewish holy day of Yom Kippur.",
-      "src": "France24 EN",
-      "loc": "West Bank, Palestine (regional approximation)",
-      "lat": 31.9466,
-      "lon": 35.3027,
-      "ts": 1789918208000,
-      "ingestedAt": 1789918538661,
-      "sources": [
-        "https://www.france24.com/en/middle-east/20260920-israeli-settler-and-palestinian-driver-killed-in-west-bank-shootings"
-      ],
-      "score": {
-        "articles": 1,
-        "tone": 0.0,
-        "quality": 80,
-        "corroboration": {
-          "sources": [
-            "https://www.france24.com/en/middle-east/20260920-israeli-settler-and-palestinian-driver-killed-in-west-bank-shootings"
-          ],
-          "outlets": [
-            "france24.com"
-          ]
-        },
-        "confidence": 26
-      },
-      "geo": {
-        "tier": "approximate",
-        "source": "title",
-        "policy": "tiered-locus-v2",
-        "scope": "region",
-        "evidence": "West Bank"
-      },
-      "media": {
-        "image": "data/media/16acfb59e4244011.jpg"
-      }
-    },
-    {
-      "id": 922,
-      "t": "geopolitical",
-      "sev": "watching",
-      "title": "Victoria Starmer models clothes at London fashion week show",
-      "summary": "Wife of former PM takes part in designer Edeline Lee’s show inspired by the Greek myth of Sisyphus Victoria Starmer has taken part in a London fashion week show, in one of her first public appearances since her husband, Keir Starmer, stepped down as prime minister. Lady Starmer appeared at Sunday’s Edeline Lee show. The London-based, Canadian British designer’s clothes are a favourite of the Princess of Wales, and have also been worn by celebrities including singer Taylor Swift and actor and screenwriter Phoebe Waller-Bridge. Continue reading...",
-      "src": "Guardian World",
-      "loc": "London, GB (approximate)",
-      "lat": 51.5074,
-      "lon": -0.1278,
-      "ts": 1789917361000,
-      "ingestedAt": 1789918538615,
-      "sources": [
-        "https://www.theguardian.com/fashion/2026/sep/20/victoria-starmer-clothes-london-fashion-week-show-edeline-lee"
-      ],
-      "score": {
-        "articles": 1,
-        "tone": 0.0,
-        "quality": 80,
-        "corroboration": {
-          "sources": [
-            "https://www.theguardian.com/fashion/2026/sep/20/victoria-starmer-clothes-london-fashion-week-show-edeline-lee"
-          ],
-          "outlets": [
-            "theguardian.com"
-          ]
-        },
-        "confidence": 26
-      },
-      "geo": {
-        "tier": "approximate",
-        "source": "title",
-        "policy": "tiered-locus-v2",
-        "scope": "city",
-        "evidence": "London"
-      },
-      "media": {
-        "image": "data/media/e9a6dcd4303e5127.jpg"
-      }
-    },
-    {
-      "id": 921,
-      "t": "geopolitical",
-      "sev": "watching",
-      "title": "Ukraine fires over 1,000 drones at Russia in \"largest ever\" attack on Moscow",
-      "summary": "Russia is completing its three-day vote for the Duma this Sunday – the first since its large-scale invasion of Ukraine. The election was organised for the first time also in the Ukrainian regions occupied by Russia, and it was marked by Ukrainian drone strikes at various areas - mainly Moscow. Details by Shirli Sitbon.",
-      "src": "France24 EN",
-      "loc": "Russia, RU (approximate)",
-      "lat": 61.524,
-      "lon": 105.3188,
-      "ts": 1789915612000,
-      "ingestedAt": 1789917099052,
-      "sources": [
-        "https://www.france24.com/en/ukraine-fires-over-1-000-drones-at-russia-in-largest-ever-attack-on-moscow"
-      ],
-      "score": {
-        "articles": 1,
-        "tone": 0.0,
-        "quality": 80,
-        "corroboration": {
-          "sources": [
-            "https://www.france24.com/en/ukraine-fires-over-1-000-drones-at-russia-in-largest-ever-attack-on-moscow"
-          ],
-          "outlets": [
-            "france24.com"
-          ]
-        },
-        "confidence": 26
-      },
-      "geo": {
-        "tier": "approximate",
-        "source": "title",
-        "policy": "tiered-locus-v2",
-        "scope": "country",
-        "evidence": "Russia"
-      },
-      "media": {
-        "image": "data/media/0b6b23ff8ca54fb9.jpg"
-      }
-    },
-    {
-      "id": 920,
-      "t": "geopolitical",
-      "sev": "watching",
-      "title": "AfD threatens fresh blow to Merz: Two German states hold key vote",
-      "summary": "Two German states are heading to the polls today – in Berlin and the state of Mecklenburg-Western Pomerania. The far-right AfD party is expected to make further gains after securing a historic win in Saxony-Anhalt two weeks ago, though it has no realistic path to power in Berlin. Sunday's vote is a key test for Chancellor Friedrich Merz, one that could determine whether he can hold on to power. Details with Jamie Smith-Maillet, FRANCE 24 international affairs editor.",
-      "src": "France24 EN",
-      "loc": "Berlin, DE (approximate)",
-      "lat": 52.52,
-      "lon": 13.405,
-      "ts": 1789916175000,
-      "ingestedAt": 1789917099051,
-      "sources": [
-        "https://www.france24.com/en/afd-threatens-fresh-blow-to-merz-two-german-states-hold-key-vote"
-      ],
-      "score": {
-        "articles": 1,
-        "tone": 0.0,
-        "quality": 80,
-        "corroboration": {
-          "sources": [
-            "https://www.france24.com/en/afd-threatens-fresh-blow-to-merz-two-german-states-hold-key-vote"
-          ],
-          "outlets": [
-            "france24.com"
-          ]
-        },
-        "confidence": 26
-      },
-      "geo": {
-        "tier": "approximate",
-        "source": "summary",
-        "policy": "tiered-locus-v2",
-        "scope": "city",
-        "evidence": "Berlin"
-      },
-      "media": {
-        "image": "data/media/fe8207eba24a20fd.jpg"
-      }
-    },
-    {
-      "id": 919,
-      "t": "geopolitical",
-      "sev": "watching",
-      "title": "Hundreds protest in Tunisia for release of jailed Gaza flotilla activists",
-      "summary": "Hundreds of Tunisians have protested in Tunis, demanding the release of four Global Sumud Flotilla activists.",
-      "src": "Al Jazeera English",
-      "loc": "Tunisia, TN (approximate)",
-      "lat": 33.88,
-      "lon": 9.5,
-      "ts": 1789915081000,
-      "ingestedAt": 1789916378408,
-      "sources": [
-        "https://www.aljazeera.com/video/newsfeed/2026/9/20/hundreds-protest-in-tunisia-for-release-of-jailed-gaza-flotilla-activists?traffic_source=rss"
-      ],
-      "score": {
-        "articles": 1,
-        "tone": 0.0,
-        "quality": 80,
-        "corroboration": {
-          "sources": [
-            "https://www.aljazeera.com/video/newsfeed/2026/9/20/hundreds-protest-in-tunisia-for-release-of-jailed-gaza-flotilla-activists?traffic_source=rss"
-          ],
-          "outlets": [
-            "aljazeera.com"
-          ]
-        },
-        "confidence": 26
-      },
-      "geo": {
-        "tier": "approximate",
-        "source": "title",
-        "policy": "tiered-locus-v2",
-        "scope": "country",
-        "evidence": "Tunisia"
-      }
-    },
-    {
-      "id": 918,
-      "t": "geopolitical",
-      "sev": "critical",
-      "title": "An Israeli settler and a Palestinian driver killed in West Bank shootings",
-      "summary": "An Israeli settler has been fatally shot in the occupied West Bank, while Israel's military said it killed a man who attempted to ram his vehicle into troops elsewhere in the Palestinian territory. The news came as violence in the West Bank is escalating at a very rapid pace. “All Israeli military authorities involved with the West Bank have been warning the Israeli government that the situation is basically out of control”, explains FRANCE 24 correspondent Noga Tarnopolsky.",
-      "src": "France24 EN",
-      "loc": "West Bank, Palestine (regional approximation)",
-      "lat": 31.9466,
-      "lon": 35.3027,
-      "ts": 1789914865000,
-      "ingestedAt": 1789915659250,
-      "sources": [
-        "https://www.france24.com/en/an-israeli-settler-and-a-palestinian-driver-killed-in-west-bank-shootings"
-      ],
-      "score": {
-        "articles": 1,
-        "tone": 0.0,
-        "quality": 80,
-        "corroboration": {
-          "sources": [
-            "https://www.france24.com/en/an-israeli-settler-and-a-palestinian-driver-killed-in-west-bank-shootings"
-          ],
-          "outlets": [
-            "france24.com"
-          ]
-        },
-        "confidence": 26
-      },
-      "geo": {
-        "tier": "approximate",
-        "source": "title",
-        "policy": "tiered-locus-v2",
-        "scope": "region",
-        "evidence": "West Bank"
-      },
-      "media": {
-        "image": "data/media/b8688abe9c776b82.jpg"
-      }
-    },
-    {
-      "id": 917,
-      "t": "geopolitical",
-      "sev": "watching",
-      "title": "Humanoid robots fight in cage match in Shanghai",
-      "summary": "Humanoid robots fight in cage match in Shanghai",
-      "src": "Al Jazeera English",
-      "loc": "Shanghai, CN (approximate)",
-      "lat": 31.2304,
-      "lon": 121.4737,
-      "ts": 1789913548000,
-      "ingestedAt": 1789914578750,
-      "sources": [
-        "https://www.aljazeera.com/video/newsfeed/2026/9/20/humanoid-robots-fight-in-cage-match-in-shanghai?traffic_source=rss"
-      ],
-      "score": {
-        "articles": 1,
-        "tone": 0.0,
-        "quality": 80,
-        "corroboration": {
-          "sources": [
-            "https://www.aljazeera.com/video/newsfeed/2026/9/20/humanoid-robots-fight-in-cage-match-in-shanghai?traffic_source=rss"
-          ],
-          "outlets": [
-            "aljazeera.com"
-          ]
-        },
-        "confidence": 26
-      },
-      "geo": {
-        "tier": "approximate",
-        "source": "title",
-        "policy": "tiered-locus-v2",
-        "scope": "city",
-        "evidence": "Shanghai"
-      }
-    },
-    {
-      "id": 916,
-      "t": "geopolitical",
-      "sev": "watching",
-      "title": "Iran closes French language centre in Tehran for ‘illegal acts’",
-      "summary": "Iranian authorities on Sunday shut down the French Language Centre (CLF) in Tehran, alleging the French embassy-linked institute conducted \"illegal acts that violated diplomatic conventions\" and \"abused its status as a language training facility\".",
-      "src": "France24 EN",
-      "loc": "Tehran, IR (approximate)",
-      "lat": 35.6892,
-      "lon": 51.389,
-      "ts": 1789911960000,
-      "ingestedAt": 1789912418567,
-      "sources": [
-        "https://www.france24.com/en/middle-east/20260920-iran-closes-french-language-centre-in-tehran-for-illegal-acts"
-      ],
-      "score": {
-        "articles": 1,
-        "tone": 0.0,
-        "quality": 80,
-        "corroboration": {
-          "sources": [
-            "https://www.france24.com/en/middle-east/20260920-iran-closes-french-language-centre-in-tehran-for-illegal-acts"
-          ],
-          "outlets": [
-            "france24.com"
-          ]
-        },
-        "confidence": 26
-      },
-      "geo": {
-        "tier": "approximate",
-        "source": "title",
-        "policy": "tiered-locus-v2",
-        "scope": "city",
-        "evidence": "Tehran"
-      },
-      "media": {
-        "image": "data/media/10a7191ca4e6e9e3.jpg"
-      }
-    },
-    {
-      "id": 915,
-      "t": "geopolitical",
-      "sev": "watching",
-      "title": "The week in pictures: Syria protests, Céline Dion on stage and Quito wildfires",
-      "summary": "From protests against rising fuel prices in Syria to Canadian Prime Minister Mark Carney’s EU charm offensive to Quito’s wildfires and Céline Dion’s return to the stage, FRANCE 24 looks back at the week's most striking pictures.",
-      "src": "France24 EN",
-      "loc": "Syria, SY (approximate)",
-      "lat": 34.8021,
-      "lon": 38.9968,
-      "ts": 1789910157000,
-      "ingestedAt": 1789911339024,
-      "sources": [
-        "https://www.france24.com/en/middle-east/20260920-the-week-in-pictures-syria-protests-c%C3%A9line-dion-on-stage-and-quito-wildfires"
-      ],
-      "score": {
-        "articles": 1,
-        "tone": 0.0,
-        "quality": 80,
-        "corroboration": {
-          "sources": [
-            "https://www.france24.com/en/middle-east/20260920-the-week-in-pictures-syria-protests-c%C3%A9line-dion-on-stage-and-quito-wildfires"
-          ],
-          "outlets": [
-            "france24.com"
-          ]
-        },
-        "confidence": 26
-      },
-      "geo": {
-        "tier": "approximate",
-        "source": "summary",
-        "policy": "tiered-locus-v2",
-        "scope": "country",
-        "evidence": "Syria"
-      },
-      "media": {
-        "image": "data/media/5943b8b2405ffd99.jpg"
-      }
-    },
-    {
-      "id": 914,
-      "t": "geopolitical",
-      "sev": "watching",
-      "title": "Moscow attacked by more than 1,000 Ukrainian drones",
-      "summary": "This is the moment a drone exploded as it hit an apartment building in Moscow.",
-      "src": "Al Jazeera English",
-      "loc": "Moscow, RU (approximate)",
-      "lat": 55.7558,
-      "lon": 37.6173,
-      "ts": 1789909835000,
-      "ingestedAt": 1789910977736,
-      "sources": [
-        "https://www.aljazeera.com/video/newsfeed/2026/9/20/moscow-attacked-by-more-than-1000-ukrainian-drones?traffic_source=rss"
-      ],
-      "score": {
-        "articles": 1,
-        "tone": 0.0,
-        "quality": 80,
-        "corroboration": {
-          "sources": [
-            "https://www.aljazeera.com/video/newsfeed/2026/9/20/moscow-attacked-by-more-than-1000-ukrainian-drones?traffic_source=rss"
-          ],
-          "outlets": [
-            "aljazeera.com"
-          ]
-        },
-        "confidence": 26
-      },
-      "geo": {
-        "tier": "approximate",
-        "source": "summary",
-        "policy": "tiered-locus-v2",
-        "scope": "city",
-        "evidence": "Moscow"
-      }
-    },
-    {
-      "id": 913,
-      "t": "geopolitical",
-      "sev": "watching",
-      "title": "Postponing the future: War and inflation redraw marriage terms in Iran",
-      "summary": "Iran's cost of living crisis is affecting the dreams and everyday life choices of young Iranians.",
-      "src": "Al Jazeera English",
-      "loc": "Iran, IR (approximate)",
-      "lat": 32.4279,
-      "lon": 53.688,
-      "ts": 1789909960000,
-      "ingestedAt": 1789910977735,
-      "sources": [
-        "https://www.aljazeera.com/economy/2026/9/20/postponing-the-future-war-and-inflation-redraw-marriage-terms-in-iran?traffic_source=rss"
-      ],
-      "score": {
-        "articles": 1,
-        "tone": 0.0,
-        "quality": 80,
-        "corroboration": {
-          "sources": [
-            "https://www.aljazeera.com/economy/2026/9/20/postponing-the-future-war-and-inflation-redraw-marriage-terms-in-iran?traffic_source=rss"
-          ],
-          "outlets": [
-            "aljazeera.com"
-          ]
-        },
-        "confidence": 26
-      },
-      "geo": {
-        "tier": "approximate",
-        "source": "title",
-        "policy": "tiered-locus-v2",
-        "scope": "country",
-        "evidence": "Iran"
-      }
-    },
-    {
-      "id": 912,
-      "t": "geopolitical",
-      "sev": "watching",
-      "title": "Israeli forces kill Palestinian near Jenin in occupied West Bank",
-      "summary": "Israeli forces killed a Palestinian man near Jenin and an Israeli settler died from his wounds in a separate shooting.",
-      "src": "Al Jazeera English",
-      "loc": "Jenin, PS (approximate)",
-      "lat": 32.4573,
-      "lon": 35.2287,
-      "ts": 1789906282000,
-      "ingestedAt": 1789907739466,
-      "sources": [
-        "https://www.aljazeera.com/news/2026/9/20/israeli-forces-kill-palestinian-near-jenin-in-occupied-west-bank?traffic_source=rss"
-      ],
-      "score": {
-        "articles": 1,
-        "tone": 0.0,
-        "quality": 80,
-        "corroboration": {
-          "sources": [
-            "https://www.aljazeera.com/news/2026/9/20/israeli-forces-kill-palestinian-near-jenin-in-occupied-west-bank?traffic_source=rss"
-          ],
-          "outlets": [
-            "aljazeera.com"
-          ]
-        },
-        "confidence": 26
-      },
-      "geo": {
-        "tier": "approximate",
-        "source": "title",
-        "policy": "tiered-locus-v2",
-        "scope": "city",
-        "evidence": "Jenin"
-      }
-    },
-    {
-      "id": 911,
-      "t": "geopolitical",
-      "sev": "watching",
-      "title": "'NAZA' documentary about Gaza war sparks political storm in Israel",
-      "summary": "The Israeli filmmakers behind the documentary NAZA may have received a standing ovation at the Venice film festival, they have been facing violent threats to their lives and citizenship at home in Israel. A month ahead of crucial elections, the film profiles anonymous military sources who speak about the widespread killing of civilians in Gaza. Prime Minister Benjamin Netanyahu said he intends to introduce legislation aimed at revoking the citizenship of people who \"defame IDF soldiers\". Details by Shirli Sitbon, FRANCE 24 international affairs editor.",
-      "src": "France24 EN",
-      "loc": "Israel, IL (approximate)",
-      "lat": 31.0461,
-      "lon": 34.8516,
-      "ts": 1789906946000,
-      "ingestedAt": 1789907378168,
-      "sources": [
-        "https://www.france24.com/en/naza-documentary-about-gaza-war-sparks-political-storm-in-israel"
-      ],
-      "score": {
-        "articles": 1,
-        "tone": 0.0,
-        "quality": 80,
-        "corroboration": {
-          "sources": [
-            "https://www.france24.com/en/naza-documentary-about-gaza-war-sparks-political-storm-in-israel"
-          ],
-          "outlets": [
-            "france24.com"
-          ]
-        },
-        "confidence": 26
-      },
-      "geo": {
-        "tier": "approximate",
-        "source": "title",
-        "policy": "tiered-locus-v2",
-        "scope": "country",
-        "evidence": "Israel"
-      },
-      "media": {
-        "image": "data/media/fa0bc99e19c12ce8.jpg"
-      }
-    },
-    {
-      "id": 910,
-      "t": "geopolitical",
-      "sev": "watching",
-      "title": "Rabies concerns grow in the US – but it’s unclear if there’s an increase of the fatal disease",
-      "summary": "Rabid goats at a North Carolina petting zoo and a diseased beaver attacking a Maryland boy have set the public on edge Recent unusual incidents involving humans and rabid animals and a subsequent Centers for Disease Control and Prevention (CDC) advisory have prompted concerns about rabies, but it’s not clear if there has actually been an increase in cases of the deadly disease in the United States, experts say. In recent months, rabid beavers have attacked three people in Maryland, and hundreds of people were exposed to goats with rabies at a petting zoo in North Carolina, according to news re",
-      "src": "Guardian World",
-      "loc": "US, US (approximate)",
-      "lat": 39.8283,
-      "lon": -98.5795,
-      "ts": 1789905615000,
-      "ingestedAt": 1789906657859,
-      "sources": [
-        "https://www.theguardian.com/us-news/2026/sep/20/rabies-beaver-goat-prevalence-concerns"
-      ],
-      "score": {
-        "articles": 1,
-        "tone": 0.0,
-        "quality": 80,
-        "corroboration": {
-          "sources": [
-            "https://www.theguardian.com/us-news/2026/sep/20/rabies-beaver-goat-prevalence-concerns"
-          ],
-          "outlets": [
-            "theguardian.com"
-          ]
-        },
-        "confidence": 26
-      },
-      "geo": {
-        "tier": "approximate",
-        "source": "title",
-        "policy": "tiered-locus-v2",
-        "scope": "country",
-        "evidence": "US"
-      },
-      "media": {
-        "image": "data/media/7e32fc8d1276145e.jpg"
-      }
-    },
-    {
-      "id": 909,
-      "t": "geopolitical",
-      "sev": "watching",
-      "title": "‘I have nothing in the UK at all’: British man torn from his Swedish wife and home",
-      "summary": "Charles lands at Heathrow with just two bags and nowhere to go as a result of Brexit and Stockholm’s hardline immigration position Doubled over a Heathrow baggage trolley, the former British business director is sobbing uncontrollably, exhausted emotionally and physically after being deported from Sweden. Hours earlier the 65-year-old had been marched on to a plane in Stockholm, separated from his home and his Swedish wife after a five-year battle to stay in the country after Brexit came to an end. Continue reading...",
-      "src": "Guardian World",
-      "loc": "Stockholm, SE (approximate)",
-      "lat": 59.3293,
-      "lon": 18.0686,
-      "ts": 1789905763000,
-      "ingestedAt": 1789906657787,
-      "sources": [
-        "https://www.theguardian.com/world/2026/sep/20/british-man-torn-from-swedish-wife-and-home"
-      ],
-      "score": {
-        "articles": 1,
-        "tone": 0.0,
-        "quality": 80,
-        "corroboration": {
-          "sources": [
-            "https://www.theguardian.com/world/2026/sep/20/british-man-torn-from-swedish-wife-and-home"
-          ],
-          "outlets": [
-            "theguardian.com"
-          ]
-        },
-        "confidence": 26
-      },
-      "geo": {
-        "tier": "approximate",
-        "source": "summary",
-        "policy": "tiered-locus-v2",
-        "scope": "city",
-        "evidence": "Stockholm"
-      },
-      "media": {
-        "image": "data/media/aecba1c1366ac3b2.jpg"
-      }
-    },
-    {
-      "id": 908,
-      "t": "geopolitical",
-      "sev": "watching",
-      "title": "Back to school in Gaza: Learning in tents after years of disruption",
-      "summary": "After nearly three years of disruption, children return to school in Gaza in makeshift spaces with scarce resources.",
-      "src": "Al Jazeera English",
-      "loc": "Gaza, PS (approximate)",
-      "lat": 31.3547,
-      "lon": 34.3088,
-      "ts": 1789903580000,
-      "ingestedAt": 1789905938452,
-      "sources": [
-        "https://www.aljazeera.com/features/2026/9/20/back-to-school-in-gaza-learning-in-tents-after-years-of-disruption?traffic_source=rss"
-      ],
-      "score": {
-        "articles": 1,
-        "tone": 0.0,
-        "quality": 80,
-        "corroboration": {
-          "sources": [
-            "https://www.aljazeera.com/features/2026/9/20/back-to-school-in-gaza-learning-in-tents-after-years-of-disruption?traffic_source=rss"
-          ],
-          "outlets": [
-            "aljazeera.com"
-          ]
-        },
-        "confidence": 26
-      },
-      "geo": {
-        "tier": "approximate",
-        "source": "title",
-        "policy": "tiered-locus-v2",
-        "scope": "city",
-        "evidence": "Gaza"
-      }
-    },
-    {
-      "id": 907,
-      "t": "geopolitical",
-      "sev": "watching",
-      "title": "Anthems, transport, housing: What’s gone wrong at the Asian Games in Japan?",
-      "summary": "Accommodation crisis, transport gaffes, and national anthem mix-ups headlined the Games ahead their opening in Japan.",
-      "src": "Al Jazeera English",
-      "loc": "Japan, JP (approximate)",
-      "lat": 36.2048,
-      "lon": 138.2529,
-      "ts": 1789903101000,
-      "ingestedAt": 1789904137504,
-      "sources": [
-        "https://www.aljazeera.com/sports/2026/9/20/anthems-transport-housing-whats-gone-wrong-at-the-asian-games-in-japan?traffic_source=rss"
-      ],
-      "score": {
-        "articles": 1,
-        "tone": 0.0,
-        "quality": 80,
-        "corroboration": {
-          "sources": [
-            "https://www.aljazeera.com/sports/2026/9/20/anthems-transport-housing-whats-gone-wrong-at-the-asian-games-in-japan?traffic_source=rss"
-          ],
-          "outlets": [
-            "aljazeera.com"
-          ]
-        },
-        "confidence": 26
-      },
-      "geo": {
-        "tier": "approximate",
-        "source": "title",
-        "policy": "tiered-locus-v2",
-        "scope": "country",
-        "evidence": "Japan"
-      }
-    },
-    {
-      "id": 906,
-      "t": "geopolitical",
-      "sev": "watching",
-      "title": "China’s stranglehold on rare earths must be ended, says hopeful supplier to EU",
-      "summary": "Rafael Moreno, whose company has opened demo plant in Brazil, says market is ‘nervous’ as Trump-Xi summit looms The head of a mining company hoping to supply the EU with rare earths in two years’ time has said it is “paramount” to end China’s stranglehold on the supply of the raw materials used in everything from cars to wind turbines and military jets. As Donald Trump and China’s president, Xi Jinping, prepare to meet on Thursday in their second summit of the year, Rafael Moreno said it was also “imperative” that they do a deal for Beijing to ease up, once again, on its threat to ban exports ",
-      "src": "Guardian World",
-      "loc": "Brazil, BR (approximate)",
-      "lat": -14.235,
-      "lon": -51.9253,
-      "ts": 1789902014000,
-      "ingestedAt": 1789903059752,
-      "sources": [
-        "https://www.theguardian.com/environment/2026/sep/20/china-stranglehold-rare-earths-hopeful-supplier-eu-viridis"
-      ],
-      "score": {
-        "articles": 1,
-        "tone": 0.0,
-        "quality": 80,
-        "corroboration": {
-          "sources": [
-            "https://www.theguardian.com/environment/2026/sep/20/china-stranglehold-rare-earths-hopeful-supplier-eu-viridis"
-          ],
-          "outlets": [
-            "theguardian.com"
-          ]
-        },
-        "confidence": 26
-      },
-      "geo": {
-        "tier": "approximate",
-        "source": "summary",
-        "policy": "tiered-locus-v2",
-        "scope": "country",
-        "evidence": "Brazil"
-      },
-      "media": {
-        "image": "data/media/4305b85eef0fbd00.jpg"
-      }
-    },
-    {
-      "id": 905,
-      "t": "geopolitical",
-      "sev": "watching",
-      "title": "Nine women found dead near Johannesburg sends shockwaves through South Africa",
-      "summary": "Vigils, group runs and moments of silence: thousands of protesters gathered across South Africa this weekend to pay tribute to the nine women found murdered in eastern Johannesburg. In a country that records more than 60 homicides a day, the nine murders sent shockwaves through the population. Anger is mounting, and calls are growing for the government to take action. Story by Caroline Baum.",
-      "src": "France24 EN",
-      "loc": "Johannesburg, ZA (approximate)",
-      "lat": -26.2041,
-      "lon": 28.0473,
-      "ts": 1789898402000,
-      "ingestedAt": 1789901978388,
-      "sources": [
-        "https://www.france24.com/en/nine-women-found-dead-near-johannesburg-sends-shockwaves-through-south-africa"
-      ],
-      "score": {
-        "articles": 1,
-        "tone": 0.0,
-        "quality": 80,
-        "corroboration": {
-          "sources": [
-            "https://www.france24.com/en/nine-women-found-dead-near-johannesburg-sends-shockwaves-through-south-africa"
-          ],
-          "outlets": [
-            "france24.com"
-          ]
-        },
-        "confidence": 26
-      },
-      "geo": {
-        "tier": "approximate",
-        "source": "title",
-        "policy": "tiered-locus-v2",
-        "scope": "city",
-        "evidence": "Johannesburg"
-      },
-      "media": {
-        "image": "data/media/47b5cf1d1e945622.jpg"
-      }
-    },
-    {
-      "id": 904,
-      "t": "geopolitical",
-      "sev": "watching",
-      "title": "Germany: Could regional polls froce Friedrich Merz to step down?",
-      "summary": "Polling is underway in the German capital Berlin and the largely rural state of Mecklenburg-Western Pomerania for regional elections. Both elections are seen as a test for Germany's centre-right Chancellor Friedrich Merz. He has already scheduled a crisis meeting and decided to skip this week's UN General Assembly to deal with the potential fallout. Could he be forced to step down based on the election’s results? Details and analysis by Yann Wernert, senior policy fellow at the Jacques Delors Centre in Berlin.",
-      "src": "France24 EN",
-      "loc": "Berlin, DE (approximate)",
-      "lat": 52.52,
-      "lon": 13.405,
-      "ts": 1789899970000,
-      "ingestedAt": 1789901978384,
-      "sources": [
-        "https://www.france24.com/en/germany-could-regional-polls-froce-friedrich-merz-to-step-down"
-      ],
-      "score": {
-        "articles": 1,
-        "tone": 0.0,
-        "quality": 80,
-        "corroboration": {
-          "sources": [
-            "https://www.france24.com/en/germany-could-regional-polls-froce-friedrich-merz-to-step-down"
-          ],
-          "outlets": [
-            "france24.com"
-          ]
-        },
-        "confidence": 26
-      },
-      "geo": {
-        "tier": "approximate",
-        "source": "summary",
-        "policy": "tiered-locus-v2",
-        "scope": "city",
-        "evidence": "Berlin"
-      },
-      "media": {
-        "image": "data/media/f22fdefdd28f486e.jpg"
-      }
-    },
-    {
-      "id": 903,
-      "t": "geopolitical",
-      "sev": "watching",
-      "title": "Leftists make waves and Trump flexes muscles: US primary season takeaways",
-      "summary": "Candidates have been selected for November’s midterms – have Republicans and Democrats made the right choices? Primary season has official concluded in the United States, with Democrats leading the polls among voters amid widespread economic anxieties, a war with Iran and Donald Trump’s mass deportation agenda continuing into the end of the year. Democratic and Republican voters have selected contenders for key races in the 3 November midterms that will decide the balance of power in Congress, and the future of both parties. Democrats have been rocked by the primary victories of leftwing candi",
-      "src": "Guardian World",
-      "loc": "United States, US (approximate)",
-      "lat": 39.8283,
-      "lon": -98.5795,
-      "ts": 1789898413000,
-      "ingestedAt": 1789899457869,
-      "sources": [
-        "https://www.theguardian.com/us-news/2026/sep/20/us-primary-season-takeaways"
-      ],
-      "score": {
-        "articles": 1,
-        "tone": 0.0,
-        "quality": 80,
-        "corroboration": {
-          "sources": [
-            "https://www.theguardian.com/us-news/2026/sep/20/us-primary-season-takeaways"
-          ],
-          "outlets": [
-            "theguardian.com"
-          ]
-        },
-        "confidence": 26
-      },
-      "geo": {
-        "tier": "approximate",
-        "source": "summary",
-        "policy": "tiered-locus-v2",
-        "scope": "country",
-        "evidence": "United States"
-      },
-      "media": {
-        "image": "data/media/297ce4fe3024c178.jpg"
-      }
-    },
-    {
-      "id": 902,
-      "t": "geopolitical",
-      "sev": "watching",
-      "title": "UK minister warns of impact of Trump’s Iran war on next month’s budget",
-      "summary": "Bridget Phillipson says Burnham’s past criticisms of US president not an issue as PM prepares to meet Trump at UN Next month’s budget will be made more difficult by Donald Trump’s war with Iran, one of Andy Burnham’s cabinet ministers has said, while adding she did not expect the prime minister’s previous disparaging comments about the US president to be an issue. Burnham is expected to meet Trump early next week at the UN general assembly summit in New York, the pair having previously spoken twice by phone since Burnham entered No 10. Continue reading...",
-      "src": "Guardian World",
-      "loc": "New York, US (approximate)",
-      "lat": 40.7128,
-      "lon": -74.006,
-      "ts": 1789895724000,
-      "ingestedAt": 1789898737918,
-      "sources": [
-        "https://www.theguardian.com/politics/2026/sep/20/uk-budget-made-harder-donald-trump-war-iran-bridget-phillipson-andy-burnham"
-      ],
-      "score": {
-        "articles": 1,
-        "tone": 0.0,
-        "quality": 80,
-        "corroboration": {
-          "sources": [
-            "https://www.theguardian.com/politics/2026/sep/20/uk-budget-made-harder-donald-trump-war-iran-bridget-phillipson-andy-burnham"
-          ],
-          "outlets": [
-            "theguardian.com"
-          ]
-        },
-        "confidence": 26
-      },
-      "geo": {
-        "tier": "approximate",
-        "source": "summary",
-        "policy": "tiered-locus-v2",
-        "scope": "city",
-        "evidence": "New York"
-      },
-      "media": {
-        "image": "data/media/5d4a4e63d8530ef5.jpg"
-      }
-    },
-    {
-      "id": 901,
-      "t": "geopolitical",
-      "sev": "watching",
-      "title": "Will German's far right party AfD win over two more regions?",
-      "summary": "Two weeks after the far-right AfD won its first major regional election in Germany, two more eastern states vote this Sunday. Polls have just opened in the capital, Berlin, and the largely rural state of Mecklenburg-Western Pomerania. Details by FRANCE 24 correspondent in Berlin, Jörg Taszman.",
-      "src": "France24 EN",
-      "loc": "Germany, DE (approximate)",
-      "lat": 51.1657,
-      "lon": 10.4515,
-      "ts": 1789896934000,
-      "ingestedAt": 1789897299128,
-      "sources": [
-        "https://www.france24.com/en/will-german-s-far-right-party-afd-win-over-two-more-regions"
-      ],
-      "score": {
-        "articles": 1,
-        "tone": 0.0,
-        "quality": 80,
-        "corroboration": {
-          "sources": [
-            "https://www.france24.com/en/will-german-s-far-right-party-afd-win-over-two-more-regions"
-          ],
-          "outlets": [
-            "france24.com"
-          ]
-        },
-        "confidence": 26
-      },
-      "geo": {
-        "tier": "approximate",
-        "source": "summary",
-        "policy": "tiered-locus-v2",
-        "scope": "country",
-        "evidence": "Germany"
-      },
-      "media": {
-        "image": "data/media/7f6b54c0650cacc3.jpg"
-      }
-    },
-    {
-      "id": 900,
-      "t": "geopolitical",
-      "sev": "watching",
-      "title": "Argentines protest Milei's austerity, demanding higher wages and public spending",
-      "summary": "Tensions are boiling over in Argentina, where a massive wave of public anger is spilling onto the streets of the capital. Following months of aggressive economic reforms and rising household debt, hundreds took to the streets in a \"March of Anger\", targeting President Javier Milei's austerity agenda. Details by Caitlin Brown.",
-      "src": "France24 EN",
-      "loc": "Argentina, AR (approximate)",
-      "lat": -38.4161,
-      "lon": -63.6167,
-      "ts": 1789897107000,
-      "ingestedAt": 1789897299125,
-      "sources": [
-        "https://www.france24.com/en/argentines-protest-milei-s-austerity-demanding-higher-wages-and-public-spending"
-      ],
-      "score": {
-        "articles": 1,
-        "tone": 0.0,
-        "quality": 80,
-        "corroboration": {
-          "sources": [
-            "https://www.france24.com/en/argentines-protest-milei-s-austerity-demanding-higher-wages-and-public-spending"
-          ],
-          "outlets": [
-            "france24.com"
-          ]
-        },
-        "confidence": 26
-      },
-      "geo": {
-        "tier": "approximate",
-        "source": "summary",
-        "policy": "tiered-locus-v2",
-        "scope": "country",
-        "evidence": "Argentina"
-      },
-      "media": {
-        "image": "data/media/a928cda37bd9b7f0.jpg"
-      }
-    },
-    {
-      "id": 899,
-      "t": "geopolitical",
-      "sev": "watching",
-      "title": "Echoicide: Who decides which truths survive in Gaza?",
-      "summary": "From Gaza to the digital age, visibility has become one of the central political struggles of modern conflicts.",
-      "src": "Al Jazeera English",
-      "loc": "Gaza, PS (approximate)",
-      "lat": 31.3547,
-      "lon": 34.3088,
-      "ts": 1789893165000,
-      "ingestedAt": 1789895138054,
-      "sources": [
-        "https://www.aljazeera.com/news-analysis/2026/9/20/echoicide-who-decides-which-truths-survive-in-gaza?traffic_source=rss"
-      ],
-      "score": {
-        "articles": 1,
-        "tone": 0.0,
-        "quality": 80,
-        "corroboration": {
-          "sources": [
-            "https://www.aljazeera.com/news-analysis/2026/9/20/echoicide-who-decides-which-truths-survive-in-gaza?traffic_source=rss"
-          ],
-          "outlets": [
-            "aljazeera.com"
-          ]
-        },
-        "confidence": 26
-      },
-      "geo": {
-        "tier": "approximate",
-        "source": "title",
-        "policy": "tiered-locus-v2",
-        "scope": "city",
-        "evidence": "Gaza"
-      }
-    },
-    {
-      "id": 898,
-      "t": "geopolitical",
-      "sev": "watching",
-      "title": "The gunzels’ grand final: Melbourne Tramaroos’ campaign derails at European TramDriver Championship",
-      "summary": "The Warsaw event saw 26 teams compete across a series of demanding tasks, inspired - to varying degrees - by tram drivers’ day-to-day tasks Get our breaking news email, free app or daily news podcast It’s the grand final for gunzels. But despite having one of the largest tram networks in the world, Melbourne’s Tramaroos finished second last at this year’s European TramDriver Championship, just ahead of London. The event, held in Warsaw on Saturday, saw 26 teams compete across a series of demanding tasks, inspired – to varying degrees – by tram drivers’ day-to-day work. Continue reading...",
-      "src": "Guardian World",
-      "loc": "Warsaw, PL (approximate)",
-      "lat": 52.2297,
-      "lon": 21.0122,
-      "ts": 1789892199000,
-      "ingestedAt": 1789893337853,
-      "sources": [
-        "https://www.theguardian.com/australia-news/2026/sep/20/the-gunzels-grand-final-melbourne-tramaroos-campaign-derails-at-european-tramdriver-championship"
-      ],
-      "score": {
-        "articles": 1,
-        "tone": 0.0,
-        "quality": 80,
-        "corroboration": {
-          "sources": [
-            "https://www.theguardian.com/australia-news/2026/sep/20/the-gunzels-grand-final-melbourne-tramaroos-campaign-derails-at-european-tramdriver-championship"
-          ],
-          "outlets": [
-            "theguardian.com"
-          ]
-        },
-        "confidence": 26
-      },
-      "geo": {
-        "tier": "approximate",
-        "source": "summary",
-        "policy": "tiered-locus-v2",
-        "scope": "city",
-        "evidence": "Warsaw"
-      },
-      "media": {
-        "image": "data/media/7e9545601168ddce.jpg"
-      }
-    },
-    {
-      "id": 897,
-      "t": "geopolitical",
-      "sev": "watching",
-      "title": "Former England and Tottenham star Andros Townsend run over by pitch roller",
-      "summary": "Former England forward Andros Townsend avoided serious injury after being run over by a pitch roller in Thailand.",
-      "src": "Al Jazeera English",
-      "loc": "Thailand, TH (approximate)",
-      "lat": 13.7563,
-      "lon": 100.5018,
-      "ts": 1789890958000,
-      "ingestedAt": 1789891538006,
-      "sources": [
-        "https://www.aljazeera.com/video/newsfeed/2026/9/20/20-09-clip-townsend-gets-rolled-over-in-thailand-th?traffic_source=rss"
-      ],
-      "score": {
-        "articles": 1,
-        "tone": 0.0,
-        "quality": 80,
-        "corroboration": {
-          "sources": [
-            "https://www.aljazeera.com/video/newsfeed/2026/9/20/20-09-clip-townsend-gets-rolled-over-in-thailand-th?traffic_source=rss"
-          ],
-          "outlets": [
-            "aljazeera.com"
-          ]
-        },
-        "confidence": 26
-      },
-      "geo": {
-        "tier": "approximate",
-        "source": "summary",
-        "policy": "tiered-locus-v2",
-        "scope": "country",
-        "evidence": "Thailand"
-      }
-    },
-    {
-      "id": 896,
-      "t": "geopolitical",
-      "sev": "watching",
-      "title": "Hundreds of drones target Moscow on last day of voting in Russia’s parliamentary election",
-      "summary": "Authorities accuse Ukraine of trying to disrupt poll and say 1,600 drones in total intercepted, while at least two people killed and oil refinery damaged Hundreds of drones targeting Moscow and its surrounding region killed at least two people and damaged a major refinery on the final day of the country’s parliamentary elections, authorities said on Sunday. The capital’s mayor said that more than 1,600 drones had been intercepted and shot down, 450 of which were aimed at Moscow. Continue reading...",
-      "src": "Guardian World",
-      "loc": "Russia, RU (approximate)",
-      "lat": 61.524,
-      "lon": 105.3188,
-      "ts": 1789884288000,
-      "ingestedAt": 1789885120678,
-      "sources": [
-        "https://www.theguardian.com/world/2026/sep/20/hundreds-of-drones-target-moscow-on-last-day-of-voting-in-russias-parliamentary-election"
-      ],
-      "score": {
-        "articles": 1,
-        "tone": 0.0,
-        "quality": 80,
-        "corroboration": {
-          "sources": [
-            "https://www.theguardian.com/world/2026/sep/20/hundreds-of-drones-target-moscow-on-last-day-of-voting-in-russias-parliamentary-election"
-          ],
-          "outlets": [
-            "theguardian.com"
-          ]
-        },
-        "confidence": 26
-      },
-      "geo": {
-        "tier": "approximate",
-        "source": "title",
-        "policy": "tiered-locus-v2",
-        "scope": "country",
-        "evidence": "Russia"
-      },
-      "media": {
-        "image": "data/media/75d68241978dc7a6.jpg"
-      }
-    },
-    {
-      "id": 895,
-      "t": "geopolitical",
-      "sev": "watching",
-      "title": "Farage says he wants to ‘hijack’ Trump’s ICE czar to help secure UK border",
-      "summary": "Reform leader also tells US event Europe should have ‘more sensible view’ of president’s administration Nigel Farage has said he wants to “hijack” Donald Trump’s hardline ICE adviser and bring him to the UK “to secure our borders”. Speaking at an event in the US, the Reform UK leader also called for Europe to take a “more sensible view” of the US president’s administration rather than seeing it as “villainous”. Continue reading...",
-      "src": "Guardian World",
-      "loc": "US, US (approximate)",
-      "lat": 39.8283,
-      "lon": -98.5795,
-      "ts": 1789884008000,
-      "ingestedAt": 1789884401460,
-      "sources": [
-        "https://www.theguardian.com/politics/2026/sep/20/farage-says-he-wants-to-hijack-trumps-ice-czar-to-help-secure-uk-border"
-      ],
-      "score": {
-        "articles": 1,
-        "tone": 0.0,
-        "quality": 80,
-        "corroboration": {
-          "sources": [
-            "https://www.theguardian.com/politics/2026/sep/20/farage-says-he-wants-to-hijack-trumps-ice-czar-to-help-secure-uk-border"
-          ],
-          "outlets": [
-            "theguardian.com"
-          ]
-        },
-        "confidence": 26
-      },
-      "geo": {
-        "tier": "approximate",
-        "source": "summary",
-        "policy": "tiered-locus-v2",
-        "scope": "country",
-        "evidence": "US"
-      },
-      "media": {
-        "image": "data/media/5a0fe441e32bb07f.jpg"
-      }
-    },
-    {
-      "id": 894,
-      "t": "geopolitical",
-      "sev": "watching",
-      "title": "Two German states go to the polls after far-right gains",
-      "summary": "About 3.8 million voters in Berlin and Mecklenburg-Western Pomerania are heading to polls on Sunday.",
-      "src": "Al Jazeera English",
-      "loc": "Berlin, DE (approximate)",
-      "lat": 52.52,
-      "lon": 13.405,
-      "ts": 1789882970000,
-      "ingestedAt": 1789884038980,
-      "sources": [
-        "https://www.aljazeera.com/news/2026/9/20/two-german-states-go-to-the-polls-after-far-right-gains?traffic_source=rss"
-      ],
-      "score": {
-        "articles": 1,
-        "tone": 0.0,
-        "quality": 80,
-        "corroboration": {
-          "sources": [
-            "https://www.aljazeera.com/news/2026/9/20/two-german-states-go-to-the-polls-after-far-right-gains?traffic_source=rss"
-          ],
-          "outlets": [
-            "aljazeera.com"
-          ]
-        },
-        "confidence": 26
-      },
-      "geo": {
-        "tier": "approximate",
-        "source": "summary",
-        "policy": "tiered-locus-v2",
-        "scope": "city",
-        "evidence": "Berlin"
-      }
-    },
-    {
-      "id": 893,
-      "t": "geopolitical",
-      "sev": "watching",
-      "title": "Jammertest: Arctic exercise to counter satellite jamming",
-      "summary": "Defence and tech companies have been taking part in annual exercises in Norway.",
-      "src": "Al Jazeera English",
-      "loc": "Norway, NO (approximate)",
-      "lat": 60.472,
-      "lon": 8.4689,
-      "ts": 1789881368000,
-      "ingestedAt": 1789882959658,
-      "sources": [
-        "https://www.aljazeera.com/video/newsfeed/2026/9/20/jammertest-arctic-exercise-to-counter-satellite-jamming?traffic_source=rss"
-      ],
-      "score": {
-        "articles": 1,
-        "tone": 0.0,
-        "quality": 80,
-        "corroboration": {
-          "sources": [
-            "https://www.aljazeera.com/video/newsfeed/2026/9/20/jammertest-arctic-exercise-to-counter-satellite-jamming?traffic_source=rss"
-          ],
-          "outlets": [
-            "aljazeera.com"
-          ]
-        },
-        "confidence": 26
-      },
-      "geo": {
-        "tier": "approximate",
-        "source": "summary",
-        "policy": "tiered-locus-v2",
-        "scope": "country",
-        "evidence": "Norway"
-      }
-    },
-    {
-      "id": 892,
-      "t": "geopolitical",
-      "sev": "watching",
-      "title": "Live: Russian election enters final day in shadow of war in Ukraine",
-      "summary": "A parliamentary election that President Vladimir Putin has framed as a test of public support for Russia’s war in Ukraine entered its third and final day on Sunday. The ruling United Russia party is expected to maintain its dominance in a political system that critics say leaves little room for dissent. Follow the day’s developments as they unfold in our liveblog.",
-      "src": "France24 EN",
-      "loc": "Ukraine, UA (approximate)",
-      "lat": 48.3794,
-      "lon": 31.1656,
-      "ts": 1789881380000,
-      "ingestedAt": 1789881517818,
-      "sources": [
-        "https://www.france24.com/en/europe/20260920-live-russian-election-enters-final-day-in-shadow-of-war-in-ukraine"
-      ],
-      "score": {
-        "articles": 1,
-        "tone": 0.0,
-        "quality": 80,
-        "corroboration": {
-          "sources": [
-            "https://www.france24.com/en/europe/20260920-live-russian-election-enters-final-day-in-shadow-of-war-in-ukraine"
-          ],
-          "outlets": [
-            "france24.com"
-          ]
-        },
-        "confidence": 26
-      },
-      "geo": {
-        "tier": "approximate",
-        "source": "title",
-        "policy": "tiered-locus-v2",
-        "scope": "country",
-        "evidence": "Ukraine"
-      },
-      "media": {
-        "image": "data/media/8a97597591d0b7f7.jpg"
-      }
-    },
-    {
-      "id": 891,
-      "t": "geopolitical",
-      "sev": "critical",
-      "title": "Two killed in 'massive' Ukrainian drone attack on Moscow region, says Russia",
-      "summary": "An oil refinery was also reportedly hit in Moscow, and flights were suspended at two capital airports.",
-      "src": "BBC World",
-      "loc": "Moscow, RU (approximate)",
-      "lat": 55.7558,
-      "lon": 37.6173,
-      "ts": 1789880694000,
-      "ingestedAt": 1789881158382,
-      "sources": [
-        "https://www.bbc.co.uk/news/articles/c34gdjk1ne8yo?at_medium=RSS&at_campaign=rss"
-      ],
-      "score": {
-        "articles": 1,
-        "tone": 0.0,
-        "quality": 80,
-        "corroboration": {
-          "sources": [
-            "https://www.bbc.co.uk/news/articles/c34gdjk1ne8yo?at_medium=RSS&at_campaign=rss"
-          ],
-          "outlets": [
-            "bbc.co.uk"
-          ]
-        },
-        "confidence": 26
-      },
-      "geo": {
-        "tier": "approximate",
-        "source": "summary",
-        "policy": "tiered-locus-v2",
-        "scope": "city",
-        "evidence": "Moscow"
-      },
-      "media": {
-        "image": "data/media/f1c462c6e9c59adb.jpg"
-      }
-    },
-    {
-      "id": 890,
-      "t": "geopolitical",
-      "sev": "watching",
-      "title": "Saudi Arabia says Houthis tried to attack its capital",
-      "summary": "Saudi Arabia on Saturday said that Yemen's Houthi rebels tried to attack Riyadh with a ballistic missile, the first time the Saudi capital has been targeted since the escalation in fighting with the Iran-backed rebels opened a new front in the Iran war.",
-      "src": "NPR World",
-      "loc": "Iran, IR (approximate)",
-      "lat": 32.4279,
-      "lon": 53.688,
-      "ts": 1789876643000,
-      "ingestedAt": 1789877198592,
-      "sources": [
-        "https://www.npr.org/2026/09/19/nx-s1-5974980/saudi-arabia-houthis-attempted-attack-capital"
-      ],
-      "score": {
-        "articles": 1,
-        "tone": 0.0,
-        "quality": 80,
-        "corroboration": {
-          "sources": [
-            "https://www.npr.org/2026/09/19/nx-s1-5974980/saudi-arabia-houthis-attempted-attack-capital"
-          ],
-          "outlets": [
-            "npr.org"
-          ]
-        },
-        "confidence": 26
-      },
-      "geo": {
-        "tier": "approximate",
-        "source": "summary",
-        "policy": "tiered-locus-v2",
-        "scope": "country",
-        "evidence": "Iran"
-      },
-      "media": {
-        "image": "data/media/70a72a5b1954bdef.jpg"
-      }
-    },
-    {
-      "id": 889,
-      "t": "geopolitical",
-      "sev": "watching",
-      "title": "Man charged with stabbing murder of 90-year-old woman in Bondi Beach amid spate of alleged domestic violence killings",
-      "summary": "Three women were killed in separate incidents just hours apart in NSW on Saturday Follow our Australia news live blog for latest updates Get our breaking news email, free app or daily news podcast Three women have died just hours apart in separate incidents in one state, including an elderly woman who was fatally stabbed in an alleged domestic violence attack. A 47-year-old man has been charged with murder after the woman in her 90s was found with stab wounds inside her unit at Sydney’s Bondi Beach at about 5.15pm on Saturday. Continue reading...",
-      "src": "Guardian World",
-      "loc": "Sydney, AU (approximate)",
-      "lat": -33.8688,
-      "lon": 151.2093,
-      "ts": 1789866202000,
-      "ingestedAt": 1789867238489,
-      "sources": [
-        "https://www.theguardian.com/australia-news/2026/sep/20/bondi-stabbing-90-year-old-woman-nsw-alleged-domestic-violence-killings-ntwnfb"
-      ],
-      "score": {
-        "articles": 1,
-        "tone": 0.0,
-        "quality": 80,
-        "corroboration": {
-          "sources": [
-            "https://www.theguardian.com/australia-news/2026/sep/20/bondi-stabbing-90-year-old-woman-nsw-alleged-domestic-violence-killings-ntwnfb"
-          ],
-          "outlets": [
-            "theguardian.com"
-          ]
-        },
-        "confidence": 26
-      },
-      "geo": {
-        "tier": "approximate",
-        "source": "summary",
-        "policy": "tiered-locus-v2",
-        "scope": "city",
-        "evidence": "Sydney"
-      },
-      "media": {
-        "image": "data/media/9e96ec435ff08a5e.jpg"
-      }
-    },
-    {
-      "id": 888,
-      "t": "geopolitical",
-      "sev": "watching",
-      "title": "Turkiye backs Saudi Arabia’s security amid escalating Houthi attacks: FM",
-      "summary": "Turkish FM highlights Turkiye's readiness to assist Saudi Arabia militarily, as Houthi attacks intensify in Yemen.",
-      "src": "Al Jazeera English",
-      "loc": "Yemen, YE (approximate)",
-      "lat": 15.5527,
-      "lon": 48.5164,
-      "ts": 1789859914000,
-      "ingestedAt": 1789860818719,
-      "sources": [
-        "https://www.aljazeera.com/news/2026/9/19/turkiye-backs-saudi-arabias-security-amid-escalating-houthi-attacks-fm?traffic_source=rss"
-      ],
-      "score": {
-        "articles": 1,
-        "tone": 0.0,
-        "quality": 80,
-        "corroboration": {
-          "sources": [
-            "https://www.aljazeera.com/news/2026/9/19/turkiye-backs-saudi-arabias-security-amid-escalating-houthi-attacks-fm?traffic_source=rss"
-          ],
-          "outlets": [
-            "aljazeera.com"
-          ]
-        },
-        "confidence": 26
-      },
-      "geo": {
-        "tier": "approximate",
-        "source": "summary",
-        "policy": "tiered-locus-v2",
-        "scope": "country",
-        "evidence": "Yemen"
-      }
-    },
-    {
-      "id": 887,
-      "t": "geopolitical",
-      "sev": "watching",
-      "title": "News live: Taylor pledges ‘one of the biggest immigration cuts in Australian history’; tributes for Victorian Greens MP Tim Read",
-      "summary": "Follow live updates Get our breaking news email, free app or daily news podcast The federal opposition leader, Angus Taylor, has vowed to deliver one of the biggest immigration cuts in Australia history and called Labor “socialist in all but name” in a bid to rally the party faithful, six months out from the New South Wales election. In a wide-ranging address to the NSW Liberal party state council in Sydney on Saturday, Taylor admitted the previous coalition government had its shortcomings, but said Labor was “utterly failing the nation”. For the past four years, we’ve had a government in Canb",
-      "src": "Guardian World",
-      "loc": "Australia, AU (approximate)",
-      "lat": -25.2744,
-      "lon": 133.7751,
-      "ts": 1789857868000,
-      "ingestedAt": 1789857938904,
-      "sources": [
-        "https://www.theguardian.com/australia-news/live/2026/sep/20/australia-news-live-labor-coalition-fuel-petrol-prices-anthony-albanese-pauline-hanson-one-nation-immigration-angus-taylor-police-ntwnfb"
-      ],
-      "score": {
-        "articles": 1,
-        "tone": 0.0,
-        "quality": 80,
-        "corroboration": {
-          "sources": [
-            "https://www.theguardian.com/australia-news/live/2026/sep/20/australia-news-live-labor-coalition-fuel-petrol-prices-anthony-albanese-pauline-hanson-one-nation-immigration-angus-taylor-police-ntwnfb"
-          ],
-          "outlets": [
-            "theguardian.com"
-          ]
-        },
-        "confidence": 26
-      },
-      "geo": {
-        "tier": "approximate",
-        "source": "summary",
-        "policy": "tiered-locus-v2",
-        "scope": "country",
-        "evidence": "Australia"
-      },
-      "media": {
-        "image": "data/media/7ddaa29b97714f63.jpg"
-      }
-    },
-    {
-      "id": 886,
-      "t": "geopolitical",
-      "sev": "watching",
-      "title": "Saudi-led coalition says defences intercept Houthi missile fired at Riyadh",
-      "summary": "This was the first time an alert was sounded in Riyadh since an escalation between the Houthis in Yemen and the Saudis.",
-      "src": "Al Jazeera English",
-      "loc": "Riyadh, SA (approximate)",
-      "lat": 24.7136,
-      "lon": 46.6753,
-      "ts": 1789855385000,
-      "ingestedAt": 1789855779571,
-      "sources": [
-        "https://www.aljazeera.com/news/2026/9/19/saudi-led-coalition-says-defences-intercept-houthi-missile-fired-at-riyadh?traffic_source=rss"
-      ],
-      "score": {
-        "articles": 1,
-        "tone": 0.0,
-        "quality": 80,
-        "corroboration": {
-          "sources": [
-            "https://www.aljazeera.com/news/2026/9/19/saudi-led-coalition-says-defences-intercept-houthi-missile-fired-at-riyadh?traffic_source=rss"
-          ],
-          "outlets": [
-            "aljazeera.com"
-          ]
-        },
-        "confidence": 26
-      },
-      "geo": {
-        "tier": "approximate",
-        "source": "title",
-        "policy": "tiered-locus-v2",
-        "scope": "city",
-        "evidence": "Riyadh"
-      }
-    },
-    {
-      "id": 885,
-      "t": "geopolitical",
-      "sev": "watching",
-      "title": "Taiwan's lost films hold the sounds and stories of a vanishing era",
-      "summary": "Researchers in Taiwan are racing to restore a crucial piece of the island's film history, before it's lost forever.",
-      "src": "NPR World",
-      "loc": "Taiwan, TW (approximate)",
-      "lat": 23.6978,
-      "lon": 120.9605,
-      "ts": 1789851927000,
-      "ingestedAt": 1789852540791,
-      "sources": [
-        "https://www.npr.org/2026/09/19/nx-s1-5944374/taiwans-lost-films-hold-the-sounds-and-stories-of-a-vanishing-era"
-      ],
-      "score": {
-        "articles": 1,
-        "tone": 0.0,
-        "quality": 80,
-        "corroboration": {
-          "sources": [
-            "https://www.npr.org/2026/09/19/nx-s1-5944374/taiwans-lost-films-hold-the-sounds-and-stories-of-a-vanishing-era"
-          ],
-          "outlets": [
-            "npr.org"
-          ]
-        },
-        "confidence": 26
-      },
-      "geo": {
-        "tier": "approximate",
-        "source": "summary",
-        "policy": "tiered-locus-v2",
-        "scope": "country",
-        "evidence": "Taiwan"
-      },
-      "media": {
-        "image": "data/media/2f01c4f2d9b33134.jpg"
-      }
-    },
-    {
-      "id": 884,
-      "t": "geopolitical",
-      "sev": "watching",
-      "title": "Persecuted Chinese religious leader finds refuge in the U.S.",
-      "summary": "China is cracking down on underground churches, with one church leader finding refuge in the U.S.",
-      "src": "NPR World",
-      "loc": "U.S., US (approximate)",
-      "lat": 39.8283,
-      "lon": -98.5795,
-      "ts": 1789851932000,
-      "ingestedAt": 1789852540784,
-      "sources": [
-        "https://www.npr.org/2026/09/19/nx-s1-5960427/persecuted-chinese-religious-leader-finds-refuge-in-the-u-s"
-      ],
-      "score": {
-        "articles": 1,
-        "tone": 0.0,
-        "quality": 80,
-        "corroboration": {
-          "sources": [
-            "https://www.npr.org/2026/09/19/nx-s1-5960427/persecuted-chinese-religious-leader-finds-refuge-in-the-u-s"
-          ],
-          "outlets": [
-            "npr.org"
-          ]
-        },
-        "confidence": 26
-      },
-      "geo": {
-        "tier": "approximate",
-        "source": "title",
-        "policy": "tiered-locus-v2",
-        "scope": "country",
-        "evidence": "U.S."
-      },
-      "media": {
-        "image": "data/media/2f01c4f2d9b33134.jpg"
-      }
-    },
-    {
-      "id": 883,
-      "t": "geopolitical",
-      "sev": "watching",
-      "title": "Two arrested for Louvre stunt 'for fun' in Mona Lisa hall",
-      "summary": "Two Germans were arrested Saturday after they stuck two paintings on a wall of the hall that hosts the Mona Lisa in Paris's Louvre museum, police sources said.",
-      "src": "France24 EN",
-      "loc": "Paris, FR (approximate)",
-      "lat": 48.8566,
-      "lon": 2.3522,
-      "ts": 1789850700000,
-      "ingestedAt": 1789851821207,
-      "sources": [
-        "https://www.france24.com/en/france/20260919-two-arrested-for-louvre-stunt-for-fun-in-mona-lisa-hall"
-      ],
-      "score": {
-        "articles": 1,
-        "tone": 0.0,
-        "quality": 80,
-        "corroboration": {
-          "sources": [
-            "https://www.france24.com/en/france/20260919-two-arrested-for-louvre-stunt-for-fun-in-mona-lisa-hall"
-          ],
-          "outlets": [
-            "france24.com"
-          ]
-        },
-        "confidence": 26
-      },
-      "geo": {
-        "tier": "approximate",
-        "source": "summary",
-        "policy": "tiered-locus-v2",
-        "scope": "city",
-        "evidence": "Paris"
-      },
-      "media": {
-        "image": "data/media/32a649876dccf963.jpg"
-      }
-    },
-    {
-      "id": 882,
-      "t": "geopolitical",
-      "sev": "watching",
-      "title": "Israeli president pardons combat medic who shot dead wounded Palestinian attacker",
-      "summary": "Elor Azaria’s conviction in 2017 for manslaughter of man who stabbed soldier continues to divide country Israel’s president has pardoned a combat medic who shot dead a badly wounded Palestinian attacker who had stabbed a soldier in the occupied West Bank, in a case that divided the country a decade ago. Elor Azaria’s conviction in 2017 for manslaughter and his release after serving two-thirds of his 18-month sentence drew enormous attention in Israel, where military service is compulsory for most Jewish men. Continue reading...",
-      "src": "Guardian World",
-      "loc": "Israel, IL (approximate)",
-      "lat": 31.0461,
-      "lon": 34.8516,
-      "ts": 1789849937000,
-      "ingestedAt": 1789851099817,
-      "sources": [
-        "https://www.theguardian.com/world/2026/sep/19/israel-president-pardon-elor-azaria-wounded-palestinian-attacker"
-      ],
-      "score": {
-        "articles": 1,
-        "tone": 0.0,
-        "quality": 80,
-        "corroboration": {
-          "sources": [
-            "https://www.theguardian.com/world/2026/sep/19/israel-president-pardon-elor-azaria-wounded-palestinian-attacker"
-          ],
-          "outlets": [
-            "theguardian.com"
-          ]
-        },
-        "confidence": 26
-      },
-      "geo": {
-        "tier": "approximate",
-        "source": "summary",
-        "policy": "tiered-locus-v2",
-        "scope": "country",
-        "evidence": "Israel"
-      },
-      "media": {
-        "image": "data/media/d5123050924220a6.jpg"
-      }
-    },
-    {
-      "id": 881,
-      "t": "geopolitical",
-      "sev": "watching",
-      "title": "Trump says he will create ‘AI Force’ with new ‘AI czar’",
-      "summary": "The announcements come as AI faces mounting concerns from populations across the United States.",
-      "src": "Al Jazeera English",
-      "loc": "United States, US (approximate)",
-      "lat": 39.8283,
-      "lon": -98.5795,
-      "ts": 1789847410000,
-      "ingestedAt": 1789848218956,
-      "sources": [
-        "https://www.aljazeera.com/news/2026/9/19/trump-says-he-will-create-ai-force-with-new-ai-czar?traffic_source=rss"
-      ],
-      "score": {
-        "articles": 1,
-        "tone": 0.0,
-        "quality": 80,
-        "corroboration": {
-          "sources": [
-            "https://www.aljazeera.com/news/2026/9/19/trump-says-he-will-create-ai-force-with-new-ai-czar?traffic_source=rss"
-          ],
-          "outlets": [
-            "aljazeera.com"
-          ]
-        },
-        "confidence": 26
-      },
-      "geo": {
-        "tier": "approximate",
-        "source": "summary",
-        "policy": "tiered-locus-v2",
-        "scope": "country",
-        "evidence": "United States"
-      }
     }
   ],
   "manifest": {
     "version": 1,
-    "lastSync": 1790745438281,
-    "lastAttempt": 1790745438281,
-    "nextEventId": 1381,
+    "lastSync": 1790803243821,
+    "lastAttempt": 1790803243821,
+    "nextEventId": 1426,
     "source": {
       "name": "Curated RSS",
       "endpoint": "https://krebsonsecurity.com/feed/"
@@ -19526,25 +19541,27 @@
       "events": 500,
       "byTopic": {
         "cyber": 9,
-        "geopolitical": 470,
-        "maritime": 19,
+        "geopolitical": 471,
+        "maritime": 18,
         "military": 2
       },
       "bySeverity": {
-        "critical": 27,
+        "critical": 26,
         "escalating": 0,
-        "watching": 473,
+        "watching": 474,
         "deesc": 0
       },
       "pulse": 0,
-      "ingested": 337,
-      "deduped": 49,
+      "ingested": 336,
+      "deduped": 41,
       "merged": 0
     },
     "health": {
-      "status": "ok",
-      "durationMs": 11582,
-      "failedSources": []
+      "status": "degraded",
+      "durationMs": 12605,
+      "failedSources": [
+        "OpenSky flights"
+      ]
     }
   }
 }

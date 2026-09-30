@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "lastSync": 1790745438281,
-  "lastAttempt": 1790745438281,
-  "nextEventId": 1381,
+  "lastSync": 1790803243821,
+  "lastAttempt": 1790803243821,
+  "nextEventId": 1426,
   "source": {
     "name": "Curated RSS",
     "endpoint": "https://krebsonsecurity.com/feed/"
@@ -11,24 +11,26 @@
     "events": 500,
     "byTopic": {
       "cyber": 9,
-      "geopolitical": 470,
-      "maritime": 19,
+      "geopolitical": 471,
+      "maritime": 18,
       "military": 2
     },
     "bySeverity": {
-      "critical": 27,
+      "critical": 26,
       "escalating": 0,
-      "watching": 473,
+      "watching": 474,
       "deesc": 0
     },
     "pulse": 0,
-    "ingested": 337,
-    "deduped": 49,
+    "ingested": 336,
+    "deduped": 41,
     "merged": 0
   },
   "health": {
-    "status": "ok",
-    "durationMs": 11582,
-    "failedSources": []
+    "status": "degraded",
+    "durationMs": 12605,
+    "failedSources": [
+      "OpenSky flights"
+    ]
   }
 }

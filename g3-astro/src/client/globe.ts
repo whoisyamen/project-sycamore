@@ -152,6 +152,7 @@ export interface GlobeAdapter {
   update(events: Event[], active: number | null): void;
   focus(id: number): void;
   resize(): void;
+  reframe(): void;
   destroy(): void;
   setLayers(layers: Partial<Record<LayerName, boolean>>): void;
   setImageMode(mode: ImageryMode): void;
@@ -216,6 +217,91 @@ function flightTrailTier(height: number): number {
   return FLIGHT_TRAIL_TIERS.findIndex((tier) => height <= tier.maxHeight);
 }
 
+/**
+ * Pixels per radian at the principal point, for the current frustum. Cesium
+ * reads frustum.fov as the *horizontal* angle when the canvas is wider than it
+ * is tall, so the focal length has to follow the same rule.
+ */
+function focalPixels(viewer: Cesium.Viewer): number {
+  const { clientWidth: w, clientHeight: h } = viewer.canvas;
+  const frustum = viewer.camera.frustum as Cesium.PerspectiveFrustum;
+  const fov = frustum.fov ?? Cesium.Math.PI_OVER_THREE;
+  return (w > h ? w / 2 : h / 2) / Math.tan(fov / 2);
+}
+
+/**
+ * The band of the canvas the globe may occupy, in canvas pixels. Pages mark
+ * their own chrome with data-globe-inset so this stays layout-agnostic: the
+ * overview reserves the heading band above and the reporting tray below.
+ */
+function stageBand(container: HTMLElement) {
+  const rect = container.getBoundingClientRect();
+  let top = 0;
+  let bottom = rect.height;
+  const parent = container.parentElement;
+  if (parent) {
+    for (const el of parent.querySelectorAll<HTMLElement>('[data-globe-inset]')) {
+      const box = el.getBoundingClientRect();
+      if (box.width < 1 || box.height < 1) continue;
+      if (el.dataset.globeInset === 'top') top = Math.max(top, box.bottom - rect.top);
+      else bottom = Math.min(bottom, box.top - rect.top);
+    }
+  }
+  // Ignore markings that would leave nothing worth showing.
+  if (!(bottom - top > rect.height * 0.25)) {
+    top = 0;
+    bottom = rect.height;
+  }
+  return { top, bottom, width: rect.width, height: rect.height };
+}
+
+/**
+ * Aim the camera at the centre of the globe and size it to the stage.
+ *
+ * Camera.setView with only a destination aims at the sub-camera point, not the
+ * globe's centre, so on a full-bleed canvas the globe hangs far below the fold
+ * and only its limb shows. Aiming down the sub-point axis puts the centre on the
+ * canvas centre, and backing off until the silhouette fits the band between the
+ * heading and the reporting tray leaves space around it for the star field.
+ *
+ * The aim correction stays on the axis deliberately: tilting by a fraction of a
+ * degree to nudge the disc onto an off-centre band is not something setView
+ * holds on to, and centring on the canvas keeps the disc symmetric instead.
+ */
+function frameGlobe(viewer: Cesium.Viewer) {
+  const { camera, scene } = viewer;
+  const canvas = viewer.canvas;
+  const width = canvas.clientWidth;
+  const height = canvas.clientHeight;
+  if (width < 2 || height < 2) return;
+  const band = stageBand(viewer.container as HTMLElement);
+  const centre = height / 2;
+  // Largest disc that clears the reserved bands on both sides.
+  const room = Math.max(0, Math.min(centre - band.top, band.bottom - centre, width / 2));
+  const radius = Math.max(24, room * 0.94);
+
+  // Stay over whatever point the camera already looks at, so reframing on
+  // resize never drifts the view off the region the user is reading.
+  const upAxis = Cesium.Cartesian3.normalize(camera.positionWC, new Cesium.Cartesian3());
+  // North up at the sub-point; it must be perpendicular to the view direction,
+  // which points at the globe's centre.
+  const east = Cesium.Cartesian3.normalize(
+    Cesium.Cartesian3.cross(Cesium.Cartesian3.UNIT_Z, upAxis, new Cesium.Cartesian3()),
+    new Cesium.Cartesian3(),
+  );
+  const north = Cesium.Cartesian3.cross(upAxis, east, new Cesium.Cartesian3());
+  const earth = scene.globe.ellipsoid.maximumRadius;
+  // Silhouette of a sphere: pixels = focal * earth / sqrt(d^2 - earth^2).
+  const distance = earth * Math.sqrt(1 + Math.pow(focalPixels(viewer) / radius, 2));
+  camera.setView({
+    destination: Cesium.Cartesian3.multiplyByScalar(upAxis, distance, new Cesium.Cartesian3()),
+    orientation: {
+      direction: Cesium.Cartesian3.negate(upAxis, new Cesium.Cartesian3()),
+      up: Cesium.Cartesian3.clone(north),
+    },
+  });
+}
+
 function incidentCallout(event: Event): string {
   const raw = (event.summary || event.title).replace(/\s+/g, ' ').trim();
   const clipped = raw.length > 104 ? `${raw.slice(0, 101).trimEnd()}…` : raw;
@@ -241,6 +327,7 @@ export function createGlobe(
   return (async () => {
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     let destroyed = false;
+    let movedByUser = false;
     const cartographic = opts.layout === 'context' && opts.initialImagery !== 'satellite';
 
     // ---------------------------------------------------------- baselines before first paint matters for picking/labels
@@ -288,9 +375,20 @@ export function createGlobe(
     satLayer.show = opts.initialImagery === 'satellite';
     darkLayer.show = !satLayer.show;
     const resizeObserver = new ResizeObserver(() => {
-      if (!destroyed) viewer.resize();
+      if (destroyed) return;
+      viewer.resize();
+      // Keep the globe centred in the stage across resizes, but never fight a
+      // user who has panned or zoomed themselves.
+      if (framed && !movedByUser) frameGlobe(viewer);
     });
     resizeObserver.observe(container);
+    // Any direct navigation counts as the user claiming the camera.
+    const claimCamera = () => {
+      movedByUser = true;
+    };
+    for (const type of ['pointerdown', 'wheel', 'touchstart'] as const) {
+      container.addEventListener(type, claimCamera, { passive: true });
+    }
     const resizeFrame = requestAnimationFrame(() => {
       if (!destroyed) viewer.resize();
     });
@@ -301,10 +399,11 @@ export function createGlobe(
     scene.globe.dynamicAtmosphereLighting = false;
     scene.globe.maximumScreenSpaceError = 1; // one LOD deeper than default: sharper imagery at global view, ~4x tiles
     scene.backgroundColor = opts.layout
-      ? Cesium.Color.fromCssColorString(opts.layout === 'context' ? '#0a0d12' : '#080c12')
+      ? Cesium.Color.fromCssColorString(opts.layout === 'context' ? '#0a0d12' : '#01030a')
       : INK;
     // Cesium's bundled star field sits behind the existing globe/atmosphere.
-    if (scene.skyBox) scene.skyBox.show = !opts.layout;
+    // The overview keeps it; the reporting context globe stays on a flat ground.
+    if (scene.skyBox) scene.skyBox.show = opts.layout !== 'context';
     if (scene.sun) scene.sun.show = false;
     if (scene.moon) scene.moon.show = false;
     if (scene.skyAtmosphere) {
@@ -323,6 +422,8 @@ export function createGlobe(
     const homeHeight = opts.layout === 'horizon' ? 6.8e6 : opts.layout === 'context' ? 8e6 : 1.9e7;
     const homeLatitude = opts.layout === 'horizon' ? -5 : 25;
     camera.setView({ destination: Cesium.Cartesian3.fromDegrees(20, homeLatitude, homeHeight) });
+    const framed = opts.layout === 'horizon';
+    if (framed) frameGlobe(viewer);
     if (opts.initialImagery === 'satellite') effects.setSatellite(true);
 
     // ---------------------------------------------------------- layer registries
@@ -1105,6 +1206,10 @@ export function createGlobe(
       resize() {
         if (!destroyed) viewer.resize();
       },
+      reframe() {
+        // Same restraint as the resize observer: never fight a globe the user moved.
+        if (!destroyed && framed && !movedByUser) frameGlobe(viewer);
+      },
       getLayer(name) {
         return layersOn[name];
       },
@@ -1113,6 +1218,11 @@ export function createGlobe(
       },
       resetView() {
         selectRegion(null, false);
+        if (framed) {
+          movedByUser = false;
+          frameGlobe(viewer);
+          return;
+        }
         camera.flyTo({
           destination: Cesium.Cartesian3.fromDegrees(20, homeLatitude, homeHeight),
           duration: reducedMotion ? 0 : 1,

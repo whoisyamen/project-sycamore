@@ -11,10 +11,10 @@ const context = await loadData();
 <Base title="Overview — Sycamore" context={context} dashboard>
   <main id="main" class="dashboard horizon-dashboard" tabindex="-1" data-tab="map">
     <Map />
-    <header class="horizon-heading">
+    <header class="horizon-heading" data-globe-inset="top">
       <h1>Global overview</h1><ReportFilters events={context.events} compact />
     </header>
-    <div id="horizon-spotlight" class="horizon-spotlight" aria-label="Report in view"></div>
+
     <div class="map-view-toolbar" role="toolbar" aria-label="Map workspace">
       <button
         type="button"

@@ -1,6 +1,6 @@
 import { markBoot } from './boot';
 import { filterEvents, readState, stateUrl, defaults, type DashboardState } from './state';
-import { eventCard, eventDetail, overviewSpotlight } from './render';
+import { eventCard, eventDetail } from './render';
 import type { EventMap } from './map';
 import type { Snapshot, DataContext } from '../data/types';
 
@@ -138,7 +138,6 @@ export function initDashboard(
       '.view-tabs',
       '.world-map',
       '.horizon-heading',
-      '.horizon-spotlight',
       '.map-view-toolbar',
     ]) {
       const el = document.querySelector<HTMLElement>(selector);
@@ -174,14 +173,6 @@ export function initDashboard(
     $('feed-count').textContent = String(visible.length);
     $('map-event-count').textContent = String(visible.length);
     const selected = context.events.find((e) => e.id === state.event);
-    const spotlight = $('horizon-spotlight');
-    if (spotlight) {
-      const report = selected ?? visible[0];
-      const html = report
-        ? overviewSpotlight(report)
-        : '<p class="empty-state">No reporting matches these filters.</p>';
-      if (spotlight.innerHTML !== html) spotlight.innerHTML = html;
-    }
     const hadFocus = panel.contains(document.activeElement);
     if (selected) {
       const html = eventDetail(selected);
@@ -247,33 +238,21 @@ export function initDashboard(
     e.preventDefault();
     links[(index + (e.key === 'ArrowDown' ? 1 : -1) + links.length) % links.length]?.focus();
   });
-  $('horizon-spotlight')?.addEventListener('click', async (e) => {
-    const target = (e.target as HTMLElement).closest<HTMLElement>(
-      '[data-preview-event], [data-spotlight-share]',
-    );
-    if (!target) return;
-    if (target.dataset.previewEvent) select(Number(target.dataset.previewEvent));
-    else {
-      const url = stateUrl(
-        { ...state, event: Number(target.dataset.spotlightShare) },
-        location.href,
-      ).href;
-      const status = $('spotlight-share-status');
-      try {
-        await navigator.clipboard.writeText(url);
-        status.textContent = 'Link copied';
-      } catch {
-        const input = document.createElement('input');
-        input.className = 'share-fallback';
-        input.readOnly = true;
-        input.value = url;
-        input.setAttribute('aria-label', 'Copy this report link');
-        status.replaceChildren(input);
-        input.focus();
-        input.select();
-      }
-    }
-  });
+  const feedPanel = document.querySelector<HTMLElement>('.horizon-reporting');
+  const feedCollapse = document.querySelector<HTMLButtonElement>('[data-feed-collapse]');
+  function setFeedCollapsed(collapsed: boolean) {
+    if (!feedPanel || !feedCollapse) return;
+    feedPanel.dataset.collapsed = String(collapsed);
+    feedCollapse.setAttribute('aria-expanded', String(!collapsed));
+    const label = collapsed ? 'Expand reporting tray' : 'Collapse reporting tray';
+    feedCollapse.setAttribute('aria-label', label);
+    feedCollapse.title = label;
+    // The tray is a globe inset, so its height changes the stage the camera frames.
+    window.requestAnimationFrame(() => map?.reframe?.());
+  }
+  feedCollapse?.addEventListener('click', () =>
+    setFeedCollapsed(feedPanel?.dataset.collapsed !== 'true'),
+  );
   $<HTMLSelectElement>('topic-filter')?.addEventListener('change', (e) => {
     state.topic = (e.target as HTMLSelectElement).value as DashboardState['topic'];
     changeFilters();
