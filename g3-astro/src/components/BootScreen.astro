@@ -1,0 +1,59 @@
+<div
+  id="boot-screen"
+  class="boot-screen"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="boot-title"
+  aria-describedby="boot-copy"
+  aria-busy="true"
+>
+  <div class="boot-panel">
+    <p class="eyebrow">SY / INITIALIZING</p>
+    <h1 id="boot-title">The overview is coming online<span class="accent">.</span></h1>
+    <p id="boot-copy">
+      The globe, map imagery, and published reporting feed finish loading before this screen steps
+      aside. Flight, seismic, and Censys layers keep updating after that.
+    </p>
+    <ol class="boot-steps" aria-live="polite">
+      <li data-boot-step="snapshot" data-state="wait">
+        <span class="boot-mark" aria-hidden="true"></span>
+        <span>
+          <strong>Published reporting</strong>
+          <span class="boot-step-detail">Refreshing the snapshot</span>
+        </span>
+      </li>
+      <li data-boot-step="globe" data-state="wait">
+        <span class="boot-mark" aria-hidden="true"></span>
+        <span>
+          <strong>Globe and map</strong>
+          <span class="boot-step-detail">Waiting for imagery</span>
+        </span>
+      </li>
+      <li data-boot-step="feed" data-state="wait">
+        <span class="boot-mark" aria-hidden="true"></span>
+        <span>
+          <strong>Signal feed</strong>
+          <span class="boot-step-detail">Rendering events</span>
+        </span>
+      </li>
+    </ol>
+    <div
+      class="boot-progress"
+      role="progressbar"
+      aria-label="Overview startup"
+      aria-valuemin="0"
+      aria-valuemax="3"
+      aria-valuenow="0"
+    >
+      <span></span>
+    </div>
+    <button type="button" class="button boot-skip" data-boot-skip>Enter overview</button>
+  </div>
+  <noscript>
+    <style is:inline>
+      .boot-screen {
+        display: none !important;
+      }
+    </style>
+  </noscript>
+</div>

@@ -160,11 +160,17 @@ export interface GlobeAdapter {
   resetView(): void;
   zoom(direction: number): void;
   setPresentationMode(enabled: boolean): void;
+  setSuspended(suspended: boolean): void;
+  /** Resolves when current-view imagery is in, or when the wait times out. */
+  whenImagerySettled(timeoutMs?: number): Promise<'ready' | 'timeout'>;
 }
 
 export interface GlobeOptions {
   onSelectEvent?: (id: number) => void; // marker picked → dashboard selects it in feed/panel
   onRegionSelected?: (r: RegionSelection | null) => void; // country/city picked or cleared
+  layout?: 'horizon' | 'context';
+  initialImagery?: ImageryMode;
+  creditContainer?: HTMLElement;
 }
 
 const SEISMIC_URL = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson';
@@ -235,6 +241,7 @@ export function createGlobe(
   return (async () => {
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     let destroyed = false;
+    const cartographic = opts.layout === 'context' && opts.initialImagery !== 'satellite';
 
     // ---------------------------------------------------------- baselines before first paint matters for picking/labels
     await loadCountries().catch(() => undefined);
@@ -247,7 +254,11 @@ export function createGlobe(
         maximumLevel: 16,
         credit: 'Basemap © Esri, HERE, Garmin',
       }),
-      { colorToAlpha: BASEMAP_OCEAN, colorToAlphaThreshold: 0.025, alpha: 0.78 },
+      {
+        colorToAlpha: BASEMAP_OCEAN,
+        colorToAlphaThreshold: cartographic ? 0 : 0.025,
+        alpha: cartographic ? 1 : 0.78,
+      },
     );
     const satLayer = new Cesium.ImageryLayer(
       new Cesium.UrlTemplateImageryProvider({
@@ -270,10 +281,12 @@ export function createGlobe(
       infoBox: false,
       selectionIndicator: false,
       shouldAnimate: false,
+      creditContainer: opts.creditContainer,
     });
     const scene = viewer.scene;
     scene.imageryLayers.add(satLayer);
-    satLayer.show = false;
+    satLayer.show = opts.initialImagery === 'satellite';
+    darkLayer.show = !satLayer.show;
     const resizeObserver = new ResizeObserver(() => {
       if (!destroyed) viewer.resize();
     });
@@ -282,27 +295,35 @@ export function createGlobe(
       if (!destroyed) viewer.resize();
     });
 
-    scene.globe.baseColor = OCEAN;
+    scene.globe.baseColor = cartographic ? Cesium.Color.fromCssColorString('#1b242c') : OCEAN;
     scene.globe.showGroundAtmosphere = false; // preserve the dark palette instead of washing it in daylight
     scene.globe.enableLighting = false; // ungraded satellite imagery stays legible across the globe
     scene.globe.dynamicAtmosphereLighting = false;
     scene.globe.maximumScreenSpaceError = 1; // one LOD deeper than default: sharper imagery at global view, ~4x tiles
-    scene.backgroundColor = INK;
-    if (scene.skyBox) scene.skyBox.show = false;
+    scene.backgroundColor = opts.layout
+      ? Cesium.Color.fromCssColorString(opts.layout === 'context' ? '#0a0d12' : '#080c12')
+      : INK;
+    // Cesium's bundled star field sits behind the existing globe/atmosphere.
+    if (scene.skyBox) scene.skyBox.show = !opts.layout;
     if (scene.sun) scene.sun.show = false;
     if (scene.moon) scene.moon.show = false;
     if (scene.skyAtmosphere) {
-      scene.skyAtmosphere.show = true;
+      scene.skyAtmosphere.show = !cartographic;
       scene.skyAtmosphere.atmosphereLightIntensity = 6;
       scene.skyAtmosphere.brightnessShift = -0.2;
     }
 
-    const effects = attachGlobeEffects(viewer, container, BASE, reducedMotion);
+    const effects = cartographic
+      ? { setSatellite: (_enabled: boolean) => {}, destroy: () => {} }
+      : attachGlobeEffects(viewer, container, BASE, reducedMotion);
     viewer.targetFrameRate = 30;
     viewer.resolutionScale = Math.min(window.devicePixelRatio || 1, 1.5);
 
     const camera = viewer.camera;
-    camera.setView({ destination: Cesium.Cartesian3.fromDegrees(20, 25, 1.9e7) });
+    const homeHeight = opts.layout === 'horizon' ? 6.8e6 : opts.layout === 'context' ? 8e6 : 1.9e7;
+    const homeLatitude = opts.layout === 'horizon' ? -5 : 25;
+    camera.setView({ destination: Cesium.Cartesian3.fromDegrees(20, homeLatitude, homeHeight) });
+    if (opts.initialImagery === 'satellite') effects.setSatellite(true);
 
     // ---------------------------------------------------------- layer registries
     const eventSource = new Cesium.CustomDataSource('events');
@@ -325,7 +346,7 @@ export function createGlobe(
     let visibleEvents: Event[] = [];
     let activeEventId: number | null = null;
     let presentationMode = false;
-    let imageryMode: ImageryMode = 'dark';
+    let imageryMode: ImageryMode = opts.initialImagery ?? 'dark';
     let flightsEnv: FlightsEnvelope | null = null;
     let selectedFlightId: string | null = null;
     let lastFlightTrailTier = -1;
@@ -334,7 +355,7 @@ export function createGlobe(
     const layersOn: Record<LayerName, boolean> = {
       events: true,
       cities: false,
-      flights: true,
+      flights: !opts.layout,
       seismic: false,
       censys: false,
     };
@@ -389,7 +410,8 @@ export function createGlobe(
         const approx = geoTier(e) === 'approximate'; // D-014: dimmer — less certain than precise fixes
         const baseColor = base.color;
         const restingAlpha = approx ? 0.45 : 1;
-        const restingSize = activeEventId === e.id ? 9 : approx ? 6.5 : 8;
+        const restingSize =
+          opts.layout === 'context' ? 4 : activeEventId === e.id ? 9 : approx ? 6.5 : 8;
         const markerColor = presentationMode
           ? reducedMotion
             ? baseColor.withAlpha(1)
@@ -420,7 +442,8 @@ export function createGlobe(
               pixelSize: markerSize,
               color: markerColor,
               outlineColor: outlineCol,
-              outlineWidth: activeEventId === e.id ? 1.6 : approx ? 1.3 : 0,
+              outlineWidth:
+                opts.layout === 'context' ? 0.6 : activeEventId === e.id ? 1.6 : approx ? 1.3 : 0,
               disableDepthTestDistance: presentationMode ? Number.POSITIVE_INFINITY : 0,
             },
             label:
@@ -1091,7 +1114,7 @@ export function createGlobe(
       resetView() {
         selectRegion(null, false);
         camera.flyTo({
-          destination: Cesium.Cartesian3.fromDegrees(20, 25, 1.9e7),
+          destination: Cesium.Cartesian3.fromDegrees(20, homeLatitude, homeHeight),
           duration: reducedMotion ? 0 : 1,
         });
       },
@@ -1104,6 +1127,40 @@ export function createGlobe(
         hoverChip.hidden = true;
         rebuildEvents();
         if (!destroyed) viewer.resize();
+      },
+      setSuspended(suspended) {
+        if (destroyed) return;
+        // The globe is covered while the tiles-only feed is showing: stop paying
+        // for frames nobody can see, and resume on the switch back.
+        viewer.useDefaultRenderLoop = !suspended;
+      },
+      whenImagerySettled(timeoutMs = 4500) {
+        return new Promise((resolve) => {
+          if (destroyed) {
+            resolve('timeout');
+            return;
+          }
+          let settled = false;
+          let timer = 0;
+          let poll = 0;
+          const finish = (status: 'ready' | 'timeout') => {
+            if (settled) return;
+            settled = true;
+            window.clearTimeout(timer);
+            window.clearInterval(poll);
+            scene.globe.tileLoadProgressEvent.removeEventListener(onProgress);
+            resolve(status);
+          };
+          const onProgress = (remaining: number) => {
+            if (remaining === 0 && scene.globe.tilesLoaded) finish('ready');
+          };
+          timer = window.setTimeout(() => finish('timeout'), timeoutMs);
+          poll = window.setInterval(() => {
+            if (!destroyed && scene.globe.tilesLoaded) finish('ready');
+          }, 200);
+          scene.globe.tileLoadProgressEvent.addEventListener(onProgress);
+          if (scene.globe.tilesLoaded) finish('ready');
+        });
       },
       destroy() {
         if (destroyed) return;
@@ -1167,7 +1224,7 @@ export function createGlobe(
 
     // initial layer state + first polls (flights default on — trails are the signature look)
     refreshStatus();
-    void pollFlights();
+    if (layersOn.flights) void pollFlights();
 
     // Start the poll timer
     pollTimer = setInterval(() => {

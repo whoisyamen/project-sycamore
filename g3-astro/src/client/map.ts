@@ -5,5 +5,7 @@ export interface EventMap {
   focus(id: number): void;
   resize(): void;
   setPresentationMode?(enabled: boolean): void;
+  /** Pause the globe render loop while another surface (the feed) is showing. */
+  setSuspended?(suspended: boolean): void;
   destroy(): void;
 }

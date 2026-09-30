@@ -38,6 +38,7 @@ test('dashboard filters, selects, shares, refreshes and remains usable without W
   };
   let shown: Event[] = [];
   const presentationStates: boolean[] = [];
+  const suspendedStates: boolean[] = [];
   initDashboard(context, () => ({
     update(events) {
       shown = events;
@@ -47,11 +48,19 @@ test('dashboard filters, selects, shares, refreshes and remains usable without W
     setPresentationMode(enabled) {
       presentationStates.push(enabled);
     },
+    setSuspended(suspended) {
+      suspendedStates.push(suspended);
+    },
     destroy() {},
   }));
   const document = window.document;
   const click = (selector: string) => (document.querySelector(selector) as HTMLElement).click();
   assert.equal(document.querySelectorAll('#feed-list .event-card').length, 2);
+  assert.equal(document.getElementById('main')?.dataset.tab, 'map');
+  assert.equal(
+    document.querySelector('.view-tabs [data-tab="map"]')?.getAttribute('aria-pressed'),
+    'true',
+  );
   click('[data-map-fullscreen]');
   assert.equal(document.getElementById('main')?.classList.contains('map-presentation'), true);
   assert.equal(
@@ -66,9 +75,22 @@ test('dashboard filters, selects, shares, refreshes and remains usable without W
     'false',
   );
   assert.equal(presentationStates.at(-1), false);
+  click('.view-tabs [data-tab="feed"]');
+  assert.equal(document.getElementById('main')?.dataset.tab, 'feed');
+  assert.equal(
+    document.querySelector('.view-tabs [data-tab="feed"]')?.getAttribute('aria-pressed'),
+    'true',
+  );
+  assert.equal(new URL(window.location.href).searchParams.get('view'), 'feed');
+  assert.equal(suspendedStates.at(-1), true);
   click('[data-topic="cyber"]');
   assert.equal(shown.length, 1);
   assert.equal(new URL(window.location.href).searchParams.get('topic'), 'cyber');
+  click('[data-lens="policy"]');
+  assert.equal(document.querySelectorAll('#feed-list .event-card').length, 0);
+  assert.equal(new URL(window.location.href).searchParams.get('lens'), 'policy');
+  click('[data-lens="all"]');
+  assert.equal(document.querySelectorAll('#feed-list .event-card').length, 1);
   const first = document.querySelector<HTMLElement>('#feed-list a')!;
   first.focus();
   first.click();
@@ -83,7 +105,7 @@ test('dashboard filters, selects, shares, refreshes and remains usable without W
   assert.doesNotMatch(document.getElementById('share-status')!.textContent!, /Link copied/);
   const updated = snapshot([
     { ...event, title: 'Updated infrastructure advisory for London' },
-    { ...event, id: 99 },
+    { ...event, id: 99, src: 'Another Source' },
   ]);
   context.events = updated.events;
   document.dispatchEvent(new window.CustomEvent('sycamore:snapshot', { detail: updated }));
@@ -92,6 +114,19 @@ test('dashboard filters, selects, shares, refreshes and remains usable without W
     'Updated infrastructure advisory for London',
   );
   assert.equal(new URL(window.location.href).searchParams.get('event'), '1');
+  const sourceSelect = document.getElementById('source') as HTMLSelectElement;
+  assert.ok([...sourceSelect.options].some((option) => option.value === 'Another Source'));
+  sourceSelect.value = 'Another Source';
+  sourceSelect.dispatchEvent(new window.Event('change'));
+  assert.equal(document.querySelectorAll('#feed-list .event-card').length, 1);
+  assert.equal(new URL(window.location.href).searchParams.get('src'), 'Another Source');
+  click('#reset-filters');
+  assert.equal(document.querySelectorAll('#feed-list .event-card').length, 2);
+  const sortSelect = document.getElementById('sort') as HTMLSelectElement;
+  sortSelect.value = 'oldest';
+  sortSelect.dispatchEvent(new window.Event('change'));
+  assert.equal(document.querySelector('#feed-list a')?.getAttribute('data-event'), '1');
+  click('#reset-filters');
   click('#close-detail');
   assert.equal(document.getElementById('detail-panel')?.hidden, true);
   assert.equal((document.activeElement as HTMLElement).dataset.event, '1');

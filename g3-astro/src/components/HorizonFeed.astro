@@ -1,0 +1,44 @@
+---
+import EventCard from './EventCard.astro';
+import type { Event } from '../data/types';
+interface Props {
+  events: Event[];
+}
+const { events } = Astro.props;
+---
+
+<aside class="feed-panel horizon-reporting" id="feed-panel" aria-label="Event feed">
+  <div class="horizon-feed-heading">
+    <h2>Reporting</h2><span
+      ><strong id="feed-count">{events.length}</strong> reports <span aria-hidden="true">·</span>
+      <a href="/reporting">Open reporting index ↗</a></span
+    >
+  </div>
+  <div class="feed-list" id="feed-list" tabindex="-1">
+    {
+      [...events]
+        .sort((a, b) => b.ts - a.ts)
+        .slice(0, 12)
+        .map((event) => <EventCard event={event} dashboard />)
+    }
+    {
+      events.length === 0 && (
+        <p class="empty-state">
+          No reporting available. New articles will appear with the next published snapshot.
+        </p>
+      )
+    }
+  </div>
+  <footer class="horizon-footer">
+    <div class="view-tabs" role="group" aria-label="Dashboard view">
+      <button data-tab="map" aria-pressed="true">Globe</button><button
+        data-tab="feed"
+        aria-pressed="false">Feed</button
+      >
+    </div>
+    <p><strong id="map-event-count">{events.length}</strong> visible reports</p><p>
+      Locations are approximate
+    </p>
+    <div id="map-credits"></div>
+  </footer>
+</aside>

@@ -48,6 +48,40 @@ test('selection and every filter survive URL round-trip including special search
   assert.equal(url.pathname, '/');
   assert.deepEqual(readState(url), state);
 });
+test('threat lens, source, sort and view filters combine and survive the URL', () => {
+  const events = [
+    event,
+    { ...event, id: 2, sev: 'critical' as const, src: 'Wire Service', ts: now - 7200000 },
+    { ...event, id: 3, title: 'New privacy regulation passed' },
+  ];
+  const state = {
+    ...defaults,
+    lens: 'policy' as const,
+    src: 'Example News',
+    sort: 'severity' as const,
+    view: 'feed' as const,
+  };
+  assert.deepEqual(readState(stateUrl(state, 'https://site.example/')), state);
+  // Lens and source combine: only the policy item from the selected source remains.
+  assert.deepEqual(
+    filterEvents(events, state, now).map((e) => e.id),
+    [3],
+  );
+  assert.deepEqual(
+    filterEvents(events, { ...state, lens: 'all' }, now).map((e) => e.id),
+    [3, 1],
+  );
+  assert.deepEqual(filterEvents(events, { ...defaults, lens: 'vulnerabilities' }, now), []);
+  assert.deepEqual(filterEvents(events, { ...defaults, lens: 'emerging' }, now), []);
+  assert.deepEqual(
+    filterEvents(events, { ...defaults, src: 'Wire Service' }, now).map((e) => e.id),
+    [2],
+  );
+  assert.deepEqual(
+    filterEvents(events, { ...defaults, sort: 'oldest' }, now).map((e) => e.id),
+    [2, 1, 3],
+  );
+});
 test('legacy event hashes and mode links restore; invalid input defaults safely', () => {
   assert.equal(readState(new URL('https://site.example/#event/12')).event, 12);
   assert.equal(readState(new URL('https://site.example/?mode=pulse')).mode, 'pulse');

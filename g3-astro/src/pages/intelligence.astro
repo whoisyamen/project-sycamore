@@ -1,0 +1,78 @@
+---
+import Base from '../layouts/Base.astro';
+import { loadData } from '../data/loader';
+import { threatDesk } from '../client/threat';
+import GeographicContext from '../components/GeographicContext.astro';
+import { dataStatus } from '../data/status';
+const context = await loadData();
+const status = dataStatus(context.manifest, context.demo);
+---
+
+<Base title="Threat desk — Sycamore" activeNav="intelligence" context={context}>
+  <main id="main" class="nocturne-page" tabindex="-1">
+    <header class="nocturne-heading">
+      <h1>The Threat desk.</h1><p>Read the reporting. Keep the source in view.</p>
+    </header>
+    <div class="nocturne-toolbar">
+      <nav class="nocturne-tabs" aria-label="Threat desk reading lenses">
+        <button type="button" data-desk-lens="all" aria-pressed="true">Latest reporting</button>
+        <button type="button" data-desk-lens="emerging" aria-pressed="false"
+          >Newly observed here</button
+        >
+        <button type="button" data-desk-lens="vulnerabilities" aria-pressed="false"
+          >Vulnerabilities &amp; exploits</button
+        >
+        <button type="button" data-desk-lens="policy" aria-pressed="false"
+          >Policy &amp; regulation</button
+        >
+        <a href="#sources">Sources</a>
+      </nav>
+      <label class="desk-range"
+        ><span class="sr-only">Coverage window</span><select id="desk-range"
+          ><option value="all">All time</option><option value="24h">24 hours</option><option
+            value="7d">7 days</option
+          ><option value="30d">30 days</option></select
+        ></label
+      >
+      <button type="button" id="desk-reset" class="text-button">Reset</button>
+    </div>
+    <div class="nocturne-layout">
+      <div
+        data-collection="intelligence"
+        data-managed="nocturne"
+        set:html={threatDesk(context.events)}
+      />
+      <aside class="nocturne-context">
+        <GeographicContext /><section class="desk-health">
+          <h2>Data health</h2><p id="desk-health-label">{status.label}</p><div>
+            <span>Coverage</span><strong>Source-based reporting</strong>
+          </div><div><span>Locations</span><strong>May be approximate</strong></div>
+        </section><p class="desk-coverage-note">
+          Reading views of retained news reporting. Dedicated advisory, regulatory, social, and
+          dark-web feeds are not connected.
+        </p>
+      </aside>
+    </div>
+    <nav class="reading-lenses" aria-label="Explore the Threat desk">
+      <h2>Reading lenses</h2><a href="#vulnerabilities"
+        ><strong>Vulnerabilities &amp; exploits</strong><span>Text matches in reporting</span></a
+      ><a href="#policy"
+        ><strong>Policy &amp; regulation</strong><span>Mentions in reporting</span></a
+      ><a href="#emerging"
+        ><strong>Newly observed here</strong><span>First ingested here in 48 hours</span></a
+      >
+    </nav>
+    <nav class="desk-utility-nav" aria-label="Additional reading views">
+      <a href="#boards">Reporting by topic</a><a href="#briefing">Briefing windows</a><a
+        href="#sources">Source footprint</a
+      ><a href="/reporting">Open reporting index ↗</a>
+    </nav>
+  </main>
+  <script>
+    import { context } from '../client/site';
+    import { initNocturne } from '../client/nocturne';
+    import { initContextGlobe } from '../client/context-globe';
+    initNocturne(context);
+    void initContextGlobe(context);
+  </script>
+</Base>

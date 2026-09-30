@@ -1,5 +1,6 @@
+import { markBoot } from './boot';
 import { filterEvents, readState, stateUrl, defaults, type DashboardState } from './state';
-import { eventCard, eventDetail } from './render';
+import { eventCard, eventDetail, overviewSpotlight } from './render';
 import type { EventMap } from './map';
 import type { Snapshot, DataContext } from '../data/types';
 
@@ -14,6 +15,9 @@ export function initDashboard(
   const search = $<HTMLInputElement>('search');
   const severity = $<HTMLSelectElement>('severity');
   const range = $<HTMLSelectElement>('range');
+  const source = $<HTMLSelectElement>('source');
+  const mode = $<HTMLSelectElement>('mode');
+  const sort = $<HTMLSelectElement>('sort');
   let state: DashboardState = readState(new URL(location.href));
   let map: EventMap | null = null;
   let originFocus: HTMLElement | null = null;
@@ -70,33 +74,80 @@ export function initDashboard(
   function updateUrl(push = false) {
     history[push ? 'pushState' : 'replaceState'](null, '', stateUrl(state, location.href));
   }
+  function syncView() {
+    dashboard.dataset.tab = state.view;
+    document
+      .querySelectorAll<HTMLButtonElement>('.view-tabs [data-tab]')
+      .forEach((tab) => tab.setAttribute('aria-pressed', String(tab.dataset.tab === state.view)));
+    map?.setSuspended?.(state.view !== 'map');
+    map?.resize();
+  }
+  function syncSourceOptions() {
+    const sources = [...new Set(context.events.map((event) => event.src))].sort((a, b) =>
+      a.localeCompare(b),
+    );
+    if (state.src !== 'all' && !sources.includes(state.src)) sources.push(state.src);
+    const wanted = ['all', ...sources];
+    const current = [...source.options].map((option) => option.value);
+    if (current.length === wanted.length && current.every((value, i) => value === wanted[i]))
+      return;
+    source.replaceChildren();
+    for (const value of wanted) {
+      const option = document.createElement('option');
+      option.value = value;
+      option.textContent = value === 'all' ? 'All sources' : value;
+      source.append(option);
+    }
+  }
   function syncControls() {
+    syncSourceOptions();
     search.value = state.q;
     severity.value = state.sev;
     range.value = state.range;
+    source.value = state.src;
+    mode.value = state.mode;
+    sort.value = state.sort;
+    const topic = $<HTMLSelectElement>('topic-filter');
+    const lens = $<HTMLSelectElement>('lens-filter');
+    if (topic) topic.value = state.topic;
+    if (lens) lens.value = state.lens;
     document
       .querySelectorAll<HTMLButtonElement>('[data-topic]')
       .forEach((button) =>
         button.setAttribute('aria-pressed', String(button.dataset.topic === state.topic)),
+      );
+    document
+      .querySelectorAll<HTMLButtonElement>('[data-lens]')
+      .forEach((button) =>
+        button.setAttribute('aria-pressed', String(button.dataset.lens === state.lens)),
       );
     $('legacy-mode').hidden = state.mode === 'all';
     $('legacy-mode').textContent =
       state.mode === 'pulse'
         ? 'Shared filter: corroborated reporting. Reset to show all.'
         : 'Shared filter: single-source reporting. Reset to show all.';
+    syncView();
   }
   function syncModal() {
     const modal = smallScreen.matches && !panel.hidden;
     if (modal) panel.setAttribute('aria-modal', 'true');
     else panel.removeAttribute('aria-modal');
-    for (const selector of ['.site-header', '.feed-panel', '.mobile-tabs', '.world-map']) {
+    for (const selector of [
+      '.site-header',
+      '.feed-panel',
+      '.view-tabs',
+      '.world-map',
+      '.horizon-heading',
+      '.horizon-spotlight',
+      '.map-view-toolbar',
+    ]) {
       const el = document.querySelector<HTMLElement>(selector);
       if (el) el.inert = modal;
     }
   }
   function fallbackFocus(): HTMLElement {
     return smallScreen.matches && dashboard.dataset.tab === 'map'
-      ? document.querySelector<HTMLElement>('.mobile-tabs [data-tab="map"]')!
+      ? document.querySelector<HTMLElement>('.view-tabs [data-tab="map"]')!
       : search;
   }
   function render(preserveFeedFocus = true) {
@@ -106,8 +157,14 @@ export function initDashboard(
         : null;
     const scroll = feed.scrollTop;
     const visible = filterEvents(context.events, state);
+    const displayed =
+      dashboard.classList.contains('horizon-dashboard') && state.view === 'map'
+        ? visible.slice(0, 12)
+        : visible;
     feed.innerHTML =
-      visible.map((e) => eventCard(e, true, e.id === state.event, false, true)).join('') ||
+      displayed
+        .map((e) => eventCard(e, true, e.id === state.event, false, state.view === 'feed'))
+        .join('') ||
       '<p class="empty-state">No events match this view. Try another topic or reset the filters.</p>';
     feed.scrollTop = scroll;
     if (focusedId)
@@ -117,6 +174,14 @@ export function initDashboard(
     $('feed-count').textContent = String(visible.length);
     $('map-event-count').textContent = String(visible.length);
     const selected = context.events.find((e) => e.id === state.event);
+    const spotlight = $('horizon-spotlight');
+    if (spotlight) {
+      const report = selected ?? visible[0];
+      const html = report
+        ? overviewSpotlight(report)
+        : '<p class="empty-state">No reporting matches these filters.</p>';
+      if (spotlight.innerHTML !== html) spotlight.innerHTML = html;
+    }
     const hadFocus = panel.contains(document.activeElement);
     if (selected) {
       const html = eventDetail(selected);
@@ -152,7 +217,7 @@ export function initDashboard(
     updateUrl(push);
     render();
     if (id !== null) {
-      map?.focus(id);
+      if (state.view === 'map') map?.focus(id);
       $('close-detail').focus();
     } else {
       const oldId = originFocus?.dataset.event;
@@ -182,9 +247,51 @@ export function initDashboard(
     e.preventDefault();
     links[(index + (e.key === 'ArrowDown' ? 1 : -1) + links.length) % links.length]?.focus();
   });
+  $('horizon-spotlight')?.addEventListener('click', async (e) => {
+    const target = (e.target as HTMLElement).closest<HTMLElement>(
+      '[data-preview-event], [data-spotlight-share]',
+    );
+    if (!target) return;
+    if (target.dataset.previewEvent) select(Number(target.dataset.previewEvent));
+    else {
+      const url = stateUrl(
+        { ...state, event: Number(target.dataset.spotlightShare) },
+        location.href,
+      ).href;
+      const status = $('spotlight-share-status');
+      try {
+        await navigator.clipboard.writeText(url);
+        status.textContent = 'Link copied';
+      } catch {
+        const input = document.createElement('input');
+        input.className = 'share-fallback';
+        input.readOnly = true;
+        input.value = url;
+        input.setAttribute('aria-label', 'Copy this report link');
+        status.replaceChildren(input);
+        input.focus();
+        input.select();
+      }
+    }
+  });
+  $<HTMLSelectElement>('topic-filter')?.addEventListener('change', (e) => {
+    state.topic = (e.target as HTMLSelectElement).value as DashboardState['topic'];
+    changeFilters();
+  });
+  $<HTMLSelectElement>('lens-filter')?.addEventListener('change', (e) => {
+    state.lens = (e.target as HTMLSelectElement).value as DashboardState['lens'];
+    changeFilters();
+  });
+  search.closest('form')?.addEventListener('submit', (e) => e.preventDefault());
   document.querySelectorAll<HTMLButtonElement>('[data-topic]').forEach((button) =>
     button.addEventListener('click', () => {
       state.topic = button.dataset.topic as DashboardState['topic'];
+      changeFilters();
+    }),
+  );
+  document.querySelectorAll<HTMLButtonElement>('[data-lens]').forEach((button) =>
+    button.addEventListener('click', () => {
+      state.lens = button.dataset.lens as DashboardState['lens'];
       changeFilters();
     }),
   );
@@ -200,26 +307,46 @@ export function initDashboard(
     state.range = range.value as DashboardState['range'];
     changeFilters();
   });
+  source.addEventListener('change', () => {
+    state.src = source.value || 'all';
+    changeFilters();
+  });
+  mode.addEventListener('change', () => {
+    state.mode = mode.value as DashboardState['mode'];
+    changeFilters();
+  });
+  sort.addEventListener('change', () => {
+    state.sort = sort.value as DashboardState['sort'];
+    changeFilters();
+  });
   $('reset-filters').addEventListener('click', () => {
-    state = { ...defaults };
+    const view = state.view;
+    state = { ...defaults, view };
     changeFilters();
   });
   $('close-detail').addEventListener('click', () => select(null));
-  document.querySelectorAll<HTMLButtonElement>('.mobile-tabs [data-tab]').forEach((button) =>
-    button.addEventListener('click', () => {
-      dashboard.dataset.tab = button.dataset.tab;
-      document
-        .querySelectorAll<HTMLButtonElement>('.mobile-tabs [data-tab]')
-        .forEach((tab) => tab.setAttribute('aria-pressed', String(tab === button)));
-      map?.resize();
-    }),
-  );
+  function setView(view: DashboardState['view'], push = true) {
+    if (state.view === view) {
+      syncView();
+      return;
+    }
+    state.view = view;
+    syncView();
+    updateUrl(push);
+    if (view === 'map' && state.event !== null) map?.focus(state.event);
+    announce(view === 'map' ? 'Globe view' : 'Feed view');
+  }
+  document
+    .querySelectorAll<HTMLButtonElement>('.view-tabs [data-tab]')
+    .forEach((button) =>
+      button.addEventListener('click', () => setView(button.dataset.tab as DashboardState['view'])),
+    );
   window.addEventListener('popstate', () => {
     state = readState(new URL(location.href));
     syncControls();
     render();
     if (state.event) {
-      map?.focus(state.event);
+      if (state.view === 'map') map?.focus(state.event);
       if (!panel.hidden) $('close-detail').focus();
     }
   });
@@ -228,7 +355,7 @@ export function initDashboard(
     syncControls();
     render();
     if (state.event) {
-      map?.focus(state.event);
+      if (state.view === 'map') map?.focus(state.event);
       if (!panel.hidden) $('close-detail').focus();
     }
   });
@@ -254,10 +381,7 @@ export function initDashboard(
     }
     if (e.key === '/' && !editing && !e.ctrlKey && !e.metaKey && !e.altKey && panel.hidden) {
       e.preventDefault();
-      dashboard.dataset.tab = 'feed';
-      document
-        .querySelectorAll<HTMLButtonElement>('.mobile-tabs [data-tab]')
-        .forEach((tab) => tab.setAttribute('aria-pressed', String(tab.dataset.tab === 'feed')));
+      setView('feed');
       search.focus();
     }
     if (e.key === 'Tab' && !panel.hidden && smallScreen.matches) {
@@ -303,26 +427,36 @@ export function initDashboard(
     const snapshot = (e as CustomEvent<Snapshot>).detail;
     context.events = snapshot.events;
     context.manifest = snapshot.manifest;
+    syncSourceOptions();
     render();
   });
   syncControls();
   function attachMap(instance: EventMap) {
     map = instance;
     map.setPresentationMode?.(presentationActive());
+    syncView();
     render();
-    if (state.event) map.focus(state.event);
+    if (state.event && state.view === 'map') map.focus(state.event);
+    const imagery = document.getElementById('map')?.dataset.imagery;
+    markBoot(
+      'globe',
+      imagery === 'timeout' ? 'Globe is up. Map imagery is still loading.' : undefined,
+    );
   }
   try {
     const result = createMap((id) => select(id));
     if (result instanceof Promise)
       void result.then(attachMap).catch(() => {
         $('map-error').hidden = false;
+        markBoot('globe', 'Map unavailable. The feed still works.');
       });
     else attachMap(result);
   } catch {
     $('map-error').hidden = false;
+    markBoot('globe', 'Map unavailable. The feed still works.');
   }
   render(false);
+  markBoot('feed');
   if (state.event) {
     if (!panel.hidden) $('close-detail').focus();
   }

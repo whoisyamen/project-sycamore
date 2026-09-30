@@ -17,9 +17,9 @@ interface Props {
 const { event, context } = Astro.props;
 ---
 
-<Base title={`${event.title} — Sycamore`} activeNav="boards" context={context}>
+<Base title={`${event.title} — Sycamore`} activeNav="intelligence" context={context}>
   <main id="main" class="content-page event-page" tabindex="-1">
-    <a class="back-link" href="/boards">← All boards</a><article
+    <a class="back-link" href="/intelligence">← Threat desk</a><article
       class="event-article"
       data-event-page={event.id}
       set:html={eventDetail(event)}

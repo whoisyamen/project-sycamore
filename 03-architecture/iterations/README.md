@@ -3,6 +3,7 @@
 Revision 2. This file is written for an implementer with no chat history.
 Start at [START_HERE.md](START_HERE.md), then the active brief.
 [REGISTER.md](REGISTER.md) is the only authoritative task-status index.
+Completed cards 1.1.1–1.2.2 are not the current task. Next is 1.2.3.
 
 ## 1. First ten actions
 

@@ -1,7 +1,8 @@
 # Iteration register — authoritative task state
 
-Revision 2. All implementation is pending. “Ready” means scoped enough to start,
-not that its tests have passed. Only 1.1.1 is ready now.
+Revision 2. Iterations 1.1.1 through 1.2.2 are complete. The next card is 1.2.3
+(archive admin / cutover). Do not re-open completed cards. “Ready” on a pending
+row means scoped enough to start, not that its tests have passed.
 The project root is /home/yams/operations/project-sycamore.
 
 Every row is an implementation card: work, dependencies, files, deliverable and

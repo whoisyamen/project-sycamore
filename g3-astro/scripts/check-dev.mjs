@@ -53,7 +53,7 @@ async function checkModule(url) {
   }
 }
 
-for (const route of ['/', '/boards']) {
+for (const route of ['/', '/intelligence', '/reporting']) {
   const { body, type } = await read(new URL(route, base));
   assert.match(type, /text\/html/);
   const scripts = [...body.matchAll(/<script\b[^>]*\bsrc=["']([^"']+)["'][^>]*>/g)];
@@ -64,5 +64,5 @@ for (const path of required) await checkModule(new URL(path, base));
 const snapshot = JSON.parse((await read(new URL('/data/snapshot.json', base))).body);
 assert.ok(Array.isArray(snapshot.events));
 console.log(
-  `Dev HTTP check passed: ${checked.size} JavaScript modules, map and Boards, ${snapshot.events.length} events at ${base.origin}.`,
+  `Dev HTTP check passed: ${checked.size} JavaScript modules, all three workspaces, ${snapshot.events.length} events at ${base.origin}.`,
 );

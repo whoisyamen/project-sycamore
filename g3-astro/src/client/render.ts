@@ -56,6 +56,27 @@ export function geoTier(ev: Event): 'precise' | 'approximate' {
   return ev.geo?.tier ?? 'approximate';
 }
 
+export function primarySource(event: Event): string | null {
+  return (
+    event.sources.find((url) => {
+      try {
+        return ['http:', 'https:'].includes(new URL(url).protocol);
+      } catch {
+        return false;
+      }
+    }) ?? null
+  );
+}
+
+export function overviewSpotlight(event: Event): string {
+  const source = primarySource(event);
+  return `<p class="spotlight-topic"><span class="severity-dot ${event.sev}"></span>${escape(TOPIC_LABELS[event.t].toLowerCase())}</p>
+    <h2>${escape(event.title)}</h2><p class="spotlight-source">${escape(event.src)}</p>
+    <div class="spotlight-actions">${source ? `<a class="button primary-button" href="${escape(source)}" target="_blank" rel="noopener noreferrer">Read source <span aria-hidden="true">↗</span></a>` : ''}
+    <button class="button quiet-button" data-preview-event="${event.id}">Report context</button>
+    <button class="spotlight-share text-button" data-spotlight-share="${event.id}" aria-label="Share this report">Share</button></div><p id="spotlight-share-status" role="status"></p>`;
+}
+
 export function eventDetail(event: Event): string {
   const approximate = geoTier(event) === 'approximate';
   const precisionNote = approximate
@@ -82,11 +103,30 @@ export function eventDetail(event: Event): string {
     ${precisionNote}
     <p class="fine-print classification-note">Topic and severity are automated classifications, not independent verification.</p>`;
 }
-export function boards(events: Event[], builtIds = new Set(events.map((e) => e.id))): string {
+export function boards(
+  events: Event[],
+  builtIds = new Set(events.map((e) => e.id)),
+  page = 0,
+): string {
   return (Object.entries(TOPIC_LABELS) as [Event['t'], string][])
     .map(([topic, label]) => {
       const items = events.filter((e) => e.t === topic).sort((a, b) => b.ts - a.ts);
-      return `<section class="board-group"><div class="section-heading"><h2>${label}</h2><span>${items.length} events</span></div><div class="card-grid">${items.map((e) => eventCard(e, false, false, !builtIds.has(e.id), true)).join('') || '<p class="empty-state">No events in this topic yet.</p>'}</div></section>`;
+      const cards =
+        items
+          .map((e, index) => {
+            const html = eventCard(e, false, false, !builtIds.has(e.id), true);
+            return page && index >= page
+              ? html.replace('<a class="event-card', '<a hidden class="event-card')
+              : html;
+          })
+          .join('') || '<p class="empty-state">No events in this topic yet.</p>';
+      const remaining = page ? Math.max(0, items.length - page) : 0;
+      const more = remaining
+        ? `<div class="desk-more-row"><button type="button" class="button desk-more" data-desk-more data-section="board-${topic}" aria-controls="board-${topic}-grid" aria-expanded="false">Load <span data-desk-step>${Math.min(page, remaining)}</span> more</button></div>`
+        : '';
+      const paging = page ? ` id="board-${topic}" data-desk-page="${page}"` : '';
+      const gridId = page ? ` id="board-${topic}-grid"` : '';
+      return `<section class="board-group"${paging}><div class="section-heading"><h2>${label}</h2><span>${items.length} events</span></div><div class="card-grid"${gridId}>${cards}</div>${more}</section>`;
     })
     .join('');
 }

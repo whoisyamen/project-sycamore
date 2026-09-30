@@ -5,3 +5,5 @@ import './dashboard.test';
 import './artifacts.test';
 import './globe.test';
 import './intelligence-contracts.test';
+import './threat.test';
+import './workspaces.test';

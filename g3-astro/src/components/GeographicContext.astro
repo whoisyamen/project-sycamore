@@ -1,0 +1,28 @@
+---
+interface Props {
+  cartographic?: boolean;
+}
+const { cartographic = false } = Astro.props;
+---
+
+<section class:list={['geographic-context', { cartographic }]} aria-label="Geographic context">
+  <h2>Geographic context</h2>
+  <div class="context-globe-shell">
+    <div
+      class="context-globe"
+      data-context-globe
+      data-imagery={cartographic ? 'dark' : 'satellite'}
+      role="img"
+      aria-label="Representative reporting locations on the globe. Nearby locations are grouped in this preview."
+    >
+    </div>
+    <p class="context-globe-fallback" hidden>
+      Globe unavailable.<br />Reporting is still available.
+    </p>
+  </div>
+  <div class="context-globe-caption">
+    <p>Representative locations · approximate</p><a class="quiet-button" href="/"
+      >Open globe <span aria-hidden="true">↗</span></a
+    >
+  </div>
+</section>

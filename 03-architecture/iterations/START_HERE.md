@@ -1,35 +1,16 @@
 # Start here — Sycamore model handoff
 
-Current task: **Iteration 1.1.1 — Baseline the system**.
-Planning revision: 2. No implementation gate has passed merely because these
-documents exist. See REGISTER.md for current state if it changes later.
+Current task: **Iteration 1.2.3 — Archive admin / cutover**. Iterations 1.1.1 through 1.2.2 are complete. See REGISTER.md. Do not re-run completed cards.
 
 Read in this order:
 
-1. [Roadmap](../../01-strategy/INTELLIGENCE_PLATFORM_ROADMAP.md)
-2. [Implementation specification](../INTELLIGENCE_IMPLEMENTATION_SPEC.md)
-   and [exact Part 1 wire shapes](../INTELLIGENCE_WIRE_SHAPES.md)
-3. [Execution protocol](README.md)
-4. [Task register](REGISTER.md)
-5. [Baseline brief](1.1.1-baseline.md)
-6. [Commercial validation](../../01-strategy/MONETIZATION_PLAN.md)
+1. [Root README](../../README.md) and [AGENTS.md](../../AGENTS.md)
+2. [Task register](REGISTER.md)
+3. [Last completion note](../../00-admin/HANDOFF-2026-09-11.md)
+4. The 1.2.3 brief, if it exists. Otherwise expand that register row before coding.
+
+Historical handoffs from 2026-09-06, 2026-09-07, and 2026-09-10 are session notes, not the current task. `g1-prototype` and `g2-astro` are archives.
 
 Copyable prompt for the implementing model:
 
-> Work in /home/yams/operations/project-sycamore. Read
-> 03-architecture/iterations/START_HERE.md and its linked instructions.
-> Execute only iteration 1.1.1-baseline.md. Preserve existing changes and the
-> working application. Use fixtures/temp directories for ingestion measurements.
-> Do not fetch live feeds, change a service, alter public schemas, install a
-> database or deploy. Collect real evidence; label missing/blocked checks.
-> Update the brief and REGISTER.md with exact results and the next task. Do not
-> mark complete unless every acceptance gate passes. If interrupted, save an
-> exact resume checkpoint. Do not implement the whole roadmap in one pass.
-
-The next two briefs are prewritten for continuity, but remain dependency-blocked:
-
-- [1.1.2 — Contracts](1.1.2-contracts.md)
-- [1.2.1 — Archive shadow](1.2.1-archive-shadow.md)
-
-Later task cards are in REGISTER.md. Expand each into a detailed brief before
-coding; do not invent decisions it explicitly leaves pending.
+> Work in /home/yams/operations/project-sycamore. Read README.md, AGENTS.md, and 03-architecture/iterations/REGISTER.md. The active tree is g3-astro and g3-ingest. Next card is 1.2.3. Do not re-implement 1.1.1–1.2.2. Preserve existing changes and the working application. Do not fetch live feeds, change a service, or deploy unless the user asks.

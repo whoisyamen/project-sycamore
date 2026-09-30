@@ -8,8 +8,8 @@ const root = new URL('../dist/', import.meta.url);
 test('built routes have valid local scripts, accessible landmarks and no retired controls', async () => {
   for (const path of [
     'index.html',
-    'boards/index.html',
-    'briefing/index.html',
+    'intelligence/index.html',
+    'reporting/index.html',
     'outlooks/index.html',
   ]) {
     const html = await readFile(new URL(path, root), 'utf8');
@@ -25,6 +25,9 @@ test('built routes have valid local scripts, accessible landmarks and no retired
     assert.equal(doc.querySelectorAll('[onclick],#compare-drawer,#watch-toggle').length, 0);
     assert.equal(doc.querySelectorAll('a[href="/outlooks"]').length, 0);
   }
+  // Boards and Briefing were folded into the threat desk; only per-event pages remain.
+  await assert.rejects(readFile(new URL('briefing/index.html', root)));
+  await assert.rejects(readFile(new URL('boards/index.html', root)));
 });
 test('snapshot validates; generated event pages preserve existing links', async () => {
   const data = parseSnapshot(
@@ -37,7 +40,7 @@ test('snapshot validates; generated event pages preserve existing links', async 
     assert.ok(doc.querySelector(`a[href="/?event=${event.id}"]`));
   }
 });
-test('only dashboard loads Cesium; runtime validation needs no dynamic code generation', async () => {
+test('reading workspaces have geographic context; runtime validation needs no dynamic code generation', async () => {
   const dir = new URL('_astro/', root);
   const files = await readdir(dir);
   const js = await Promise.all(
@@ -50,9 +53,18 @@ test('only dashboard loads Cesium; runtime validation needs no dynamic code gene
   assert.doesNotMatch(validator, /new Function\(/);
   assert.ok(js.some((code) => code.includes('CesiumWidget') || code.includes('cesium-viewer')));
   const home = new JSDOM(await readFile(new URL('index.html', root), 'utf8')).window.document;
-  const boards = new JSDOM(await readFile(new URL('boards/index.html', root), 'utf8')).window
+  const desk = new JSDOM(await readFile(new URL('intelligence/index.html', root), 'utf8')).window
     .document;
-  assert.ok(home.querySelectorAll('script').length > boards.querySelectorAll('script').length);
+  const index = new JSDOM(await readFile(new URL('reporting/index.html', root), 'utf8')).window
+    .document;
+  assert.ok(home.querySelector('#map'));
+  assert.ok(desk.querySelector('[data-context-globe]'));
+  assert.ok(index.querySelector('[data-context-globe]'));
+  for (const doc of [home, desk, index]) {
+    assert.equal(doc.querySelectorAll('.site-header nav a').length, 3);
+    assert.equal(doc.querySelectorAll('#search').length, 1);
+    assert.equal(doc.querySelectorAll('.site-header nav a[aria-current="page"]').length, 1);
+  }
 });
 test('deployment header template restricts scripts and prevents caching data snapshots', async () => {
   const headers = await readFile(new URL('_headers', root), 'utf8');

@@ -1,0 +1,70 @@
+---
+import Base from '../layouts/Base.astro';
+import ReportFilters from '../components/ReportFilters.astro';
+import GeographicContext from '../components/GeographicContext.astro';
+import { loadData } from '../data/loader';
+import { reportingRows } from '../client/reporting-render';
+const context = await loadData();
+---
+
+<Base title="Reporting index — Sycamore" activeNav="reporting" context={context}>
+  <main id="main" class="reporting-page" tabindex="-1">
+    <header class="index-heading">
+      <div>
+        <h1>Reporting index</h1><p>Find the report. Inspect the source.</p><div
+          class="index-view-switch"
+        >
+          <span aria-current="page">Reporting</span><a href="/"
+            >Globe <span aria-hidden="true">↗</span></a
+          >
+        </div><p class="index-coverage">
+          <strong id="index-count">{context.events.length}</strong> reports in the retained snapshot
+        </p>
+      </div><GeographicContext cartographic />
+    </header>
+    <ReportFilters events={context.events} />
+    <p id="index-selection-note" class="index-selection-note" role="status" hidden></p>
+    <div class="report-table-wrap">
+      <table class="report-table">
+        <caption class="sr-only"
+          >Source-based reporting. Open a report to inspect its context and source links.</caption
+        ><thead
+          ><tr
+            ><th scope="col">Topic</th><th scope="col">Report</th><th scope="col">Source</th><th
+              scope="col">Location</th
+            ><th scope="col"
+              ><button type="button" data-report-sort
+                >Published <span aria-hidden="true">↓</span></button
+              ></th
+            ></tr
+          ></thead
+        ><tbody
+          id="reporting-rows"
+          set:html={reportingRows(
+            [...context.events].sort((a, b) => b.ts - a.ts).slice(0, 50),
+            null,
+          )}
+        />
+      </table>
+    </div>
+    <div class="index-pagination">
+      <p id="index-page-caption">Showing up to 50 reports</p><button
+        class="button quiet-button"
+        id="reporting-more"
+        type="button">Load more reports</button
+      >
+    </div>
+    <footer class="index-footer">
+      <p><span class="status-dot"></span> Data health <span id="index-health"></span></p><p>
+        Reporting refreshes every 60s while visible
+      </p>
+    </footer>
+  </main>
+  <script>
+    import { context } from '../client/site';
+    import { initReporting } from '../client/reporting';
+    import { initContextGlobe } from '../client/context-globe';
+    initReporting(context);
+    void initContextGlobe(context);
+  </script>
+</Base>

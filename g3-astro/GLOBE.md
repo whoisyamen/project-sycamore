@@ -22,6 +22,8 @@ primitives, subscriptions, polling, resize observation and destruction.
   a low-intensity outer atmosphere adds a restrained edge. Rendering is capped at
   30 fps and 1.5× resolution. Material textures are self-hosted; sources and exact
   processing are in `public/data/globe/effects/SOURCES.md`. No ion token is needed.
+- The bundled Cesium skybox is visible behind the globe for a star-field backdrop;
+  land/water imagery, lighting, and globe effects retain their previous settings.
 - Effects own their controls, frame subscription and GPU textures and release
   them before Viewer destruction. Water motion is decorative, not observed seas.
 - Event and Censys entities live in `CustomDataSource` collections. Cities

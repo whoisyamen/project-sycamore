@@ -11,16 +11,24 @@ const status = dataStatus(context.manifest, context.demo);
 
 <header class="site-header">
   <a href="/" class="brand" aria-label="Sycamore home"
-    ><span class="brand-mark" aria-hidden="true">s<span>·</span></span><span
-      >sycamore<span class="brand-caption">GLOBAL INTELLIGENCE</span></span
-    ></a
+    ><svg class="sycamore-mark" viewBox="0 0 32 40" fill="none" aria-hidden="true"
+      ><path
+        d="M16 37V4M16 16 7 8M16 23 4 15M16 29 28 18M16 12 24 5"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"></path><path
+        d="M7 8 4 3 10 5 12 12M24 5 27 1 27 8 20 13M4 15 1 11 8 14 11 21M28 18 31 13 31 21 23 26"
+        stroke="currentColor"
+        stroke-width="1.4"
+        stroke-linejoin="round"></path></svg
+    ><span>SYCAMORE</span></a
   >
   <nav aria-label="Main navigation">
     {
       [
-        ['live', '/', 'Live map'],
-        ['boards', '/boards', 'Boards'],
-        ['briefing', '/briefing', 'Briefing'],
+        ['live', '/', 'Overview'],
+        ['intelligence', '/intelligence', 'Threat desk'],
+        ['reporting', '/reporting', 'Reporting index'],
       ].map(([key, href, label]) => (
         <a href={href} aria-current={activeNav === key ? 'page' : undefined}>
           {label}
@@ -28,6 +36,24 @@ const status = dataStatus(context.manifest, context.demo);
       ))
     }
   </nav>
+  <form class="header-search search-field" action="/reporting" role="search">
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"
+      ><circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.6"></circle><path
+        d="m15.5 15.5 5 5"
+        stroke="currentColor"
+        stroke-width="1.6"
+        stroke-linecap="round"></path></svg
+    >
+    <input
+      type="search"
+      id="search"
+      name="q"
+      maxlength="200"
+      placeholder="Search reporting or places"
+      aria-label="Search reporting or places"
+    />
+    <kbd aria-hidden="true">/</kbd>
+  </form>
   <div class="sync-status" data-status={status.kind} title={status.detail}>
     <span class="status-dot"></span><span id="sync-label">{status.label}</span>
   </div>

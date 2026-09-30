@@ -1,0 +1,130 @@
+---
+import { TOPIC_LABELS, SEVERITY_LABELS, type Event } from '../data/types';
+import { LENS_LABELS } from '../data/threat';
+interface Props {
+  events: Event[];
+  compact?: boolean;
+}
+const { events, compact = false } = Astro.props;
+const sources = [...new Set(events.map((event) => event.src))].sort((a, b) => a.localeCompare(b));
+const titleCase = (text: string) => text.charAt(0) + text.slice(1).toLowerCase();
+---
+
+<div class:list={['report-filters', { 'compact-filters': compact }]} aria-label="Reporting filters">
+  <label
+    ><span class="sr-only">Topic</span><select id="topic-filter"
+      ><option value="all">All topics</option>{
+        Object.entries(TOPIC_LABELS).map(([key, label]) => (
+          <option value={key}>{titleCase(label)}</option>
+        ))
+      }</select
+    ></label
+  >
+  <label
+    ><span class="sr-only">Severity</span><select id="severity"
+      ><option value="all">All severity</option>{
+        Object.entries(SEVERITY_LABELS).map(([key, label]) => (
+          <option value={key}>{titleCase(label)}</option>
+        ))
+      }</select
+    ></label
+  >
+  <label
+    ><span class="sr-only">Time range</span><select id="range"
+      ><option value="all">All time</option><option value="24h">24 hours</option><option value="7d"
+        >7 days</option
+      ><option value="30d">30 days</option></select
+    ></label
+  >
+  {
+    !compact && (
+      <label class="filter-secondary">
+        <>
+          <span class="sr-only">Source</span>
+          <select id="source">
+            <option value="all">All sources</option>
+            {sources.map((source) => (
+              <option value={source}>{source}</option>
+            ))}
+          </select>
+        </>
+      </label>
+    )
+  }
+  <details class="filter-more">
+    <summary>More filters</summary><div class="filter-popover">
+      {
+        compact && (
+          <>
+            <>
+              <label>
+                Source
+                <select id="source">
+                  <option value="all">All sources</option>
+                  {sources.map((source) => (
+                    <option value={source}>{source}</option>
+                  ))}
+                </select>
+              </label>
+              <label>
+                Sort order
+                <select id="sort">
+                  <>
+                    <option value="newest">Latest first</option>
+                    <option value="oldest">Oldest first</option>
+                    <option value="severity">Severity first</option>
+                  </>
+                </select>
+              </label>
+            </>
+          </>
+        )
+      }<label
+        >Reading lens<select id="lens-filter"
+          >{
+            Object.entries(LENS_LABELS).map(([key, label]) => <option value={key}>{label}</option>)
+          }</select
+        ></label
+      ><label
+        >Corroboration<select id="mode"
+          ><option value="all">All reporting</option><option value="pulse">Corroborated</option
+          ><option value="news">Single source</option></select
+        ></label
+      ><div class="topic-chips" role="group" aria-label="Topic shortcuts">
+        {
+          Object.entries(TOPIC_LABELS).map(([key, label]) => (
+            <button class="chip" data-topic={key} aria-pressed="false">
+              {titleCase(label)}
+            </button>
+          ))
+        }
+      </div><div class="topic-chips" role="group" aria-label="Reading lens shortcuts">
+        {
+          Object.entries(LENS_LABELS).map(([key, label]) => (
+            <button class="chip" data-lens={key} aria-pressed={key === 'all'}>
+              {label}
+            </button>
+          ))
+        }
+      </div>
+    </div>
+  </details>
+  <button id="reset-filters" class="text-button" type="button">Reset</button>
+  {
+    !compact && (
+      <label class="filter-sort">
+        <>
+          <span class="sr-only">Sort order</span>
+          <select id="sort">
+            <>
+              <option value="newest">Latest first</option>
+              <option value="oldest">Oldest first</option>
+              <option value="severity">Severity first</option>
+            </>
+          </select>
+        </>
+      </label>
+    )
+  }
+  <p id="legacy-mode" class="fine-print" hidden></p>
+</div>

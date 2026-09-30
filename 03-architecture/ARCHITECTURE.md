@@ -6,6 +6,10 @@ The future architecture is proposed in
 execution tracked in [the iteration register](iterations/REGISTER.md).
 Future capabilities are not implied to be running today.
 
+For the website-only threat desk and its current-data limitations, see the
+[redesign plan](THREAT_DESK_REDESIGN_PLAN.md). The numbered iteration register
+continues to own future intelligence ingestion and evidence features.
+
 ## Runtime boundary
 
 Astro builds static routes. TypeScript enhances filtering, map selection, and
@@ -78,7 +82,7 @@ keeps previous records and reports failure; corrupt stored data is not reset.
 Existing `/boards/[id]` static pages remain usable. Dashboard links
 `/?event=<id>` support new records before rebuilding detail pages. Legacy
 `#event/<id>` and mode filter links remain readable. The retired `/outlooks`
-route points users to Briefing.
+route points users to the Threat desk.
 
 The development server serves current public JSON. Production `dist/` is a
 snapshot of build time; freshness on a deployed host requires republishing data

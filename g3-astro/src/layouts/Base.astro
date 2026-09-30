@@ -1,6 +1,8 @@
 ---
 import '../styles/global.css';
+import '../styles/workspace.css';
 import Header from '../components/Header.astro';
+import BootScreen from '../components/BootScreen.astro';
 import type { DataContext } from '../data/types';
 interface Props {
   title?: string;
@@ -20,19 +22,25 @@ const {
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/sycamore-mark.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Explore sourced cyber, geopolitical, maritime, and military reporting on a global map."
+      content="Explore sourced global reporting and investigate emerging threats on an interactive globe."
     />
     <meta name="robots" content="noindex" />
-    <meta name="theme-color" content="#0c1218" />
+    <meta name="theme-color" content="#0a0d12" />
     <title>{title}</title>
   </head>
-  <body class:list={{ 'dashboard-page': dashboard }} data-context={JSON.stringify(context)}>
+  <body
+    class:list={{ 'dashboard-page': dashboard }}
+    data-page={activeNav}
+    data-context={JSON.stringify(context)}
+  >
     <a class="skip-link" href="#main">Skip to content</a>
     <Header activeNav={activeNav} context={context} />
     <slot />
+    {dashboard && <BootScreen />}
     <div class="sr-only" id="announcement" role="status" aria-live="polite"></div>
     <script>
       import '../client/site';

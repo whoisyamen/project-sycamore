@@ -1,16 +1,27 @@
 ---
 import EventCard from './EventCard.astro';
+import { LENS_LABELS } from '../data/threat';
 import { TOPIC_LABELS, SEVERITY_LABELS, type Event } from '../data/types';
 interface Props {
   events: Event[];
 }
 const { events } = Astro.props;
+const sources = [...new Set(events.map((event) => event.src))].sort((a, b) => a.localeCompare(b));
+const lenses = (Object.keys(LENS_LABELS) as (keyof typeof LENS_LABELS)[]).filter(
+  (key) => key !== 'all',
+);
 ---
 
 <aside class="feed-panel panel" id="feed-panel" aria-label="Event feed">
   <div class="feed-heading">
     <div>
-      <p class="eyebrow">THE WORLD, IN VIEW</p><h1>Latest signals<span class="accent">.</span></h1>
+      <p class="eyebrow">THREAT INTELLIGENCE / ALL REPORTING</p><h1>
+        Signal feed<span class="accent">.</span>
+      </h1>
+      <p class="feed-subhead">
+        Every article behind the globe, as tiles. Filter by lens, topic, severity, source, and time
+        — no map required.
+      </p>
     </div><span class="count-badge" id="feed-count">{events.length}</span>
   </div>
   <div class="feed-controls">
@@ -19,8 +30,8 @@ const { events } = Astro.props;
         type="search"
         id="search"
         maxlength="200"
-        placeholder="Search events or places"
-        aria-label="Search events or places"
+        placeholder="Search reporting or places"
+        aria-label="Search reporting or places"
       /><kbd aria-hidden="true">/</kbd></label
     >
     <div class="topic-chips" role="group" aria-label="Topic">
@@ -28,6 +39,19 @@ const { events } = Astro.props;
         Object.entries(TOPIC_LABELS).map(([key, label]) => (
           <button class="chip" data-topic={key} aria-pressed="false">
             {label.charAt(0) + label.slice(1).toLowerCase()}
+          </button>
+        ))
+      }
+    </div>
+    <div class="topic-chips lens-chips" role="group" aria-label="Threat lens">
+      <span class="chip-scope" aria-hidden="true">LENS</span><button
+        class="chip"
+        data-lens="all"
+        aria-pressed="true">All reporting</button
+      >{
+        lenses.map((key) => (
+          <button class="chip" data-lens={key} aria-pressed="false">
+            {LENS_LABELS[key]}
           </button>
         ))
       }
@@ -47,6 +71,25 @@ const { events } = Astro.props;
             value="7d">Last 7 days</option
           ><option value="30d">Last 30 days</option></select
         ></label
+      ><label
+        ><span class="sr-only">Sort order</span><select id="sort"
+          ><option value="newest">Newest first</option><option value="oldest">Oldest first</option
+          ><option value="severity">Severity first</option></select
+        ></label
+      >
+    </div>
+    <div class="filter-row">
+      <label
+        ><span class="sr-only">Source</span><select id="source"
+          ><option value="all">All sources</option>{
+            sources.map((source) => <option value={source}>{source}</option>)
+          }</select
+        ></label
+      ><label
+        ><span class="sr-only">Corroboration</span><select id="mode"
+          ><option value="all">All reporting</option><option value="pulse">Corroborated</option
+          ><option value="news">Single source</option></select
+        ></label
       ><button id="reset-filters" class="text-button" title="Reset all filters">Reset</button>
     </div>
     <div id="legacy-mode" class="fine-print" hidden></div>
@@ -61,6 +104,6 @@ const { events } = Astro.props;
     }
   </div>
   <footer class="feed-footer">
-    <span class="status-dot"></span> Sourced reporting. A wider perspective.
+    <span class="status-dot"></span> Reporting refreshes every 60s while visible.
   </footer>
 </aside>

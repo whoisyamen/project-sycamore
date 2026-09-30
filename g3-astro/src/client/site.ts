@@ -1,7 +1,11 @@
 import type { DataContext, Snapshot } from '../data/types';
 import { dataStatus } from '../data/status';
 import { fetchSnapshot, acceptSnapshot } from './refresh';
-import { boards, briefing, eventDetail } from './render';
+import { eventDetail } from './render';
+import { installBoot, markBoot } from './boot';
+import { bindDeskPaging } from './desk';
+import { threatDesk } from './threat';
+installBoot();
 export const context: DataContext = JSON.parse(
   document.body.dataset.context ?? '{"events":[],"manifest":null,"demo":false}',
 );
@@ -38,13 +42,18 @@ function replaceContent(container: HTMLElement, html: string) {
   }
 }
 function updateCollections() {
-  const collection = document.querySelector<HTMLElement>('[data-collection]');
-  if (collection) {
-    const html =
-      collection.dataset.collection === 'boards'
-        ? boards(context.events, builtIds)
-        : briefing(context.events, Date.now(), builtIds);
-    replaceContent(collection, html);
+  const collection = document.querySelector<HTMLElement>('[data-collection="intelligence"]');
+  const openSection =
+    document.activeElement instanceof HTMLButtonElement
+      ? document.activeElement.dataset.section
+      : null;
+  if (collection && collection.dataset.managed !== 'nocturne') {
+    replaceContent(collection, threatDesk(context.events, Date.now(), builtIds));
+    bindDeskPaging(collection);
+    if (openSection)
+      collection
+        .querySelector<HTMLButtonElement>(`[data-desk-more][data-section="${openSection}"]`)
+        ?.focus({ preventScroll: true });
   }
   const article = document.querySelector<HTMLElement>('[data-event-page]');
   if (article) {
@@ -55,8 +64,21 @@ function updateCollections() {
   }
 }
 let pending = false;
+let snapshotSettled = false;
+function settleSnapshot(detail?: string) {
+  if (snapshotSettled) return;
+  snapshotSettled = true;
+  markBoot('snapshot', detail);
+}
 async function refresh() {
-  if (pending || context.demo || document.hidden) return;
+  if (context.demo) {
+    settleSnapshot('Demo snapshot. Live refresh is off.');
+    return;
+  }
+  if (pending || document.hidden) {
+    if (document.hidden) settleSnapshot();
+    return;
+  }
   pending = true;
   try {
     const next = acceptSnapshot(current, await fetchSnapshot());
@@ -66,14 +88,30 @@ async function refresh() {
     disconnected = false;
     updateCollections();
     document.dispatchEvent(new CustomEvent('sycamore:snapshot', { detail: next }));
+    settleSnapshot();
   } catch {
     disconnected = true;
+    settleSnapshot('Refresh failed. Showing the last published snapshot.');
   } finally {
     pending = false;
     updateStatus();
   }
 }
 updateStatus();
+// Carry a reading selection and its filters between the three workspaces.
+document.querySelectorAll<HTMLAnchorElement>('.site-header nav a').forEach((link) => {
+  link.addEventListener('click', () => {
+    const current = new URL(location.href);
+    const target = new URL(link.getAttribute('href')!, location.href);
+    target.search = '';
+    for (const key of ['q', 'topic', 'sev', 'range', 'src', 'lens', 'sort', 'mode', 'event']) {
+      const value = current.searchParams.get(key);
+      if (value) target.searchParams.set(key, value);
+    }
+    link.href = target.href;
+  });
+});
+bindDeskPaging(document);
 void refresh();
 const interval = window.setInterval(() => {
   updateStatus();

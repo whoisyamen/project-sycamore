@@ -1,15 +1,20 @@
 ---
 import Base from '../layouts/Base.astro';
 import Map from '../components/Map.astro';
-import Feed from '../components/Feed.astro';
+import Feed from '../components/HorizonFeed.astro';
+import ReportFilters from '../components/ReportFilters.astro';
 import DetailPanel from '../components/DetailPanel.astro';
 import { loadData } from '../data/loader';
 const context = await loadData();
 ---
 
-<Base title="Sycamore — Live Map" context={context} dashboard>
-  <main id="main" class="dashboard" tabindex="-1" data-tab="feed">
+<Base title="Overview — Sycamore" context={context} dashboard>
+  <main id="main" class="dashboard horizon-dashboard" tabindex="-1" data-tab="map">
     <Map />
+    <header class="horizon-heading">
+      <h1>Global overview</h1><ReportFilters events={context.events} compact />
+    </header>
+    <div id="horizon-spotlight" class="horizon-spotlight" aria-label="Report in view"></div>
     <div class="map-view-toolbar" role="toolbar" aria-label="Map workspace">
       <button
         type="button"
@@ -20,20 +25,9 @@ const context = await loadData();
         title="Enter fullscreen map">⛶</button
       >
     </div>
-    <div class="mobile-tabs" role="group" aria-label="Dashboard view">
-      <button data-tab="feed" aria-pressed="true">Feed</button><button
-        data-tab="map"
-        aria-pressed="false">Map</button
-      >
-    </div>
     <Feed events={context.events} />
     <DetailPanel />
     <p id="selection-notice" class="selection-notice" role="status" hidden></p>
-    <div class="map-summary">
-      <span class="summary-rule"></span><span
-        ><strong id="map-event-count">{context.events.length}</strong> visible events</span
-      ><span class="muted">·</span><span>4 topics</span>
-    </div>
   </main>
   <script>
     import { initDashboard } from '../client/dashboard';
@@ -46,6 +40,9 @@ const context = await loadData();
       const { createGlobe } = await import('../client/globe');
       const mapEl = document.getElementById('map')!;
       globeAdapter = await createGlobe(mapEl, {
+        layout: 'horizon',
+        initialImagery: 'satellite',
+        creditContainer: document.getElementById('map-credits')!,
         onSelectEvent: onSelect,
         onRegionSelected: (r: any) => {
           if (r) collapseMapControls?.(true);
@@ -72,15 +69,15 @@ const context = await loadData();
       controlHeader.className = 'globe-control-header';
       const controlTitle = document.createElement('span');
       controlTitle.className = 'globe-control-title';
-      controlTitle.textContent = 'Map controls';
+      controlTitle.textContent = 'Layers';
       const controlToggle = document.createElement('button');
       controlToggle.type = 'button';
       controlToggle.className = 'globe-control-toggle';
       controlToggle.setAttribute('aria-expanded', 'true');
       controlToggle.setAttribute('aria-label', 'Collapse map controls');
       controlToggle.title = 'Collapse map controls';
-      controlToggle.textContent = '−';
-      controlHeader.append(controlTitle, controlToggle);
+      controlToggle.textContent = 'Layers';
+      controlHeader.append(controlToggle);
 
       const controlMain = document.createElement('div');
       controlMain.className = 'globe-control-main';
@@ -95,7 +92,7 @@ const context = await loadData();
           collapsed ? 'Expand map controls' : 'Collapse map controls',
         );
         controlToggle.title = collapsed ? 'Expand map controls' : 'Collapse map controls';
-        controlToggle.textContent = collapsed ? '+' : '−';
+        controlToggle.textContent = 'Layers';
       };
       collapseMapControls = setControlsCollapsed;
       controlToggle.addEventListener('click', () => {
@@ -118,13 +115,13 @@ const context = await loadData();
         ['seismic', 'Seismic', 'seismic'],
         ['censys', 'Censys', 'censys'],
       ];
-      for (const [key, label, prop] of layers) {
+      for (const [, label, prop] of layers) {
         const chip = document.createElement('button');
         chip.className =
-          'globe-layer-chip' + (key === 'events' || key === 'flights' ? ' active' : '');
+          'globe-layer-chip' + (globeAdapter.getLayer(prop as LayerName) ? ' active' : '');
         chip.textContent = label;
         chip.type = 'button';
-        chip.setAttribute('aria-pressed', String(key === 'events' || key === 'flights'));
+        chip.setAttribute('aria-pressed', String(globeAdapter.getLayer(prop as LayerName)));
         chip.addEventListener('click', () => {
           const next = !globeAdapter.getLayer(prop as LayerName);
           globeAdapter.setLayers({ [prop]: next });
@@ -145,10 +142,10 @@ const context = await loadData();
       const viewControls = document.createElement('div');
       viewControls.className = 'globe-view-controls globe-control-group';
       const satellite = document.createElement('button');
-      satellite.className = 'globe-layer-chip';
+      satellite.className = 'globe-layer-chip active';
       satellite.textContent = 'Satellite';
       satellite.type = 'button';
-      satellite.setAttribute('aria-pressed', 'false');
+      satellite.setAttribute('aria-pressed', 'true');
       satellite.addEventListener('click', () => {
         const current = globeAdapter.getImageMode?.() || 'dark';
         const enabled = current === 'dark';
@@ -173,7 +170,7 @@ const context = await loadData();
       for (const [label, glyph, action] of [
         ['Zoom in', '+', () => globeAdapter.zoom(1)],
         ['Zoom out', '−', () => globeAdapter.zoom(-1)],
-        ['Reset globe', '↺', () => globeAdapter.resetView()],
+        ['Reset globe', 'Reset view', () => globeAdapter.resetView()],
       ] as const) {
         const button = document.createElement('button');
         button.type = 'button';
@@ -194,7 +191,8 @@ const context = await loadData();
       const effects = mapEl.querySelector<HTMLElement>('.globe-effects');
       if (effects) viewControls.appendChild(effects);
       const dataStatus = mapEl.querySelector<HTMLElement>('.globe-data-status');
-      controlMain.append(layerSection, viewSection, navigationSection);
+      controlHeader.append(satellite, navigation);
+      controlMain.append(layerSection, viewSection);
       controlDock.append(controlHeader, controlMain);
       if (dataStatus) controlDock.appendChild(dataStatus);
       const detailPanel = document.getElementById('detail-panel');
@@ -205,13 +203,11 @@ const context = await loadData();
         : null;
       detailObserver?.observe(detailPanel!, { attributes: true, attributeFilter: ['hidden'] });
       window.addEventListener('pagehide', () => detailObserver?.disconnect(), { once: true });
-      setControlsCollapsed(
-        window.matchMedia('(max-width: 979px)').matches ||
-          Boolean(detailPanel && !detailPanel.hidden),
-      );
+      setControlsCollapsed(true);
       const toolbar = document.querySelector<HTMLElement>('.map-view-toolbar');
       if (toolbar) toolbar.replaceChildren(controlDock);
       else mapEl.after(controlDock);
+      mapEl.dataset.imagery = await globeAdapter.whenImagerySettled().catch(() => 'timeout');
       return globeAdapter;
     });
   </script>
