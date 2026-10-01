@@ -1,11 +1,15 @@
 # Globe implementation and verification
 
-The dashboard initializes one Cesium 1.145 globe and returns its `GlobeAdapter`
-to `initDashboard`. `Map.astro` supplies markup only. The adapter owns entities,
+The dashboard initializes one Cesium 1.145 `CesiumWidget` globe and returns its
+`GlobeAdapter` to `initDashboard`. `Map.astro` supplies markup only. The adapter owns entities,
 primitives, subscriptions, polling, resize observation and destruction.
 
-- Import Cesium widget CSS. A `ResizeObserver` and initial animation frame call
-  `viewer.resize()`; the dashboard also calls the adapter's real resize method.
+- Import the engine and its widget CSS directly. `CesiumWidget` supplies the
+  scene, data sources, credits and render loop; Sycamore supplies the controls.
+  This avoids Viewer's legacy Knockout `eval` bootstrap. The production CSP
+  permits Cesium's WebAssembly decoders with `'wasm-unsafe-eval'`, while JavaScript
+  `eval` and `Function` remain blocked. A `ResizeObserver` and initial animation
+  frame call `viewer.resize()`; the dashboard also calls the adapter's real resize method.
 - `npm run dev` and `npm run build` copy Assets, Workers and ThirdParty from the
   installed Cesium package. `CESIUM_BASE_URL` points to the same-origin copy.
 - Esri Dark Gray retains land, borders and labels; satellite retains ungraded land
@@ -25,7 +29,7 @@ primitives, subscriptions, polling, resize observation and destruction.
 - The bundled Cesium skybox is visible behind the globe for a star-field backdrop;
   land/water imagery, lighting, and globe effects retain their previous settings.
 - Effects own their controls, frame subscription and GPU textures and release
-  them before Viewer destruction. Water motion is decorative, not observed seas.
+  them before widget destruction. Water motion is decorative, not observed seas.
 - Event and Censys entities live in `CustomDataSource` collections. Cities
   and earthquakes use point collections; aircraft use billboards; trails use polyline collections
   with `Material`, not entity `MaterialProperty` objects.
@@ -67,7 +71,7 @@ Network failures preserve last-good samples rather than publishing an empty succ
 - `cd ../g3-ingest && python -m unittest discover -s tests -v`
 
 The globe regression uses real Cesium collections, providers, materials and
-properties with a substitute Viewer shell; it tests state, picking, resize and
+properties with a substitute widget shell; it tests state, picking, resize and
 cleanup without requiring a GPU. It does not certify canvas appearance or WebGL.
 Manual browser verification should cover desktop/mobile layout, globe dragging,
 country/city picks, event-to-feed selection, repeated layer/satellite toggles,

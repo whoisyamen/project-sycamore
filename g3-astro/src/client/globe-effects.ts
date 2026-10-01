@@ -1,4 +1,4 @@
-import * as Cesium from 'cesium';
+import * as Cesium from '@cesium/engine';
 
 // Globe materials blend diffuse + alpha over imagery; emission/specular fields
 // are ignored by GlobeFS. Compute the water lighting here, in world coordinates.
@@ -69,7 +69,7 @@ czm_material czm_getMaterial(czm_materialInput inputData) {
 }`;
 
 export function attachGlobeEffects(
-  viewer: Cesium.Viewer,
+  viewer: Cesium.CesiumWidget,
   container: HTMLElement,
   base: string,
   reducedMotion: boolean,

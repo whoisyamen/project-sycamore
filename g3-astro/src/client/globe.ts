@@ -4,8 +4,10 @@
 // internet-exposure sample (Censys via keyed ingest). Every plotted position is
 // source-provided; the globe never interpolates or imputes a location.
 
-import * as Cesium from 'cesium';
-import 'cesium/Build/Cesium/Widgets/widgets.css';
+// The engine widget provides the scene/data sources without Viewer's Knockout
+// UI, whose legacy eval bootstrap is blocked by the production script policy.
+import * as Cesium from '@cesium/engine';
+import '@cesium/engine/Source/Widget/CesiumWidget.css';
 Cesium.Ion.defaultAccessToken = '';
 const BASE = import.meta.env.BASE_URL;
 (window as Window & { CESIUM_BASE_URL?: string }).CESIUM_BASE_URL = `${BASE}cesium/`;
@@ -222,7 +224,7 @@ function flightTrailTier(height: number): number {
  * reads frustum.fov as the *horizontal* angle when the canvas is wider than it
  * is tall, so the focal length has to follow the same rule.
  */
-function focalPixels(viewer: Cesium.Viewer): number {
+function focalPixels(viewer: Cesium.CesiumWidget): number {
   const { clientWidth: w, clientHeight: h } = viewer.canvas;
   const frustum = viewer.camera.frustum as Cesium.PerspectiveFrustum;
   const fov = frustum.fov ?? Cesium.Math.PI_OVER_THREE;
@@ -268,7 +270,7 @@ function stageBand(container: HTMLElement) {
  * degree to nudge the disc onto an off-centre band is not something setView
  * holds on to, and centring on the canvas keeps the disc symmetric instead.
  */
-function frameGlobe(viewer: Cesium.Viewer) {
+function frameGlobe(viewer: Cesium.CesiumWidget) {
   const { camera, scene } = viewer;
   const canvas = viewer.canvas;
   const width = canvas.clientWidth;
@@ -355,18 +357,8 @@ export function createGlobe(
         credit: 'Imagery © Esri, Maxar, Earthstar Geographics',
       }),
     );
-    const viewer = new Cesium.Viewer(container, {
+    const viewer = new Cesium.CesiumWidget(container, {
       baseLayer: darkLayer,
-      animation: false,
-      timeline: false,
-      baseLayerPicker: false,
-      geocoder: false,
-      homeButton: false,
-      navigationHelpButton: false,
-      sceneModePicker: false,
-      fullscreenButton: false,
-      infoBox: false,
-      selectionIndicator: false,
       shouldAnimate: false,
       creditContainer: opts.creditContainer,
     });

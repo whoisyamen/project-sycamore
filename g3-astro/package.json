@@ -38,6 +38,7 @@
     "typescript": "5.9.3"
   },
   "dependencies": {
+    "@cesium/engine": "26.3.0",
     "ajv": "8.20.0",
     "ajv-formats": "3.0.1",
     "cesium": "^1.145.0"

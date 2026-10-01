@@ -6,11 +6,11 @@ import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { build } from 'esbuild';
 import { JSDOM } from 'jsdom';
-import * as Cesium from '../node_modules/cesium/Build/Cesium/index.js';
+import * as Cesium from '@cesium/engine';
 import { event } from './fixtures';
 
 test('globe runtime: markers, picks, persistent cities, imagery toggles, resize and cleanup', async () => {
-  // Substitute only the GPU/Viewer shell; collections, providers, materials,
+  // Substitute only the GPU/widget shell; collections, providers, materials,
   // entities and properties use the installed Cesium runtime.
   const dom = new JSDOM('<div id="map"></div>', { pretendToBeVisual: true });
   const saved = new Map<string, PropertyDescriptor | undefined>();
@@ -51,7 +51,7 @@ test('globe runtime: markers, picks, persistent cities, imagery toggles, resize 
   let picked: unknown;
   let pickPosition = Cesium.Cartesian3.fromDegrees(10, 51);
   let viewer: any;
-  class Viewer {
+  class CesiumWidget {
     clock = new Cesium.Clock();
     creditDisplay = { addStaticCredit() {}, removeStaticCredit() {} };
     entities = new Cesium.EntityCollection();
@@ -94,7 +94,7 @@ test('globe runtime: markers, picks, persistent cities, imagery toggles, resize 
       this.scene.imageryLayers.destroy();
     }
   }
-  install('__testCesium', { ...Cesium, Viewer });
+  install('__testCesium', { ...Cesium, CesiumWidget });
   const root = new URL('../', import.meta.url);
   const countries = JSON.parse(
     await readFile(new URL('public/data/globe/countries.geojson', root), 'utf8'),
@@ -135,8 +135,11 @@ test('globe runtime: markers, picks, persistent cities, imagery toggles, resize 
   let adapter: any;
   try {
     const source = (await readFile(new URL('src/client/globe.ts', root), 'utf8'))
-      .replace("import * as Cesium from 'cesium';", 'const Cesium = globalThis.__testCesium;')
-      .replace("import 'cesium/Build/Cesium/Widgets/widgets.css';", '');
+      .replace(
+        "import * as Cesium from '@cesium/engine';",
+        'const Cesium = globalThis.__testCesium;',
+      )
+      .replace("import '@cesium/engine/Source/Widget/CesiumWidget.css';", '');
     const outfile = join(directory, 'globe.mjs');
     await build({
       stdin: { contents: source, loader: 'ts', resolveDir: new URL('src/client/', root).pathname },

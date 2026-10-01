@@ -51,6 +51,12 @@ test('reading workspaces have geographic context; runtime validation needs no dy
     'utf8',
   );
   assert.doesNotMatch(validator, /new Function\(/);
+  // A static build must not pull in Viewer's Knockout bootstrap: it evaluates
+  // "this" during module import, before our map failure handler can attach.
+  for (const code of js) {
+    assert.doesNotMatch(code, /\(0,\s*eval\)\s*\(/);
+    assert.doesNotMatch(code, /ko\.applyBindings/);
+  }
   assert.ok(js.some((code) => code.includes('CesiumWidget') || code.includes('cesium-viewer')));
   const home = new JSDOM(await readFile(new URL('index.html', root), 'utf8')).window.document;
   const desk = new JSDOM(await readFile(new URL('intelligence/index.html', root), 'utf8')).window
@@ -68,7 +74,7 @@ test('reading workspaces have geographic context; runtime validation needs no dy
 });
 test('deployment header template restricts scripts and prevents caching data snapshots', async () => {
   const headers = await readFile(new URL('_headers', root), 'utf8');
-  assert.match(headers, /script-src 'self';/);
+  assert.match(headers, /script-src 'self' 'wasm-unsafe-eval';/);
   assert.doesNotMatch(headers, /'unsafe-eval'/);
   assert.match(headers, /\/data\/\*[\s\S]*Cache-Control: no-store/);
 });
