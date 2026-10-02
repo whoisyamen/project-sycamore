@@ -2,6 +2,46 @@
   "version": 1,
   "events": [
     {
+      "id": 1489,
+      "t": "geopolitical",
+      "sev": "watching",
+      "title": "Women hospitalised and three men charged with assault and choking after separate home invasions in Sydney",
+      "summary": "NSW police allege the men, aged 18, 19 and 20, broke into homes in Arncliffe and Bankstown this week before assaulting the women aged 31 and 32 Follow our Australia news live blog for latest updates Get our breaking news email, free app or daily news podcast Three men have been detained after two women were allegedly assaulted during separate home invasions in Sydney’s south-west. New South Wales police were first called to a home invasion in Arncliffe at about 12am on Tuesday morning. Continue reading...",
+      "src": "Guardian World",
+      "loc": "Sydney, AU (approximate)",
+      "lat": -33.8688,
+      "lon": 151.2093,
+      "ts": 1790902975000,
+      "ingestedAt": 1790904111748,
+      "sources": [
+        "https://www.theguardian.com/australia-news/2026/oct/02/sydney-home-invasions-arncliffe-bankstown-ntwnfb"
+      ],
+      "score": {
+        "articles": 1,
+        "tone": 0.0,
+        "quality": 80,
+        "corroboration": {
+          "sources": [
+            "https://www.theguardian.com/australia-news/2026/oct/02/sydney-home-invasions-arncliffe-bankstown-ntwnfb"
+          ],
+          "outlets": [
+            "theguardian.com"
+          ]
+        },
+        "confidence": 51
+      },
+      "geo": {
+        "tier": "approximate",
+        "source": "title",
+        "policy": "tiered-locus-v2",
+        "scope": "city",
+        "evidence": "Sydney"
+      },
+      "media": {
+        "image": "data/media/685f9ea15ed0203a.jpg"
+      }
+    },
+    {
       "id": 1488,
       "t": "geopolitical",
       "sev": "watching",
@@ -767,7 +807,7 @@
             "aljazeera.com"
           ]
         },
-        "confidence": 51
+        "confidence": 50
       },
       "geo": {
         "tier": "approximate",
@@ -804,7 +844,7 @@
             "theguardian.com"
           ]
         },
-        "confidence": 51
+        "confidence": 50
       },
       "geo": {
         "tier": "approximate",
@@ -844,7 +884,7 @@
             "thehackernews.com"
           ]
         },
-        "confidence": 51
+        "confidence": 50
       },
       "geo": {
         "tier": "approximate",
@@ -964,7 +1004,7 @@
             "theguardian.com"
           ]
         },
-        "confidence": 50
+        "confidence": 49
       },
       "geo": {
         "tier": "approximate",
@@ -1320,7 +1360,7 @@
             "aljazeera.com"
           ]
         },
-        "confidence": 49
+        "confidence": 48
       },
       "geo": {
         "tier": "approximate",
@@ -1357,7 +1397,7 @@
             "theguardian.com"
           ]
         },
-        "confidence": 49
+        "confidence": 48
       },
       "geo": {
         "tier": "approximate",
@@ -1514,7 +1554,7 @@
             "bbc.co.uk"
           ]
         },
-        "confidence": 48
+        "confidence": 47
       },
       "geo": {
         "tier": "approximate",
@@ -1868,7 +1908,7 @@
             "theguardian.com"
           ]
         },
-        "confidence": 46
+        "confidence": 45
       },
       "geo": {
         "tier": "approximate",
@@ -1908,7 +1948,7 @@
             "theguardian.com"
           ]
         },
-        "confidence": 46
+        "confidence": 45
       },
       "geo": {
         "tier": "approximate",
@@ -2305,7 +2345,7 @@
             "bbc.co.uk"
           ]
         },
-        "confidence": 42
+        "confidence": 41
       },
       "geo": {
         "tier": "approximate",
@@ -2610,7 +2650,7 @@
             "france24.com"
           ]
         },
-        "confidence": 40
+        "confidence": 39
       },
       "geo": {
         "tier": "approximate",
@@ -2650,7 +2690,7 @@
             "theguardian.com"
           ]
         },
-        "confidence": 40
+        "confidence": 39
       },
       "geo": {
         "tier": "approximate",
@@ -2767,7 +2807,7 @@
             "theguardian.com"
           ]
         },
-        "confidence": 39
+        "confidence": 38
       },
       "geo": {
         "tier": "approximate",
@@ -3004,7 +3044,7 @@
             "npr.org"
           ]
         },
-        "confidence": 38
+        "confidence": 37
       },
       "geo": {
         "tier": "approximate",
@@ -3044,7 +3084,7 @@
             "france24.com"
           ]
         },
-        "confidence": 38
+        "confidence": 37
       },
       "geo": {
         "tier": "approximate",
@@ -3084,7 +3124,7 @@
             "france24.com"
           ]
         },
-        "confidence": 38
+        "confidence": 37
       },
       "geo": {
         "tier": "approximate",
@@ -3124,7 +3164,7 @@
             "france24.com"
           ]
         },
-        "confidence": 38
+        "confidence": 37
       },
       "geo": {
         "tier": "approximate",
@@ -3164,7 +3204,7 @@
             "france24.com"
           ]
         },
-        "confidence": 38
+        "confidence": 37
       },
       "geo": {
         "tier": "approximate",
@@ -3204,7 +3244,7 @@
             "france24.com"
           ]
         },
-        "confidence": 38
+        "confidence": 37
       },
       "geo": {
         "tier": "approximate",
@@ -3244,7 +3284,7 @@
             "france24.com"
           ]
         },
-        "confidence": 38
+        "confidence": 37
       },
       "geo": {
         "tier": "approximate",
@@ -3284,7 +3324,7 @@
             "france24.com"
           ]
         },
-        "confidence": 38
+        "confidence": 37
       },
       "geo": {
         "tier": "approximate",
@@ -3324,7 +3364,7 @@
             "france24.com"
           ]
         },
-        "confidence": 38
+        "confidence": 37
       },
       "geo": {
         "tier": "approximate",
@@ -3364,7 +3404,7 @@
             "france24.com"
           ]
         },
-        "confidence": 38
+        "confidence": 37
       },
       "geo": {
         "tier": "approximate",
@@ -3404,7 +3444,7 @@
             "theguardian.com"
           ]
         },
-        "confidence": 38
+        "confidence": 37
       },
       "geo": {
         "tier": "approximate",
@@ -3444,7 +3484,7 @@
             "theguardian.com"
           ]
         },
-        "confidence": 38
+        "confidence": 37
       },
       "geo": {
         "tier": "approximate",
@@ -3484,7 +3524,7 @@
             "theguardian.com"
           ]
         },
-        "confidence": 38
+        "confidence": 37
       },
       "geo": {
         "tier": "approximate",
@@ -3524,7 +3564,7 @@
             "theguardian.com"
           ]
         },
-        "confidence": 38
+        "confidence": 37
       },
       "geo": {
         "tier": "approximate",
@@ -3564,7 +3604,7 @@
             "theguardian.com"
           ]
         },
-        "confidence": 38
+        "confidence": 37
       },
       "geo": {
         "tier": "approximate",
@@ -3604,7 +3644,7 @@
             "theguardian.com"
           ]
         },
-        "confidence": 38
+        "confidence": 37
       },
       "geo": {
         "tier": "approximate",
@@ -3644,7 +3684,7 @@
             "theguardian.com"
           ]
         },
-        "confidence": 38
+        "confidence": 37
       },
       "geo": {
         "tier": "approximate",
@@ -3684,7 +3724,7 @@
             "aljazeera.com"
           ]
         },
-        "confidence": 38
+        "confidence": 37
       },
       "geo": {
         "tier": "approximate",
@@ -3721,7 +3761,7 @@
             "aljazeera.com"
           ]
         },
-        "confidence": 38
+        "confidence": 37
       },
       "geo": {
         "tier": "approximate",
@@ -3758,7 +3798,7 @@
             "aljazeera.com"
           ]
         },
-        "confidence": 38
+        "confidence": 37
       },
       "geo": {
         "tier": "approximate",
@@ -3795,7 +3835,7 @@
             "aljazeera.com"
           ]
         },
-        "confidence": 38
+        "confidence": 37
       },
       "geo": {
         "tier": "approximate",
@@ -3832,7 +3872,7 @@
             "bbc.co.uk"
           ]
         },
-        "confidence": 38
+        "confidence": 37
       },
       "geo": {
         "tier": "approximate",
@@ -3912,7 +3952,7 @@
             "bbc.co.uk"
           ]
         },
-        "confidence": 34
+        "confidence": 33
       },
       "geo": {
         "tier": "approximate",
@@ -4069,7 +4109,7 @@
             "france24.com"
           ]
         },
-        "confidence": 33
+        "confidence": 32
       },
       "geo": {
         "tier": "approximate",
@@ -4349,7 +4389,7 @@
             "theguardian.com"
           ]
         },
-        "confidence": 32
+        "confidence": 31
       },
       "geo": {
         "tier": "approximate",
@@ -19488,53 +19528,13 @@
       "media": {
         "image": "data/media/be56e6f1eb2c6f02.jpg"
       }
-    },
-    {
-      "id": 989,
-      "t": "geopolitical",
-      "sev": "watching",
-      "title": "Regional losses for Germany's ruling CDU",
-      "summary": "Another electoral setback for German Chancellor Friedrich Merz, as his centre-right CDU performed poorly in two state elections on Sunday. Projections showed the party failing to enter the state parliament in Mecklenburg-Western Pomerania, where the far-right AfD came out on top, while the far-left Die Linke led the vote in Berlin. The AfD also made significant gains in both states, building on its recent victory in Saxony-Anhalt. France 24 Europe editor Armen Georgian shares further insights.",
-      "src": "France24 EN",
-      "loc": "Berlin, DE (approximate)",
-      "lat": 52.52,
-      "lon": 13.405,
-      "ts": 1789988657000,
-      "ingestedAt": 1790012257238,
-      "sources": [
-        "https://www.france24.com/en/regional-losses-for-germany-s-ruling-cdu"
-      ],
-      "score": {
-        "articles": 1,
-        "tone": 0.0,
-        "quality": 80,
-        "corroboration": {
-          "sources": [
-            "https://www.france24.com/en/regional-losses-for-germany-s-ruling-cdu"
-          ],
-          "outlets": [
-            "france24.com"
-          ]
-        },
-        "confidence": 26
-      },
-      "geo": {
-        "tier": "approximate",
-        "source": "summary",
-        "policy": "tiered-locus-v2",
-        "scope": "city",
-        "evidence": "Berlin"
-      },
-      "media": {
-        "image": "data/media/95ca324b516a366b.jpg"
-      }
     }
   ],
   "manifest": {
     "version": 1,
-    "lastSync": 1790902755684,
-    "lastAttempt": 1790902755684,
-    "nextEventId": 1489,
+    "lastSync": 1790904112247,
+    "lastAttempt": 1790904112247,
+    "nextEventId": 1490,
     "source": {
       "name": "Curated RSS",
       "endpoint": "https://krebsonsecurity.com/feed/"
@@ -19560,7 +19560,7 @@
     },
     "health": {
       "status": "degraded",
-      "durationMs": 10430,
+      "durationMs": 11011,
       "failedSources": [
         "OpenSky flights"
       ]
