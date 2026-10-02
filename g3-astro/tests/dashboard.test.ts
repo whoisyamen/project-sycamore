@@ -39,12 +39,16 @@ test('dashboard filters, selects, shares, refreshes and remains usable without W
   let shown: Event[] = [];
   const presentationStates: boolean[] = [];
   const suspendedStates: boolean[] = [];
+  let reframed = 0;
   initDashboard(context, () => ({
     update(events) {
       shown = events;
     },
     focus() {},
     resize() {},
+    reframe() {
+      reframed++;
+    },
     setPresentationMode(enabled) {
       presentationStates.push(enabled);
     },
@@ -75,6 +79,23 @@ test('dashboard filters, selects, shares, refreshes and remains usable without W
     'false',
   );
   assert.equal(presentationStates.at(-1), false);
+  // The single-report spotlight is gone; the globe owns that space.
+  assert.equal(document.getElementById('horizon-spotlight'), null);
+  // The reporting tray collapses back to its heading bar, and the globe re-fits.
+  const tray = document.querySelector<HTMLElement>('.horizon-reporting')!;
+  assert.equal(tray.dataset.collapsed, undefined);
+  click('[data-feed-collapse]');
+  await new Promise((resolve) => setTimeout(resolve, 20));
+  assert.equal(tray.dataset.collapsed, 'true');
+  assert.equal(
+    document.querySelector('[data-feed-collapse]')?.getAttribute('aria-expanded'),
+    'false',
+  );
+  assert.equal(reframed, 1);
+  click('[data-feed-collapse]');
+  await new Promise((resolve) => setTimeout(resolve, 20));
+  assert.equal(tray.dataset.collapsed, 'false');
+  assert.equal(reframed, 2);
   click('.view-tabs [data-tab="feed"]');
   assert.equal(document.getElementById('main')?.dataset.tab, 'feed');
   assert.equal(

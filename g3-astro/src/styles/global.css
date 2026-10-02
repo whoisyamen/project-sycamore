@@ -489,7 +489,10 @@ kbd {
   flex-shrink: 0;
 }
 .critical {
-  --severity: #f08d73;
+  --severity: #ff949f;
+}
+.severity-dot.critical {
+  --severity: #ff596b;
 }
 .escalating {
   --severity: #e8bb78;

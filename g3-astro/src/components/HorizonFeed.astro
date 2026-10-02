@@ -7,38 +7,58 @@ interface Props {
 const { events } = Astro.props;
 ---
 
-<aside class="feed-panel horizon-reporting" id="feed-panel" aria-label="Event feed">
+<aside
+  class="feed-panel horizon-reporting"
+  id="feed-panel"
+  data-globe-inset="bottom"
+  aria-label="Event feed"
+>
   <div class="horizon-feed-heading">
-    <h2>Reporting</h2><span
-      ><strong id="feed-count">{events.length}</strong> reports <span aria-hidden="true">·</span>
-      <a href="/reporting">Open reporting index ↗</a></span
-    >
-  </div>
-  <div class="feed-list" id="feed-list" tabindex="-1">
-    {
-      [...events]
-        .sort((a, b) => b.ts - a.ts)
-        .slice(0, 12)
-        .map((event) => <EventCard event={event} dashboard />)
-    }
-    {
-      events.length === 0 && (
-        <p class="empty-state">
-          No reporting available. New articles will appear with the next published snapshot.
-        </p>
-      )
-    }
-  </div>
-  <footer class="horizon-footer">
-    <div class="view-tabs" role="group" aria-label="Dashboard view">
-      <button data-tab="map" aria-pressed="true">Globe</button><button
-        data-tab="feed"
-        aria-pressed="false">Feed</button
+    <h2>Reporting</h2>
+    <div class="horizon-feed-tools">
+      <span
+        ><strong id="feed-count">{events.length}</strong> reports <span aria-hidden="true">·</span>
+        <a href="/reporting">Open reporting index ↗</a></span
+      >
+      <div class="view-tabs" role="group" aria-label="Dashboard view">
+        <button data-tab="map" aria-pressed="true">Globe</button><button
+          data-tab="feed"
+          aria-pressed="false">Feed</button
+        >
+      </div>
+      <button
+        type="button"
+        class="horizon-feed-toggle"
+        data-feed-collapse
+        aria-expanded="true"
+        aria-controls="horizon-feed-body"
+        aria-label="Collapse reporting tray"
+        title="Collapse reporting tray"><span aria-hidden="true">⌃</span></button
       >
     </div>
-    <p><strong id="map-event-count">{events.length}</strong> visible reports</p><p>
-      Locations are approximate
-    </p>
-    <div id="map-credits"></div>
-  </footer>
+  </div>
+  <div class="horizon-feed-body" id="horizon-feed-body">
+    <div class="feed-list" id="feed-list" tabindex="-1">
+      {
+        [...events]
+          .sort((a, b) => b.ts - a.ts)
+          .slice(0, 12)
+          .map((event) => <EventCard event={event} dashboard />)
+      }
+      {
+        events.length === 0 && (
+          <p class="empty-state">
+            No reporting available. New articles will appear with the next published snapshot.
+          </p>
+        )
+      }
+    </div>
+    <footer class="horizon-footer">
+      <p><strong id="map-event-count">{events.length}</strong> visible reports</p><p>
+        Locations are approximate
+      </p>
+    </footer>
+  </div>
+  <!-- Attribution stays outside the collapsible body so it survives a collapsed tray. -->
+  <div id="map-credits"></div>
 </aside>

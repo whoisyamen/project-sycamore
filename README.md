@@ -2,13 +2,14 @@
 
 Local-first global reporting dashboard for cyber, geopolitical, maritime, and military events. Explore sourced reporting through the Horizon overview, Nocturne Threat desk, and Obsidian reporting index.
 
-![Sycamore Horizon overview with panoramic Earth, search, shared filters, and reporting tray](00-admin/qa-horizon-nocturne/screenshots/horizon-desktop.png)
+![Sycamore overview with severity beacons, a glowing Earth, star field, search, filters, and reporting tray](00-admin/qa-atmospheric-polish/screenshots/rotation-overview.png)
 
-<sub>Horizon overview · September 29, 2026 · Reporting and freshness reflect the captured snapshot.</sub>
+<sub>Horizon overview · October 1, 2026 · Reporting and freshness reflect the captured snapshot.</sub>
 
 ## Capabilities
 
-- **Geographic context:** Cesium globe with dark and satellite imagery, day/night shading, animated water, country and city selection, and optional aircraft, seismic, and Censys layers.
+- **Geographic context:** Cesium globe with dark and satellite imagery, day/night shading, animated water, country and city selection, and optional aircraft, seismic, and Censys layers. Severity-colored beacons grow stronger with zoom; optional Earth rotation starts enabled, with real-rate and one-hour time-lapse modes.
+- **Atmospheric visuals:** An opaque header and translucent reporting panels, a glowing Earth against the star field, and independently toggleable ambient and interaction sounds that start muted. Decorative motion respects reduced-motion preferences.
 - **Sourced reporting:** Search and filter events by topic, severity, and time. Open source links, inspect event details, and share selections with their filters.
 - **Boards and briefings:** Topic groups and 24-hour, 7-day, and 30-day coverage windows live as sections of the Threat desk at `/intelligence`, alongside briefing snapshots.
 - **Resilient ingestion:** Python RSS pipeline with optional GDELT, deduplication, schema validation, persistent event IDs, and atomic publication. Failed refreshes retain the last valid data.
@@ -74,6 +75,8 @@ The site builds to static files. Production data changes require republishing th
 Private environment files, credentials, local databases, logs, dependencies, and generated output are excluded from Git. Optional Censys credentials stay in the ingestion environment. Installed services are configured separately; retain the active directory names because existing units reference them.
 
 See the [ingestion guide](g3-ingest/README.md), [globe implementation](g3-astro/GLOBE.md), [performance notes](g3-astro/PERFORMANCE.md), and [security policy](00-admin/SECURITY_POLICY.md) for operational details. The Cloudflare header template is configuration for deployment, not evidence of a live deployment.
+For GitHub-linked Pages setup, the `prod` production branch, build gates, and
+snapshot publication, see the [deployment guide](g3-astro/DEPLOYMENT.md).
 
 The website's threat-desk direction, scope, and next-source decisions are in the
 [redesign plan](03-architecture/THREAT_DESK_REDESIGN_PLAN.md), with visual guidance
@@ -86,3 +89,7 @@ The approved September 29 concepts now define the front end: [Horizon, Nocturne
 Desk, and Obsidian Index](02-design/ui-concepts/2026-09-29/dark-design-prompts.md).
 The [implementation handoff](00-admin/HANDOFF-2026-09-29-HORIZON-NOCTURNE.md)
 records the three-view UI, browser evidence, and validation.
+
+The [October visual-effects review](00-admin/qa-atmospheric-polish/README.md)
+records the current theme, zoom-responsive beacons, Earth rotation, and desktop
+and phone verification.
