@@ -13,7 +13,7 @@ const BASE = import.meta.env.BASE_URL;
 (window as Window & { CESIUM_BASE_URL?: string }).CESIUM_BASE_URL = `${BASE}cesium/`;
 
 import type { Event } from '../data/types';
-import { attachGlobeEffects } from './globe-effects';
+import { attachGlobeEffects, EARTH_ANGULAR_SPEED, EARTH_LAPSE_MULTIPLIER } from './globe-effects';
 import { geoTier } from './render';
 import type {
   FlightsEnvelope,
@@ -28,19 +28,25 @@ const INK = Cesium.Color.fromCssColorString('#080f19');
 const PLANE = Cesium.Color.fromCssColorString('#a6c6d9');
 const ACCENT = Cesium.Color.fromCssColorString('#83c9de');
 const CORAL = Cesium.Color.fromCssColorString('#ec8278');
-const SLATE = Cesium.Color.fromCssColorString('#9bb3cd');
 const ASH = Cesium.Color.fromCssColorString('#728a9a');
 // Recolor only the basemap's ocean; retain land, boundaries and zoom-level labels.
 const OCEAN = Cesium.Color.fromCssColorString('#0c1e30');
 const BASEMAP_OCEAN = Cesium.Color.fromCssColorString('#232227');
-const SEVERITY: Record<string, { color: typeof INK; pulse: boolean }> = {
-  critical: { color: CORAL, pulse: true },
-  escalating: { color: ACCENT, pulse: false },
-  watching: { color: SLATE, pulse: false },
-  deesc: { color: ASH, pulse: false },
+const SEVERITY: Record<string, { color: typeof INK; period: number; haloSize: number }> = {
+  critical: { color: Cesium.Color.fromCssColorString('#ff596b'), period: 1.8, haloSize: 42 },
+  escalating: { color: Cesium.Color.fromCssColorString('#e8bb78'), period: 3.2, haloSize: 32 },
+  watching: { color: Cesium.Color.fromCssColorString('#aac496'), period: 4.5, haloSize: 24 },
+  deesc: { color: Cesium.Color.fromCssColorString('#8e9b8d'), period: 5.5, haloSize: 20 },
+};
+const MARKER_PRIORITY: Record<Event['sev'], number> = {
+  deesc: 0,
+  watching: 1,
+  escalating: 2,
+  critical: 3,
 };
 // Top-down airliner silhouette (nose up = heading 0); tinted dim gray per billboard.
 const PLANE_IMG = `${BASE}data/globe/plane.svg`;
+const selectionHalo = `${BASE}data/globe/selection-halo.svg`;
 
 // ---------------------------------------------------------------- baselines (built once per session)
 interface CityRow {
@@ -162,6 +168,8 @@ export interface GlobeAdapter {
   getImageMode(): ImageryMode;
   resetView(): void;
   zoom(direction: number): void;
+  setRotation(enabled: boolean): void;
+  getRotation(): boolean;
   setPresentationMode(enabled: boolean): void;
   setSuspended(suspended: boolean): void;
   /** Resolves when current-view imagery is in, or when the wait times out. */
@@ -327,7 +335,8 @@ export function createGlobe(
   opts: GlobeOptions = {},
 ): Promise<GlobeAdapter> {
   return (async () => {
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const reducedMotion = motionPreference.matches;
     let destroyed = false;
     let movedByUser = false;
     const cartographic = opts.layout === 'context' && opts.initialImagery !== 'satellite';
@@ -375,11 +384,23 @@ export function createGlobe(
     });
     resizeObserver.observe(container);
     // Any direct navigation counts as the user claiming the camera.
-    const claimCamera = () => {
+    let rotationPausedUntil = 0;
+    let navigationHeld = false;
+    const claimCamera = (event?: globalThis.Event) => {
       movedByUser = true;
+      rotationPausedUntil = performance.now() + 8000;
+      if (event?.type === 'pointerdown' || event?.type === 'touchstart') navigationHeld = true;
     };
     for (const type of ['pointerdown', 'wheel', 'touchstart'] as const) {
       container.addEventListener(type, claimCamera, { passive: true });
+    }
+    const releaseCamera = () => {
+      if (!navigationHeld) return;
+      navigationHeld = false;
+      rotationPausedUntil = performance.now() + 8000;
+    };
+    for (const type of ['pointerup', 'pointercancel', 'touchend', 'touchcancel'] as const) {
+      window.addEventListener(type, releaseCamera, { passive: true });
     }
     const resizeFrame = requestAnimationFrame(() => {
       if (!destroyed) viewer.resize();
@@ -400,12 +421,17 @@ export function createGlobe(
     if (scene.moon) scene.moon.show = false;
     if (scene.skyAtmosphere) {
       scene.skyAtmosphere.show = !cartographic;
-      scene.skyAtmosphere.atmosphereLightIntensity = 6;
-      scene.skyAtmosphere.brightnessShift = -0.2;
+      scene.skyAtmosphere.atmosphereLightIntensity = 9;
+      scene.skyAtmosphere.brightnessShift = -0.05;
     }
 
     const effects = cartographic
-      ? { setSatellite: (_enabled: boolean) => {}, destroy: () => {} }
+      ? {
+          setSatellite: (_enabled: boolean) => {},
+          getVisualPhase: () => 0,
+          getTimeLapse: () => false,
+          destroy: () => {},
+        }
       : attachGlobeEffects(viewer, container, BASE, reducedMotion);
     viewer.targetFrameRate = 30;
     viewer.resolutionScale = Math.min(window.devicePixelRatio || 1, 1.5);
@@ -439,6 +465,17 @@ export function createGlobe(
     let visibleEvents: Event[] = [];
     let activeEventId: number | null = null;
     let presentationMode = false;
+    let rotationEnabled = opts.layout === 'horizon';
+    let renderSuspended = false;
+    let lastRotationTime = performance.now();
+    const beaconZoomWeight = () => {
+      const closest = Math.max(scene.screenSpaceCameraController?.minimumZoomDistance ?? 1, 1);
+      const height = Math.max(camera.positionCartographic?.height ?? 19_000_000, closest);
+      const far = Math.max(6_800_000, closest * 2);
+      const amount = Cesium.Math.clamp(Math.log(far / height) / Math.log(far / closest), 0, 1);
+      return amount * amount * (3 - 2 * amount);
+    };
+    let beaconZoom = beaconZoomWeight();
     let imageryMode: ImageryMode = opts.initialImagery ?? 'dark';
     let flightsEnv: FlightsEnvelope | null = null;
     let selectedFlightId: string | null = null;
@@ -498,45 +535,93 @@ export function createGlobe(
     function rebuildEvents() {
       eventEntities.removeAll();
       if (!layersOn.events || !visibleEvents.length) return;
-      for (const e of visibleEvents) {
+      // Draw urgent/selected beacons last when reports share approximate fixes.
+      // This affects only visual stacking, never the feed order or coordinates.
+      const priority = (event: Event) =>
+        event.id === activeEventId ? 4 : MARKER_PRIORITY[event.sev];
+      const plottedEvents = [...visibleEvents].sort((a, b) => priority(a) - priority(b));
+      for (const e of plottedEvents) {
         const base = SEVERITY[e.sev] ?? SEVERITY.watching;
         const approx = geoTier(e) === 'approximate'; // D-014: dimmer — less certain than precise fixes
         const baseColor = base.color;
+        const critical = e.sev === 'critical';
+        const selected = activeEventId === e.id;
         const restingAlpha = approx ? 0.45 : 1;
         const restingSize =
-          opts.layout === 'context' ? 4 : activeEventId === e.id ? 9 : approx ? 6.5 : 8;
-        const markerColor = presentationMode
-          ? reducedMotion
-            ? baseColor.withAlpha(1)
-            : new Cesium.CallbackProperty(() => {
-                const phase = Date.now() / 430 + (e.id % 11) * 0.73;
-                const wave = (Math.sin(phase) + 1) / 2;
-                const floor = approx ? 0.26 : 0.38;
-                return baseColor.withAlpha(floor + (1 - floor) * wave, new Cesium.Color());
-              }, false)
+          opts.layout === 'context' ? 4 : selected ? 3.4 : critical ? 3 : approx ? 2.2 : 2.6;
+        const animatedMarker = presentationMode || opts.layout === 'horizon';
+        // Severity controls the beacon's color, scale and rhythm. These are
+        // decorative pulses on retained reports, not indications of new data.
+        const markerCycle = () => (effects.getVisualPhase() / base.period + (e.id % 17) / 17) % 1;
+        const markerWave = () => (1 - Math.cos(markerCycle() * Math.PI * 2)) / 2;
+        const markerColor = animatedMarker
+          ? new Cesium.CallbackProperty((_time, result) => {
+              if (motionPreference.matches)
+                return baseColor.withAlpha(presentationMode ? 1 : restingAlpha, result);
+              const wave = markerWave();
+              const alpha = presentationMode
+                ? (approx ? 0.26 : 0.38) + (approx ? 0.74 : 0.62) * wave
+                : restingAlpha * (critical ? 0.35 + 0.65 * wave : 0.65 + 0.35 * wave);
+              return baseColor.withAlpha(Math.min(1, alpha * (1 + beaconZoom * 0.5)), result);
+            }, false)
           : baseColor.withAlpha(restingAlpha);
-        const markerSize =
-          presentationMode && !reducedMotion
-            ? new Cesium.CallbackProperty(() => {
-                const phase = Date.now() / 430 + (e.id % 11) * 0.73;
-                return restingSize + 1.2 + ((Math.sin(phase) + 1) / 2) * 2.2;
-              }, false)
-            : restingSize + (presentationMode ? 1.5 : 0);
+        const markerSize = animatedMarker
+          ? new Cesium.CallbackProperty(() => {
+              const size = restingSize * (1 + beaconZoom * 0.3);
+              if (motionPreference.matches) return size + (presentationMode ? 0.5 : 0);
+              return (
+                size + markerWave() * (critical ? 0.8 : selected ? 0.6 : 0.4) * (1 + beaconZoom)
+              );
+            }, false)
+          : restingSize;
         const outlineCol =
-          activeEventId === e.id || approx
-            ? baseColor
-                .brighten(0.25, new Cesium.Color())
-                .withAlpha(activeEventId === e.id ? 1 : 0.7)
-            : undefined;
+          activeEventId === e.id || approx ? baseColor.withAlpha(selected ? 1 : 0.7) : undefined;
         eventEntities.add(
           new Cesium.Entity({
             position: Cesium.Cartesian3.fromDegrees(e.lon, e.lat),
+            // Every beacon shares its report's original entity and position.
+            // Critical rings expand and fade; selection strengthens the halo.
+            billboard:
+              opts.layout !== 'context'
+                ? {
+                    image: selectionHalo,
+                    width: new Cesium.CallbackProperty(
+                      () =>
+                        (selected ? base.haloSize + 12 : base.haloSize) * (1 + beaconZoom * 0.8),
+                      false,
+                    ),
+                    height: new Cesium.CallbackProperty(
+                      () =>
+                        (selected ? base.haloSize + 12 : base.haloSize) * (1 + beaconZoom * 0.8),
+                      false,
+                    ),
+                    color: new Cesium.CallbackProperty((_time, result) => {
+                      const wave = motionPreference.matches ? 0.55 : markerWave();
+                      const strength = critical
+                        ? 0.08 + 0.9 * wave
+                        : selected
+                          ? 0.3 + 0.5 * wave
+                          : 0.12 + 0.32 * wave;
+                      return baseColor.withAlpha(
+                        Math.min(1, strength * (1 + beaconZoom * 0.7)) *
+                          (approx && !selected ? 0.7 : 1),
+                        result,
+                      );
+                    }, false),
+                    scale: new Cesium.CallbackProperty(() => {
+                      if (motionPreference.matches) return 1;
+                      return critical
+                        ? 0.65 + markerCycle() * (0.65 + beaconZoom * 0.25)
+                        : 0.85 + markerWave() * (0.22 + beaconZoom * 0.12);
+                    }, false),
+                    disableDepthTestDistance: presentationMode ? Number.POSITIVE_INFINITY : 0,
+                  }
+                : undefined,
             point: {
               pixelSize: markerSize,
               color: markerColor,
               outlineColor: outlineCol,
-              outlineWidth:
-                opts.layout === 'context' ? 0.6 : activeEventId === e.id ? 1.6 : approx ? 1.3 : 0,
+              outlineWidth: opts.layout === 'context' ? 0.6 : 0,
               disableDepthTestDistance: presentationMode ? Number.POSITIVE_INFINITY : 0,
             },
             label:
@@ -900,6 +985,7 @@ export function createGlobe(
     }
 
     function flyToRegion(r: RegionSelection | null, eventId?: number) {
+      rotationPausedUntil = performance.now() + 8000;
       const ev = visibleEvents.find((x) => x.id === eventId);
       if (ev) {
         viewer.camera.flyTo({
@@ -1165,6 +1251,31 @@ export function createGlobe(
     // ---------------------------------------------------------- camera tiering for city detail + destroy bookkeeping
     const preUpdateListener = () => {
       if (destroyed) return;
+      const now = performance.now();
+      // Keep the physical rate independent of frame rate. Visibility/suspension
+      // handlers reset the timestamp so returning from a pause never catches up.
+      const delta = Math.max(0, (now - lastRotationTime) / 1000);
+      lastRotationTime = now;
+      if (
+        rotationEnabled &&
+        !renderSuspended &&
+        !document.hidden &&
+        !motionPreference.matches &&
+        !navigationHeld &&
+        now >= rotationPausedUntil &&
+        activeEventId === null &&
+        !selectedRegion &&
+        !selectedFlightId &&
+        (camera.positionCartographic?.height ?? 0) >= 2_000_000
+      ) {
+        // Cesium's globe is Earth-fixed. Orbit the viewpoint westward about the
+        // polar axis to show eastward Earth rotation, carrying reports/imagery
+        // together while retaining distance, latitude and camera orientation.
+        const speed = EARTH_ANGULAR_SPEED * (effects.getTimeLapse() ? EARTH_LAPSE_MULTIPLIER : 1);
+        // Camera.rotate negates its angle internally: positive means westward.
+        camera.rotate(Cesium.Cartesian3.UNIT_Z, speed * delta);
+      }
+      beaconZoom = beaconZoomWeight();
       if (layersOn.cities && citiesCache) rebuildCities();
       if (layersOn.flights && flightsEnv) {
         const tier = flightTrailTier(camera.positionCartographic?.height ?? 19_000_000);
@@ -1174,6 +1285,8 @@ export function createGlobe(
     scene.preUpdate.addEventListener(preUpdateListener);
 
     const visibilityHandler = () => {
+      lastRotationTime = performance.now();
+      if (document.hidden) navigationHeld = false;
       if (destroyed || document.hidden) return;
       refreshStatus();
       if (layersOn.flights) void pollFlights();
@@ -1209,6 +1322,7 @@ export function createGlobe(
         return imageryMode;
       },
       resetView() {
+        rotationPausedUntil = performance.now() + 8000;
         selectRegion(null, false);
         if (framed) {
           movedByUser = false;
@@ -1221,7 +1335,15 @@ export function createGlobe(
         });
       },
       zoom(direction) {
+        claimCamera();
         camera.zoomIn(direction * camera.positionCartographic.height * 0.4);
+      },
+      setRotation(enabled) {
+        rotationEnabled = enabled;
+        lastRotationTime = performance.now();
+      },
+      getRotation() {
+        return rotationEnabled;
       },
       setPresentationMode(enabled) {
         if (presentationMode === enabled) return;
@@ -1232,6 +1354,8 @@ export function createGlobe(
       },
       setSuspended(suspended) {
         if (destroyed) return;
+        renderSuspended = suspended;
+        lastRotationTime = performance.now();
         // The globe is covered while the tiles-only feed is showing: stop paying
         // for frames nobody can see, and resume on the switch back.
         viewer.useDefaultRenderLoop = !suspended;
@@ -1272,6 +1396,12 @@ export function createGlobe(
         if (hoverTimer) clearTimeout(hoverTimer);
         if (pollTimer) clearInterval(pollTimer);
         document.removeEventListener('visibilitychange', visibilityHandler);
+        for (const type of ['pointerdown', 'wheel', 'touchstart'] as const) {
+          container.removeEventListener(type, claimCamera);
+        }
+        for (const type of ['pointerup', 'pointercancel', 'touchend', 'touchcancel'] as const) {
+          window.removeEventListener(type, releaseCamera);
+        }
         scene.preUpdate.removeEventListener(preUpdateListener);
         canvas.removeEventListener('pointerdown', downHandler);
         canvas.removeEventListener('mouseleave', leaveHandler);

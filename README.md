@@ -2,13 +2,14 @@
 
 Local-first global reporting dashboard for cyber, geopolitical, maritime, and military events. Explore sourced reporting through the Horizon overview, Nocturne Threat desk, and Obsidian reporting index.
 
-![Sycamore Horizon overview with panoramic Earth, search, shared filters, and reporting tray](00-admin/qa-horizon-nocturne/screenshots/horizon-desktop.png)
+![Sycamore overview with severity beacons, a glowing Earth, star field, search, filters, and reporting tray](00-admin/qa-atmospheric-polish/screenshots/rotation-overview.png)
 
-<sub>Horizon overview · September 29, 2026 · Reporting and freshness reflect the captured snapshot.</sub>
+<sub>Horizon overview · October 1, 2026 · Reporting and freshness reflect the captured snapshot.</sub>
 
 ## Capabilities
 
-- **Geographic context:** Cesium globe with dark and satellite imagery, day/night shading, animated water, country and city selection, and optional aircraft, seismic, and Censys layers.
+- **Geographic context:** Cesium globe with dark and satellite imagery, day/night shading, animated water, country and city selection, and optional aircraft, seismic, and Censys layers. Severity-colored beacons grow stronger with zoom; optional Earth rotation starts enabled, with real-rate and one-hour time-lapse modes.
+- **Atmospheric visuals:** An opaque header and translucent reporting panels, a glowing Earth against the star field, and independently toggleable ambient and interaction sounds that start muted. Decorative motion respects reduced-motion preferences.
 - **Sourced reporting:** Search and filter events by topic, severity, and time. Open source links, inspect event details, and share selections with their filters.
 - **Boards and briefings:** Topic groups and 24-hour, 7-day, and 30-day coverage windows live as sections of the Threat desk at `/intelligence`, alongside briefing snapshots.
 - **Resilient ingestion:** Python RSS pipeline with optional GDELT, deduplication, schema validation, persistent event IDs, and atomic publication. Failed refreshes retain the last valid data.
@@ -88,3 +89,7 @@ The approved September 29 concepts now define the front end: [Horizon, Nocturne
 Desk, and Obsidian Index](02-design/ui-concepts/2026-09-29/dark-design-prompts.md).
 The [implementation handoff](00-admin/HANDOFF-2026-09-29-HORIZON-NOCTURNE.md)
 records the three-view UI, browser evidence, and validation.
+
+The [October visual-effects review](00-admin/qa-atmospheric-polish/README.md)
+records the current theme, zoom-responsive beacons, Earth rotation, and desktop
+and phone verification.

@@ -207,6 +207,7 @@ export function initDashboard(
     $('share-status').textContent = '';
     updateUrl(push);
     render();
+    document.dispatchEvent(new CustomEvent('sycamore:selection', { detail: id }));
     if (id !== null) {
       if (state.view === 'map') map?.focus(id);
       $('close-detail').focus();

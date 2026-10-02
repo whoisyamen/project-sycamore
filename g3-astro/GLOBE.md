@@ -19,7 +19,7 @@ primitives, subscriptions, polling, resize observation and destruction.
   It computes diffuse/alpha explicitly because GlobeFS does not use a material's
   emission or specular fields. World-space mapping avoids Cesium tile seams.
 - NASA Black Marble 2016 supplies historical night lights, visible on the night
-  side. Current solar time is the default; the optional 600× time lapse is labeled
+  side. Current solar time is the default; the optional ≈24× time lapse is labeled
   and resets to current time when switched off. Water motion pauses independently.
   Reduced-motion users start with water and time animation paused.
 - Ground atmosphere and Cesium globe lighting stay off to avoid double shading;
@@ -28,6 +28,33 @@ primitives, subscriptions, polling, resize observation and destruction.
   processing are in `public/data/globe/effects/SOURCES.md`. No ion token is needed.
 - The bundled Cesium skybox is visible behind the globe for a star-field backdrop;
   land/water imagery, lighting, and globe effects retain their previous settings.
+- The outer atmosphere has a subtle 12-second decorative breathing cycle. Normal
+  overview markers are luminous beacons: critical events have expanding red rings
+  over 1.8-second cycles, escalating events glow amber over 3.2 seconds, and
+  watching/de-escalating events have quieter sage halos over 4.5/5.5 seconds.
+  Selection strengthens the original beacon. Each uses its existing report
+  entity so location, picking, and occlusion stay intact. All effects remain
+  static with reduced motion and pause their phase while the document is hidden.
+  Halos grow smoothly in width, brightness and pulse amplitude with logarithmic
+  camera zoom, reaching capped peak strength at the closest allowed distance.
+  Small severity-colored cores replace the pale circular outlines, retaining
+  location precision without dominating the light. Camera framing, home position,
+  reset behavior, and the star field are retained.
+- Earth rotation is enabled by default in the overview and toggleable under
+  Layers → Appearance. It uses the [IERS mean angular velocity](https://hpiers.obspm.fr/eop-pc/models/constants.html)
+  (7.2921150×10⁻⁵ rad/s, roughly one sidereal day per turn); Time lapse accelerates
+  it to one turn per hour and advances solar time at the matching rate.
+  Since Cesium uses Earth-fixed coordinates, the camera orbits westward about
+  the polar axis to show eastward rotation of land and reports together. Distance,
+  latitude and viewing orientation are preserved. It pauses for reduced motion,
+  hidden/covered views, selected events/regions/flights, zoom below 2,000 km,
+  and gestures/programmatic navigation (resuming after eight seconds idle).
+  Pauses never accumulate a catch-up jump. The context map remains stationary.
+- Reporting and event details use translucent dark panels; the header remains
+  opaque. Layers contains independent ambient/interaction audio toggles, initially
+  muted. Web Audio synthesizes the quiet hum and brief action/report tones locally;
+  no audio downloads or services are involved. Audio suspends offscreen and its
+  graph, detail animations, and listeners are released when the globe is destroyed.
 - Effects own their controls, frame subscription and GPU textures and release
   them before widget destruction. Water motion is decorative, not observed seas.
 - Event and Censys entities live in `CustomDataSource` collections. Cities
@@ -75,8 +102,8 @@ properties with a substitute widget shell; it tests state, picking, resize and
 cleanup without requiring a GPU. It does not certify canvas appearance or WebGL.
 Manual browser verification should cover desktop/mobile layout, globe dragging,
 country/city picks, event-to-feed selection, repeated layer/satellite toggles,
-and network/console errors. Browser automation in the repair session was blocked
-by a missing browser-plugin service module.
+and network/console errors. Current automated visual and interaction evidence is
+recorded in [the atmospheric polish review](../00-admin/qa-atmospheric-polish/README.md).
 
 ## Performance maintenance
 

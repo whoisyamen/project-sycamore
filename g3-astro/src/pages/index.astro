@@ -31,6 +31,7 @@ const context = await loadData();
   </main>
   <script>
     import { initDashboard } from '../client/dashboard';
+    import { installAtmosphere } from '../client/atmosphere';
     import { context } from '../client/site';
     import type { GlobeAdapter } from '../client/globe';
     import type { LayerName } from '../client/osint';
@@ -154,6 +155,24 @@ const context = await loadData();
         satellite.setAttribute('aria-pressed', String(enabled));
       });
       viewControls.appendChild(satellite);
+      const rotation = document.createElement('button');
+      rotation.className = 'globe-layer-chip';
+      rotation.textContent = 'Earth rotation';
+      rotation.type = 'button';
+      rotation.dataset.earthRotation = '';
+      rotation.title =
+        'Earth’s eastward rotation: one sidereal day, or one hour in Time lapse. Pauses during navigation, close inspection and reduced motion.';
+      const refreshRotation = () => {
+        const enabled = globeAdapter.getRotation();
+        rotation.classList.toggle('active', enabled);
+        rotation.setAttribute('aria-pressed', String(enabled));
+      };
+      rotation.addEventListener('click', () => {
+        globeAdapter.setRotation(!globeAdapter.getRotation());
+        refreshRotation();
+      });
+      refreshRotation();
+      viewControls.appendChild(rotation);
       viewSection.append(viewLabel, viewControls);
 
       const navigationSection = document.createElement('div');
@@ -207,6 +226,13 @@ const context = await loadData();
       const toolbar = document.querySelector<HTMLElement>('.map-view-toolbar');
       if (toolbar) toolbar.replaceChildren(controlDock);
       else mapEl.after(controlDock);
+      const atmosphere = installAtmosphere(controlMain);
+      const destroyGlobe = globeAdapter.destroy.bind(globeAdapter);
+      globeAdapter.destroy = () => {
+        atmosphere.destroy();
+        detailObserver?.disconnect();
+        destroyGlobe();
+      };
       mapEl.dataset.imagery = await globeAdapter.whenImagerySettled().catch(() => 'timeout');
       return globeAdapter;
     });

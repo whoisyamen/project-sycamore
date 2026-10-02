@@ -1,5 +1,9 @@
 import * as Cesium from '@cesium/engine';
 
+// IERS mean angular velocity; the accelerated setting completes a turn in one hour.
+export const EARTH_ANGULAR_SPEED = 7.292115e-5;
+export const EARTH_LAPSE_MULTIPLIER = (Math.PI * 2) / (3600 * EARTH_ANGULAR_SPEED);
+
 // Globe materials blend diffuse + alpha over imagery; emission/specular fields
 // are ignored by GlobeFS. Compute the water lighting here, in world coordinates.
 // Do not use tile-local materialInput.st: waves/masks must cross tile seams.
@@ -95,6 +99,8 @@ export function attachGlobeEffects(
   let night = true;
   let lapse = false;
   let seconds = 0;
+  let visualSeconds = 0;
+  const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
   let previous = performance.now();
   viewer.clock.shouldAnimate = !reducedMotion;
   viewer.clock.multiplier = 1;
@@ -132,7 +138,7 @@ export function attachGlobeEffects(
   );
   const lapseButton = button(
     'Time lapse',
-    'Preview the day/night cycle at ten simulated minutes per second',
+    'Preview Earth rotation and the day/night cycle at one turn per hour',
     () => {
       lapse = !lapse;
       if (lapse) {
@@ -140,7 +146,7 @@ export function attachGlobeEffects(
         material.uniforms.nightEnabled = 1;
       }
       viewer.clock.currentTime = Cesium.JulianDate.now();
-      viewer.clock.multiplier = lapse ? 600 : 1;
+      viewer.clock.multiplier = lapse ? EARTH_LAPSE_MULTIPLIER : 1;
       viewer.clock.shouldAnimate = lapse || !reducedMotion;
       refresh();
     },
@@ -154,7 +160,7 @@ export function attachGlobeEffects(
       element.setAttribute('aria-pressed', String(active));
       element.classList.toggle('active', active);
     }
-    caption.textContent = `${lapse ? 'Sun · time lapse 600×' : 'Sun · current time'}${night ? ' / Night imagery · NASA 2016' : ''}`;
+    caption.textContent = `${lapse ? 'Sun · time lapse ≈24×' : 'Sun · current time'}${night ? ' / Night imagery · NASA 2016' : ''}`;
   }
   refresh();
   controls.append(buttons, caption);
@@ -166,16 +172,32 @@ export function attachGlobeEffects(
   viewer.creditDisplay.addStaticCredit(credit);
   const removeUpdate = viewer.scene.preUpdate.addEventListener(() => {
     const now = performance.now();
+    const delta = Math.min((now - previous) / 1000, 0.1);
     // Use elapsed wall time, not frame count; do not jump after a suspended tab.
-    if (motion && !document.hidden) seconds += Math.min((now - previous) / 1000, 0.1);
+    if (motion && !document.hidden) seconds += delta;
+    if (!motionPreference.matches && !document.hidden) visualSeconds += delta;
     previous = now;
     material.uniforms.elapsed = seconds;
+    const atmosphere = viewer.scene.skyAtmosphere;
+    if (atmosphere?.show) {
+      // Native atmosphere follows the globe silhouette at every camera angle.
+      // The decorative phase pauses offscreen without changing solar time.
+      atmosphere.atmosphereLightIntensity = motionPreference.matches
+        ? 9
+        : 9 + Math.sin((visualSeconds * Math.PI * 2) / 12) * 1.2;
+    }
     const height = viewer.camera.positionCartographic?.height ?? 19_000_000;
     const detail = Cesium.Math.clamp((height - 2_000_000) / 7_000_000, 0, 1);
     // Smooth the handoff so wheel zooming never produces a visible brightness step.
     material.uniforms.nightDetail = detail * detail * (3 - 2 * detail);
   });
   return {
+    getVisualPhase() {
+      return visualSeconds;
+    },
+    getTimeLapse() {
+      return lapse;
+    },
     setSatellite(enabled: boolean) {
       material.uniforms.satellite = Number(enabled);
     },

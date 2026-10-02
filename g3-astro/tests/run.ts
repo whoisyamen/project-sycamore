@@ -7,3 +7,4 @@ import './globe.test';
 import './intelligence-contracts.test';
 import './threat.test';
 import './workspaces.test';
+import './atmosphere.test';

@@ -1,0 +1,29 @@
+{
+  "normalRate": -0.00007292115000002148,
+  "timeLapseRate": -0.0017453292519943116,
+  "layout": "identical to baseline",
+  "zoom": [
+    {
+      "height": 6799999.999999999,
+      "width": 42,
+      "alpha": 0.4025,
+      "coreSize": 3,
+      "outline": 0
+    },
+    {
+      "height": 9999.999999998907,
+      "width": 54.535909404273355,
+      "alpha": 0.5076188236504173,
+      "coreSize": 3.335783287614465,
+      "outline": 0
+    },
+    {
+      "height": 0.9999999991605606,
+      "width": 75.60000000000001,
+      "alpha": 0.68425,
+      "coreSize": 3.9000000000000004,
+      "outline": 0
+    }
+  ],
+  "errors": []
+}

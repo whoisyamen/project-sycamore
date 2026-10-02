@@ -95,12 +95,40 @@ test('text tokens meet AA contrast on primary surfaces', async () => {
     }
 });
 
+test('transparent reporting panels retain AA text contrast over bright imagery', async () => {
+  const css = await readFile(new URL('../src/styles/workspace.css', import.meta.url), 'utf8');
+  const tokens = await readFile(new URL('../src/styles/global.css', import.meta.url), 'utf8');
+  const rgb = (hex: string) => [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16));
+  const luminance = (values: number[]) => {
+    const linear = values
+      .map((v) => v / 255)
+      .map((v) => (v <= 0.04045 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4));
+    return linear[0] * 0.2126 + linear[1] * 0.7152 + linear[2] * 0.0722;
+  };
+  for (const selector of [
+    ".horizon-dashboard[data-tab='map'] .horizon-reporting",
+    '.horizon-dashboard .detail-panel',
+  ]) {
+    const block = css.slice(css.indexOf(`${selector} {`)).split('}')[0];
+    const surface = block.match(/background:\s*(#[a-f0-9]{8});/)![1];
+    const alpha = parseInt(surface.slice(7), 16) / 255;
+    // Pure white is the worst-case bright image behind these dark glass panels.
+    const composite = rgb(surface).map((channel) => channel * alpha + 255 * (1 - alpha));
+    for (const text of ['text', 'muted', 'accent']) {
+      const foreground = tokens.match(new RegExp(`--${text}:\\s*(#[a-f0-9]{6})`))![1];
+      const ratio = (luminance(rgb(foreground)) + 0.05) / (luminance(composite) + 0.05);
+      assert.ok(ratio >= 4.5, `${text} over bright imagery in ${selector}: ${ratio}`);
+    }
+  }
+});
+
 test('globe assets and article images are shipped with the static build', async () => {
   for (const path of [
     'cesium/Assets/Textures/SkyBox/tycho2t3_80_px.jpg',
     'cesium/Assets/approximateTerrainHeights.json',
     'data/globe/countries.geojson',
     'data/globe/cities.json',
+    'data/globe/selection-halo.svg',
     'data/globe/effects/ocean-mask.png',
     'data/globe/effects/bathymetry.jpg',
     'data/globe/effects/night-lights-2016.jpg',

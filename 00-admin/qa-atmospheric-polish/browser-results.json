@@ -1,0 +1,73 @@
+{
+  "boxes": {
+    ".site-header": {
+      "x": 0,
+      "y": 0,
+      "width": 1440,
+      "height": 76
+    },
+    ".brand": {
+      "x": 37.4375,
+      "y": 18.5,
+      "width": 168.5,
+      "height": 38
+    },
+    ".header-search": {
+      "x": 545.890625,
+      "y": 16,
+      "width": 620,
+      "height": 43
+    },
+    ".horizon-heading": {
+      "x": 37.4375,
+      "y": 100,
+      "width": 1365.125,
+      "height": 108.15625
+    },
+    ".map-view-toolbar": {
+      "x": 1100.25,
+      "y": 167,
+      "width": 302.3125,
+      "height": 40
+    },
+    ".horizon-reporting": {
+      "x": 0,
+      "y": 704,
+      "width": 1440,
+      "height": 196
+    },
+    ".world-map": {
+      "x": 0,
+      "y": 76,
+      "width": 1440,
+      "height": 824
+    },
+    ".detail-panel": {
+      "x": 37.4375,
+      "y": 238,
+      "width": 425,
+      "height": 447
+    }
+  },
+  "header": {
+    "background": "rgb(11, 15, 21)",
+    "blur": "none"
+  },
+  "panels": [
+    {
+      "background": "rgba(16, 22, 31, 0.81)",
+      "blur": "blur(10px)"
+    },
+    {
+      "background": "rgba(16, 24, 34, 0.81)",
+      "blur": "blur(12px)"
+    }
+  ],
+  "phoneControls": {
+    "x": 99,
+    "y": 372,
+    "width": 275,
+    "height": 345.78125
+  },
+  "errors": []
+}
